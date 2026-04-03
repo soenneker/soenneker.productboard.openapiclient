@@ -67,11 +67,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksGetResponse?> GetAsWebhooksGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksGetResponse> GetAsWebhooksGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -81,32 +81,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of a specific webhook subscription.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsWebhooksGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a specific webhook subscription.
@@ -154,22 +128,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
         public global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebhooksItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WebhooksItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

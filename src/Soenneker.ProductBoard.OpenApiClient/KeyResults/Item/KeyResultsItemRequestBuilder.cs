@@ -67,11 +67,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.KeyResults.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsGetResponse?> GetAsKeyResultsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsGetResponse> GetAsKeyResultsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -81,32 +81,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.KeyResults.Item
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of a specific key result
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsKeyResultsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a specific key result
@@ -119,11 +93,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.KeyResults.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchResponse?> PatchAsKeyResultsPatchResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchResponse> PatchAsKeyResultsPatchResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -134,34 +108,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.KeyResults.Item
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates a specific key result
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use PatchAsKeyResultsPatchResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a specific key result
@@ -231,30 +177,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.KeyResults.Item
         public global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.KeyResults.Item.KeyResultsItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class KeyResultsItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class KeyResultsItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class KeyResultsItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

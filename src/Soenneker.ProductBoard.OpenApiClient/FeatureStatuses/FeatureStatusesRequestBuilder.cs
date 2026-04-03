@@ -42,11 +42,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureStatuses
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntities.Error_ApiErrors">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesGetResponse?> GetAsFeatureStatusesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesGetResponse> GetAsFeatureStatusesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -55,30 +55,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureStatuses
                 { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntities.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of all feature statuses.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntities.Error_ApiErrors">When receiving a 400 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsFeatureStatusesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntities.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detail of all feature statuses.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
@@ -107,14 +83,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureStatuses
         public global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FeatureStatusesRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

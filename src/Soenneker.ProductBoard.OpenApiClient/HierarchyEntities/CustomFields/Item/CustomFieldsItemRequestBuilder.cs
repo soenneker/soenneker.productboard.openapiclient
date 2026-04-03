@@ -43,11 +43,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.It
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsGetResponse?> GetAsCustomFieldsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsGetResponse> GetAsCustomFieldsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -57,32 +57,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.It
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of one custom field.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsCustomFieldsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detail of one custom field.
@@ -111,14 +85,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.It
         public global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFields.Item.CustomFieldsItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

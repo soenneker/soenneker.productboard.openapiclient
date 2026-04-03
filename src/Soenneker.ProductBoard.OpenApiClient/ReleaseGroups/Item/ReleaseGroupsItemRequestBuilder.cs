@@ -69,11 +69,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsGetResponse?> GetAsReleaseGroupsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsGetResponse> GetAsReleaseGroupsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -83,32 +83,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of a specific release group.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsReleaseGroupsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates a specific release group.You can update release groups only if you are on Scale or Enterprise plan and you have *Multiple release groups* enabled.
@@ -122,11 +96,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchResponse?> PatchAsReleaseGroupsPatchResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchResponse> PatchAsReleaseGroupsPatchResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -138,36 +112,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates a specific release group.You can update release groups only if you are on Scale or Enterprise plan and you have *Multiple release groups* enabled.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use PatchAsReleaseGroupsPatchResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a specific release group. A release group with releases cannot be deleted. Delete the releases first.You can delete release groups only if you are on Scale or Enterprise plan and you have *Multiple release groups* enabled.
@@ -237,30 +181,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item
         public global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.Item.ReleaseGroupsItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReleaseGroupsItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReleaseGroupsItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ReleaseGroupsItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

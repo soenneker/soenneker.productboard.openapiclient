@@ -29,19 +29,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations
                 return new global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.feedbackFormConfigurations.item collection</summary>
-        /// <param name="position">Entity identifier.</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -66,34 +53,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsGetResponse?> GetAsFeedbackFormConfigurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsGetResponse> GetAsFeedbackFormConfigurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsGetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of feedback form configurations.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        [Obsolete("This method is obsolete. Use GetAsFeedbackFormConfigurationsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of feedback form configurations.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
@@ -122,14 +90,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations
         public global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FeedbackFormConfigurationsRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

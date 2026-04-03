@@ -55,11 +55,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsGetResponse?> GetAsCustomFieldsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsGetResponse> GetAsCustomFieldsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -68,30 +68,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns list of company fields.**Note:** This endpoint returns all fields that are assigned to companies (including fields also assigned to other item types through the UI). See [custom fields documentation](https://support.productboard.com/hc/en-us/articles/360058212573-Add-custom-fields-to-your-boards) for more details.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsCustomFieldsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new company field.**Note:** Company fields can be assigned to other item types (features, components, etc.) through the Productboard UI. See [custom fields documentation](https://support.productboard.com/hc/en-us/articles/360058212573-Add-custom-fields-to-your-boards) for more details.
@@ -103,11 +79,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostResponse?> PostAsCustomFieldsPostResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostResponse> PostAsCustomFieldsPostResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -117,32 +93,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields
                 { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new company field.**Note:** Company fields can be assigned to other item types (features, components, etc.) through the Productboard UI. See [custom fields documentation](https://support.productboard.com/hc/en-us/articles/360058212573-Add-custom-fields-to-your-boards) for more details.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors">When receiving a 400 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsCustomFieldsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.CompanyFields.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns list of company fields.**Note:** This endpoint returns all fields that are assigned to companies (including fields also assigned to other item types through the UI). See [custom fields documentation](https://support.productboard.com/hc/en-us/articles/360058212573-Add-custom-fields-to-your-boards) for more details.
@@ -193,22 +143,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields
         public global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.Companies.CustomFields.CustomFieldsRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

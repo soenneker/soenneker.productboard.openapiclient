@@ -67,11 +67,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureGetResponse?> GetAsWithFeatureGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureGetResponse> GetAsWithFeatureGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -83,32 +83,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns detail of a specific plugin integration connection.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsWithFeatureGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
         /// Configures a Plugin integration connection, possibly resulting in a change of the corresponding push button. This operation notifies Productboard that the 3rd party system tried (or is still trying, depending on the payload type) to establish a connection between Productboard feature and some entity in the other system. There are currently three possible outcomes of such an attempt:1. __Connected__: the connection has been established and a push button corresponding to the feature in related Plugin integration should change to represent the connection. This happens when the connection with state `connected` is received in the request body.2. __Error__: the connection could not be established and a push button corresponding to the feature in related Plugin integration should change to show the error. This happens connection with state `error` is received in the request body.3. __In progress__: the connection is still being created (possibly asynchronously) and a push button corresponding to the feature in related Plugin integration should display an &quot;in progress&quot; state. This happens when the state `progress` is received in the request body.There is an additional state a connection can be in which does not directly map to an outcome of a push event, the __Initial__ state. This is the default state for all connections and has the semantics of &quot;a connection does not currently exist for given feature&quot;. The _Initial_ state is, however, a fully valid type from the API&apos;s perspective and it is thus possible to set a connection to the _Initial_ state using this endpoint. The effect of that is _exactly_ the same as if the [Delete a plugin integration connection](#operation/deletePluginIntegrationConnection) endpoint was called instead.Note that this is the endpoint to be used when the 3rd party system processes feature push events asynchronously. In that case the flow would be similar to this:1. A feature is pushed from Productboard2. The 3rd party schedules a task to be processed asynchronously and returns an &quot;in progress&quot; response. This makes Producboard render an &quot;in progress&quot; state on the corresponding push button.3. Once the 3rd party finishes processing of the task, this endpoint is called to update the connection (and by extension, the state of said push button) to either a success or a failure.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutResponse"/></returns>
@@ -118,11 +92,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutResponse?> PutAsWithFeaturePutResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutResponse?> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutResponse> PutAsWithFeaturePutResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutResponse> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -132,32 +106,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
                 { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Configures a Plugin integration connection, possibly resulting in a change of the corresponding push button. This operation notifies Productboard that the 3rd party system tried (or is still trying, depending on the payload type) to establish a connection between Productboard feature and some entity in the other system. There are currently three possible outcomes of such an attempt:1. __Connected__: the connection has been established and a push button corresponding to the feature in related Plugin integration should change to represent the connection. This happens when the connection with state `connected` is received in the request body.2. __Error__: the connection could not be established and a push button corresponding to the feature in related Plugin integration should change to show the error. This happens connection with state `error` is received in the request body.3. __In progress__: the connection is still being created (possibly asynchronously) and a push button corresponding to the feature in related Plugin integration should display an &quot;in progress&quot; state. This happens when the state `progress` is received in the request body.There is an additional state a connection can be in which does not directly map to an outcome of a push event, the __Initial__ state. This is the default state for all connections and has the semantics of &quot;a connection does not currently exist for given feature&quot;. The _Initial_ state is, however, a fully valid type from the API&apos;s perspective and it is thus possible to set a connection to the _Initial_ state using this endpoint. The effect of that is _exactly_ the same as if the [Delete a plugin integration connection](#operation/deletePluginIntegrationConnection) endpoint was called instead.Note that this is the endpoint to be used when the 3rd party system processes feature push events asynchronously. In that case the flow would be similar to this:1. A feature is pushed from Productboard2. The 3rd party schedules a task to be processed asynchronously and returns an &quot;in progress&quot; response. This makes Producboard render an &quot;in progress&quot; state on the corresponding push button.3. Once the 3rd party finishes processing of the task, this endpoint is called to update the connection (and by extension, the state of said push button) to either a success or a failure.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 400 status code</exception>
-        [Obsolete("This method is obsolete. Use PutAsWithFeaturePutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse?> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeaturePutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a specific plugin integration connection. This voids the actual connection between a Productboard feature identified by `featureId` and the 3rd party system, effectively resetting the push button for that feature within correspoding Plugin integration to its initial state.
@@ -227,30 +175,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithFeatureItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithFeatureItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithFeatureItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

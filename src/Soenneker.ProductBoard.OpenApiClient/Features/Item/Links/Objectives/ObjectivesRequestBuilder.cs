@@ -30,19 +30,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives
                 return new global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.Item.WithObjectiveItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.features.item.links.objectives.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.Item.WithObjectiveItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.Item.WithObjectiveItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("objectiveId", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.Item.WithObjectiveItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -69,11 +56,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FeaturesLinks.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesGetResponse?> GetAsObjectivesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesGetResponse> GetAsObjectivesGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -83,32 +70,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.FeaturesLinks.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a list of objectives linked to a feature.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` linkin the response to fetch the next page.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FeaturesLinks.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FeaturesLinks.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsObjectivesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.FeaturesLinks.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.FeaturesLinks.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of objectives linked to a feature.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` linkin the response to fetch the next page.
@@ -137,14 +98,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives
         public global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.Features.Item.Links.Objectives.ObjectivesRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ObjectivesRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

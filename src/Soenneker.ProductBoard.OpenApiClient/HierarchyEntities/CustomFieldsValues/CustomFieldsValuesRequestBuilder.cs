@@ -48,11 +48,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsVal
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesGetResponse?> GetAsCustomFieldsValuesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesRequestBuilder.CustomFieldsValuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesRequestBuilder.CustomFieldsValuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesGetResponse> GetAsCustomFieldsValuesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesRequestBuilder.CustomFieldsValuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesRequestBuilder.CustomFieldsValuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -61,30 +61,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsVal
                 { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns all set (non-empty) custom field values. It can be filtered by * `type` - returns all custom fields values of given types. Multiple types can be specified.* `hierarchyEntity.id` - returns all custom fields values for the hierarchy entity (row).* `customField.id` - returns all custom fields values for the custom field (column).The filters can be combined. Either `customField.id` or `type` has to be specified to not break existing API consumers when adding a new custom field type.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors">When receiving a 400 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsCustomFieldsValuesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesRequestBuilder.CustomFieldsValuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesRequestBuilder.CustomFieldsValuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.HierarchyEntityCustomFields.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns all set (non-empty) custom field values. It can be filtered by * `type` - returns all custom fields values of given types. Multiple types can be specified.* `hierarchyEntity.id` - returns all custom fields values for the hierarchy entity (row).* `customField.id` - returns all custom fields values for the custom field (column).The filters can be combined. Either `customField.id` or `type` has to be specified to not break existing API consumers when adding a new custom field type.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
@@ -127,34 +103,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsVal
             [QueryParameter("hierarchyEntity%2Eid")]
             public Guid? HierarchyEntityId { get; set; }
             /// <summary>Custom field types to include in the response. Mandatory if `customField.id` is not specified.</summary>
-            [Obsolete("This property is deprecated, use TypeAsGetTypeQueryParameterType instead")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type")]
-            public string[]? Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.GetTypeQueryParameterType[]? Type { get; set; }
 #nullable restore
 #else
             [QueryParameter("type")]
-            public string[] Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.GetTypeQueryParameterType[] Type { get; set; }
 #endif
-            /// <summary>Custom field types to include in the response. Mandatory if `customField.id` is not specified.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("type")]
-            public global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.GetTypeQueryParameterType[]? TypeAsGetTypeQueryParameterType { get; set; }
-#nullable restore
-#else
-            [QueryParameter("type")]
-            public global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.GetTypeQueryParameterType[] TypeAsGetTypeQueryParameterType { get; set; }
-#endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CustomFieldsValuesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.CustomFieldsValues.CustomFieldsValuesRequestBuilder.CustomFieldsValuesRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

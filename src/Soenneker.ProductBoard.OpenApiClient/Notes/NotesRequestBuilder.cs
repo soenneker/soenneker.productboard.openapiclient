@@ -30,19 +30,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
                 return new global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.notes.item collection</summary>
-        /// <param name="position">Entity identifier.</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.ItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.ItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -68,11 +55,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse?> GetAsNotesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse> GetAsNotesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -81,30 +68,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
                 { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of all notes order by created_at descThis API is paginated, only the first 100 items are returned by default. The client should then recursively call /notes/ by using returned pageCursorThe pageCursor is valid for 1 minute
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsNotesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new note in ProductboardWhenever the email field is mentioned in the descriptions of this endpoint, it is referring to the field `user.email` or `customer_email`
@@ -117,11 +80,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse?> PostAsNotesPostResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse> PostAsNotesPostResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -132,34 +95,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
                 { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new note in ProductboardWhenever the email field is mentioned in the descriptions of this endpoint, it is referring to the field `user.email` or `customer_email`
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsNotesPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "409", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detail of all notes order by created_at descThis API is paginated, only the first 100 items are returned by default. The client should then recursively call /notes/ by using returned pageCursorThe pageCursor is valid for 1 minute
@@ -316,22 +251,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
             /// <summary>If specified, the resource returns only notes updated before or equal to the given date</summary>
             [QueryParameter("updatedTo")]
             public Date? UpdatedTo { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NotesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NotesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

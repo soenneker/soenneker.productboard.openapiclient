@@ -48,11 +48,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsGetResponse?> GetAsFeatureReleaseAssignmentsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder.FeatureReleaseAssignmentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder.FeatureReleaseAssignmentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsGetResponse> GetAsFeatureReleaseAssignmentsGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder.FeatureReleaseAssignmentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder.FeatureReleaseAssignmentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -61,30 +61,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments
                 { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns list of feature release assignments based on query parameters. These parameters can be used to get features in release or releases for feature. Only &quot;assigned&quot; (existing) feature release assignments are returned i.e. every returned feature release assignment has assigned parameter set to true. This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 400 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsFeatureReleaseAssignmentsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder.FeatureReleaseAssignmentsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder.FeatureReleaseAssignmentsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns list of feature release assignments based on query parameters. These parameters can be used to get features in release or releases for feature. Only &quot;assigned&quot; (existing) feature release assignments are returned i.e. every returned feature release assignment has assigned parameter set to true. This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
@@ -124,32 +100,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments
             public Guid? FeatureId { get; set; }
             [QueryParameter("release%2Eid")]
             public Guid? ReleaseId { get; set; }
-            [Obsolete("This property is deprecated, use ReleaseStateAsGetReleaseStateQueryParameterType instead")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("release%2Estate")]
-            public string? ReleaseState { get; set; }
-#nullable restore
-#else
-            [QueryParameter("release%2Estate")]
-            public string ReleaseState { get; set; }
-#endif
-            [QueryParameter("release%2Estate")]
-            public global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.GetReleaseStateQueryParameterType? ReleaseStateAsGetReleaseStateQueryParameterType { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.GetReleaseStateQueryParameterType? ReleaseState { get; set; }
             /// <summary>Filter assignments which release end date is after this date (inclusive)</summary>
             [QueryParameter("release%2Etimeframe%2EendDate%2Efrom")]
             public Date? ReleaseTimeframeEndDateFrom { get; set; }
             /// <summary>Filter assignments which release end date is before this date (inclusive)</summary>
             [QueryParameter("release%2Etimeframe%2EendDate%2Eto")]
             public Date? ReleaseTimeframeEndDateTo { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FeatureReleaseAssignmentsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder.FeatureReleaseAssignmentsRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

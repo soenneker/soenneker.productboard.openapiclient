@@ -49,11 +49,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsGetResponse?> GetAsJiraIntegrationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsGetResponse> GetAsJiraIntegrationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -63,32 +63,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of a specific Jira integration.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsJiraIntegrationsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detail of a specific Jira integration.
@@ -117,14 +91,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item
         public global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.JiraIntegrationsItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class JiraIntegrationsItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

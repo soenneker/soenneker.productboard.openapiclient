@@ -55,11 +55,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Initiatives
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesGetResponse?> GetAsInitiativesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder.InitiativesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder.InitiativesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesGetResponse> GetAsInitiativesGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder.InitiativesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder.InitiativesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -68,30 +68,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Initiatives
                 { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of all initiatives.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` linkin the response to fetch the next page.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 400 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsInitiativesGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder.InitiativesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder.InitiativesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds a new initiative to the collection of initiatives.
@@ -103,11 +79,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Initiatives
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostResponse?> PostAsInitiativesPostResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostResponse> PostAsInitiativesPostResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -117,32 +93,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Initiatives
                 { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Adds a new initiative to the collection of initiatives.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2">When receiving a 400 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsInitiativesPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors2.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detail of all initiatives.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` linkin the response to fetch the next page.
@@ -233,22 +183,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Initiatives
             [QueryParameter("status%2Ename")]
             public string StatusName { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InitiativesRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder.InitiativesRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InitiativesRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

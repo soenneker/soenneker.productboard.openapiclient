@@ -43,11 +43,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignm
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentGetResponse?> GetAsAssignmentGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentGetResponse> GetAsAssignmentGetResponseAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -57,32 +57,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignm
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns a feature release assignment specified by a given feature and a release. If such assignment does not exists `false` is returned in assigned parameter.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsAssignmentGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Assigns a feature into a release or removes a feature from a release depending on the assigned parameter.Take into account that it&apos;s possible to achieve use cases that are not possible in the UI. For example you can assign subfeature into a release without its parent feature, but then you won&apos;t see it on a roadmap. If needed, assign the parent feature into the release. Subfeatures without a parent feature are not supported on a roadmap right now and might never be.
@@ -95,11 +69,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignm
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutResponse?> PutAsAssignmentPutResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutResponse?> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutResponse> PutAsAssignmentPutResponseAsync(global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutResponse> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -110,34 +84,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignm
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Assigns a feature into a release or removes a feature from a release depending on the assigned parameter.Take into account that it&apos;s possible to achieve use cases that are not possible in the UI. For example you can assign subfeature into a release without its parent feature, but then you won&apos;t see it on a roadmap. If needed, assign the parent feature into the release. Subfeatures without a parent feature are not supported on a roadmap right now and might never be.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use PutAsAssignmentPutResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse?> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderPutQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentPutRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderPutQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Releases.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a feature release assignment specified by a given feature and a release. If such assignment does not exists `false` is returned in assigned parameter.
@@ -203,14 +149,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignm
             public Guid? ReleaseId { get; set; }
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AssignmentRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
         /// Assigns a feature into a release or removes a feature from a release depending on the assigned parameter.Take into account that it&apos;s possible to achieve use cases that are not possible in the UI. For example you can assign subfeature into a release without its parent feature, but then you won&apos;t see it on a roadmap. If needed, assign the parent feature into the release. Subfeatures without a parent feature are not supported on a roadmap right now and might never be.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -222,14 +160,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignm
             /// <summary>ID of the release</summary>
             [QueryParameter("release%2Eid")]
             public Guid? ReleaseId { get; set; }
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AssignmentRequestBuilderPutRequestConfiguration : RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.Assignment.AssignmentRequestBuilder.AssignmentRequestBuilderPutQueryParameters>
-        {
         }
     }
 }

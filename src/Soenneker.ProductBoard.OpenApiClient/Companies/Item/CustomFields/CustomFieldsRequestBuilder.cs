@@ -27,19 +27,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Companies.Item.CustomFields
                 return new global::Soenneker.ProductBoard.OpenApiClient.Companies.Item.CustomFields.Item.WithCompanyCustomFieldItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.companies.item.customFields.item collection</summary>
-        /// <param name="position">Entity identifier.</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Companies.Item.CustomFields.Item.WithCompanyCustomFieldItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.ProductBoard.OpenApiClient.Companies.Item.CustomFields.Item.WithCompanyCustomFieldItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("companyCustomFieldId", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.Companies.Item.CustomFields.Item.WithCompanyCustomFieldItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Companies.Item.CustomFields.CustomFieldsRequestBuilder"/> and sets the default values.
         /// </summary>

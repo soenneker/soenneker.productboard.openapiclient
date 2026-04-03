@@ -42,11 +42,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsGetResponse?> GetAsFeedbackFormConfigurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsGetResponse> GetAsFeedbackFormConfigurationsGetResponseAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -55,30 +55,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item
                 { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Returns detail of a specific feedback form configuration.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors">When receiving a 404 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsFeedbackFormConfigurationsGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Error_ApiErrors.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detail of a specific feedback form configuration.
@@ -107,14 +83,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item
         public global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.Item.FeedbackFormConfigurationsItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class FeedbackFormConfigurationsItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

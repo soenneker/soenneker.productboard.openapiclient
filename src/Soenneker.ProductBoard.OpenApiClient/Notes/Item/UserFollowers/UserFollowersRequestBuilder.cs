@@ -58,11 +58,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FollowerBulkCreateErrorResponse">When receiving a 422 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersPostResponse?> PostAsUserFollowersPostResponseAsync(List<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowers> body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersPostResponse?> PostAsync(List<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowers> body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersPostResponse> PostAsUserFollowersPostResponseAsync(List<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowers> body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersPostResponse> PostAsync(List<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowers> body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -74,36 +74,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers
                 { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.FollowerBulkCreateErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Adds many followers to a note using their email addresses. The users must all already exist in Productboard.
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FollowerBulkCreateErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UserFollowers404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FollowerBulkCreateErrorResponse">When receiving a 422 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsUserFollowersPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersResponse?> PostAsync(List<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowers> body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersResponse> PostAsync(List<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowers> body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.FollowerBulkCreateErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.UserFollowers404Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.FollowerBulkCreateErrorResponse.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds many followers to a note using their email addresses. The users must all already exist in Productboard.
@@ -135,14 +105,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers
         public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.UserFollowers.UserFollowersRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class UserFollowersRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
-        {
         }
     }
 }

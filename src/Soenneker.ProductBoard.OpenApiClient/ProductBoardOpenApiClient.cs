@@ -6,24 +6,13 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
-using Soenneker.ProductBoard.OpenApiClient.Companies;
-using Soenneker.ProductBoard.OpenApiClient.Components;
-using Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments;
-using Soenneker.ProductBoard.OpenApiClient.FeatureStatuses;
-using Soenneker.ProductBoard.OpenApiClient.Features;
-using Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations;
-using Soenneker.ProductBoard.OpenApiClient.FeedbackForms;
-using Soenneker.ProductBoard.OpenApiClient.HierarchyEntities;
-using Soenneker.ProductBoard.OpenApiClient.Initiatives;
+using Soenneker.ProductBoard.OpenApiClient.Analytics;
+using Soenneker.ProductBoard.OpenApiClient.Entities;
 using Soenneker.ProductBoard.OpenApiClient.JiraIntegrations;
-using Soenneker.ProductBoard.OpenApiClient.KeyResults;
+using Soenneker.ProductBoard.OpenApiClient.Members;
 using Soenneker.ProductBoard.OpenApiClient.Notes;
-using Soenneker.ProductBoard.OpenApiClient.Objectives;
 using Soenneker.ProductBoard.OpenApiClient.PluginIntegrations;
-using Soenneker.ProductBoard.OpenApiClient.Products;
-using Soenneker.ProductBoard.OpenApiClient.ReleaseGroups;
-using Soenneker.ProductBoard.OpenApiClient.Releases;
-using Soenneker.ProductBoard.OpenApiClient.Users;
+using Soenneker.ProductBoard.OpenApiClient.Teams;
 using Soenneker.ProductBoard.OpenApiClient.Webhooks;
 using System.Collections.Generic;
 using System.IO;
@@ -37,95 +26,40 @@ namespace Soenneker.ProductBoard.OpenApiClient
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProductBoardOpenApiClient : BaseRequestBuilder
     {
-        /// <summary>The companies property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Companies.CompaniesRequestBuilder Companies
+        /// <summary>The analytics property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Analytics.AnalyticsRequestBuilder Analytics
         {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Companies.CompaniesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Analytics.AnalyticsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The components property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Components.ComponentsRequestBuilder Components
+        /// <summary>The entities property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder Entities
         {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Components.ComponentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The featureReleaseAssignments property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder FeatureReleaseAssignments
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.FeatureReleaseAssignments.FeatureReleaseAssignmentsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The features property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Features.FeaturesRequestBuilder Features
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Features.FeaturesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The featureStatuses property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesRequestBuilder FeatureStatuses
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.FeatureStatuses.FeatureStatusesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The feedbackFormConfigurations property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsRequestBuilder FeedbackFormConfigurations
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.FeedbackFormConfigurations.FeedbackFormConfigurationsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The feedbackForms property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.FeedbackForms.FeedbackFormsRequestBuilder FeedbackForms
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.FeedbackForms.FeedbackFormsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The hierarchyEntities property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.HierarchyEntitiesRequestBuilder HierarchyEntities
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.HierarchyEntities.HierarchyEntitiesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The initiatives property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder Initiatives
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Initiatives.InitiativesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The jiraIntegrations property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.JiraIntegrationsRequestBuilder JiraIntegrations
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.JiraIntegrationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The keyResults property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.KeyResults.KeyResultsRequestBuilder KeyResults
+        /// <summary>The members property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder Members
         {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.KeyResults.KeyResultsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The notes property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder Notes
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The objectives property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Objectives.ObjectivesRequestBuilder Objectives
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Objectives.ObjectivesRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The pluginIntegrations property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder PluginIntegrations
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The products property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Products.ProductsRequestBuilder Products
+        /// <summary>The teams property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsRequestBuilder Teams
         {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Products.ProductsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The releaseGroups property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.ReleaseGroupsRequestBuilder ReleaseGroups
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.ReleaseGroups.ReleaseGroupsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The releases property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Releases.ReleasesRequestBuilder Releases
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Releases.ReleasesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The users property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Users.UsersRequestBuilder Users
-        {
-            get => new global::Soenneker.ProductBoard.OpenApiClient.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The webhooks property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder Webhooks
@@ -147,7 +81,7 @@ namespace Soenneker.ProductBoard.OpenApiClient
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
             {
-                RequestAdapter.BaseUrl = "https://api.productboard.com";
+                RequestAdapter.BaseUrl = "https://api.productboard.com/v2";
             }
             PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
         }

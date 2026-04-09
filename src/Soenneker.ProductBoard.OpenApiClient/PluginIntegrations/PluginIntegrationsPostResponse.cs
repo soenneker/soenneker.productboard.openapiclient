@@ -15,13 +15,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Plugin integration data.</summary>
+        /// <summary>Minimal reference to a plugin integration, returned in mutation responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationReference? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationReference Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsPostResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationReference.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationReference>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -8,21 +8,33 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Plugin integration connection data.
+    /// A plugin integration connection resource, representing the relationship betweena Productboard entity and an entity in the third-party system.The `id` is the Productboard entity ID. The connection is scoped to a specificplugin integration identified in the URL path.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PluginIntegrationConnection : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The connection property</summary>
+        /// <summary>Domain attributes of a plugin integration connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionState? Connection { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionState Connection { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields Fields { get; set; }
 #endif
+        /// <summary>The Productboard entity ID this connection belongs to.</summary>
+        public Guid? Id { get; private set; }
+        /// <summary>Links for this connection resource.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks? Links { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks Links { get; set; }
+#endif
+        /// <summary>Resource type identifier.</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnection_type? Type { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnection"/> and sets the default values.
         /// </summary>
@@ -48,7 +60,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionState>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionState.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnection_type>(); } },
             };
         }
         /// <summary>
@@ -58,7 +73,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionState>("connection", Connection);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

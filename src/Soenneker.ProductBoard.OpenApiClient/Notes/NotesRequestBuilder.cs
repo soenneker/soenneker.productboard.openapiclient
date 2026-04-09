@@ -4,7 +4,9 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.ProductBoard.OpenApiClient.Models;
+using Soenneker.ProductBoard.OpenApiClient.Notes.Configurations;
 using Soenneker.ProductBoard.OpenApiClient.Notes.Item;
+using Soenneker.ProductBoard.OpenApiClient.Notes.Search;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,16 +20,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NotesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The configurations property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsRequestBuilder Configurations
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The search property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Notes.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Notes.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.notes.item collection</summary>
-        /// <param name="position">Entity identifier.</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.ItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.ItemRequestBuilder this[Guid position]
+        /// <param name="position">Note identifier.</param>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder"/></returns>
+        public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("%2Did", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("id", position);
+                return new global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NotesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?allTags*,anyTag*,companyId*,createdFrom*,createdTo*,dateFrom*,dateTo*,featureId*,last*,ownerEmail*,pageCursor*,pageLimit*,source*,term*,updatedFrom*,updatedTo*}", pathParameters)
+        public NotesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,source%5BrecordId%5D*,updatedFrom*,updatedTo*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,61 +55,85 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NotesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?allTags*,anyTag*,companyId*,createdFrom*,createdTo*,dateFrom*,dateTo*,featureId*,last*,ownerEmail*,pageCursor*,pageLimit*,source*,term*,updatedFrom*,updatedTo*}", rawUrl)
+        public NotesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,source%5BrecordId%5D*,updatedFrom*,updatedTo*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns detail of all notes order by created_at descThis API is paginated, only the first 100 items are returned by default. The client should then recursively call /notes/ by using returned pageCursorThe pageCursor is valid for 1 minute
+        /// &quot;Retrieves a list of notes from your workspace.&gt; Without the `members:pii:read` scope, owner and creator email fields are returned as `[redacted]`. Filtering by `owner[email]` or `creator[email]` requires the `members:pii:read` scope.- Notes are sorted by creation date, newest first.- You can filter results using query parameters like `archived`, `processed`, `owner[email]`, `creator[email]`, `source[recordId]`, or date/time ranges.- Use the `pageCursor` parameter to paginate through results.- Use the `fields` query parameter to optimize response size (default: all non-null fields, use `fields=all` to include null values, or `fields=name,tags` for specific fields).&gt; To discover available fieldsuse the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.### Date/Time FilteringYou can filter notes by creation or update timestamps using ISO-8601 date-time format:- Use `createdFrom` and `createdTo` to filter by creation date (inclusive bounds)- Use `updatedFrom` and `updatedTo` to filter by update date (inclusive bounds)- All date/time filters can be combined with each other and with other filters- Date ranges must be valid (From &lt;= To) or a 400 error will be returned### Filtering combinationsSome combinations of the `archived` and `processed` flags result in empty or unexpected results.Use the following table to understand which notes are returned based on the filter values:| `archived` | `processed` | Result                    ||------------|-------------|---------------------------|| –          | –           | All notes                 || `true`     | `true`      | None                      || `true`     | `false`     | Archived                  || `false`    | `true`      | Processed                 || `false`    | `false`     | Unprocessed               || `true`     | –           | Archived                  || `false`    | –           | Processed + unprocessed   || –          | `true`      | Processed                 || –          | `false`     | Archived + unprocessed    |&gt; **Note**: Archived notes always return `processed: false` in the API response, regardless of their actual processing state. This is a known limitation of the system.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_listNotes_200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_listNotes_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_listNotes_200> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_listNotes_200>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_listNotes_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new note in ProductboardWhenever the email field is mentioned in the descriptions of this endpoint, it is referring to the field `user.email` or `customer_email`
+        /// Creates a new note in your workspace.Notes represent individual pieces of feedback from customers, internal teams, or external systems.You must specify the `type` of note you&apos;re creating:- `&quot;textNote&quot;` - for plain, unstructured notes- `&quot;conversationNote&quot;` - for structured messages (e.g., from chat, email, or support systems)Legacy aliases (`simple`, `conversation`, `opportunity`) are accepted on input and normalized before business rules are applied.&gt; ⚠️ Notes of type `opportunityNote` cannot be created via the API.## Field Requirements and ConfigurationThe `fields.name` attribute is **required** for all note types.Other fields depend on the selected note type and your workspace configuration.Use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint to discover available fields for each type.Notes can also be linked to Customers entities or Product links (like features) via relationships.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_createNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_createNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "409", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.ApiErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns detail of all notes order by created_at descThis API is paginated, only the first 100 items are returned by default. The client should then recursively call /notes/ by using returned pageCursorThe pageCursor is valid for 1 minute
+        /// &quot;Retrieves a list of notes from your workspace.&gt; Without the `members:pii:read` scope, owner and creator email fields are returned as `[redacted]`. Filtering by `owner[email]` or `creator[email]` requires the `members:pii:read` scope.- Notes are sorted by creation date, newest first.- You can filter results using query parameters like `archived`, `processed`, `owner[email]`, `creator[email]`, `source[recordId]`, or date/time ranges.- Use the `pageCursor` parameter to paginate through results.- Use the `fields` query parameter to optimize response size (default: all non-null fields, use `fields=all` to include null values, or `fields=name,tags` for specific fields).&gt; To discover available fieldsuse the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.### Date/Time FilteringYou can filter notes by creation or update timestamps using ISO-8601 date-time format:- Use `createdFrom` and `createdTo` to filter by creation date (inclusive bounds)- Use `updatedFrom` and `updatedTo` to filter by update date (inclusive bounds)- All date/time filters can be combined with each other and with other filters- Date ranges must be valid (From &lt;= To) or a 400 error will be returned### Filtering combinationsSome combinations of the `archived` and `processed` flags result in empty or unexpected results.Use the following table to understand which notes are returned based on the filter values:| `archived` | `processed` | Result                    ||------------|-------------|---------------------------|| –          | –           | All notes                 || `true`     | `true`      | None                      || `true`     | `false`     | Archived                  || `false`    | `true`      | Processed                 || `false`    | `false`     | Unprocessed               || `true`     | –           | Archived                  || `false`    | –           | Processed + unprocessed   || –          | `true`      | Processed                 || –          | `false`     | Archived + unprocessed    |&gt; **Note**: Archived notes always return `processed: false` in the API response, regardless of their actual processing state. This is a known limitation of the system.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,24 +152,24 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new note in ProductboardWhenever the email field is mentioned in the descriptions of this endpoint, it is referring to the field `user.email` or `customer_email`
+        /// Creates a new note in your workspace.Notes represent individual pieces of feedback from customers, internal teams, or external systems.You must specify the `type` of note you&apos;re creating:- `&quot;textNote&quot;` - for plain, unstructured notes- `&quot;conversationNote&quot;` - for structured messages (e.g., from chat, email, or support systems)Legacy aliases (`simple`, `conversation`, `opportunity`) are accepted on input and normalized before business rules are applied.&gt; ⚠️ Notes of type `opportunityNote` cannot be created via the API.## Field Requirements and ConfigurationThe `fields.name` attribute is **required** for all note types.Other fields depend on the selected note type and your workspace configuration.Use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint to discover available fields for each type.Notes can also be linked to Customers entities or Product links (like features) via relationships.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_createNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_createNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json;charset=utf-8");
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
@@ -147,72 +183,77 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
             return new global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns detail of all notes order by created_at descThis API is paginated, only the first 100 items are returned by default. The client should then recursively call /notes/ by using returned pageCursorThe pageCursor is valid for 1 minute
+        /// &quot;Retrieves a list of notes from your workspace.&gt; Without the `members:pii:read` scope, owner and creator email fields are returned as `[redacted]`. Filtering by `owner[email]` or `creator[email]` requires the `members:pii:read` scope.- Notes are sorted by creation date, newest first.- You can filter results using query parameters like `archived`, `processed`, `owner[email]`, `creator[email]`, `source[recordId]`, or date/time ranges.- Use the `pageCursor` parameter to paginate through results.- Use the `fields` query parameter to optimize response size (default: all non-null fields, use `fields=all` to include null values, or `fields=name,tags` for specific fields).&gt; To discover available fieldsuse the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.### Date/Time FilteringYou can filter notes by creation or update timestamps using ISO-8601 date-time format:- Use `createdFrom` and `createdTo` to filter by creation date (inclusive bounds)- Use `updatedFrom` and `updatedTo` to filter by update date (inclusive bounds)- All date/time filters can be combined with each other and with other filters- Date ranges must be valid (From &lt;= To) or a 400 error will be returned### Filtering combinationsSome combinations of the `archived` and `processed` flags result in empty or unexpected results.Use the following table to understand which notes are returned based on the filter values:| `archived` | `processed` | Result                    ||------------|-------------|---------------------------|| –          | –           | All notes                 || `true`     | `true`      | None                      || `true`     | `false`     | Archived                  || `false`    | `true`      | Processed                 || `false`    | `false`     | Unprocessed               || `true`     | –           | Archived                  || `false`    | –           | Processed + unprocessed   || –          | `true`      | Processed                 || –          | `false`     | Archived + unprocessed    |&gt; **Note**: Archived notes always return `processed: false` in the API response, regardless of their actual processing state. This is a known limitation of the system.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class NotesRequestBuilderGetQueryParameters 
         {
-            /// <summary>If specified, the resource returns only notes that have been assigned all of the tags in the array. Cannot be combined with anyTag.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("allTags")]
-            public string? AllTags { get; set; }
-#nullable restore
-#else
-            [QueryParameter("allTags")]
-            public string AllTags { get; set; }
-#endif
-            /// <summary>If specified, the resource returns only notes that have been assigned any of the tags in the array. Cannot be combined with allTags.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("anyTag")]
-            public string? AnyTag { get; set; }
-#nullable restore
-#else
-            [QueryParameter("anyTag")]
-            public string AnyTag { get; set; }
-#endif
-            /// <summary>If specified, the resource returns only notes for specific company ID</summary>
-            [QueryParameter("companyId")]
-            public Guid? CompanyId { get; set; }
-            /// <summary>If specified, the resource returns only notes created since given dateCannot be combined with `last`.</summary>
+            /// <summary>Filter notes by archived status.</summary>
+            [QueryParameter("archived")]
+            public bool? Archived { get; set; }
+            /// <summary>Filter notes created on or after this date/time (inclusive).Must be in ISO-8601 format (e.g., &quot;2023-10-01T12:00:00Z&quot;).Can be combined with createdTo to define a range.</summary>
             [QueryParameter("createdFrom")]
-            public Date? CreatedFrom { get; set; }
-            /// <summary>If specified, the resource returns only notes created before or equal to the given dateCannot be combined with `last`.</summary>
+            public DateTimeOffset? CreatedFrom { get; set; }
+            /// <summary>Filter notes created on or before this date/time (inclusive).Must be in ISO-8601 format (e.g., &quot;2023-12-31T23:59:59Z&quot;).Can be combined with createdFrom to define a range.</summary>
             [QueryParameter("createdTo")]
-            public Date? CreatedTo { get; set; }
-            /// <summary>Deprecated. Use &quot;createdFrom&quot; instead.Cannot be combined with `last`.</summary>
-            [Obsolete("")]
-            [QueryParameter("dateFrom")]
-            public Date? DateFrom { get; set; }
-            /// <summary>Deprecated. Use &quot;createdTo&quot; instead.Cannot be combined with `last`.</summary>
-            [Obsolete("")]
-            [QueryParameter("dateTo")]
-            public Date? DateTo { get; set; }
-            /// <summary>If specified, the resource returns only notes for specific feature ID or its descendants</summary>
-            [QueryParameter("featureId")]
-            public Guid? FeatureId { get; set; }
-            /// <summary>If specified, the resource returns only notes created since given span of months (m), days (s), or hours (h). E.g. 6m | 10d | 24h | 1hCannot be combined with `createdFrom`, `createdTo`, `dateFrom`, or `dateTo`.</summary>
+            public DateTimeOffset? CreatedTo { get; set; }
+            /// <summary>Filter notes by creator email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("last")]
-            public string? Last { get; set; }
+            [QueryParameter("creator%5Bemail%5D")]
+            public string? Creatoremail { get; set; }
 #nullable restore
 #else
-            [QueryParameter("last")]
-            public string Last { get; set; }
+            [QueryParameter("creator%5Bemail%5D")]
+            public string Creatoremail { get; set; }
 #endif
-            /// <summary>If specified, the resource returns only notes owned by a specific owner email</summary>
+            /// <summary>Filter notes by creator UUID.</summary>
+            [QueryParameter("creator%5Bid%5D")]
+            public Guid? Creatorid { get; set; }
+            /// <summary>&quot;Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified: Returns only fields with non-empty values (default)- `fields[]=all`: Returns all fields, including those with `null` values- `fields[]=name&amp;fields[]=tags`: Returns only the specified fields**Notes:**- When specific fields are requested, they are returned even if they have null/empty values- Unknown field IDs result in a 400 Bad Request error- Combining `all` with specific field IDs results in a 400 Bad Request errorFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("ownerEmail")]
-            public string? OwnerEmail { get; set; }
+            [QueryParameter("fields")]
+            public string[]? Fields { get; set; }
 #nullable restore
 #else
-            [QueryParameter("ownerEmail")]
-            public string OwnerEmail { get; set; }
+            [QueryParameter("fields")]
+            public string[] Fields { get; set; }
 #endif
-            /// <summary>Page cursor to get next page of results</summary>
+            /// <summary>Filter notes by the source record ID from metadata.source.Can be combined with metadata[source][system] and other filters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata%5Bsource%5D%5BrecordId%5D")]
+            public string? MetadatasourcerecordId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata%5Bsource%5D%5BrecordId%5D")]
+            public string MetadatasourcerecordId { get; set; }
+#endif
+            /// <summary>Filter notes by the source system name from metadata.source.Can be combined with metadata[source][recordId] and other filters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata%5Bsource%5D%5Bsystem%5D")]
+            public string? Metadatasourcesystem { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata%5Bsource%5D%5Bsystem%5D")]
+            public string Metadatasourcesystem { get; set; }
+#endif
+            /// <summary>Filter notes by owner email.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("owner%5Bemail%5D")]
+            public string? Owneremail { get; set; }
+#nullable restore
+#else
+            [QueryParameter("owner%5Bemail%5D")]
+            public string Owneremail { get; set; }
+#endif
+            /// <summary>Filter notes by owner UUID.</summary>
+            [QueryParameter("owner%5Bid%5D")]
+            public Guid? Ownerid { get; set; }
+            /// <summary>Cursor for pagination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("pageCursor")]
@@ -222,35 +263,25 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
             [QueryParameter("pageCursor")]
             public string PageCursor { get; set; }
 #endif
-            /// <summary>Page limit.</summary>
-            [QueryParameter("pageLimit")]
-            public int? PageLimit { get; set; }
-            /// <summary>If specified, the resource returns only notes from a specific source origin. This is the unique string identifying the external system from which the data came.</summary>
+            /// <summary>Filter notes by processed status.</summary>
+            [QueryParameter("processed")]
+            public bool? Processed { get; set; }
+            /// <summary>Filter notes by the external source record ID.Returns all notes where the source.recordId matches the provided value.Multiple notes can share the same recordId and all will be returned.Can be combined with other filters (e.g., archived, processed, owner[email]).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("source")]
-            public string? Source { get; set; }
+            [QueryParameter("source%5BrecordId%5D")]
+            public string? SourcerecordId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("source")]
-            public string Source { get; set; }
+            [QueryParameter("source%5BrecordId%5D")]
+            public string SourcerecordId { get; set; }
 #endif
-            /// <summary>If specified, the resource returns only notes by fulltext search</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("term")]
-            public string? Term { get; set; }
-#nullable restore
-#else
-            [QueryParameter("term")]
-            public string Term { get; set; }
-#endif
-            /// <summary>If specified, the resource returns only notes updated since given date</summary>
+            /// <summary>Filter notes updated on or after this date/time (inclusive).Must be in ISO-8601 format (e.g., &quot;2023-10-01T12:00:00Z&quot;).Can be combined with updatedTo to define a range.</summary>
             [QueryParameter("updatedFrom")]
-            public Date? UpdatedFrom { get; set; }
-            /// <summary>If specified, the resource returns only notes updated before or equal to the given date</summary>
+            public DateTimeOffset? UpdatedFrom { get; set; }
+            /// <summary>Filter notes updated on or before this date/time (inclusive).Must be in ISO-8601 format (e.g., &quot;2023-12-31T23:59:59Z&quot;).Can be combined with updatedFrom to define a range.</summary>
             [QueryParameter("updatedTo")]
-            public Date? UpdatedTo { get; set; }
+            public DateTimeOffset? UpdatedTo { get; set; }
         }
     }
 }

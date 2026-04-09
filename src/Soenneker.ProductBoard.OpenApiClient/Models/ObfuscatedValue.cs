@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>The value `[obfuscated]`. Used to hide personally identifiable information in cases the request doesn&apos;t have a required OAuth2 scope.</summary>
+    /// <summary>The value `[redacted]`. Used to hide personally identifiable information in cases the request doesn&apos;t have the required `members:pii:read` OAuth2 scope.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ObfuscatedValue
     {
-        [EnumMember(Value = "[obfuscated]")]
+        [EnumMember(Value = "[redacted]")]
         #pragma warning disable CS1591
-        Obfuscated,
+        Redacted,
         #pragma warning restore CS1591
     }
 }

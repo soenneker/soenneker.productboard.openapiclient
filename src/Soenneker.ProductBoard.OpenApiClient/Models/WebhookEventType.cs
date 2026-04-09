@@ -3,18 +3,10 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>Describes type of an event that can trigger a webhook notification: - `component.created`- triggered whenever a component is created - `component.updated` - triggered whenever a component is updated - `feature.created` - triggered whenever a feature is created (This includes conversion from a component.) - `feature.updated` - triggered whenever a feature is updated - `feature.deleted` - triggered whenever a feature is deleted (This includes conversion to a component.) - `feature-release-assignment.updated` - triggered whenever a feature release assignment is updated (a feature is added to a release, a feature is removed from a release). The event of this type doesn&apos;t have id set, just target link. - `hierarchy-entity.custom-field-value.updated` - triggered whenever a custom field value for hierarchy entity is updated (This includes unsetting the value). The event of this type doesn&apos;t have id set, just target link. - `note.created` - triggered whenever a note is created - `note.updated` - triggered whenever a note is updated - `note.deleted` - triggered whenever a note is deleted - `insight.created` - triggered whenever a insight is created - `insight.deleted` - triggered whenever a feature is deleted - `product.created` - triggered whenever a product is created - `product.updated` - triggered whenever a product is updated - `release.created` - triggered whenever a release is created - `release.updated` - triggered whenever a release is updated - `release.deleted` - triggered whenever a release is deleted - `key-result.created` - triggered whenever a key result is created - `key-result.updated` - triggered whenever a key result is updated - `key-result.deleted` - triggered whenever a key result is deleted - `objective.created` - triggered whenever an objective is created - `objective.updated` - triggered whenever an objective is updated - `objective.deleted` - triggered whenever an objective is deleted - `initiative.created` - triggered whenever an initiative is created - `initiative.updated` - triggered whenever an initiative is updated - `initiative.deleted` - triggered whenever an initiative is deleted</summary>
+    /// <summary>Identifies the type of entity change that triggers a webhook notification.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WebhookEventType
     {
-        [EnumMember(Value = "component.created")]
-        #pragma warning disable CS1591
-        ComponentCreated,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "component.updated")]
-        #pragma warning disable CS1591
-        ComponentUpdated,
-        #pragma warning restore CS1591
         [EnumMember(Value = "feature.created")]
         #pragma warning disable CS1591
         FeatureCreated,
@@ -27,25 +19,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         #pragma warning disable CS1591
         FeatureDeleted,
         #pragma warning restore CS1591
-        [EnumMember(Value = "feature-release-assignment.updated")]
+        [EnumMember(Value = "component.created")]
         #pragma warning disable CS1591
-        FeatureReleaseAssignmentUpdated,
+        ComponentCreated,
         #pragma warning restore CS1591
-        [EnumMember(Value = "hierarchy-entity.custom-field-value.updated")]
+        [EnumMember(Value = "component.updated")]
         #pragma warning disable CS1591
-        HierarchyEntityCustomFieldValueUpdated,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "note.created")]
-        #pragma warning disable CS1591
-        NoteCreated,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "note.updated")]
-        #pragma warning disable CS1591
-        NoteUpdated,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "note.deleted")]
-        #pragma warning disable CS1591
-        NoteDeleted,
+        ComponentUpdated,
         #pragma warning restore CS1591
         [EnumMember(Value = "product.created")]
         #pragma warning disable CS1591
@@ -66,6 +46,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         [EnumMember(Value = "release.deleted")]
         #pragma warning disable CS1591
         ReleaseDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "feature-release-assignment.updated")]
+        #pragma warning disable CS1591
+        FeatureReleaseAssignmentUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hierarchy-entity.custom-field-value.updated")]
+        #pragma warning disable CS1591
+        HierarchyEntityCustomFieldValueUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "note.created")]
+        #pragma warning disable CS1591
+        NoteCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "note.updated")]
+        #pragma warning disable CS1591
+        NoteUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "note.deleted")]
+        #pragma warning disable CS1591
+        NoteDeleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "insight.created")]
         #pragma warning disable CS1591

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>Status of the integration column in the Productboard UI.</summary>
+    /// <summary>Controls whether the integration is active:- `enabled` — integration column is visible and the push button is active- `disabled` — integration column is hidden from the Features board</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PluginIntegrationStatus
     {

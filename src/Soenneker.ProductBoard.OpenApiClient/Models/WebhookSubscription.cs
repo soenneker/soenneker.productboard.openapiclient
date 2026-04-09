@@ -7,33 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
+    /// <summary>
+    /// A webhook subscription resource.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class WebhookSubscription : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Timestamp</summary>
+        /// <summary>ISO 8601 timestamp when the subscription was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>Event types triggerring this webhook.</summary>
+        /// <summary>&quot;Domain attributes returned in webhook subscription responses.Note: `notification.headers.authorization` is intentionally absent from responses to protect secrets.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEvent>? Events { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields? Fields { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEvent> Events { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields Fields { get; set; }
 #endif
-        /// <summary>Entity identifier.</summary>
-        public Guid? Id { get; set; }
-        /// <summary>Human-readable label for this webhook subscription, i.e. just anything that can help you to identify it easily.</summary>
+        /// <summary>Unique identifier for this webhook subscription.</summary>
+        public Guid? Id { get; private set; }
+        /// <summary>Links for this webhook subscription resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks? Links { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks Links { get; set; }
 #endif
+        /// <summary>Resource type identifier for webhook subscriptions.</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscription"/> and sets the default values.
         /// </summary>
@@ -60,9 +63,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "events", n => { Events = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEvent>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEvent.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType>(); } },
             };
         }
         /// <summary>
@@ -72,9 +76,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEvent>("events", Events);
-            writer.WriteGuidValue("id", Id);
-            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks>("links", Links);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

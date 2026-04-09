@@ -8,31 +8,45 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Represents an error state of a particular push button. This value is understood as an unsuccessful result of an operation that was supposed to create a connection between Producboard feature and a 3rd party system.
+    /// Individual error object containing the details and context.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Error : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>If the push fails on Productboard side, this field will contain error details. The value is not visible in the UI, it can be used only by developer while debugging new integration.</summary>
+        /// <summary>&quot;A unique, machine-readable and stable code that identifies this error.Must be consistent across all services and provide clear categorization.Format: `category.subcategory.specificError`&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DebugDetail { get; private set; }
+        public string? Code { get; set; }
 #nullable restore
 #else
-        public string DebugDetail { get; private set; }
+        public string Code { get; set; }
 #endif
-        /// <summary>An error message explaning why the connection could not be established.</summary>
+        /// <summary>A human-readable explanation specific to this occurrence of the problem.May include suggestions for resolution but should not expose sensitive information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public string? Detail { get; set; }
 #nullable restore
 #else
-        public string Message { get; set; }
+        public string Detail { get; set; }
 #endif
-        /// <summary>Connection state discriminator</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Error_state? State { get; set; }
+        /// <summary>An object containing references to the source of the error. It helps with location of the problematic field or parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorSource? Source { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorSource Source { get; set; }
+#endif
+        /// <summary>A short, human-readable summary of the problem that doesn&apos;t changefrom occurrence to occurrence of the problem. Should provide immediateunderstanding of the error type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Error"/> and sets the default values.
         /// </summary>
@@ -58,9 +72,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "debugDetail", n => { DebugDetail = n.GetStringValue(); } },
-                { "message", n => { Message = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Error_state>(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "detail", n => { Detail = n.GetStringValue(); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorSource>(global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorSource.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -70,8 +85,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("message", Message);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Error_state>("state", State);
+            writer.WriteStringValue("code", Code);
+            writer.WriteStringValue("detail", Detail);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorSource>("source", Source);
+            writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

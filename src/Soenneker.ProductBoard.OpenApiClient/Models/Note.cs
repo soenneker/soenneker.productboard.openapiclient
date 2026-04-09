@@ -7,130 +7,46 @@ using System.IO;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
+    /// <summary>
+    /// Full note resource with all fields and metadata.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Note : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class Note : global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReference, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The company property</summary>
+        /// <summary>ISO 8601 timestamp when the note was created</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Company? Company { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Company Company { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields Fields { get; set; }
 #endif
-        /// <summary>Entity content</summary>
+        /// <summary>Metadata associated with a resource, including its external source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Content { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_EntityMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public string Content { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_EntityMetadata Metadata { get; set; }
 #endif
-        /// <summary>Timestamp</summary>
-        public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>The user who created the note.</summary>
+        /// <summary>A collection of relationships connected to the note.This includes:- Customer relationship (either a User or Company entity)- Product link relationships (e.g. linked features)The list is paginated, to see the rest of the relationships follow the URL contained in the `links.next` attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Note_createdBy? CreatedBy { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships? Relationships { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Note_createdBy CreatedBy { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships Relationships { get; set; }
 #endif
-        /// <summary>Entity display url leading to Productboard detail page</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DisplayUrl { get; set; }
-#nullable restore
-#else
-        public string DisplayUrl { get; set; }
-#endif
-        /// <summary>URL in an external system where the note originated</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ExternalDisplayUrl { get; set; }
-#nullable restore
-#else
-        public string ExternalDisplayUrl { get; set; }
-#endif
-        /// <summary>all Features related to a given note (having the insight with importance)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Feature>? Features { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Feature> Features { get; set; }
-#endif
-        /// <summary>The followers of a note.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_followers>? Followers { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_followers> Followers { get; set; }
-#endif
-        /// <summary>Entity identifier.</summary>
-        public Guid? Id { get; set; }
-        /// <summary>The owner property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Owner? Owner { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Owner Owner { get; set; }
-#endif
-        /// <summary>For entities that originated in external systems and entered Productboard via the API or integrations, the source keeps track of the original source entity in that origin system(s). Once this is set, it cannot be updated by design. It’s a reference to an external system, and if that reference changes to another external resource, we consider it as different Note. The recommended way is to create a new note that will refer to different origins.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Source? Source { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Source Source { get; set; }
-#endif
-        /// <summary>Entity state</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.State? State { get; set; }
-        /// <summary>Comma-separated list of tags</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Tags { get; set; }
-#nullable restore
-#else
-        public string Tags { get; set; }
-#endif
-        /// <summary>Entity title</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Title { get; set; }
-#nullable restore
-#else
-        public string Title { get; set; }
-#endif
-        /// <summary>Timestamp</summary>
-        public DateTimeOffset? UpdatedAt { get; private set; }
-        /// <summary>The user property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.User? User { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.User User { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Note"/> and sets the default values.
-        /// </summary>
-        public Note()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>ISO 8601 timestamp when the note was last updated</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Note"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.ProductBoard.OpenApiClient.Models.Note CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.ProductBoard.OpenApiClient.Models.Note CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.ProductBoard.OpenApiClient.Models.Note();
@@ -139,50 +55,30 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "company", n => { Company = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Company>(global::Soenneker.ProductBoard.OpenApiClient.Models.Company.CreateFromDiscriminatorValue); } },
-                { "content", n => { Content = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_createdBy>(global::Soenneker.ProductBoard.OpenApiClient.Models.Note_createdBy.CreateFromDiscriminatorValue); } },
-                { "displayUrl", n => { DisplayUrl = n.GetStringValue(); } },
-                { "externalDisplayUrl", n => { ExternalDisplayUrl = n.GetStringValue(); } },
-                { "features", n => { Features = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Feature>(global::Soenneker.ProductBoard.OpenApiClient.Models.Feature.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "followers", n => { Followers = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_followers>(global::Soenneker.ProductBoard.OpenApiClient.Models.Note_followers.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Owner>(global::Soenneker.ProductBoard.OpenApiClient.Models.Owner.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Source>(global::Soenneker.ProductBoard.OpenApiClient.Models.Source.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.State>(); } },
-                { "tags", n => { Tags = n.GetStringValue(); } },
-                { "title", n => { Title = n.GetStringValue(); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_EntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_EntityMetadata.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.User>(global::Soenneker.ProductBoard.OpenApiClient.Models.User.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer)
+        public override void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Company>("company", Company);
-            writer.WriteStringValue("content", Content);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_createdBy>("createdBy", CreatedBy);
-            writer.WriteStringValue("displayUrl", DisplayUrl);
-            writer.WriteStringValue("externalDisplayUrl", ExternalDisplayUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Feature>("features", Features);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_followers>("followers", Followers);
-            writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Owner>("owner", Owner);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Source>("source", Source);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.State>("state", State);
-            writer.WriteStringValue("tags", Tags);
-            writer.WriteStringValue("title", Title);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.User>("user", User);
-            writer.WriteAdditionalData(AdditionalData);
+            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_EntityMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships>("relationships", Relationships);
+            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
         }
     }
 }

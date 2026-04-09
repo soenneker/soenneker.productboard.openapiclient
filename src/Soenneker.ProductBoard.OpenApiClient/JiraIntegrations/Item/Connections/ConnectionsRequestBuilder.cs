@@ -4,7 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.Item;
-using Soenneker.ProductBoard.OpenApiClient.Models.Common;
+using Soenneker.ProductBoard.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections
 {
     /// <summary>
-    /// Builds and executes requests for operations under \jira-integrations\{id}\connections
+    /// Builds and executes requests for operations under \jira-integrations\{integrationId}\connections
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.jiraIntegrations.item.connections.item collection</summary>
-        /// <param name="position">Feature identifier.</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder this[Guid position]
+        /// <param name="position">Entity identifier.</param>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder"/></returns>
+        public global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("featureId", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("entityId", position);
+                return new global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConnectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/jira-integrations/{id}/connections{?connection%2EissueId*,connection%2EissueKey*}", pathParameters)
+        public ConnectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/jira-integrations/{integrationId}/connections{?issueId*,issueKey*,pageCursor*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,34 +43,46 @@ namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConnectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/jira-integrations/{id}/connections{?connection%2EissueId*,connection%2EissueKey*}", rawUrl)
+        public ConnectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/jira-integrations/{integrationId}/connections{?issueId*,issueKey*,pageCursor*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns detail of all Productboard feature - Jira issue connections for given integration. It also allows to find a connection by Jira issue key or ID.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// Returns detail of all Productboard feature - Jira issue connections for given integration. It also allows to find a connection by Jira issue key or ID.This API is paginated using cursor-based pagination. The client should follow the `links.next` link in the response to fetch the next page.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionListResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionListResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_ApiErrors2.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionListResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns detail of all Productboard feature - Jira issue connections for given integration. It also allows to find a connection by Jira issue key or ID.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// Returns detail of all Productboard feature - Jira issue connections for given integration. It also allows to find a connection by Jira issue key or ID.This API is paginated using cursor-based pagination. The client should follow the `links.next` link in the response to fetch the next page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -98,7 +110,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections
             return new global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections.ConnectionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns detail of all Productboard feature - Jira issue connections for given integration. It also allows to find a connection by Jira issue key or ID.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// Returns detail of all Productboard feature - Jira issue connections for given integration. It also allows to find a connection by Jira issue key or ID.This API is paginated using cursor-based pagination. The client should follow the `links.next` link in the response to fetch the next page.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConnectionsRequestBuilderGetQueryParameters 
@@ -106,22 +118,32 @@ namespace Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.Item.Connections
             /// <summary>If specified, the resource returns only connection for given Jira issue (if any).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("connection%2EissueId")]
-            public string? ConnectionIssueId { get; set; }
+            [QueryParameter("issueId")]
+            public string? IssueId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("connection%2EissueId")]
-            public string ConnectionIssueId { get; set; }
+            [QueryParameter("issueId")]
+            public string IssueId { get; set; }
 #endif
             /// <summary>If specified, the resource returns only connection for given Jira issue (if any).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("connection%2EissueKey")]
-            public string? ConnectionIssueKey { get; set; }
+            [QueryParameter("issueKey")]
+            public string? IssueKey { get; set; }
 #nullable restore
 #else
-            [QueryParameter("connection%2EissueKey")]
-            public string ConnectionIssueKey { get; set; }
+            [QueryParameter("issueKey")]
+            public string IssueKey { get; set; }
+#endif
+            /// <summary>Cursor for pagination. Use the value from `links.next` to fetch the next page.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("pageCursor")]
+            public string? PageCursor { get; set; }
+#nullable restore
+#else
+            [QueryParameter("pageCursor")]
+            public string PageCursor { get; set; }
 #endif
         }
     }

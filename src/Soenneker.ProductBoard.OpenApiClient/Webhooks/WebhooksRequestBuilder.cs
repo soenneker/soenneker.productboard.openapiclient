@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications;
+using Soenneker.ProductBoard.OpenApiClient.Models;
 using Soenneker.ProductBoard.OpenApiClient.Webhooks.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -19,15 +19,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
     public partial class WebhooksRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.webhooks.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder this[string position]
+        /// <param name="position">UUID of the webhook subscription.</param>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WithWebhookItemRequestBuilder"/></returns>
+        public global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WithWebhookItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("id", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WebhooksItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("webhookId", position);
+                return new global::Soenneker.ProductBoard.OpenApiClient.Webhooks.Item.WithWebhookItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhooksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhooks", pathParameters)
+        public WebhooksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhooks{?pageCursor*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,69 +43,91 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WebhooksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhooks", rawUrl)
+        public WebhooksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/webhooks{?pageCursor*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns detail of all webhook subscriptions.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new webhook subscription to be actively notified on each change in the specified entities.Part of the subscription process is a probe request to verify that the referenced service really intends to receive the webhook notifications and that the requests will be able to reach the destination, see the `callback` section below for details.
+        /// &quot;Creates a new webhook subscription to be actively notified on each change in the specified entities.As part of subscription creation, Productboard validates the notification URL:it must use `https`, have a publicly resolvable host, and not point to localhost,loopback, site-local, or internal addresses.**Scope requirements**: the OAuth2 application must have the scopes required by all requested event types.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse"/></returns>
+        /// <param name="body">Request body for creating a webhook subscription.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotifications.Error_ApiErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Webhooks_ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns detail of all webhook subscriptions.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -114,18 +136,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new webhook subscription to be actively notified on each change in the specified entities.Part of the subscription process is a probe request to verify that the referenced service really intends to receive the webhook notifications and that the requests will be able to reach the destination, see the `callback` section below for details.
+        /// &quot;Creates a new webhook subscription to be actively notified on each change in the specified entities.As part of subscription creation, Productboard validates the notification URL:it must use `https`, have a publicly resolvable host, and not point to localhost,loopback, site-local, or internal addresses.**Scope requirements**: the OAuth2 application must have the scopes required by all requested event types.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Request body for creating a webhook subscription.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -143,6 +165,23 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
         public global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WebhooksRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Cursor for pagination. Use the value from `links.next` to fetch the next page.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("pageCursor")]
+            public string? PageCursor { get; set; }
+#nullable restore
+#else
+            [QueryParameter("pageCursor")]
+            public string PageCursor { get; set; }
+#endif
         }
     }
 }

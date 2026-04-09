@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations;
+using Soenneker.ProductBoard.OpenApiClient.Models;
 using Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -13,21 +13,21 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections
 {
     /// <summary>
-    /// Builds and executes requests for operations under \plugin-integrations\{id}\connections
+    /// Builds and executes requests for operations under \plugin-integrations\{integrationId}\connections
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.pluginIntegrations.item.connections.item collection</summary>
-        /// <param name="position">Feature identifier.</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder this[Guid position]
+        /// <param name="position">Entity identifier.</param>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder"/></returns>
+        public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("featureId", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithFeatureItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("entityId", position);
+                return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConnectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations/{id}/connections", pathParameters)
+        public ConnectionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations/{integrationId}/connections{?pageCursor*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,44 +43,56 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConnectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations/{id}/connections", rawUrl)
+        public ConnectionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations/{integrationId}/connections{?pageCursor*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns detail of all plugin integration connections, __except__ for those having their `state` set to `initial`. The `initial` state is the default and basically means that the connection does not exist at the moment.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// Returns all connections for a plugin integration, **excluding** those in the`initial` state. The `initial` state is the default — it means no connection hasbeen established for that entity yet.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns detail of all plugin integration connections, __except__ for those having their `state` set to `initial`. The `initial` state is the default and basically means that the connection does not exist at the moment.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// Returns all connections for a plugin integration, **excluding** those in the`initial` state. The `initial` state is the default — it means no connection hasbeen established for that entity yet.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -96,6 +108,23 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Returns all connections for a plugin integration, **excluding** those in the`initial` state. The `initial` state is the default — it means no connection hasbeen established for that entity yet.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ConnectionsRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Cursor for pagination. Use the value from `links.next` to fetch the next page.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("pageCursor")]
+            public string? PageCursor { get; set; }
+#nullable restore
+#else
+            [QueryParameter("pageCursor")]
+            public string PageCursor { get; set; }
+#endif
         }
     }
 }

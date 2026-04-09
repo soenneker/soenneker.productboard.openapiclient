@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations;
+using Soenneker.ProductBoard.OpenApiClient.Models;
 using Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -19,15 +19,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
     public partial class PluginIntegrationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.pluginIntegrations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.PluginIntegrationsItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.PluginIntegrationsItemRequestBuilder this[string position]
+        /// <param name="position">UUID of the plugin integration.</param>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.WithIntegrationItemRequestBuilder"/></returns>
+        public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.WithIntegrationItemRequestBuilder this[Guid position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("id", position);
-                return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.PluginIntegrationsItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("integrationId", position);
+                return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.WithIntegrationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PluginIntegrationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations", pathParameters)
+        public PluginIntegrationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations{?pageCursor*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,40 +43,56 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PluginIntegrationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations", rawUrl)
+        public PluginIntegrationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/plugin-integrations{?pageCursor*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns detail of all plugin integrations.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// &quot;Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder.PluginIntegrationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder.PluginIntegrationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates new Plugin integration. Part of the creation process is a probe request to verify that the referenced service really intends to receive the notifications and that the requests will be able to reach the destination, see the `callback` section below for details.
+        /// &quot;Creates a new plugin integration. As part of creation, Productboard sends a**probe request** (GET) to your configured action URL to verify it is reachableand intends to receive action notifications. See the `callbacks` section below.The integration is created in the `enabled` state by default. Set`fields.integrationStatus` to `disabled` to skip the probe (useful for staged setup).**`action` is write-only**: the action configuration, including any`headers.authorization` secret, is never returned in responses.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsPostResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -90,22 +106,28 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrations.Error_ApiErrors.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns detail of all plugin integrations.This API is paginated, only the first 100 items are returned by default. The client should then recursively follow `links.next` link in the response to fetch the next page.
+        /// &quot;Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder.PluginIntegrationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder.PluginIntegrationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -114,7 +136,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
             return requestInfo;
         }
         /// <summary>
-        /// Creates new Plugin integration. Part of the creation process is a probe request to verify that the referenced service really intends to receive the notifications and that the requests will be able to reach the destination, see the `callback` section below for details.
+        /// &quot;Creates a new plugin integration. As part of creation, Productboard sends a**probe request** (GET) to your configured action URL to verify it is reachableand intends to receive action notifications. See the `callbacks` section below.The integration is created in the `enabled` state by default. Set`fields.integrationStatus` to `disabled` to skip the probe (useful for staged setup).**`action` is write-only**: the action configuration, including any`headers.authorization` secret, is never returned in responses.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -143,6 +165,23 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         public global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// &quot;Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.&quot;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class PluginIntegrationsRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Cursor for pagination. Use the value from `links.next` to fetch the next page.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("pageCursor")]
+            public string? PageCursor { get; set; }
+#nullable restore
+#else
+            [QueryParameter("pageCursor")]
+            public string PageCursor { get; set; }
+#endif
         }
     }
 }

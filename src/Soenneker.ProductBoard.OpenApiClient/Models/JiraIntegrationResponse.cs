@@ -8,34 +8,20 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Jira integration data.
+    /// Single Jira integration.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class JiraIntegrationResponse : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Timestamp</summary>
-        public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>Entity identifier.</summary>
-        public Guid? Id { get; private set; }
-        /// <summary>Status of the integration column in the Productboard UI.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationStatus? IntegrationStatus { get; set; }
-        /// <summary>The links property</summary>
+        /// <summary>Jira integration data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationResponse_links? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegration? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationResponse_links Links { get; set; }
-#endif
-        /// <summary>Name of the integration.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegration Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationResponse"/> and sets the default values.
@@ -62,11 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "integrationStatus", n => { IntegrationStatus = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationStatus>(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationResponse_links>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationResponse_links.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegration>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,9 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationStatus>("integrationStatus", IntegrationStatus);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationResponse_links>("links", Links);
-            writer.WriteStringValue("name", Name);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegration>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

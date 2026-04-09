@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.ProductBoard.OpenApiClient.Models.Common;
 using Soenneker.ProductBoard.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -19,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse>? Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse> Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration> Data { get; set; }
 #endif
-        /// <summary>Link to the next page.</summary>
+        /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_NextPageLinks2? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_NextPageLinks2 Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsGetResponse"/> and sets the default values.
@@ -57,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_NextPageLinks2>(global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_NextPageLinks2.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponse>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Common.Model_NextPageLinks2>("links", Links);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

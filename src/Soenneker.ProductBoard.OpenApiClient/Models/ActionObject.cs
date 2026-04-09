@@ -8,22 +8,22 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Definition of the action to be performed when a user clicks on a button in Productboard UI.
+    /// Configuration for the action endpoint Productboard calls when a user interactswith a push button (push, unlink, or dismiss).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ActionObject : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Headers to be sent with each outgoing request from Productboard to a 3rd party system.</summary>
+        /// <summary>Custom headers included in every outgoing request from Productboard to your actionendpoint — both the creation probe and all action notifications.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.HttpHeaders? Headers { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ActionHeaders? Headers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.HttpHeaders Headers { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ActionHeaders Headers { get; set; }
 #endif
-        /// <summary>Target URL to be called when a button is clicked. The URL has to be publicly accessible, its scheme must be`https` to communicate over an encrypted channel, certificate has to be valid and it has to be signed by apublic authority.Hint: You can encode any additional information to the path or query parameters, they are fully under your control.</summary>
+        /// <summary>HTTPS endpoint Productboard calls when a user clicks a push button.Requirements:- Must use `https`- TLS certificate must be valid and signed by a public authority- Must be publicly reachable (no `localhost`, private IPs, or internal addresses)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Url { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Url { get; set; }
 #endif
-        /// <summary>Version of the action payload structure to be used when notifing about push</summary>
+        /// <summary>Version of the action payload format. Currently only `1` is supported.</summary>
         public int? Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ActionObject"/> and sets the default values.
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HttpHeaders>(global::Soenneker.ProductBoard.OpenApiClient.Models.HttpHeaders.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ActionHeaders>(global::Soenneker.ProductBoard.OpenApiClient.Models.ActionHeaders.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HttpHeaders>("headers", Headers);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ActionHeaders>("headers", Headers);
             writer.WriteStringValue("url", Url);
             writer.WriteIntValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);

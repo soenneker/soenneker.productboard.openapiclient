@@ -8,8 +8,10 @@ using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using Soenneker.ProductBoard.OpenApiClient.Analytics;
 using Soenneker.ProductBoard.OpenApiClient.Entities;
+using Soenneker.ProductBoard.OpenApiClient.Fixed;
 using Soenneker.ProductBoard.OpenApiClient.JiraIntegrations;
 using Soenneker.ProductBoard.OpenApiClient.Members;
+using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi;
 using Soenneker.ProductBoard.OpenApiClient.Notes;
 using Soenneker.ProductBoard.OpenApiClient.PluginIntegrations;
 using Soenneker.ProductBoard.OpenApiClient.Teams;
@@ -36,6 +38,11 @@ namespace Soenneker.ProductBoard.OpenApiClient
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The fixed property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Fixed.FixedRequestBuilder Fixed
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Fixed.FixedRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The jiraIntegrations property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.JiraIntegrations.JiraIntegrationsRequestBuilder JiraIntegrations
         {
@@ -45,6 +52,11 @@ namespace Soenneker.ProductBoard.OpenApiClient
         public global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder Members
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mergedOpenapi property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.MergedOpenapiRequestBuilder MergedOpenapi
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.MergedOpenapiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The notes property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder Notes

@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
         /// <summary>Represents a member (user) in the workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Member? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Members_Member? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Member Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.Members_Member Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Member>(global::Soenneker.ProductBoard.OpenApiClient.Models.Member.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Members_Member>(global::Soenneker.ProductBoard.OpenApiClient.Models.Members_Member.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Member>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Members_Member>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

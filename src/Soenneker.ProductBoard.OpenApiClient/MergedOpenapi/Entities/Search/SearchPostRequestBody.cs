@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Search
         /// <summary>&quot;Request body for searching entities. Supports two formats:**New format** (recommended): Uses a structured `filter` object with nested field groups.**Legacy format** (deprecated): Uses flat properties directly under `data`.Both formats are accepted. The legacy format will continue to work but is deprecatedin favour of the new structured format. Format is detected by the presence of the `filter` key.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntitySearch? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntitySearch? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntitySearch Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntitySearch Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Search.SearchPostRequestBody"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Search
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntitySearch>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntitySearch.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntitySearch>(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntitySearch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Search
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntitySearch>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntitySearch>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

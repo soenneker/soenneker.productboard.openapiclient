@@ -24,10 +24,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by member UUIDs (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilter_id? Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilter_id Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper Id { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilterFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilterFields.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilter_id>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilter_id.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilterFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_MemberSearchFilter_id>("id", Id);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>("id", Id);
         }
     }
 }

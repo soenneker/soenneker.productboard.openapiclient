@@ -36,37 +36,37 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Fields.Ite
         /// <summary>
         /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_FieldValues"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_FieldValues"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_FieldValues?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Fields.Item.Values.ValuesRequestBuilder.ValuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_FieldValues?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Fields.Item.Values.ValuesRequestBuilder.ValuesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_FieldValues> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Fields.Item.Values.ValuesRequestBuilder.ValuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_FieldValues> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Fields.Item.Values.ValuesRequestBuilder.ValuesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_FieldValues>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_FieldValues.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_FieldValues>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_FieldValues.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.
@@ -106,11 +106,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Fields.Ite
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("assignedEntityType%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityType[]? AssignedEntityType { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityType[]? AssignedEntityType { get; set; }
 #nullable restore
 #else
             [QueryParameter("assignedEntityType%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityType[] AssignedEntityType { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityType[] AssignedEntityType { get; set; }
 #endif
             /// <summary>Cursor for pagination. Use the value from `links.next` to fetch the next page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

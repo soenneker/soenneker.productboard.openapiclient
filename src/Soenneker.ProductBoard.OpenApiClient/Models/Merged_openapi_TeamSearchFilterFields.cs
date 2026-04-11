@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by team handle. Single string or array (OR logic), case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_handle? Handle { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? Handle { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_handle Handle { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper Handle { get; set; }
 #endif
         /// <summary>Filter by team name. Single string or array (OR logic), case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_name? Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_name Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper Name { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "handle", n => { Handle = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_handle>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_handle.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_name>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_name.CreateFromDiscriminatorValue); } },
+                { "handle", n => { Handle = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_handle>("handle", Handle);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamSearchFilterFields_name>("name", Name);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>("handle", Handle);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

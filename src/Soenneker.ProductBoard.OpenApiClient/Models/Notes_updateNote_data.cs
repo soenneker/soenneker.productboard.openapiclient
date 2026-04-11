@@ -71,26 +71,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperation"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperationClear"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperation"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperationClear"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Notes : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperation"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperation? NotesNotePatchOperation { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperation? CNotesNotePatchOperation { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperation NotesNotePatchOperation { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperation CNotesNotePatchOperation { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperationClear"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperationClear"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperationClear? NotesNotePatchOperationClear { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperationClear? CNotesNotePatchOperationClear { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperationClear NotesNotePatchOperationClear { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperationClear CNotesNotePatchOperationClear { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -102,13 +102,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_updateNote_data.Notes();
-                if("notes_NotePatchOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("C_notes_NotePatchOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.NotesNotePatchOperation = new global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperation();
+                    result.CNotesNotePatchOperation = new global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperation();
                 }
-                else if("notes_NotePatchOperationClear".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("C_notes_NotePatchOperationClear".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.NotesNotePatchOperationClear = new global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperationClear();
+                    result.CNotesNotePatchOperationClear = new global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperationClear();
                 }
                 return result;
             }
@@ -118,13 +118,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(NotesNotePatchOperation != null)
+                if(CNotesNotePatchOperation != null)
                 {
-                    return NotesNotePatchOperation.GetFieldDeserializers();
+                    return CNotesNotePatchOperation.GetFieldDeserializers();
                 }
-                else if(NotesNotePatchOperationClear != null)
+                else if(CNotesNotePatchOperationClear != null)
                 {
-                    return NotesNotePatchOperationClear.GetFieldDeserializers();
+                    return CNotesNotePatchOperationClear.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -135,13 +135,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(NotesNotePatchOperation != null)
+                if(CNotesNotePatchOperation != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperation>(null, NotesNotePatchOperation);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperation>(null, CNotesNotePatchOperation);
                 }
-                else if(NotesNotePatchOperationClear != null)
+                else if(CNotesNotePatchOperationClear != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_NotePatchOperationClear>(null, NotesNotePatchOperationClear);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_notes_NotePatchOperationClear>(null, CNotesNotePatchOperationClear);
                 }
             }
         }

@@ -34,10 +34,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by note UUIDs (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter_id? Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter_id Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper Id { get; set; }
 #endif
         /// <summary>Filter by metadata properties</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,7 +98,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "createdAt", n => { CreatedAt = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_DateTimeRange>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_DateTimeRange.CreateFromDiscriminatorValue); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterFields.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter_id>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter_id.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterMetadata.CreateFromDiscriminatorValue); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterRelationships>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterRelationships.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter.Merged_openapi_NoteSearchFilter_type>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter.Merged_openapi_NoteSearchFilter_type.CreateFromDiscriminatorValue); } },
@@ -114,7 +114,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_DateTimeRange>("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter_id>("id", Id);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilterRelationships>("relationships", Relationships);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_NoteSearchFilter.Merged_openapi_NoteSearchFilter_type>("type", Type);

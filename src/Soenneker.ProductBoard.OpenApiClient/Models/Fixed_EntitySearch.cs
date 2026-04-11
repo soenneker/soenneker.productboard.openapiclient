@@ -19,10 +19,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearch_fields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearch_fields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper Fields { get; set; }
 #endif
         /// <summary>Filter criteria for the entity search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,7 +113,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearch_fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearch_fields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper.CreateFromDiscriminatorValue); } },
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearchFilter>(global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearchFilter.CreateFromDiscriminatorValue); } },
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -133,7 +133,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archived", Archived);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearch_fields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntitySearchFilter>("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
             writer.WriteStringValue("name", Name);

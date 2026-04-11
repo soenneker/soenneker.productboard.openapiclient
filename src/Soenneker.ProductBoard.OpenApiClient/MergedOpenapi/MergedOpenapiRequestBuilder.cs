@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Analytics;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities;
+using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.JiraIntegrations;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Members;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes;
@@ -31,6 +32,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi
         public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.EntitiesRequestBuilder Entities
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.EntitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The fixed property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.FixedRequestBuilder Fixed
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.FixedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The jiraIntegrations property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.JiraIntegrations.JiraIntegrationsRequestBuilder JiraIntegrations

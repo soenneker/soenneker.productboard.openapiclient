@@ -49,72 +49,72 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Webhooks
         /// <summary>
         /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookListResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookListResponse_1"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookListResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookListResponse_1?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookListResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookListResponse_1> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Webhooks.WebhooksRequestBuilder.WebhooksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookListResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookListResponse_1>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookListResponse_1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Creates a new webhook subscription to be actively notified on each change in the specified entities.As part of subscription creation, Productboard validates the notification URL:it must use `https`, have a publicly resolvable host, and not point to localhost,loopback, site-local, or internal addresses.**Scope requirements**: the OAuth2 application must have the scopes required by all requested event types.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookReferenceResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookReferenceResponse_1"/></returns>
         /// <param name="body">Request body for creating a webhook subscription.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookReferenceResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookReferenceResponse_1?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookCreateRequestBody_1 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookReferenceResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookReferenceResponse_1> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookCreateRequestBody_1 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_webhooks_ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhooksErrorResponse_1.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookReferenceResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookReferenceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookReferenceResponse_1>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookReferenceResponse_1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
@@ -143,11 +143,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Webhooks
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookCreateRequestBody_1 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_WebhookCreateRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiWebhookCreateRequestBody_1 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

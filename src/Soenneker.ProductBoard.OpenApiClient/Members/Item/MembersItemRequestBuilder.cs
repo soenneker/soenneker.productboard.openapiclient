@@ -39,12 +39,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -57,12 +57,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.C_members_ErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse_1.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

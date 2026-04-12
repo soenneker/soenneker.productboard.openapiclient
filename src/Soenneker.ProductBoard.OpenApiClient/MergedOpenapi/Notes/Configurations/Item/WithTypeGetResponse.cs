@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Configuration
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_notes_Configuration? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesConfiguration? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_notes_Configuration Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesConfiguration Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Configurations.Item.WithTypeGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Configuration
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_notes_Configuration>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_notes_Configuration.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesConfiguration>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Configuration
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_notes_Configuration>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesConfiguration>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.Relat
         /// <summary>Represents a relationship between two entities.The source entity is implicit from the request context (the entity being queried).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityRelationship? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationship_1? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityRelationship Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationship_1 Data { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_ResourceLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceLinks_1? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_ResourceLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceLinks_1 Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.Relationships.RelationshipsPostResponse"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.Relat
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityRelationship>(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityRelationship.CreateFromDiscriminatorValue); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_ResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_ResourceLinks.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationship_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationship_1.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceLinks_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.Relat
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityRelationship>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_ResourceLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationship_1>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceLinks_1>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

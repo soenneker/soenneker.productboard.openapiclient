@@ -39,13 +39,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configurat
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configuration.ConfigurationGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configuration.ConfigurationGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configuration.ConfigurationRequestBuilder.ConfigurationRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -58,13 +58,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configurat
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse_1.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configuration.ConfigurationGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configuration.ConfigurationGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -104,7 +104,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Configurat
         {
             /// <summary>The type of the entity. Currently supported PM entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - user  - companyThe exact types available may vary based on the configuration of the workspace.</summary>
             [QueryParameter("type")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityType? Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityType_1? Type { get; set; }
         }
     }
 }

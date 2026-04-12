@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
         /// <summary>&quot;A collection of fields that can be used to create or update a PM entity.It is a subset of `EntityFields` that is used for creation or update operations.## Dual Format SupportMost field types support two input formats:- **Simple format**: Direct value (e.g., `\&quot;text\&quot;`, `123`, `true`)- **Object format**: Value with metadata (e.g., `{\&quot;value\&quot;: \&quot;text\&quot;, \&quot;metadata\&quot;: {...}}`)## Metadata SupportCustom fields (identified by UUID) and specific field types (`domain`, `email`, `effort`) support optional metadata that allows tracking the external source of field values:- `source.system`: Name of the external system that provided the value- `source.recordId`: Identifier of the record in the external system- `isViewableOnly`: Whether the value is read-only from external sourceMetadata sent for other fields is ignored.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityCreateOrUpdateFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityCreateOrUpdateFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityCreateOrUpdateFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityCreateOrUpdateFields Fields { get; set; }
 #endif
         /// <summary>Metadata associated with an entity, including its source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityMetadata Metadata { get; set; }
 #endif
         /// <summary>A list of patch operations to perform on a PM entity field.Each operation can be one of `set`, `addItems`, `removeItems`, or `clear`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,8 +64,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityMetadata.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityMetadata.CreateFromDiscriminatorValue); } },
                 { "patch", n => { Patch = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.EntitiesPatchRequestBody_data.Entities>(global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.EntitiesPatchRequestBody_data.Entities.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -76,32 +76,32 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityCreateOrUpdateFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityCreateOrUpdateFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.EntitiesPatchRequestBody_data.Entities>("patch", Patch);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperation"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperationClear"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperation"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperationClear"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Entities : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperation"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperation? FixedEntityPatchOperation { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperation? FixedEntityPatchOperation { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperation FixedEntityPatchOperation { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperation FixedEntityPatchOperation { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperationClear"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperationClear"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperationClear? FixedEntityPatchOperationClear { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperationClear? FixedEntityPatchOperationClear { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperationClear FixedEntityPatchOperationClear { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperationClear FixedEntityPatchOperationClear { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -113,13 +113,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.EntitiesPatchRequestBody_data.Entities();
-                if("fixed_EntityPatchOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("FixedEntityPatchOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.FixedEntityPatchOperation = new global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperation();
+                    result.FixedEntityPatchOperation = new global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperation();
                 }
-                else if("fixed_EntityPatchOperationClear".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("FixedEntityPatchOperationClear".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.FixedEntityPatchOperationClear = new global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperationClear();
+                    result.FixedEntityPatchOperationClear = new global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperationClear();
                 }
                 return result;
             }
@@ -148,11 +148,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(FixedEntityPatchOperation != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperation>(null, FixedEntityPatchOperation);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperation>(null, FixedEntityPatchOperation);
                 }
                 else if(FixedEntityPatchOperationClear != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_EntityPatchOperationClear>(null, FixedEntityPatchOperationClear);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityPatchOperationClear>(null, FixedEntityPatchOperationClear);
                 }
             }
         }

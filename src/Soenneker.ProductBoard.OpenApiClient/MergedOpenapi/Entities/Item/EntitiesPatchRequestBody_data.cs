@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item
         /// <summary>&quot;A collection of fields that can be used to create or update a PM entity.It is a subset of `EntityFields` that is used for creation or update operations.## Dual Format SupportMost field types support two input formats:- **Simple format**: Direct value (e.g., `\&quot;text\&quot;`, `123`, `true`)- **Object format**: Value with metadata (e.g., `{\&quot;value\&quot;: \&quot;text\&quot;, \&quot;metadata\&quot;: {...}}`)## Metadata SupportCustom fields (identified by UUID) and specific field types (`domain`, `email`, `effort`) support optional metadata that allows tracking the external source of field values:- `source.system`: Name of the external system that provided the value- `source.recordId`: Identifier of the record in the external system- `isViewableOnly`: Whether the value is read-only from external sourceMetadata sent for other fields is ignored.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityCreateOrUpdateFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields_1? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityCreateOrUpdateFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields_1 Fields { get; set; }
 #endif
         /// <summary>Metadata associated with an entity, including its source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata_1? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata_1 Metadata { get; set; }
 #endif
         /// <summary>A list of patch operations to perform on a PM entity field.Each operation can be one of `set`, `addItems`, `removeItems`, or `clear`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,8 +64,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityMetadata.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields_1.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata_1.CreateFromDiscriminatorValue); } },
                 { "patch", n => { Patch = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.EntitiesPatchRequestBody_data.Entities>(global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.EntitiesPatchRequestBody_data.Entities.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -76,32 +76,32 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityCreateOrUpdateFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields_1>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata_1>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.EntitiesPatchRequestBody_data.Entities>("patch", Patch);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperation"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperationClear"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperationClear_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperation_1"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Entities : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperation"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperation_1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperation? CMergedOpenapiEntityPatchOperation { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperation_1? MergedOpenapiEntityPatchOperation1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperation CMergedOpenapiEntityPatchOperation { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperation_1 MergedOpenapiEntityPatchOperation1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperationClear"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperationClear_1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperationClear? CMergedOpenapiEntityPatchOperationClear { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperationClear_1? MergedOpenapiEntityPatchOperationClear1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperationClear CMergedOpenapiEntityPatchOperationClear { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperationClear_1 MergedOpenapiEntityPatchOperationClear1 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -113,13 +113,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item.EntitiesPatchRequestBody_data.Entities();
-                if("C_merged_openapi_EntityPatchOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("MergedOpenapiEntityPatchOperation_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.CMergedOpenapiEntityPatchOperation = new global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperation();
+                    result.MergedOpenapiEntityPatchOperation1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperation_1();
                 }
-                else if("C_merged_openapi_EntityPatchOperationClear".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("MergedOpenapiEntityPatchOperationClear_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.CMergedOpenapiEntityPatchOperationClear = new global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperationClear();
+                    result.MergedOpenapiEntityPatchOperationClear1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperationClear_1();
                 }
                 return result;
             }
@@ -129,13 +129,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(CMergedOpenapiEntityPatchOperation != null)
+                if(MergedOpenapiEntityPatchOperation1 != null)
                 {
-                    return CMergedOpenapiEntityPatchOperation.GetFieldDeserializers();
+                    return MergedOpenapiEntityPatchOperation1.GetFieldDeserializers();
                 }
-                else if(CMergedOpenapiEntityPatchOperationClear != null)
+                else if(MergedOpenapiEntityPatchOperationClear1 != null)
                 {
-                    return CMergedOpenapiEntityPatchOperationClear.GetFieldDeserializers();
+                    return MergedOpenapiEntityPatchOperationClear1.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -146,13 +146,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Entities.Item
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(CMergedOpenapiEntityPatchOperation != null)
+                if(MergedOpenapiEntityPatchOperation1 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperation>(null, CMergedOpenapiEntityPatchOperation);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperation_1>(null, MergedOpenapiEntityPatchOperation1);
                 }
-                else if(CMergedOpenapiEntityPatchOperationClear != null)
+                else if(MergedOpenapiEntityPatchOperationClear1 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_EntityPatchOperationClear>(null, CMergedOpenapiEntityPatchOperationClear);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityPatchOperationClear_1>(null, MergedOpenapiEntityPatchOperationClear1);
                 }
             }
         }

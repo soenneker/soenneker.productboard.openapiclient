@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity>? Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity> Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity> Data { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_entities_ListLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitiesListLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_entities_ListLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitiesListLinks Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.EntitiesGetResponse"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity>(global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_entities_ListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_entities_ListLinks.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitiesListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitiesListLinks.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_entities_ListLinks>("links", Links);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitiesListLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

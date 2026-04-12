@@ -26,10 +26,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Entities_ListLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Entities_ListLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesGetResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Entity>(global::Soenneker.ProductBoard.OpenApiClient.Models.Entity.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Entities_ListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Entities_ListLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Entity>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Entities_ListLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

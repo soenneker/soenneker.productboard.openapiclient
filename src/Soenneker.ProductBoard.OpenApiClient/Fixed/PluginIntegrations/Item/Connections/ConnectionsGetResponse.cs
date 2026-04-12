@@ -26,10 +26,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Con
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListLinks Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Connections.ConnectionsGetResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Con
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnection>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnection.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListLinks.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Con
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnection>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Plugin_integrations_ListLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -52,12 +52,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegra
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsRequestBuilder.PluginIntegrationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -70,12 +70,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegra
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -86,13 +86,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegra
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -106,13 +106,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegra
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.C_merged_openapi_plugin_integrations_ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.PluginIntegrations.PluginIntegrationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

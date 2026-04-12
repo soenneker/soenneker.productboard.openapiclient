@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities
         /// <summary># DescriptionA common response object of entity reference.# Validation# Filtering</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_ResourceReference? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceReference? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_ResourceReference Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceReference Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.EntitiesPostResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_ResourceReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_ResourceReference.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceReference.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_ResourceReference>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiResourceReference>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

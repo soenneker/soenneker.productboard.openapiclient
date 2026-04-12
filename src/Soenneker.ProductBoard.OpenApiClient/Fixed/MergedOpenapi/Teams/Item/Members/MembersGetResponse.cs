@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Teams.Item.Me
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamMemberResource>? Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamMemberResource>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamMemberResource> Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamMemberResource> Data { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_teams_ListLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_teams_ListLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Teams.Item.Members.MembersGetResponse"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Teams.Item.Me
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamMemberResource>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamMemberResource.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_teams_ListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_teams_ListLinks.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamMemberResource>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamMemberResource.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Teams.Item.Me
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_TeamMemberResource>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_teams_ListLinks>("links", Links);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamMemberResource>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

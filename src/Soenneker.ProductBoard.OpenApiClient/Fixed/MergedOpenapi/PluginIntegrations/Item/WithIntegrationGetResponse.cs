@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegra
         /// <summary>A plugin integration resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegration? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegration? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegration Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegration Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegrations.Item.WithIntegrationGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegra
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegration>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegration.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegration>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegra
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegration>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegration>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

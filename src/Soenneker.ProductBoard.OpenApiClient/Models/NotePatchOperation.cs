@@ -26,10 +26,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value? Value { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value Value { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,7 +51,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation_op>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -63,64 +63,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation_op>("op", Op);
             writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value>("value", Value);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssign_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NotePatchOperation_value : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssign_Wrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssign_Wrapper? ConversationNotePartsAssignWrapper { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssign_Wrapper ConversationNotePartsAssignWrapper { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue? NoteCreateOrUpdateFieldValue { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue NoteCreateOrUpdateFieldValue { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation.NotePatchOperation_value();
-                result.ConversationNotePartsAssignWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssign_Wrapper();
-                result.NoteCreateOrUpdateFieldValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(ConversationNotePartsAssignWrapper != null || NoteCreateOrUpdateFieldValue != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ConversationNotePartsAssignWrapper, NoteCreateOrUpdateFieldValue);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssign_Wrapper>(null, ConversationNotePartsAssignWrapper, NoteCreateOrUpdateFieldValue);
-            }
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue>("value", Value);
         }
     }
 }

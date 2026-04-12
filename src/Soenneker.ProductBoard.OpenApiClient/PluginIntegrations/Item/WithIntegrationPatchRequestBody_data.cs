@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item
         /// <summary>&quot;Domain attributes for partially updating a plugin integration. All fields areoptional — fields not included preserve their current value.Note: `action.headers.authorization` is write-only and never returned in responses.If `action` is updated while the integration is `enabled`, a new probe is sent.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_plugin_integrations_PluginIntegrationUpdateFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsPluginIntegrationUpdateFields_2? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.C_plugin_integrations_PluginIntegrationUpdateFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsPluginIntegrationUpdateFields_2 Fields { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.WithIntegrationPatchRequestBody_data"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_plugin_integrations_PluginIntegrationUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.C_plugin_integrations_PluginIntegrationUpdateFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsPluginIntegrationUpdateFields_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsPluginIntegrationUpdateFields_2.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.C_plugin_integrations_PluginIntegrationUpdateFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsPluginIntegrationUpdateFields_2>("fields", Fields);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

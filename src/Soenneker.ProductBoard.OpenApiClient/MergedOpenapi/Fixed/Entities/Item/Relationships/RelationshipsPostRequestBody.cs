@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item
         /// <summary>Payload representing a new relationship towards target entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_fixed_EntityRelationshipCreate? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationshipCreate_1? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_fixed_EntityRelationshipCreate Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationshipCreate_1 Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item.Relationships.RelationshipsPostRequestBody"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_fixed_EntityRelationshipCreate>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_fixed_EntityRelationshipCreate.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationshipCreate_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationshipCreate_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_fixed_EntityRelationshipCreate>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationshipCreate_1>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

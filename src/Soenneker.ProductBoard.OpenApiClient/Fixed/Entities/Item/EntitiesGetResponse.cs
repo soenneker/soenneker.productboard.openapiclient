@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
         /// <summary>The entity payload containing the resource data and its relationships.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.EntitiesGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity>(global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Fixed_Entity>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntity>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

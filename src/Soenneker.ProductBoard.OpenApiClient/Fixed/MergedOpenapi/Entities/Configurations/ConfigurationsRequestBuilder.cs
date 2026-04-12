@@ -52,13 +52,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Conf
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Configurations.ConfigurationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Configurations.ConfigurationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -71,13 +71,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Conf
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_entities_ErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Configurations.ConfigurationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Configurations.ConfigurationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -119,11 +119,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.Conf
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityType[]? Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityType[]? Type { get; set; }
 #nullable restore
 #else
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityType[] Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityType[] Type { get; set; }
 #endif
         }
     }

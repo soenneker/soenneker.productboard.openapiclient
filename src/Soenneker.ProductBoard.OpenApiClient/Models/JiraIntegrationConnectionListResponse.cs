@@ -26,10 +26,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ListLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationsListLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ListLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationsListLinks Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionListResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ListLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationsListLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationsListLinks.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Jira_integrations_ListLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationsListLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

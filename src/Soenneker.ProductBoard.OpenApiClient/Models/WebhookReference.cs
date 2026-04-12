@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReference_links? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReference_links Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceLinks Links { get; set; }
 #endif
         /// <summary>Resource type identifier for webhook subscriptions.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType? Type { get; set; }
@@ -53,7 +53,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReference_links>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReference_links.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceLinks.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType>(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReference_links>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceLinks>("links", Links);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

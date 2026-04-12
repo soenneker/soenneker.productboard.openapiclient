@@ -18,29 +18,29 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities
         /// <summary>&quot;A collection of fields that can be used to create or update a PM entity.It is a subset of `EntityFields` that is used for creation or update operations.## Dual Format SupportMost field types support two input formats:- **Simple format**: Direct value (e.g., `\&quot;text\&quot;`, `123`, `true`)- **Object format**: Value with metadata (e.g., `{\&quot;value\&quot;: \&quot;text\&quot;, \&quot;metadata\&quot;: {...}}`)## Metadata SupportCustom fields (identified by UUID) and specific field types (`domain`, `email`, `effort`) support optional metadata that allows tracking the external source of field values:- `source.system`: Name of the external system that provided the value- `source.recordId`: Identifier of the record in the external system- `isViewableOnly`: Whether the value is read-only from external sourceMetadata sent for other fields is ignored.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityCreateOrUpdateFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityCreateOrUpdateFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields Fields { get; set; }
 #endif
         /// <summary>Metadata associated with an entity, including its source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata Metadata { get; set; }
 #endif
         /// <summary>The relationships property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityRelationshipCreate>? Relationships { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationshipCreate>? Relationships { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityRelationshipCreate> Relationships { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationshipCreate> Relationships { get; set; }
 #endif
         /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - userThe exact types available may vary based on the configuration of the workspace.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityType? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities.EntitiesPostRequestBody_data"/> and sets the default values.
         /// </summary>
@@ -66,10 +66,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityMetadata.CreateFromDiscriminatorValue); } },
-                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityRelationshipCreate>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityRelationshipCreate.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityType>(); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationshipCreate>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationshipCreate.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityType>(); } },
             };
         }
         /// <summary>
@@ -79,10 +79,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Entities
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityCreateOrUpdateFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityMetadata>("metadata", Metadata);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityRelationshipCreate>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_EntityType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityCreateOrUpdateFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityMetadata>("metadata", Metadata);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityRelationshipCreate>("relationships", Relationships);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntityType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

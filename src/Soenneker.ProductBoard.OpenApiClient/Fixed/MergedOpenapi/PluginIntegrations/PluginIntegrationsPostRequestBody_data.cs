@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegra
         /// <summary>&quot;Domain attributes for creating a plugin integration.Note: `action.headers.authorization` is write-only and never returned in responses.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegrationCreateFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationCreateFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegrationCreateFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationCreateFields Fields { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegrations.PluginIntegrationsPostRequestBody_data"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegra
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegrationCreateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegrationCreateFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationCreateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationCreateFields.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.PluginIntegra
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_PluginIntegrationCreateFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiPluginIntegrationCreateFields>("fields", Fields);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

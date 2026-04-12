@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Members_ResourceLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersResourceLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Members_ResourceLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersResourceLinks Links { get; set; }
 #endif
         /// <summary>Name of the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,7 +59,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Members_ResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Members_ResourceLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersResourceLinks.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Members_ResourceLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersResourceLinks>("links", Links);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

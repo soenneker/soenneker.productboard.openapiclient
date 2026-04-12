@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ResourceLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesResourceLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ResourceLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesResourceLinks Links { get; set; }
 #endif
         /// <summary>- Initially comes from PMM, where this value is called &quot;model&quot;.- We are exposing it under more understandable &quot;type&quot;.- Plural form is kept for consistency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,7 +59,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ResourceLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesResourceLinks.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Notes_ResourceLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesResourceLinks>("links", Links);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

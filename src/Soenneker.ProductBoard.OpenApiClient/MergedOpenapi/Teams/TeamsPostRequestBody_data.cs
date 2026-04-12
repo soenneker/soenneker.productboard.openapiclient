@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Teams
         /// <summary>Fields for creating or updating a team.For creation, `name` and `handle` are required.For updates, the `fields` object is required but all individual field properties within it are optional.**Note:** `avatarUrl` is read-only and cannot be set via API. Avatar management is only available through the UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_TeamCreateOrUpdateFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiTeamCreateOrUpdateFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_TeamCreateOrUpdateFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiTeamCreateOrUpdateFields Fields { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Teams.TeamsPostRequestBody_data"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Teams
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_TeamCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_TeamCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiTeamCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiTeamCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Teams
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Merged_openapi_merged_openapi_TeamCreateOrUpdateFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiTeamCreateOrUpdateFields>("fields", Fields);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

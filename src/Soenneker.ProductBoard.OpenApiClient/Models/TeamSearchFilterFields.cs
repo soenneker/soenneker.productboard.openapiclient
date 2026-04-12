@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by team handle. Single string or array (OR logic), case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? Handle { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle? Handle { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch Handle { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle Handle { get; set; }
 #endif
         /// <summary>Filter by team name. Single string or array (OR logic), case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName Name { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFields"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "handle", n => { Handle = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "handle", n => { Handle = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>("handle", Handle);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>("name", Name);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle>("handle", Handle);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName>("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

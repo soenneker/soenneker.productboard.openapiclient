@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Links for navigating team resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamLinks_1? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamLinks_1? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamLinks_1 Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamLinks_1 Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsTeamReference_1_type? Type { get; set; }
@@ -53,7 +53,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamLinks_1.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamLinks_1.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsTeamReference_1_type>(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamLinks_1>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamLinks_1>("links", Links);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsTeamReference_1_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

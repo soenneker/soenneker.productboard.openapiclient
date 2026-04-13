@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <summary>The state of a plugin integration connection. Determined by the `state` property.| State | Meaning | Push button appearance ||---|---|---|| `connected` | Entity linked to third-party entity | Shows `label`; click opens `targetUrl` || `error` | Connection attempt failed | Shows error icon with `message` || `progress` | Establishing asynchronously | Shows loading indicator || `initial` | No connection (default) | Shows integration&apos;s `initialState.label` |</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_2? Connection { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_4? Connection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_2 Connection { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_4 Connection { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutRequestBody_data_fields"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_2.CreateFromDiscriminatorValue); } },
+                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_4>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_4.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_2>("connection", Connection);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionState_4>("connection", Connection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

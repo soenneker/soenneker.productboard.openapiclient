@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput_1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MergedOpenapiMergedOpenapiRelationshipRequest1Data : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput_1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput_1? MergedOpenapiMergedOpenapiCustomerRelationshipInput1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput1? MergedOpenapiMergedOpenapiCustomerRelationshipInput1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput_1 MergedOpenapiMergedOpenapiCustomerRelationshipInput1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput1 MergedOpenapiMergedOpenapiCustomerRelationshipInput1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput_1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput_1? MergedOpenapiMergedOpenapiLinkRelationshipInput1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput1? MergedOpenapiMergedOpenapiLinkRelationshipInput1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput_1 MergedOpenapiMergedOpenapiLinkRelationshipInput1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput1 MergedOpenapiMergedOpenapiLinkRelationshipInput1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipRequest1Data();
-            if("MergedOpenapiMergedOpenapiCustomerRelationshipInput_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("MergedOpenapiMergedOpenapiCustomerRelationshipInput1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MergedOpenapiMergedOpenapiCustomerRelationshipInput1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput_1();
+                result.MergedOpenapiMergedOpenapiCustomerRelationshipInput1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput1();
             }
-            else if("MergedOpenapiMergedOpenapiLinkRelationshipInput_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("MergedOpenapiMergedOpenapiLinkRelationshipInput1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MergedOpenapiMergedOpenapiLinkRelationshipInput1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput_1();
+                result.MergedOpenapiMergedOpenapiLinkRelationshipInput1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput1();
             }
             return result;
         }
@@ -74,11 +74,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(MergedOpenapiMergedOpenapiCustomerRelationshipInput1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput_1>(null, MergedOpenapiMergedOpenapiCustomerRelationshipInput1);
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiCustomerRelationshipInput1>(null, MergedOpenapiMergedOpenapiCustomerRelationshipInput1);
             }
             else if(MergedOpenapiMergedOpenapiLinkRelationshipInput1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput_1>(null, MergedOpenapiMergedOpenapiLinkRelationshipInput1);
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiLinkRelationshipInput1>(null, MergedOpenapiMergedOpenapiLinkRelationshipInput1);
             }
         }
     }

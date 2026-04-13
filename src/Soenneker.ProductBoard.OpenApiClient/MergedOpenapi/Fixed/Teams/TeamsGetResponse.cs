@@ -26,10 +26,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Teams
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks_1? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_1? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks_1 Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_1 Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Teams.TeamsGetResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Teams
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeam_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeam_1.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks_1.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Teams
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeam_1>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsListLinks_1>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_1>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

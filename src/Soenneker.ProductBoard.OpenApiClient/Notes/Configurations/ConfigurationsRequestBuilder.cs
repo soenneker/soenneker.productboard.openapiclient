@@ -49,37 +49,37 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
         /// <summary>
         /// Returns configuration metadata for note types, including supported fields, patch operations, and validation rules.Use this endpoint to programmatically discover which fields are available, what note types are supported,and how your workspace is configured.### Filtering by TypeBy default, this endpoint returns configurations for all available note types (`textNote`, `conversationNote`, `opportunityNote`).You can filter results to specific types using the optional `type[]` query parameter:- `type[]=textNote`- `type[]=textNote&amp;type[]=conversationNote`For backward compatibility, the API also accepts a single `type` query parameter with one value,for example `type=textNote`.Legacy aliases (`simple`, `conversation`, `opportunity`) are also accepted and normalized to the canonical values above.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteConfigurations200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteConfigurations200?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteConfigurations200> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_3.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse_5.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteConfigurations200>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteConfigurations200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns configuration metadata for note types, including supported fields, patch operations, and validation rules.Use this endpoint to programmatically discover which fields are available, what note types are supported,and how your workspace is configured.### Filtering by TypeBy default, this endpoint returns configurations for all available note types (`textNote`, `conversationNote`, `opportunityNote`).You can filter results to specific types using the optional `type[]` query parameter:- `type[]=textNote`- `type[]=textNote&amp;type[]=conversationNote`For backward compatibility, the API also accepts a single `type` query parameter with one value,for example `type=textNote`.Legacy aliases (`simple`, `conversation`, `opportunity`) are also accepted and normalized to the canonical values above.
@@ -119,15 +119,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteTypeInput_2[]? Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteTypeInput_4[]? Type { get; set; }
 #nullable restore
 #else
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteTypeInput_2[] Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteTypeInput_4[] Type { get; set; }
 #endif
             /// <summary>&quot;Optional single note type filter for backward compatibility.Valid values: textNote, conversationNote, opportunityNote.Legacy aliases simple, conversation, opportunity are also accepted.Example: type=textNoteNote: Use `type[]` to filter by multiple note types.&quot;</summary>
             [QueryParameter("type")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteTypeInput_2? Type0 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteTypeInput_4? Type0 { get; set; }
         }
     }
 }

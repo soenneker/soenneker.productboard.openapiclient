@@ -44,14 +44,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -64,14 +64,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
             };
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -81,13 +81,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item.NotesGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item.NotesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item.NotesItemRequestBuilder.NotesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -100,54 +100,54 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item.NotesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item.NotesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Updates the values of one or more fields for an existing note.You can update fields using either:- **Field Updates**: Replace entire field values using the `fields` object- **Patch Operations**: Perform granular updates using the `patch` array with operations (`set`, `clear`, `addItems`, `removeItems`)Use this endpoint to update note metadata such as name, owner, tags, or content.Use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint to discover available fields and possible patch operations.### Patch OperationsThe following patch operations are supported:| Operation | Description | Supported Fields ||-----------|-------------|------------------|| `set` | Set a field to a specific value | All fields || `clear` | Clear/reset a field to its default value | `owner`, `tags` || `addItems` | Add items to array fields | `tags`, `content` (conversationNote) || `removeItems` | Remove items from array fields | `tags`, `content` (conversationNote) |**Field-specific patch operation support:**- **owner**: `set`, `clear`- **tags**: `set`, `clear`, `addItems`, `removeItems`- **archived**: `set`- **processed**: `set`- **name**: `set`- **content** (textNote): `set`- **content** (conversationNote): `set`, `addItems`, `removeItems`### Known Limitations**Content updates for notes with linked features**: Notes that have content linked to features (via highlights/snippets) cannot have their `content` field updated. Attempting to update the content will return a `422 Unprocessable Entity` error with code `validation.forbidden`. You can still update other fields such as `name`, `owner`, `tags`, `archived`, and `processed` on these notes.**Archive and Processed Field Behavior**: When you set `archived` to `false`, the note will be set to processed automatically by the system. This is a known limitation where unarchiving a note triggers processing regardless of the previous processed state. The `processed` field will reflect the actual processing status after the unarchive operation.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently deletes a note from your workspace. This action is irreversible and should be used with caution.Once deleted, the note and all of its content, metadata, and relationshipswill be removed and cannot be recovered.&gt; To perform a soft-delete (archiving), use an update call instead to set the `archived` flag.
@@ -195,11 +195,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Notes.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiMergedOpenapiNotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

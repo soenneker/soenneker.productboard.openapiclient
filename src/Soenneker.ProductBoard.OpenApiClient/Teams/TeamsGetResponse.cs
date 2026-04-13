@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_2>? Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_4>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_2> Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_4> Data { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_3? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_5? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_3 Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_5 Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsGetResponse"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_2.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_3>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_3.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_4>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_4.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_5>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_5.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_2>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_3>("links", Links);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeam_4>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsListLinks_5>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -20,20 +20,20 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Email? Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Email Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email Email { get; set; }
 #endif
         /// <summary>Whether the member has a pending invitation that has not yet been accepted.</summary>
         public bool? InvitationPending { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Name? Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Name Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name Name { get; set; }
 #endif
         /// <summary>Role of the member in the workspace.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1_role? Role { get; set; }
@@ -48,10 +48,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Username? Username { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username? Username { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Username Username { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username Username { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1"/> and sets the default values.
@@ -79,12 +79,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Email>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Email.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email.CreateFromDiscriminatorValue); } },
                 { "invitationPending", n => { InvitationPending = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Name>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Name.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1_role>(); } },
                 { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersTeamReference_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersTeamReference_1.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "username", n => { Username = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Username>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Username.CreateFromDiscriminatorValue); } },
+                { "username", n => { Username = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -95,13 +95,184 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("disabled", Disabled);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Email>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email>("email", Email);
             writer.WriteBoolValue("invitationPending", InvitationPending);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Name>("name", Name);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name>("name", Name);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1_role>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersTeamReference_1>("teams", Teams);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields1Username>("username", Username);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username>("username", Username);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MembersMemberFields_1_email : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper? MembersObfuscatedValue1Wrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper MembersObfuscatedValue1Wrapper { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? UnionBranchWrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper UnionBranchWrapper { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_email();
+                result.MembersObfuscatedValue1Wrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper();
+                result.UnionBranchWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(MembersObfuscatedValue1Wrapper != null || UnionBranchWrapper != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MembersObfuscatedValue1Wrapper, UnionBranchWrapper);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper>(null, MembersObfuscatedValue1Wrapper, UnionBranchWrapper);
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MembersMemberFields_1_name : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper? MembersObfuscatedValue1Wrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper MembersObfuscatedValue1Wrapper { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? UnionBranchWrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper UnionBranchWrapper { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_name();
+                result.MembersObfuscatedValue1Wrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper();
+                result.UnionBranchWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(MembersObfuscatedValue1Wrapper != null || UnionBranchWrapper != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MembersObfuscatedValue1Wrapper, UnionBranchWrapper);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper>(null, MembersObfuscatedValue1Wrapper, UnionBranchWrapper);
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MembersMemberFields_1_username : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper? MembersObfuscatedValue1Wrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper MembersObfuscatedValue1Wrapper { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper? UnionBranchWrapper { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper UnionBranchWrapper { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MembersMemberFields_1.MembersMemberFields_1_username();
+                result.MembersObfuscatedValue1Wrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper();
+                result.UnionBranchWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch_Wrapper();
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(MembersObfuscatedValue1Wrapper != null || UnionBranchWrapper != null)
+                {
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MembersObfuscatedValue1Wrapper, UnionBranchWrapper);
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1_Wrapper>(null, MembersObfuscatedValue1Wrapper, UnionBranchWrapper);
+            }
         }
     }
 }

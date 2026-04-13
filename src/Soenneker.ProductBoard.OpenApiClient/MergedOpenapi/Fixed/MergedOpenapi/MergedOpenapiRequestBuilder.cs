@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Analytics;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Entities;
+using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.JiraIntegrations;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Members;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Notes;
@@ -31,6 +32,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Entities.EntitiesRequestBuilder Entities
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Entities.EntitiesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The fixed property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.FixedRequestBuilder Fixed
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.FixedRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The jiraIntegrations property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.JiraIntegrations.JiraIntegrationsRequestBuilder JiraIntegrations

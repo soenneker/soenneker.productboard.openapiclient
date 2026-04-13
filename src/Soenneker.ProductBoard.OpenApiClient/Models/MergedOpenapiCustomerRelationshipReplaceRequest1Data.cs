@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget_1? Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget1? Target { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget_1 Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget1 Target { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerRelationshipReplaceRequest1Data"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget_1.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget_1>("target", Target);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCustomerTarget1>("target", Target);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

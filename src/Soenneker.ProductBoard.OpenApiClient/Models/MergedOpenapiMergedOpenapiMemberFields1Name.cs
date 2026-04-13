@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MergedOpenapiMergedOpenapiMemberFields1Name : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper_1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper_1? MergedOpenapiMergedOpenapiObfuscatedValueWrapper1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1? MergedOpenapiMergedOpenapiObfuscatedValueWrapper1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper_1 MergedOpenapiMergedOpenapiObfuscatedValueWrapper1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1 MergedOpenapiMergedOpenapiObfuscatedValueWrapper1 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +38,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberFields1Name();
-            result.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper_1();
+            result.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1();
             result.MergedOpenapiUnionBranchWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper();
             return result;
         }
@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper_1>(null, MergedOpenapiMergedOpenapiObfuscatedValueWrapper1, MergedOpenapiUnionBranchWrapper);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiObfuscatedValueWrapper1>(null, MergedOpenapiMergedOpenapiObfuscatedValueWrapper1, MergedOpenapiUnionBranchWrapper);
         }
     }
 }

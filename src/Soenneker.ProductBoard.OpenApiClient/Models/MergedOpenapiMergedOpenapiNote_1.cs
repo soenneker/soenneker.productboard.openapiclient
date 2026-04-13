@@ -26,10 +26,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Metadata associated with a resource, including its external source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNotesEntityMetadata_1? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNotesEntityMetadata_1? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNotesEntityMetadata_1 Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNotesEntityMetadata_1 Metadata { get; set; }
 #endif
         /// <summary>A collection of relationships connected to the note.This includes:- Customer relationship (either a User or Company entity)- Product link relationships (e.g. linked features)The list is paginated, to see the rest of the relationships follow the URL contained in the `links.next` attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNote_1_fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNote_1_fields.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNotesEntityMetadata_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNotesEntityMetadata_1.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNotesEntityMetadata_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNotesEntityMetadata_1.CreateFromDiscriminatorValue); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteRelationships_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteRelationships_1.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNote_1_fields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNotesEntityMetadata_1>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNotesEntityMetadata_1>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteRelationships_1>("relationships", Relationships);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
         }

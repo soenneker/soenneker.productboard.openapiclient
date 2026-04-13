@@ -18,18 +18,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by customer (user or company). Single object or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Customer? Customer { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer? Customer { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Customer Customer { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer Customer { get; set; }
 #endif
         /// <summary>Filter by linked feature. Single object or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Link? Link { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link? Link { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Link Link { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link Link { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "customer", n => { Customer = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Customer>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Customer.CreateFromDiscriminatorValue); } },
-                { "link", n => { Link = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Link>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Link.CreateFromDiscriminatorValue); } },
+                { "customer", n => { Customer = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer.CreateFromDiscriminatorValue); } },
+                { "link", n => { Link = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,9 +67,159 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Customer>("customer", Customer);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships1Link>("link", Link);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer>("customer", Customer);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link>("link", Link);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1? MergedOpenapiMergedOpenapiRelationshipFilterValue1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1 MergedOpenapiMergedOpenapiRelationshipFilterValue1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1? UnionBranchWrapper1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1 UnionBranchWrapper1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_customer();
+                if("MergedOpenapiMergedOpenapiRelationshipFilterValue_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.MergedOpenapiMergedOpenapiRelationshipFilterValue1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1();
+                }
+                else if("UnionBranchWrapper_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.UnionBranchWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(MergedOpenapiMergedOpenapiRelationshipFilterValue1 != null)
+                {
+                    return MergedOpenapiMergedOpenapiRelationshipFilterValue1.GetFieldDeserializers();
+                }
+                else if(UnionBranchWrapper1 != null)
+                {
+                    return UnionBranchWrapper1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(MergedOpenapiMergedOpenapiRelationshipFilterValue1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1>(null, MergedOpenapiMergedOpenapiRelationshipFilterValue1);
+                }
+                else if(UnionBranchWrapper1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1>(null, UnionBranchWrapper1);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1? MergedOpenapiMergedOpenapiRelationshipFilterValue1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1 MergedOpenapiMergedOpenapiRelationshipFilterValue1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1? UnionBranchWrapper1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1 UnionBranchWrapper1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1.MergedOpenapiMergedOpenapiNoteSearchFilterRelationships_1_link();
+                if("MergedOpenapiMergedOpenapiRelationshipFilterValue_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.MergedOpenapiMergedOpenapiRelationshipFilterValue1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1();
+                }
+                else if("UnionBranchWrapper_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.UnionBranchWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(MergedOpenapiMergedOpenapiRelationshipFilterValue1 != null)
+                {
+                    return MergedOpenapiMergedOpenapiRelationshipFilterValue1.GetFieldDeserializers();
+                }
+                else if(UnionBranchWrapper1 != null)
+                {
+                    return UnionBranchWrapper1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(MergedOpenapiMergedOpenapiRelationshipFilterValue1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiRelationshipFilterValue_1>(null, MergedOpenapiMergedOpenapiRelationshipFilterValue1);
+                }
+                else if(UnionBranchWrapper1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1>(null, UnionBranchWrapper1);
+                }
+            }
         }
     }
 }

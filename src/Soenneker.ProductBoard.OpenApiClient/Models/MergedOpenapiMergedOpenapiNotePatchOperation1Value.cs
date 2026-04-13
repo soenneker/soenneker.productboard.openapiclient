@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue_1"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MergedOpenapiMergedOpenapiNotePatchOperation1Value : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper_1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper_1? MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1? MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper_1 MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1 MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue_1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue_1? MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1? MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue_1 MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1 MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +38,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNotePatchOperation1Value();
-            result.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper_1();
-            result.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue_1();
+            result.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1();
+            result.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1();
             return result;
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper_1>(null, MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1, MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1>(null, MergedOpenapiMergedOpenapiConversationNotePartsAssignWrapper1, MergedOpenapiMergedOpenapiNoteCreateOrUpdateFieldValue1);
         }
     }
 }

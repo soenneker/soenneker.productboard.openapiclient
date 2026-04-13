@@ -34,14 +34,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUserReference Creators { get; set; }
 #endif
-        /// <summary>(Legacy) Fields to include in the response.</summary>
-        [Obsolete("")]
+        /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataFields? Fields { get; set; }
+        public string? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataFields Fields { get; set; }
+        public string Fields { get; set; }
 #endif
         /// <summary>Structured filter object for note search. Filters are grouped by category.Different filter groups use AND logic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -60,14 +59,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public List<Guid?> Ids { get; set; }
 #endif
-        /// <summary>Filter by metadata properties</summary>
-        [Obsolete("")]
+        /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataMetadata? Metadata { get; set; }
+        public string? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataMetadata Metadata { get; set; }
+        public string Metadata { get; set; }
 #endif
         /// <summary>Reference to a user by ID or email</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,13 +95,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchReturn Return { get; set; }
 #endif
         /// <summary>The source property</summary>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataSource? Source { get; set; }
+        public string? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataSource Source { get; set; }
+        public string Source { get; set; }
 #endif
         /// <summary>Date/time range filter</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,15 +138,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "archived", n => { Archived = n.GetBoolValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiDateTimeRange>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiDateTimeRange.CreateFromDiscriminatorValue); } },
                 { "creators", n => { Creators = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUserReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUserReference.CreateFromDiscriminatorValue); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetStringValue(); } },
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchFilter>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchFilter.CreateFromDiscriminatorValue); } },
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetStringValue(); } },
                 { "owners", n => { Owners = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUserReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUserReference.CreateFromDiscriminatorValue); } },
                 { "processed", n => { Processed = n.GetBoolValue(); } },
                 { "relationships", n => { Relationships = n.GetStringValue(); } },
                 { "return", n => { Return = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchReturn>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchReturn.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataSource>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataSource.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiDateTimeRange>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiDateTimeRange.CreateFromDiscriminatorValue); } },
             };
         }
@@ -163,15 +160,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteBoolValue("archived", Archived);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiDateTimeRange>("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUserReference>("creators", Creators);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataFields>("fields", Fields);
+            writer.WriteStringValue("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchFilter>("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataMetadata>("metadata", Metadata);
+            writer.WriteStringValue("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUserReference>("owners", Owners);
             writer.WriteBoolValue("processed", Processed);
             writer.WriteStringValue("relationships", Relationships);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchReturn>("return", Return);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiNoteSearchDataSource>("source", Source);
+            writer.WriteStringValue("source", Source);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiDateTimeRange>("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_2? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_1? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_2 Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_1 Links { get; set; }
 #endif
         /// <summary>Name of the team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,7 +59,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_2.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_1.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_2>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersResourceLinks_1>("links", Links);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

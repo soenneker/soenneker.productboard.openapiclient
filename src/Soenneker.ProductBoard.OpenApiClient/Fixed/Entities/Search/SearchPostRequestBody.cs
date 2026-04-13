@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Search
         /// <summary>&quot;Request body for searching entities. Supports two formats:**New format** (recommended): Uses a structured `filter` object with nested field groups.**Legacy format** (deprecated): Uses flat properties directly under `data`.Both formats are accepted. The legacy format will continue to work but is deprecatedin favour of the new structured format. Format is detected by the presence of the `filter` key.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch_1? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch_1 Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Search.SearchPostRequestBody"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Search
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Search
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntitySearch_1>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -14,14 +14,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>The value `[redacted]`. Used to hide personally identifiable information in cases the request doesn&apos;t have the required `members:pii:read` OAuth2 scope.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1? Value { get; set; }
         /// <summary>
@@ -49,7 +41,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1>(); } },
             };
         }
@@ -60,7 +51,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersObfuscatedValue_1>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

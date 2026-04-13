@@ -11,7 +11,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// Full team resource with all fields and metadata.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class MergedOpenapiMergedOpenapiTeam_1 : global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamsTeamReference_1, IParsable
+    public partial class MergedOpenapiMergedOpenapiTeam_1 : global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsTeamReference_1, IParsable
     {
         /// <summary>ISO 8601 timestamp when the team was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }

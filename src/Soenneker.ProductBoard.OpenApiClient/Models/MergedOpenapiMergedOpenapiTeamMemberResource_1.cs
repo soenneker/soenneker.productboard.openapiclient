@@ -28,10 +28,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamsResourceLinks_1? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsResourceLinks_1? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamsResourceLinks_1 Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsResourceLinks_1 Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamMemberResource_1_type? Type { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamMemberResource1Fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamMemberResource1Fields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamsResourceLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamsResourceLinks_1.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsResourceLinks_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsResourceLinks_1.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamMemberResource_1_type>(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamMemberResource1Fields>("fields", Fields);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamsResourceLinks_1>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamsResourceLinks_1>("links", Links);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiTeamMemberResource_1_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

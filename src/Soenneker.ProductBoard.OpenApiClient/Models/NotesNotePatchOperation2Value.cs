@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign_2_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue_2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign2Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NotesNotePatchOperation2Value : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign_2_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign2Wrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign_2_Wrapper? NotesConversationNotePartsAssign2Wrapper { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign2Wrapper? NotesConversationNotePartsAssign2Wrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign_2_Wrapper NotesConversationNotePartsAssign2Wrapper { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign2Wrapper NotesConversationNotePartsAssign2Wrapper { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue_2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue_2? NotesNoteCreateOrUpdateFieldValue2 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue2? NotesNoteCreateOrUpdateFieldValue2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue_2 NotesNoteCreateOrUpdateFieldValue2 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue2 NotesNoteCreateOrUpdateFieldValue2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,8 +38,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNotePatchOperation2Value();
-            result.NotesConversationNotePartsAssign2Wrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign_2_Wrapper();
-            result.NotesNoteCreateOrUpdateFieldValue2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue_2();
+            result.NotesConversationNotePartsAssign2Wrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign2Wrapper();
+            result.NotesNoteCreateOrUpdateFieldValue2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NotesNoteCreateOrUpdateFieldValue2();
             return result;
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign_2_Wrapper>(null, NotesConversationNotePartsAssign2Wrapper, NotesNoteCreateOrUpdateFieldValue2);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConversationNotePartsAssign2Wrapper>(null, NotesConversationNotePartsAssign2Wrapper, NotesNoteCreateOrUpdateFieldValue2);
         }
     }
 }

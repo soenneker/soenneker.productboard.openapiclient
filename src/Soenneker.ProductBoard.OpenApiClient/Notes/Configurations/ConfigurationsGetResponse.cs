@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_5>? Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_5> Data { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6> Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.ConfigurationsGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_5>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_5.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_5>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -36,39 +36,39 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <summary>
         /// Performs a filtered search over notes using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/notes`, but allows more complex filtering through relationships.&gt; Filtering by `owners.email` or `creators.email` requires the `members:pii:read` scope.### Filter Logic- Multiple values within a relationship filter use **OR** logic (e.g., customer with id1 OR id2)- Different filter types use **AND** logic (e.g., customer AND link filters)### RelationshipsFilter notes by their relationships to customers (users or companies) and links (features):- `customer.ids` - Filter by customer or company UUIDs (OR logic within)- `link.ids` - Filter by linked feature UUIDs (OR logic within)
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesPerformNotesSearch200_1"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesPerformNotesSearch200"/></returns>
         /// <param name="body">&quot;Request body for searching notes with filters. Supports two formats:**New format** (recommended): Uses a structured `filter` object with nested field groups.**Legacy format** (deprecated): Uses flat properties directly under `data`.Both formats are accepted. The legacy format will continue to work but is deprecatedin favor of the new structured format. Format is detected by the presence of the `filter` key.&quot;</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesPerformNotesSearch200_1?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteSearchRequest_1 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesPerformNotesSearch200?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesPerformNotesSearch200_1> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteSearchRequest_1 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesPerformNotesSearch200> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesErrorResponse_1.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesPerformNotesSearch200_1>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesPerformNotesSearch200_1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesPerformNotesSearch200>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNotesPerformNotesSearch200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Performs a filtered search over notes using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/notes`, but allows more complex filtering through relationships.&gt; Filtering by `owners.email` or `creators.email` requires the `members:pii:read` scope.### Filter Logic- Multiple values within a relationship filter use **OR** logic (e.g., customer with id1 OR id2)- Different filter types use **AND** logic (e.g., customer AND link filters)### RelationshipsFilter notes by their relationships to customers (users or companies) and links (features):- `customer.ids` - Filter by customer or company UUIDs (OR logic within)- `link.ids` - Filter by linked feature UUIDs (OR logic within)
@@ -78,11 +78,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteSearchRequest_1 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteSearchRequest_1 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiNoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

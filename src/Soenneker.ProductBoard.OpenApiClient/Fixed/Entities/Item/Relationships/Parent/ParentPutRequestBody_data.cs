@@ -19,13 +19,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.Relationships
         /// <summary>Entity reference assignment using unique identifier for Entities.## Behavior- Simple ID-only assignment for referencing other entities- Used for establishing relationships between entities (parent, child, link)- UUID must match an existing entity in the workspace- Commonly used in relationship creation and updates</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_1? Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_2? Target { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_1 Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_2 Target { get; set; }
 #endif
         /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - userThe exact types available may vary based on the configuration of the workspace.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityType_1? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityType_2? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.Relationships.Parent.ParentPutRequestBody_data"/> and sets the default values.
         /// </summary>
@@ -51,8 +51,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.Relationships
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_1.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityType_1>(); } },
+                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_2.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityType_2>(); } },
             };
         }
         /// <summary>
@@ -62,8 +62,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.Entities.Item.Relationships
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_1>("target", Target);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityType_1>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedResourceReferenceAssign_2>("target", Target);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedEntityType_2>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

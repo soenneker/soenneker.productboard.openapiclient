@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Domain attributes for creating a webhook subscription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields_1? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields1? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields_1 Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields1 Fields { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookCreateRequestBody1Data"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields_1.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields1>(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields_1>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiWebhookSubscriptionFields1>("fields", Fields);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

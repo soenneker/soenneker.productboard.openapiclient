@@ -25,21 +25,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Metadata associated with a resource, including its external source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata_1? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata1? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata_1 Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata1 Metadata { get; set; }
 #endif
         /// <summary>Optional relationships to create with the note.Used for atomically linking notes to customers (users or companies) and product links (like features).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship_1>? Relationships { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship1>? Relationships { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship_1> Relationships { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship1> Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteTypeInput_1? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteTypeInput1? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesCreateNote1Data"/> and sets the default values.
         /// </summary>
@@ -66,9 +66,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesCreateNote1Data_fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesCreateNote1Data_fields.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata_1.CreateFromDiscriminatorValue); } },
-                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship_1.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteTypeInput_1>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata1>(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata1.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship1>(global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteTypeInput1>(); } },
             };
         }
         /// <summary>
@@ -79,9 +79,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesCreateNote1Data_fields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata_1>("metadata", Metadata);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship_1>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteTypeInput_1>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesEntityMetadata1>("metadata", Metadata);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteCreateRelationship1>("relationships", Relationships);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNoteTypeInput1>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -34,55 +34,55 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Search
         {
         }
         /// <summary>
-        /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatSupports two formats. Format is auto-detected by the presence of `filter` or `search` keys.**New format** (recommended): Uses structured `filter` and `search` objects.**Legacy format** (deprecated): Uses flat arrays directly under `data`.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;
+        /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatUses structured `filter` and `search` objects.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse"/></returns>
         /// <param name="body">Request body for searching teams with filters.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_4 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_5 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_4 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_5 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_5.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse_6.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatSupports two formats. Format is auto-detected by the presence of `filter` or `search` keys.**New format** (recommended): Uses structured `filter` and `search` objects.**Legacy format** (deprecated): Uses flat arrays directly under `data`.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;
+        /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatUses structured `filter` and `search` objects.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request body for searching teams with filters.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_4 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_5 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_4 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamSearchRequest_5 body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -102,7 +102,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Search
             return new global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatSupports two formats. Format is auto-detected by the presence of `filter` or `search` keys.**New format** (recommended): Uses structured `filter` and `search` objects.**Legacy format** (deprecated): Uses flat arrays directly under `data`.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;
+        /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatUses structured `filter` and `search` objects.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderPostQueryParameters 

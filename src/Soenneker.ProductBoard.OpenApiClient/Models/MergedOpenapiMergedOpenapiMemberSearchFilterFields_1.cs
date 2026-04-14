@@ -18,20 +18,20 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by email address. Single string or array (OR logic), case-insensitive.Requires `members_pii:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1? Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsEmail_1? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1 Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsEmail_1 Email { get; set; }
 #endif
         /// <summary>Exclusive filter for members with pending invitations. When `true`, returns **only** pending members.When absent, pending members are excluded by default.Use `return.includeInvitationPending` instead if you want pending members alongside accepted ones.</summary>
         public bool? InvitationPending { get; set; }
         /// <summary>Filter by role. Single string or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1? Role { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsRole_1? Role { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1 Role { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsRole_1 Role { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,9 +52,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsEmail_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsEmail_1.CreateFromDiscriminatorValue); } },
                 { "invitationPending", n => { InvitationPending = n.GetBoolValue(); } },
-                { "role", n => { Role = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsRole_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsRole_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("disabled", Disabled);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsEmail_1>("email", Email);
             writer.WriteBoolValue("invitationPending", InvitationPending);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMemberSearchFilterFieldsRole_1>("role", Role);
         }
     }
 }

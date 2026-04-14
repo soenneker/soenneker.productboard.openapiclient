@@ -71,26 +71,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CMergedOpenapiTeamMemberResource1Fields_email : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1? CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1? CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1 CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1 CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1? MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1? MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1 MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1 MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -101,8 +101,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamMemberResource1Fields.CMergedOpenapiTeamMemberResource1Fields_email();
-                result.CMergedOpenapiTeamsObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1();
-                result.MergedOpenapiMergedOpenapiUnionBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1();
+                result.CMergedOpenapiTeamsObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1();
+                result.MergedOpenapiMergedOpenapiUnionBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1();
                 return result;
             }
             /// <summary>
@@ -124,30 +124,30 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1>(null, CMergedOpenapiTeamsObfuscatedValueWrapper1, MergedOpenapiMergedOpenapiUnionBranch1);
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1>(null, CMergedOpenapiTeamsObfuscatedValueWrapper1, MergedOpenapiMergedOpenapiUnionBranch1);
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CMergedOpenapiTeamMemberResource1Fields_name : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1? CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1? CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1 CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1 CMergedOpenapiTeamsObfuscatedValueWrapper1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1? MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1? MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1 MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1 MergedOpenapiMergedOpenapiUnionBranch1 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -158,8 +158,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamMemberResource1Fields.CMergedOpenapiTeamMemberResource1Fields_name();
-                result.CMergedOpenapiTeamsObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1();
-                result.MergedOpenapiMergedOpenapiUnionBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch_1();
+                result.CMergedOpenapiTeamsObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1();
+                result.MergedOpenapiMergedOpenapiUnionBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiUnionBranch1();
                 return result;
             }
             /// <summary>
@@ -181,7 +181,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper_1>(null, CMergedOpenapiTeamsObfuscatedValueWrapper1, MergedOpenapiMergedOpenapiUnionBranch1);
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiTeamsObfuscatedValueWrapper1>(null, CMergedOpenapiTeamsObfuscatedValueWrapper1, MergedOpenapiMergedOpenapiUnionBranch1);
             }
         }
     }

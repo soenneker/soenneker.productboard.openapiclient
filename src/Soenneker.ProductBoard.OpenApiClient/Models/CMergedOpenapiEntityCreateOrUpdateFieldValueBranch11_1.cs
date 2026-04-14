@@ -14,8 +14,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Numeric values for quantitative data in Entities.## Behavior- Accepts both integers and floating-point numbers- Supports positive, negative, and zero values- No inherent minimum or maximum constraints (field-specific limits may apply)- Used for effort estimation, scores, ratings, budgets, and metrics</summary>
-        public double? Value { get; set; }
+        /// <summary>True/false flag for binary state tracking in Entities.## Behavior- Accepts only `true` or `false` boolean values- Used for binary states like archived status, feature toggles, completion flags- Displayed as checkboxes or toggle switches in UI</summary>
+        public bool? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiEntityCreateOrUpdateFieldValueBranch11_1"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetDoubleValue(); } },
+                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("value", Value);
+            writer.WriteBoolValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

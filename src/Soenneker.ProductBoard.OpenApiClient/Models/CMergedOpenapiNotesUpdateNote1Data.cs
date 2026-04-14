@@ -71,26 +71,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear1"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Notes : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation_1? CMergedOpenapiNotePatchOperation1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation1? CMergedOpenapiNotePatchOperation1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation_1 CMergedOpenapiNotePatchOperation1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation1 CMergedOpenapiNotePatchOperation1 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear_1? CMergedOpenapiNotePatchOperationClear1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear1? CMergedOpenapiNotePatchOperationClear1 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear_1 CMergedOpenapiNotePatchOperationClear1 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear1 CMergedOpenapiNotePatchOperationClear1 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -102,13 +102,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotesUpdateNote1Data.Notes();
-                if("CMergedOpenapiNotePatchOperation_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("CMergedOpenapiNotePatchOperation1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.CMergedOpenapiNotePatchOperation1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation_1();
+                    result.CMergedOpenapiNotePatchOperation1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation1();
                 }
-                else if("CMergedOpenapiNotePatchOperationClear_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("CMergedOpenapiNotePatchOperationClear1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.CMergedOpenapiNotePatchOperationClear1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear_1();
+                    result.CMergedOpenapiNotePatchOperationClear1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear1();
                 }
                 return result;
             }
@@ -137,11 +137,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
                 if(CMergedOpenapiNotePatchOperation1 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation_1>(null, CMergedOpenapiNotePatchOperation1);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperation1>(null, CMergedOpenapiNotePatchOperation1);
                 }
                 else if(CMergedOpenapiNotePatchOperationClear1 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear_1>(null, CMergedOpenapiNotePatchOperationClear1);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CMergedOpenapiNotePatchOperationClear1>(null, CMergedOpenapiNotePatchOperationClear1);
                 }
             }
         }

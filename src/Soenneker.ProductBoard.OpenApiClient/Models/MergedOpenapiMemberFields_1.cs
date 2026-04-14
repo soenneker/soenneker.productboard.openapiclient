@@ -20,20 +20,20 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email? Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsEmail_1? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsEmail_1 Email { get; set; }
 #endif
         /// <summary>Whether the member has a pending invitation that has not yet been accepted.</summary>
         public bool? InvitationPending { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name? Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsName_1? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsName_1 Name { get; set; }
 #endif
         /// <summary>Role of the member in the workspace.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1_role? Role { get; set; }
@@ -48,10 +48,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username? Username { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsUsername_1? Username { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username Username { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsUsername_1 Username { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1"/> and sets the default values.
@@ -79,12 +79,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsEmail_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsEmail_1.CreateFromDiscriminatorValue); } },
                 { "invitationPending", n => { InvitationPending = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name.CreateFromDiscriminatorValue); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsName_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsName_1.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1_role>(); } },
                 { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamReference_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamReference_1.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "username", n => { Username = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username.CreateFromDiscriminatorValue); } },
+                { "username", n => { Username = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsUsername_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsUsername_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -95,184 +95,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("disabled", Disabled);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsEmail_1>("email", Email);
             writer.WriteBoolValue("invitationPending", InvitationPending);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name>("name", Name);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsName_1>("name", Name);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1_role>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiTeamReference_1>("teams", Teams);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username>("username", Username);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFieldsUsername_1>("username", Username);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MergedOpenapiMemberFields_1_email : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1? MergedOpenapiUnionBranch1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1 MergedOpenapiUnionBranch1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1? ObfuscatedValueWrapper1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1 ObfuscatedValueWrapper1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_email();
-                result.MergedOpenapiUnionBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1();
-                result.ObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MergedOpenapiUnionBranch1 != null || ObfuscatedValueWrapper1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MergedOpenapiUnionBranch1, ObfuscatedValueWrapper1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1>(null, MergedOpenapiUnionBranch1, ObfuscatedValueWrapper1);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MergedOpenapiMemberFields_1_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1? MergedOpenapiUnionBranch1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1 MergedOpenapiUnionBranch1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1? ObfuscatedValueWrapper1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1 ObfuscatedValueWrapper1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_name();
-                result.MergedOpenapiUnionBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1();
-                result.ObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MergedOpenapiUnionBranch1 != null || ObfuscatedValueWrapper1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MergedOpenapiUnionBranch1, ObfuscatedValueWrapper1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1>(null, MergedOpenapiUnionBranch1, ObfuscatedValueWrapper1);
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MergedOpenapiMemberFields_1_username : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1? MergedOpenapiUnionBranch1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1 MergedOpenapiUnionBranch1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1? ObfuscatedValueWrapper1 { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1 ObfuscatedValueWrapper1 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMemberFields_1.MergedOpenapiMemberFields_1_username();
-                result.MergedOpenapiUnionBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1();
-                result.ObfuscatedValueWrapper1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValueWrapper_1();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(MergedOpenapiUnionBranch1 != null || ObfuscatedValueWrapper1 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MergedOpenapiUnionBranch1, ObfuscatedValueWrapper1);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1>(null, MergedOpenapiUnionBranch1, ObfuscatedValueWrapper1);
-            }
         }
     }
 }

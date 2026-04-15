@@ -8,22 +8,11 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Search data that accepts both new structured format and legacy flat format.If `filter`, `search`, or `return` is present, the new format is used. Otherwise, the legacy flat format is assumed.
+    /// Search data using structured `filter`, `search`, and `return` objects.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class MergedOpenapiMembersMemberSearchData_2 : IAdditionalDataHolder, IParsable
+    public partial class MergedOpenapiMembersMemberSearchData_2 : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>(Legacy) Filter by email addresses, case-insensitive (OR logic). Use `filter.fields.email` instead.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Emails { get; set; }
-#nullable restore
-#else
-        public List<string> Emails { get; set; }
-#endif
         /// <summary>Structured filters for member search. Different filter groups use AND logic.All filters are optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,30 +20,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchFilter_2 Filter { get; set; }
-#endif
-        /// <summary>(Legacy) Filter by member UUIDs (OR logic). Use `filter.id` instead.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<Guid?>? Ids { get; set; }
-#nullable restore
-#else
-        public List<Guid?> Ids { get; set; }
-#endif
-        /// <summary>(Legacy) Include disabled members. Use `return.includeDisabled` or `filter.fields.disabled` instead.</summary>
-        [Obsolete("")]
-        public bool? IncludeDisabled { get; set; }
-        /// <summary>(Legacy) Include pending members. Use `return.includeInvitationPending` or `filter.fields.invitationPending` instead.</summary>
-        [Obsolete("")]
-        public bool? IncludeInvitationPending { get; set; }
-        /// <summary>(Legacy) Case-insensitive partial match on member name or email. Use `search.query` instead.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Query { get; set; }
-#nullable restore
-#else
-        public string Query { get; set; }
 #endif
         /// <summary>Controls inclusion of normally-excluded members in the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,15 +29,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchReturn_2 Return { get; set; }
 #endif
-        /// <summary>(Legacy) Filter by roles (OR logic). Use `filter.fields.role` instead.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchData_2_roles?>? Roles { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchData_2_roles?> Roles { get; set; }
-#endif
         /// <summary>Full-text search options. Combined with filters using AND logic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,13 +37,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchSearch_2 Search { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchData_2"/> and sets the default values.
-        /// </summary>
-        public MergedOpenapiMembersMemberSearchData_2()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -106,14 +55,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "emails", n => { Emails = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchFilter_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchFilter_2.CreateFromDiscriminatorValue); } },
-                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "includeDisabled", n => { IncludeDisabled = n.GetBoolValue(); } },
-                { "includeInvitationPending", n => { IncludeInvitationPending = n.GetBoolValue(); } },
-                { "query", n => { Query = n.GetStringValue(); } },
                 { "return", n => { Return = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchReturn_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchReturn_2.CreateFromDiscriminatorValue); } },
-                { "roles", n => { Roles = n.GetCollectionOfEnumValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchData_2_roles>()?.AsList(); } },
                 { "search", n => { Search = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchSearch_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchSearch_2.CreateFromDiscriminatorValue); } },
             };
         }
@@ -124,16 +67,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("emails", Emails);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchFilter_2>("filter", Filter);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
-            writer.WriteBoolValue("includeDisabled", IncludeDisabled);
-            writer.WriteBoolValue("includeInvitationPending", IncludeInvitationPending);
-            writer.WriteStringValue("query", Query);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchReturn_2>("return", Return);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchData_2_roles>("roles", Roles);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchSearch_2>("search", Search);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

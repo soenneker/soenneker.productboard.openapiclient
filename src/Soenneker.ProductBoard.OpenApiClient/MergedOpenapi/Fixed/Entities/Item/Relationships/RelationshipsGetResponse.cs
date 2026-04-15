@@ -26,10 +26,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesListLinks_2? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks1_1? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesListLinks_2 Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks1_1 Links { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item.Relationships.RelationshipsGetResponse"/> and sets the default values.
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationship_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationship_1.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesListLinks_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesListLinks_2.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks1_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks1_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.Entities.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntityRelationship_1>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiEntitiesListLinks_2>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesListLinks1_1>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

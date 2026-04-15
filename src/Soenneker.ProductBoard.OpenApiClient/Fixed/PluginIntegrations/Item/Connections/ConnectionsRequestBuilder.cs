@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Connections.Item;
+using Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Connections.Search;
 using Soenneker.ProductBoard.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Con
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.fixed.pluginIntegrations.item.connections.item collection</summary>
         /// <param name="position">Entity identifier.</param>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Fixed.PluginIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder"/></returns>

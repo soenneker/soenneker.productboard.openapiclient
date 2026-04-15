@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <summary>The state of a plugin integration connection. Determined by the `state` property.| State | Meaning | Push button appearance ||---|---|---|| `connected` | Entity linked to third-party entity | Shows `label`; click opens `targetUrl` || `error` | Connection attempt failed | Shows error icon with `message` || `progress` | Establishing asynchronously | Shows loading indicator || `initial` | No connection (default) | Shows integration&apos;s `initialState.label` |</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState? Connection { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState_1? Connection { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState Connection { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState_1 Connection { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.PluginIntegrations.Item.Connections.Item.WithEntityPutRequestBody_data_fields"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState.CreateFromDiscriminatorValue); } },
+                { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState>("connection", Connection);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiConnectionState_1>("connection", Connection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

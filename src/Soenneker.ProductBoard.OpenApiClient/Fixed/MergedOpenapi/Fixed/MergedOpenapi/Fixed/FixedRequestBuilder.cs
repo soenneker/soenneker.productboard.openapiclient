@@ -6,6 +6,7 @@ using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpena
 using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Entities;
 using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.JiraIntegrations;
 using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Members;
+using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi;
 using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes;
 using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.PluginIntegrations;
 using Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Teams;
@@ -41,6 +42,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedO
         public global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Members.MembersRequestBuilder Members
         {
             get => new global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mergedOpenapi property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.MergedOpenapiRequestBuilder MergedOpenapi
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.MergedOpenapiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The notes property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Fixed.Notes.NotesRequestBuilder Notes

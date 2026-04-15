@@ -14,14 +14,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Display name of the member.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Value { get; set; }
-#nullable restore
-#else
-        public string Value { get; set; }
-#endif
+        /// <summary>The value property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1_value? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1"/> and sets the default values.
         /// </summary>
@@ -47,7 +41,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1_value>(); } },
             };
         }
         /// <summary>
@@ -57,7 +51,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("value", Value);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapper_1_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.Item;
+using Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.Search;
 using Soenneker.ProductBoard.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectionsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.mergedOpenapi.pluginIntegrations.item.connections.item collection</summary>
         /// <param name="position">Entity identifier.</param>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.Item.WithEntityItemRequestBuilder"/></returns>
@@ -52,13 +58,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.ConnectionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.ConnectionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -71,13 +77,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_2.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiPluginIntegrationsErrorResponse_3.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.ConnectionsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.PluginIntegrations.Item.Connections.ConnectionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

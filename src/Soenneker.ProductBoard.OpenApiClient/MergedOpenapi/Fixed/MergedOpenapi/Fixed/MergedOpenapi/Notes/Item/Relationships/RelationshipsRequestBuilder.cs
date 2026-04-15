@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <summary>
         /// Retrieves all relationships connected to a specific note.This includes:- Customer relationship (either a User or Company entity)- Product link relationships (e.g. linked features)### Customer relationship rules- A note can have a relationship to **exactly one customer entity** (User or Company).- If the note has a **User** as the customer, and that User is associated with a Company,  only the **User** is returned.- If the note has a **User** without a Company, the User is returned.- If the note has a **Company**, the Company is returned.- If the note has no customer relationship, an empty array is returned.### Product link relationships- Notes can be linked to **multiple Product Management entities** (e.g. features, components).- All such relationships are returned in the same response.&gt; To discover supported relationship types, use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001_2"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1">When receiving a 400 status code</exception>
@@ -67,11 +67,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001_2?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001_2> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -85,12 +85,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001_2>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNoteRelationships2001_2.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new relationship between a note and another entity.You can link a note to:- A Product Management entity (e.g. feature, component, initiative)- A customer entity (company or user)This is useful for capturing customer feedback and tying it to the right product link,or for attributing a note to a specific customer.&gt; If a Customer relationship already exists (user or company), it will be replaced.Notes can have **one customer** relationship and **multiple product link** relationships.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011_2"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,11 +104,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiRelationshipRequest1_1 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011_2?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiRelationshipRequest1_1 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiRelationshipRequest1_1 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011_2> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiRelationshipRequest1_1 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -124,7 +124,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011_2>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNoteRelationship2011_2.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves all relationships connected to a specific note.This includes:- Customer relationship (either a User or Company entity)- Product link relationships (e.g. linked features)### Customer relationship rules- A note can have a relationship to **exactly one customer entity** (User or Company).- If the note has a **User** as the customer, and that User is associated with a Company,  only the **User** is returned.- If the note has a **User** without a Company, the User is returned.- If the note has a **Company**, the Company is returned.- If the note has no customer relationship, an empty array is returned.### Product link relationships- Notes can be linked to **multiple Product Management entities** (e.g. features, components).- All such relationships are returned in the same response.&gt; To discover supported relationship types, use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.

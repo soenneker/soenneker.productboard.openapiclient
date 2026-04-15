@@ -24,7 +24,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public string Type { get; set; }
 #endif
         /// <summary>The value property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapperValue_1? Value { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapperValue_1? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiNoteSearchFilterId_1"/> and sets the default values.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapperValue_1>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapperValue_1>(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("type", Type);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapperValue_1>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchWrapperValue_1>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

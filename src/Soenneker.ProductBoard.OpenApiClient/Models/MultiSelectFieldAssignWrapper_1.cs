@@ -61,26 +61,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_2"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_2"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_3"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_3"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Entities : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_2"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_2? FixedSingleSelectFieldAssignById2 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_3? FixedSingleSelectFieldAssignById3 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_2 FixedSingleSelectFieldAssignById2 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_3 FixedSingleSelectFieldAssignById3 { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_2"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_2? FixedSingleSelectFieldAssignByName2 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_3? FixedSingleSelectFieldAssignByName3 { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_2 FixedSingleSelectFieldAssignByName2 { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_3 FixedSingleSelectFieldAssignByName3 { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -92,13 +92,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssignWrapper_1.Entities();
-                if("FixedSingleSelectFieldAssignById_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("FixedSingleSelectFieldAssignById_3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.FixedSingleSelectFieldAssignById2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_2();
+                    result.FixedSingleSelectFieldAssignById3 = new global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_3();
                 }
-                else if("FixedSingleSelectFieldAssignByName_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("FixedSingleSelectFieldAssignByName_3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.FixedSingleSelectFieldAssignByName2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_2();
+                    result.FixedSingleSelectFieldAssignByName3 = new global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_3();
                 }
                 return result;
             }
@@ -108,13 +108,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(FixedSingleSelectFieldAssignById2 != null)
+                if(FixedSingleSelectFieldAssignById3 != null)
                 {
-                    return FixedSingleSelectFieldAssignById2.GetFieldDeserializers();
+                    return FixedSingleSelectFieldAssignById3.GetFieldDeserializers();
                 }
-                else if(FixedSingleSelectFieldAssignByName2 != null)
+                else if(FixedSingleSelectFieldAssignByName3 != null)
                 {
-                    return FixedSingleSelectFieldAssignByName2.GetFieldDeserializers();
+                    return FixedSingleSelectFieldAssignByName3.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -125,13 +125,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(FixedSingleSelectFieldAssignById2 != null)
+                if(FixedSingleSelectFieldAssignById3 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_2>(null, FixedSingleSelectFieldAssignById2);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignById_3>(null, FixedSingleSelectFieldAssignById3);
                 }
-                else if(FixedSingleSelectFieldAssignByName2 != null)
+                else if(FixedSingleSelectFieldAssignByName3 != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_2>(null, FixedSingleSelectFieldAssignByName2);
+                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.FixedSingleSelectFieldAssignByName_3>(null, FixedSingleSelectFieldAssignByName3);
                 }
             }
         }

@@ -49,35 +49,35 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <summary>
         /// Returns detail of all Jira integrations.This API is paginated using cursor-based pagination. The client should follow the `links.next` link in the response to fetch the next page.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse_1"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.JiraIntegrations.JiraIntegrationsRequestBuilder.JiraIntegrationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse_1?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.JiraIntegrations.JiraIntegrationsRequestBuilder.JiraIntegrationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.JiraIntegrations.JiraIntegrationsRequestBuilder.JiraIntegrationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse_1> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.JiraIntegrations.JiraIntegrationsRequestBuilder.JiraIntegrationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationsErrorResponse_1.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse_1>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiJiraIntegrationListResponse_1.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns detail of all Jira integrations.This API is paginated using cursor-based pagination. The client should follow the `links.next` link in the response to fetch the next page.

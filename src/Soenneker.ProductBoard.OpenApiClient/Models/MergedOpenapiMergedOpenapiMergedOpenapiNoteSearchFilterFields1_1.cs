@@ -20,28 +20,28 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by creator. Single object or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator? Creator { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator_1? Creator { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator Creator { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator_1 Creator { get; set; }
 #endif
         /// <summary>Filter by owner. Single object or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner? Owner { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner_1? Owner { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner Owner { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner_1 Owner { get; set; }
 #endif
         /// <summary>Filter by processed status</summary>
         public bool? Processed { get; set; }
         /// <summary>Filter by tag. Single object or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag? Tag { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag_1? Tag { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag Tag { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag_1 Tag { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1_1"/> and sets the default values.
@@ -69,10 +69,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
-                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator.CreateFromDiscriminatorValue); } },
-                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner.CreateFromDiscriminatorValue); } },
+                { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator_1.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner_1.CreateFromDiscriminatorValue); } },
                 { "processed", n => { Processed = n.GetBoolValue(); } },
-                { "tag", n => { Tag = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag.CreateFromDiscriminatorValue); } },
+                { "tag", n => { Tag = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -83,10 +83,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archived", Archived);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator>("creator", Creator);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner>("owner", Owner);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Creator_1>("creator", Creator);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Owner_1>("owner", Owner);
             writer.WriteBoolValue("processed", Processed);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag>("tag", Tag);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteSearchFilterFields1Tag_1>("tag", Tag);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,13 +15,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>True/false flag for binary state tracking in Entities.## Behavior- Accepts only `true` or `false` boolean values- Used for binary states like archived status, feature toggles, completion flags- Displayed as checkboxes or toggle switches in UI</summary>
         public bool? Archived { get; set; }
-        /// <summary>The fields property</summary>
+        /// <summary>**(Legacy, deprecated)** Use `return.fields` instead.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper_2? Fields { get; set; }
 #nullable restore
 #else
-        public string Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper_2 Fields { get; set; }
 #endif
         /// <summary>Filter criteria for the entity search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,7 +113,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
-                { "fields", n => { Fields = n.GetStringValue(); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper_2>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper_2.CreateFromDiscriminatorValue); } },
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntitySearchFilter_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntitySearchFilter_1.CreateFromDiscriminatorValue); } },
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -132,7 +133,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archived", Archived);
-            writer.WriteStringValue("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchWrapper_2>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiFixedEntitySearchFilter_1>("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
             writer.WriteStringValue("name", Name);

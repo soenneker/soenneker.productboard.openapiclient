@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The value property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchValue_2? Value { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchValue_1? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranch_1"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchValue_2>(); } },
+                { "value", n => { Value = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchValue_1>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiUnionBranchValue_2>("value", Value);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranchValue_1>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

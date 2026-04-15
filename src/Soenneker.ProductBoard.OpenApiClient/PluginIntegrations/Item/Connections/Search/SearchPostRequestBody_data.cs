@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <summary>Filter criteria for searching plugin integration connections.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectionsSearchFilter? Filter { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionsSearchFilter? Filter { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectionsSearchFilter Filter { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionsSearchFilter Filter { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostRequestBody_data"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectionsSearchFilter>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectionsSearchFilter.CreateFromDiscriminatorValue); } },
+                { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionsSearchFilter>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionsSearchFilter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectionsSearchFilter>("filter", Filter);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionsSearchFilter>("filter", Filter);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

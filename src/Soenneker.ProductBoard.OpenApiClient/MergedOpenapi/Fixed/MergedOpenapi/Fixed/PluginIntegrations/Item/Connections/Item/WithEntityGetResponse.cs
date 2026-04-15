@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <summary>A plugin integration connection resource, representing the relationship betweena Productboard entity and an entity in the third-party system.The `id` is the Productboard entity ID. The connection is scoped to a specificplugin integration identified in the URL path.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection_1? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection_1 Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.PluginIntegrations.Item.Connections.Item.WithEntityGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection_1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection_1.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiCMergedOpenapiPluginIntegrationConnection_1>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

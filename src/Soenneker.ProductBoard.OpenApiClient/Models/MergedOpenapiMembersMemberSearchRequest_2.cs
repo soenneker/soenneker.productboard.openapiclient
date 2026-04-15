@@ -14,7 +14,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Search data that accepts both new structured format and legacy flat format.If `filter`, `search`, or `return` is present, the new format is used. Otherwise, the legacy flat format is assumed.</summary>
+        /// <summary>Search data using structured `filter`, `search`, and `return` objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMembersMemberSearchData_2? Data { get; set; }

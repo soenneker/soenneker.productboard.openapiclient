@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_7? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6 Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_7 Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item.WithTypeGetResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_7>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_7.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_6>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_7>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

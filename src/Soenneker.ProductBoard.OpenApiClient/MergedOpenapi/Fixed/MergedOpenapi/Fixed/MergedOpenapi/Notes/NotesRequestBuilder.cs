@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <summary>
         /// &quot;Retrieves a list of notes from your workspace.&gt; Without the `members:pii:read` scope, owner and creator email fields are returned as `[redacted]`. Filtering by `owner[email]` or `creator[email]` requires the `members:pii:read` scope.- Notes are sorted by creation date, newest first.- You can filter results using query parameters like `archived`, `processed`, `owner[email]`, `creator[email]`, `source[recordId]`, or date/time ranges.- Use the `pageCursor` parameter to paginate through results.- Use the `fields` query parameter to optimize response size (default: all non-null fields, use `fields=all` to include null values, or `fields=name,tags` for specific fields).&gt; To discover available fieldsuse the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.### Date/Time FilteringYou can filter notes by creation or update timestamps using ISO-8601 date-time format:- Use `createdFrom` and `createdTo` to filter by creation date (inclusive bounds)- Use `updatedFrom` and `updatedTo` to filter by update date (inclusive bounds)- All date/time filters can be combined with each other and with other filters- Date ranges must be valid (From &lt;= To) or a 400 error will be returned### Filtering combinationsSome combinations of the `archived` and `processed` flags result in empty or unexpected results.Use the following table to understand which notes are returned based on the filter values:| `archived` | `processed` | Result                    ||------------|-------------|---------------------------|| –          | –           | All notes                 || `true`     | `true`      | None                      || `true`     | `false`     | Archived                  || `false`    | `true`      | Processed                 || `false`    | `false`     | Unprocessed               || `true`     | –           | Archived                  || `false`    | –           | Processed + unprocessed   || –          | `true`      | Processed                 || –          | `false`     | Archived + unprocessed    |&gt; **Note**: Archived notes always return `processed: false` in the API response, regardless of their actual processing state. This is a known limitation of the system.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001_2"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1">When receiving a 400 status code</exception>
@@ -73,11 +73,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001_2?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001_2> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi.Fixed.MergedOpenapi.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -91,7 +91,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001_2>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesListNotes2001_2.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new note in your workspace.Notes represent individual pieces of feedback from customers, internal teams, or external systems.You must specify the `type` of note you&apos;re creating:- `&quot;textNote&quot;` - for plain, unstructured notes- `&quot;conversationNote&quot;` - for structured messages (e.g., from chat, email, or support systems)Legacy aliases (`simple`, `conversation`, `opportunity`) are accepted on input and normalized before business rules are applied.&gt; ⚠️ Notes of type `opportunityNote` cannot be created via the API.## Field Requirements and ConfigurationThe `fields.name` attribute is **required** for all note types.Other fields depend on the selected note type and your workspace configuration.Use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint to discover available fields for each type.Notes can also be linked to Customers entities or Product links (like features) via relationships.
@@ -110,11 +110,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesErrorResponse1_1">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse1_1?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse1_1?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1_2 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse1_1> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNoteReferenceResponse1_1> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1_2 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -159,11 +159,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.MergedOpenapi.Fixed.MergedOpenapi
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1_2 body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.MergedOpenapiMergedOpenapiMergedOpenapiNotesCreateNote1_2 body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

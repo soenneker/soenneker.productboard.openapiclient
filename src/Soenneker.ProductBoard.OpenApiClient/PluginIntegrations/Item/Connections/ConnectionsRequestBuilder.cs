@@ -58,13 +58,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6">When receiving a 408 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6">When receiving a 429 status code</exception>
-        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7">When receiving a 408 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -77,13 +77,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6.CreateFromDiscriminatorValue },
-                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_6.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7.CreateFromDiscriminatorValue },
+                { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse_7.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -135,11 +135,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("state%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectionStateName[]? State { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionStateName[]? State { get; set; }
 #nullable restore
 #else
             [QueryParameter("state%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectionStateName[] State { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsConnectionStateName[] State { get; set; }
 #endif
         }
     }

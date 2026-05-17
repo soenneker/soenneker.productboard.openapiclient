@@ -34,10 +34,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
         /// <summary>A list of patch operations to perform on a PM entity field.Each operation can be one of `set`, `addItems`, `removeItems`, or `clear`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities>? Patch { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch>? Patch { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities> Patch { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch> Patch { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data"/> and sets the default values.
@@ -66,7 +66,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFields.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata.CreateFromDiscriminatorValue); } },
-                { "patch", n => { Patch = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities>(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "patch", n => { Patch = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch>(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -78,14 +78,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFields>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata>("metadata", Metadata);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities>("patch", Patch);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch>("patch", Patch);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperation"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClear"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Entities : IComposedTypeWrapper, IParsable
+        public partial class EntitiesPatchRequestBody_data_patch : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,13 +106,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities"/></returns>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.Entities();
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody_data.EntitiesPatchRequestBody_data_patch();
                 if("EntityPatchOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.EntityPatchOperation = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperation();

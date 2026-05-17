@@ -14,7 +14,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;HTML-formatted text content for Entities.## Behavior- Accepts HTML-formatted strings up to 524KB (524,288 characters)- Can be empty string (minLength: 0)- Supports rich formatting including bold, italic, links, lists  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/rich-text-formatting)- Used for detailed descriptions, specifications, documentation, and formatted comments&quot;</summary>
+        /// <summary>&quot;HTML-formatted text content for Entities.## Behavior- Accepts HTML-formatted strings up to 524KB (524,288 characters)- Can be empty string (minLength: 0)- Supports rich formatting including bold, italic, links, lists  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)- Used for detailed descriptions, specifications, documentation, and formatted comments&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }

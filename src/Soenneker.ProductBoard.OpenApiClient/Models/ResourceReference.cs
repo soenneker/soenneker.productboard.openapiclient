@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks Links { get; set; }
 #endif
         /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - userThe exact types available may vary based on the configuration of the workspace.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
@@ -53,7 +53,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks>("links", Links);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

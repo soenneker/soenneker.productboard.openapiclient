@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// A date range filter with optional `from` and `to` bounds.
+    /// Filter by a date range.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DateRangeFilter : IAdditionalDataHolder, IParsable

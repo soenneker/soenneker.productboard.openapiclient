@@ -8,20 +8,20 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Controls which fields are included in the response.
+    /// Controls which fields are returned in the response.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EntitySearchReturn : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified or `null`: Returns only fields with non-empty values- `[\&quot;all\&quot;]`: Returns all fields, including those with `null` values- `[\&quot;name\&quot;, \&quot;status\&quot;, ...]`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).&quot;</summary>
+        /// <summary>&quot;Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified or `\&quot;default\&quot;`: Returns only fields with non-empty values- `\&quot;all\&quot;`: Returns all fields, including those with `null` values- `[\&quot;name\&quot;, \&quot;status\&quot;, ...]`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? Fields { get; set; }
 #nullable restore
 #else
-        public List<string> Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch Fields { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>("fields", Fields);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

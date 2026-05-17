@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Search
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Request body for searching entities. Supports two formats:**New format** (recommended): Uses a structured `filter` object with nested field groups.**Legacy format** (deprecated): Uses flat properties directly under `data`.Both formats are accepted. The legacy format will continue to work but is deprecatedin favour of the new structured format. Format is detected by the presence of the `filter` key.&quot;</summary>
+        /// <summary>Request body for searching entities. Uses a structured `filter` object with nested field groups,and an optional `return` object to control the response shape.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearch? Data { get; set; }

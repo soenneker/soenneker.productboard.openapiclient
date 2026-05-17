@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A date range filter with optional `from` and `to` bounds.</summary>
+        /// <summary>Filter by a date range.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.DateRangeFilter? CreatedAt { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.DateRangeFilter CreatedAt { get; set; }
 #endif
-        /// <summary>Filters applied to entity field values.</summary>
+        /// <summary>&quot;Filters applied to entity field values.In addition to the standard fields listed below, you can filter by any custom field using its field ID(e.g., `\&quot;domain\&quot;` for predefined fields or a UUID for user-created custom fields). Custom field filtervalues must be objects conforming to `EntitySearchCustomFieldFilterValue`.Per field-type rules:- **Text fields**: matches entities whose field value contains the given string (case-insensitive).  - `\&quot;notes\&quot;: { \&quot;contains\&quot;: \&quot;quarterly\&quot; }`- **Number fields**: matches entities whose field value equals the given number.  - `\&quot;budget\&quot;: { \&quot;eq\&quot;: 100 }`- **Date fields**: matches entities whose field value equals the given date (ISO format: yyyy-MM-dd).  - `\&quot;due\&quot;: { \&quot;eq\&quot;: \&quot;2025-12-31\&quot; }`- **Single-select fields**: matches by option ID (UUID) or option name (string). Exactly one of `id` or `name` must be provided.  - By ID: `\&quot;priority\&quot;: { \&quot;id\&quot;: \&quot;123e4567-e89b-12d3-a456-426614174000\&quot; }`  - By name: `\&quot;priority\&quot;: { \&quot;name\&quot;: \&quot;High Priority\&quot; }`- **Multi-select fields**: match entities whose field value contains any or all of the specified options.  - `any` (OR semantics across options):    `\&quot;tags\&quot;: { \&quot;any\&quot;: [ { \&quot;name\&quot;: \&quot;Important\&quot; }, { \&quot;id\&quot;: \&quot;…\&quot; } ] }`  - `all` (AND semantics across options):    `\&quot;tags\&quot;: { \&quot;all\&quot;: [ { \&quot;name\&quot;: \&quot;Important\&quot; }, { \&quot;name\&quot;: \&quot;Urgent\&quot; } ] }`  - `any` and `all` are mutually exclusive.Custom field filtering requires `filter.type` to be specified.Multiple custom field entries are combined with AND semantics — all must match.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchFieldFilters? Fields { get; set; }
@@ -63,7 +63,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public List<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType?> Type { get; set; }
 #endif
-        /// <summary>A date range filter with optional `from` and `to` bounds.</summary>
+        /// <summary>Filter by a date range.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.DateRangeFilter? UpdatedAt { get; set; }

@@ -15,6 +15,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>URL of the team page in the Productboard UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Html { get; set; }
+#nullable restore
+#else
+        public string Html { get; set; }
+#endif
         /// <summary>URL of the paginated team members sub-resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "html", n => { Html = n.GetStringValue(); } },
                 { "members", n => { Members = n.GetStringValue(); } },
                 { "self", n => { Self = n.GetStringValue(); } },
             };
@@ -67,6 +76,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("html", Html);
             writer.WriteStringValue("members", Members);
             writer.WriteStringValue("self", Self);
             writer.WriteAdditionalData(AdditionalData);

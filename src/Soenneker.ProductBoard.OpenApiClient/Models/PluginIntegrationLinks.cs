@@ -15,6 +15,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>URL to list all connections for this plugin integration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Connections { get; set; }
+#nullable restore
+#else
+        public string Connections { get; set; }
+#endif
         /// <summary>URL to retrieve this plugin integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,6 +56,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "connections", n => { Connections = n.GetStringValue(); } },
                 { "self", n => { Self = n.GetStringValue(); } },
             };
         }
@@ -58,6 +67,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("connections", Connections);
             writer.WriteStringValue("self", Self);
             writer.WriteAdditionalData(AdditionalData);
         }

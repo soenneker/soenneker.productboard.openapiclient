@@ -8,13 +8,11 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Search data that accepts both new structured format and legacy flat format.If `filter` or `search` is present, the new format is used. Otherwise, the legacy flat format is assumed.
+    /// Search data with structured filter and search objects.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TeamSearchData : IAdditionalDataHolder, IParsable
+    public partial class TeamSearchData : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Structured filters for team search. Different filter groups use AND logic.All filters are optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,33 +20,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilter Filter { get; set; }
-#endif
-        /// <summary>(Legacy) Filter by team handles, case-insensitive (OR logic). Use `filter.fields.handle` instead.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Handles { get; set; }
-#nullable restore
-#else
-        public List<string> Handles { get; set; }
-#endif
-        /// <summary>(Legacy) Filter by team UUIDs (OR logic). Use `filter.id` instead.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<Guid?>? Ids { get; set; }
-#nullable restore
-#else
-        public List<Guid?> Ids { get; set; }
-#endif
-        /// <summary>(Legacy) Filter by team names, case-insensitive (OR logic). Use `filter.fields.name` instead.</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Names { get; set; }
-#nullable restore
-#else
-        public List<string> Names { get; set; }
 #endif
         /// <summary>Full-text search options. Combined with filters using AND logic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,13 +29,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchSearch Search { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchData"/> and sets the default values.
-        /// </summary>
-        public TeamSearchData()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -84,9 +48,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilter>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilter.CreateFromDiscriminatorValue); } },
-                { "handles", n => { Handles = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "names", n => { Names = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "search", n => { Search = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchSearch>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchSearch.CreateFromDiscriminatorValue); } },
             };
         }
@@ -98,11 +59,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilter>("filter", Filter);
-            writer.WriteCollectionOfPrimitiveValues<string>("handles", Handles);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
-            writer.WriteCollectionOfPrimitiveValues<string>("names", Names);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchSearch>("search", Search);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

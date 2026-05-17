@@ -8,40 +8,11 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Search data that accepts both new structured format and legacy flat format.If `filter` is present, the new format is used. Otherwise, the legacy flat format is assumed.
+    /// Search data using structured filter format.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class NoteSearchData : IAdditionalDataHolder, IParsable
+    public partial class NoteSearchData : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>(Legacy) Filter by archived status</summary>
-        [Obsolete("")]
-        public bool? Archived { get; set; }
-        /// <summary>Date/time range filter</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange? CreatedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange CreatedAt { get; set; }
-#endif
-        /// <summary>Reference to a user by ID or email</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference? Creators { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference Creators { get; set; }
-#endif
-        /// <summary>The fields property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Fields { get; set; }
-#nullable restore
-#else
-        public string Fields { get; set; }
-#endif
         /// <summary>Structured filter object for note search. Filters are grouped by category.Different filter groups use AND logic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,42 +20,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter Filter { get; set; }
-#endif
-        /// <summary>(Legacy) Filter by note UUIDs</summary>
-        [Obsolete("")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<Guid?>? Ids { get; set; }
-#nullable restore
-#else
-        public List<Guid?> Ids { get; set; }
-#endif
-        /// <summary>The metadata property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Metadata { get; set; }
-#nullable restore
-#else
-        public string Metadata { get; set; }
-#endif
-        /// <summary>Reference to a user by ID or email</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference? Owners { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference Owners { get; set; }
-#endif
-        /// <summary>(Legacy) Filter by processed status</summary>
-        [Obsolete("")]
-        public bool? Processed { get; set; }
-        /// <summary>The relationships property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Relationships { get; set; }
-#nullable restore
-#else
-        public string Relationships { get; set; }
 #endif
         /// <summary>Controls which fields are included in the response</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,29 +29,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn Return { get; set; }
 #endif
-        /// <summary>The source property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Source { get; set; }
-#nullable restore
-#else
-        public string Source { get; set; }
-#endif
-        /// <summary>Date/time range filter</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange? UpdatedAt { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange UpdatedAt { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchData"/> and sets the default values.
-        /// </summary>
-        public NoteSearchData()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -135,19 +47,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "archived", n => { Archived = n.GetBoolValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange>(global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange.CreateFromDiscriminatorValue); } },
-                { "creators", n => { Creators = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference.CreateFromDiscriminatorValue); } },
-                { "fields", n => { Fields = n.GetStringValue(); } },
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.CreateFromDiscriminatorValue); } },
-                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
-                { "metadata", n => { Metadata = n.GetStringValue(); } },
-                { "owners", n => { Owners = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference.CreateFromDiscriminatorValue); } },
-                { "processed", n => { Processed = n.GetBoolValue(); } },
-                { "relationships", n => { Relationships = n.GetStringValue(); } },
                 { "return", n => { Return = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetStringValue(); } },
-                { "updatedAt", n => { UpdatedAt = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange>(global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -157,20 +58,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("archived", Archived);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange>("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference>("creators", Creators);
-            writer.WriteStringValue("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter>("filter", Filter);
-            writer.WriteCollectionOfPrimitiveValues<Guid?>("ids", Ids);
-            writer.WriteStringValue("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UserReference>("owners", Owners);
-            writer.WriteBoolValue("processed", Processed);
-            writer.WriteStringValue("relationships", Relationships);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn>("return", Return);
-            writer.WriteStringValue("source", Source);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange>("updatedAt", UpdatedAt);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

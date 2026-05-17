@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Collection of multi-select option assignments allowing identification by ID or name.## Behavior- Array of select option assignments, each identified by ID or name- Can be empty array if no options are selected- Each item can use either ID (for precision) or name (for convenience)- All referenced options must exist in field configuration- Supports adding/removing individual options via patch operations</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities>? Value { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value>? Value { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities> Value { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value> Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities>(global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value>(global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,14 +57,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities>("value", Value);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SingleSelectFieldAssignById"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SingleSelectFieldAssignByName"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Entities : IComposedTypeWrapper, IParsable
+        public partial class MultiSelectFieldAssign_Wrapper_value : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SingleSelectFieldAssignById"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,13 +85,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities"/></returns>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.Entities();
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper.MultiSelectFieldAssign_Wrapper_value();
                 if("SingleSelectFieldAssignById".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.SingleSelectFieldAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.SingleSelectFieldAssignById();

@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Request body for searching notes with filters. Supports two formats:**New format** (recommended): Uses a structured `filter` object with nested field groups.**Legacy format** (deprecated): Uses flat properties directly under `data`.Both formats are accepted. The legacy format will continue to work but is deprecatedin favor of the new structured format. Format is detected by the presence of the `filter` key.&quot;
+    /// Request body for searching notes with filters.Uses a structured `filter` object with nested field groups.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NoteSearchRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Search data that accepts both new structured format and legacy flat format.If `filter` is present, the new format is used. Otherwise, the legacy flat format is assumed.</summary>
+        /// <summary>Search data using structured filter format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchData? Data { get; set; }

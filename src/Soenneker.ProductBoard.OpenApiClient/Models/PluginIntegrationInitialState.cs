@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration of the push button before a entity has been connected to the third-party system.
+    /// Configuration of the push button before an entity has been connected to the third-party system.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PluginIntegrationInitialState : IAdditionalDataHolder, IParsable

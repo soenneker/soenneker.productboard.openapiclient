@@ -22,6 +22,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Connections { get; set; }
 #endif
+        /// <summary>Link to the Jira integration settings page in the Productboard UI.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Html { get; set; }
+#nullable restore
+#else
+        public string Html { get; set; }
+#endif
         /// <summary>Link to the Jira integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connections", n => { Connections = n.GetStringValue(); } },
+                { "html", n => { Html = n.GetStringValue(); } },
                 { "self", n => { Self = n.GetStringValue(); } },
             };
         }
@@ -67,6 +76,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connections", Connections);
+            writer.WriteStringValue("html", Html);
             writer.WriteStringValue("self", Self);
             writer.WriteAdditionalData(AdditionalData);
         }

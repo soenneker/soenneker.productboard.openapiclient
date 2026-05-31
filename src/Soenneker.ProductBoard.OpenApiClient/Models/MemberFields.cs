@@ -104,26 +104,20 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MemberFields_email : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/></summary>
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue? ObfuscatedValue { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper? ObfuscatedValueWrapper { get; set; }
+            public string? String { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper ObfuscatedValueWrapper { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
+            public string String { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -134,8 +128,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email();
-                result.ObfuscatedValueWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper();
-                result.UnionBranch = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>() is global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue obfuscatedValueValue)
+                {
+                    result.ObfuscatedValue = obfuscatedValueValue;
+                }
                 return result;
             }
             /// <summary>
@@ -144,10 +144,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(ObfuscatedValueWrapper != null || UnionBranch != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ObfuscatedValueWrapper, UnionBranch);
-                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -157,30 +153,31 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper>(null, ObfuscatedValueWrapper, UnionBranch);
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else if(ObfuscatedValue != null)
+                {
+                    writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>(null, ObfuscatedValue);
+                }
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MemberFields_name : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/></summary>
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue? ObfuscatedValue { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper? ObfuscatedValueWrapper { get; set; }
+            public string? String { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper ObfuscatedValueWrapper { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
+            public string String { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -191,8 +188,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name();
-                result.ObfuscatedValueWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper();
-                result.UnionBranch = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>() is global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue obfuscatedValueValue)
+                {
+                    result.ObfuscatedValue = obfuscatedValueValue;
+                }
                 return result;
             }
             /// <summary>
@@ -201,10 +204,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(ObfuscatedValueWrapper != null || UnionBranch != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ObfuscatedValueWrapper, UnionBranch);
-                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -214,30 +213,31 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper>(null, ObfuscatedValueWrapper, UnionBranch);
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else if(ObfuscatedValue != null)
+                {
+                    writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>(null, ObfuscatedValue);
+                }
             }
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/>, <see cref="string"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MemberFields_username : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/></summary>
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue? ObfuscatedValue { get; set; }
+            /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper? ObfuscatedValueWrapper { get; set; }
+            public string? String { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper ObfuscatedValueWrapper { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
+            public string String { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -248,8 +248,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username();
-                result.ObfuscatedValueWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper();
-                result.UnionBranch = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch();
+                if(parseNode.GetStringValue() is string stringValue)
+                {
+                    result.String = stringValue;
+                }
+                else if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>() is global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue obfuscatedValueValue)
+                {
+                    result.ObfuscatedValue = obfuscatedValueValue;
+                }
                 return result;
             }
             /// <summary>
@@ -258,10 +264,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(ObfuscatedValueWrapper != null || UnionBranch != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ObfuscatedValueWrapper, UnionBranch);
-                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -271,7 +273,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue_Wrapper>(null, ObfuscatedValueWrapper, UnionBranch);
+                if(String != null)
+                {
+                    writer.WriteStringValue(null, String);
+                }
+                else if(ObfuscatedValue != null)
+                {
+                    writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>(null, ObfuscatedValue);
+                }
             }
         }
     }

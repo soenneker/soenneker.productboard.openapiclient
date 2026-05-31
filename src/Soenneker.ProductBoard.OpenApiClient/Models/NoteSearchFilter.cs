@@ -34,10 +34,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by note UUIDs (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id Id { get; set; }
 #endif
         /// <summary>Filter by metadata properties</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,7 +98,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "createdAt", n => { CreatedAt = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange>(global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange.CreateFromDiscriminatorValue); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFields.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.CreateFromDiscriminatorValue); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationships>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationships.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_type>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_type.CreateFromDiscriminatorValue); } },
@@ -114,7 +114,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.DateTimeRange>("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>("id", Id);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id>("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationships>("relationships", Relationships);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_type>("type", Type);
@@ -122,26 +122,81 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/>
+        /// Composed type wrapper for classes <see cref="Guid"/>, List&lt;Guid&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class NoteSearchFilter_id : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;Guid&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<Guid?>? Guid { get; set; }
+#nullable restore
+#else
+            public List<Guid?> Guid { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="Guid"/></summary>
+            public Guid? NoteSearchFilterIdGuid { get; set; }
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_id();
+                if(parseNode.GetGuidValue() is Guid noteSearchFilterIdGuidValue)
+                {
+                    result.NoteSearchFilterIdGuid = noteSearchFilterIdGuidValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid?> guidValue)
+                {
+                    result.Guid = guidValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(NoteSearchFilterIdGuid != null)
+                {
+                    writer.WriteGuidValue(null, NoteSearchFilterIdGuid);
+                }
+                else if(Guid != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<Guid?>(null, Guid);
+                }
+            }
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType"/>, List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType&gt;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class NoteSearchFilter_type : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType_Wrapper"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType"/></summary>
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType? NoteSearchFilterTypeNoteType { get; set; }
+            /// <summary>Composed type representation for type List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType_Wrapper? NoteTypeWrapper { get; set; }
+            public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType?>? NoteType { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType_Wrapper NoteTypeWrapper { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
+            public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType?> NoteType { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -153,13 +208,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.NoteSearchFilter_type();
-                if("NoteType_Wrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>() is global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType noteSearchFilterTypeNoteTypeValue)
                 {
-                    result.NoteTypeWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType_Wrapper();
+                    result.NoteSearchFilterTypeNoteType = noteSearchFilterTypeNoteTypeValue;
                 }
-                else if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if(parseNode.GetCollectionOfEnumValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>()?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType?> noteTypeValue)
                 {
-                    result.UnionBranch = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch();
+                    result.NoteType = noteTypeValue;
                 }
                 return result;
             }
@@ -169,14 +224,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(NoteTypeWrapper != null)
-                {
-                    return NoteTypeWrapper.GetFieldDeserializers();
-                }
-                else if(UnionBranch != null)
-                {
-                    return UnionBranch.GetFieldDeserializers();
-                }
                 return new Dictionary<string, Action<IParseNode>>();
             }
             /// <summary>
@@ -186,13 +233,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(NoteTypeWrapper != null)
+                if(NoteSearchFilterTypeNoteType != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType_Wrapper>(null, NoteTypeWrapper);
+                    writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>(null, NoteSearchFilterTypeNoteType);
                 }
-                else if(UnionBranch != null)
+                else if(NoteType != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
+                    writer.WriteCollectionOfEnumValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>(null, NoteType);
                 }
             }
         }

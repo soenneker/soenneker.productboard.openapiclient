@@ -24,10 +24,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by member UUIDs (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id Id { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>(global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -59,7 +59,68 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>("id", Id);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id>("id", Id);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="Guid"/>, List&lt;Guid&gt;
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class MemberSearchFilter_id : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type List&lt;Guid&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public List<Guid?>? Guid { get; set; }
+#nullable restore
+#else
+            public List<Guid?> Guid { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="Guid"/></summary>
+            public Guid? MemberSearchFilterIdGuid { get; set; }
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilter.MemberSearchFilter_id();
+                if(parseNode.GetGuidValue() is Guid memberSearchFilterIdGuidValue)
+                {
+                    result.MemberSearchFilterIdGuid = memberSearchFilterIdGuidValue;
+                }
+                else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid?> guidValue)
+                {
+                    result.Guid = guidValue;
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(MemberSearchFilterIdGuid != null)
+                {
+                    writer.WriteGuidValue(null, MemberSearchFilterIdGuid);
+                }
+                else if(Guid != null)
+                {
+                    writer.WriteCollectionOfPrimitiveValues<Guid?>(null, Guid);
+                }
+            }
         }
     }
 }

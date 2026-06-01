@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by source system. Single object or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source? Source { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source Source { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource Source { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,83 +58,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource>("source", Source);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class NoteSearchFilterMetadata_source : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue? SourceFilterValue { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue SourceFilterValue { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch? UnionBranch { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch UnionBranch { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadata.NoteSearchFilterMetadata_source();
-                if("SourceFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.SourceFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue();
-                }
-                else if("UnionBranch".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.UnionBranch = new global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(SourceFilterValue != null)
-                {
-                    return SourceFilterValue.GetFieldDeserializers();
-                }
-                else if(UnionBranch != null)
-                {
-                    return UnionBranch.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(SourceFilterValue != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(null, SourceFilterValue);
-                }
-                else if(UnionBranch != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.UnionBranch>(null, UnionBranch);
-                }
-            }
         }
     }
 }

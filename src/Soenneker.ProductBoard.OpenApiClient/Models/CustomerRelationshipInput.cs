@@ -23,7 +23,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTarget Target { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerRelationshipInput_type? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerRelationshipInputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerRelationshipInput"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTarget>(global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTarget.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerRelationshipInput_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerRelationshipInputType>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTarget>("target", Target);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerRelationshipInput_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerRelationshipInputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

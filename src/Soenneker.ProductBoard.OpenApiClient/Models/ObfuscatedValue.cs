@@ -9,7 +9,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         [EnumMember(Value = "[redacted]")]
         #pragma warning disable CS1591
-        Redacted,
+        LeftBracketRedactedRightBracket,
         #pragma warning restore CS1591
     }
 }

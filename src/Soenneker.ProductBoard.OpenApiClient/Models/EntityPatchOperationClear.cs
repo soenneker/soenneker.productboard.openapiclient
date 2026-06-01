@@ -14,7 +14,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     public partial class EntityPatchOperationClear : IParsable
     {
         /// <summary>The operation to perform on the field.Can be one of `clear`.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClear_op? Op { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClearOp? Op { get; set; }
         /// <summary>The path to the field to be modified.It is usually a field id (eg. &quot;tags&quot;, &quot;owner&quot;, &quot;00000000-0000-0000-0000-000000000000&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClear_op>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClearOp>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
             };
         }
@@ -52,7 +52,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClear_op>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClearOp>("op", Op);
             writer.WriteStringValue("path", Path);
         }
     }

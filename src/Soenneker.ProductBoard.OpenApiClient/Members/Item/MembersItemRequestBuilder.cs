@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
         /// <summary>
         /// Retrieves the full details of a specific member by their unique identifier (UUID).Returns the member&apos;s profile information including name, username, email address, and workspace role.&gt; Without the `members:pii:read` OAuth scope, PII fields (`name`, `username`, `email`) are returned as `[redacted]`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse">When receiving a 401 status code</exception>
@@ -47,11 +47,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberResponseResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberResponseResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -64,7 +64,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Members.Item.MembersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MemberResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the full details of a specific member by their unique identifier (UUID).Returns the member&apos;s profile information including name, username, email address, and workspace role.&gt; Without the `members:pii:read` OAuth scope, PII fields (`name`, `username`, `email`) are returned as `[redacted]`.

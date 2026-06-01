@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Search
         /// <summary>
         /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatUses structured `filter` and `search` objects.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse"/></returns>
         /// <param name="body">Request body for searching teams with filters.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -49,11 +49,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Search
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Search
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Teams.Search.SearchPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;## PurposePerforms a filtered search over teams using a POST request.Use this endpoint for batch lookups by IDs, names, or handles when query string filters are insufficient.## Request FormatUses structured `filter` and `search` objects.## Key Features- `filter.id`: Filter by team UUIDs (OR logic, max 100)- `filter.fields.name`: Filter by team name, case-insensitive (single string or array, OR logic)- `filter.fields.handle`: Filter by team handle, case-insensitive (single string or array, OR logic)- `search.query`: Full-text search on team name and handle (case-insensitive partial match)- Returns the same response format as `GET /v2/teams`## Filter Logic- Multiple values within a single filter use **OR** logic (e.g., `filter.fields.name: [\&quot;A\&quot;, \&quot;B\&quot;]` returns teams named A or B)- Different filter types and search use **AND** logic (e.g., `filter` AND `search` = intersection)- Empty request returns all teams (same as `GET /v2/teams`)## Important Notes- Each filter array accepts at most 100 items; exceeding this returns a 400 error- Pagination uses cursor-based navigation via `pageCursor` query parameter&quot;

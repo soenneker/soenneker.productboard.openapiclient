@@ -34,7 +34,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberLinks Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Member_type? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Member"/> and sets the default values.
         /// </summary>
@@ -63,7 +63,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Member_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberType>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields>("fields", Fields);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberLinks>("links", Links);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Member_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

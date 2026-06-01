@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
         /// <summary>
         /// Retrieves all relationships associated with a specific Entities.This includes parent, child, and linked entities.Use this endpoint to understand how an entity is connected within the product hierarchy or planning structure.The source entity is implicit (this entity).
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 400 status code</exception>
@@ -67,11 +67,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -85,12 +85,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a relationship between two Entities.  Specify the source entity via the URL path (`{id}`), and the target entity and relationship type in the request body.The `type` field determines the direction and nature of the relationship.  Supported values:- `parent` – declare the target as the parent of the source- `child` – declare the target as the child of the source- `link` – create a non-hierarchical connection between entities- `isBlockedBy` – create a dependency between entities- `isBlocking` – create a dependency between entities## Limitations- Only valid combinations of source and target entities are allowed for each relationship type.- The target entity must exist and be accessible.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -105,11 +105,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -126,7 +126,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves all relationships associated with a specific Entities.This includes parent, child, and linked entities.Use this endpoint to understand how an entity is connected within the product hierarchy or planning structure.The source entity is implicit (this entity).
@@ -155,11 +155,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

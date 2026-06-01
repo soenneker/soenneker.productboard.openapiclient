@@ -26,7 +26,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReference_type? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReferenceType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReference"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReference_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReferenceType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks>("links", Links);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReference_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReferenceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

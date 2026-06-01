@@ -78,7 +78,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item
         /// <summary>
         /// Retrieves the full details of a specific note by its ID.&gt; Without the `members:pii:read` scope, owner and creator email fields are returned as `[redacted]`.By default, the response includes all non-null fields available in your workspace for that note type(e.g. `textNote`, `conversationNote`). You can optimize the response size by using the `fields` query parameter:- Use `fields=name,tags,content` to retrieve only specific fields- Use `fields=all` to include all fields, even those with null valuesYou can use this endpoint to display the entire note content, including metadata such as owner, tags, and relationships.&gt; Use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpointto discover which fields are available for your workspace.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNote200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 400 status code</exception>
@@ -90,11 +90,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder.NotesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNote200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder.NotesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder.NotesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNote200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder.NotesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -108,7 +108,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNote200Response>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNote200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Updates the values of one or more fields for an existing note.You can update fields using either:- **Field Updates**: Replace entire field values using the `fields` object- **Patch Operations**: Perform granular updates using the `patch` array with operations (`set`, `clear`, `addItems`, `removeItems`)Use this endpoint to update note metadata such as name, owner, tags, or content.Use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint to discover available fields and possible patch operations.### Patch OperationsThe following patch operations are supported:| Operation | Description | Supported Fields ||-----------|-------------|------------------|| `set` | Set a field to a specific value | All fields || `clear` | Clear/reset a field to its default value | `owner`, `tags` || `addItems` | Add items to array fields | `tags`, `content` (conversationNote) || `removeItems` | Remove items from array fields | `tags`, `content` (conversationNote) |**Field-specific patch operation support:**- **owner**: `set`, `clear`- **tags**: `set`, `clear`, `addItems`, `removeItems`- **archived**: `set`- **processed**: `set`- **name**: `set`- **content** (textNote): `set`- **content** (conversationNote): `set`, `addItems`, `removeItems`### Known Limitations**Content updates for notes with linked features**: Notes that have content linked to features (via highlights/snippets) cannot have their `content` field updated. Attempting to update the content will return a `422 Unprocessable Entity` error with code `validation.forbidden`. You can still update other fields such as `name`, `owner`, `tags`, `archived`, and `processed` on these notes.**Archive and Processed Field Behavior**: When you set `archived` to `false`, the note will be set to processed automatically by the system. This is a known limitation where unarchiving a note triggers processing regardless of the previous processed state. The `processed` field will reflect the actual processing status after the unarchive operation.&quot;
@@ -127,11 +127,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -195,11 +195,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesUpdateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

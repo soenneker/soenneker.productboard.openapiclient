@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty Fields { get; set; }
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
@@ -81,7 +81,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata.CreateFromDiscriminatorValue); } },
@@ -98,7 +98,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Note_fields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty>("fields", Fields);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks>("links", Links);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata>("metadata", Metadata);

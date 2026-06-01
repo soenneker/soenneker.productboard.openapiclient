@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Search
         /// <summary>
         /// Performs a filtered search over notes using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/notes`, but allows more complex filtering through relationships.&gt; Filtering by owner or creator email requires the `members:pii:read` scope.### Filter Logic- Multiple values within a filter use **OR** logic (e.g., customer with id1 OR id2)- Different filter types use **AND** logic (e.g., customer AND link filters)### RelationshipsFilter notes by their relationships to customers (users or companies) and links (features):- `filter.relationships.customer[].id` - Filter by customer or company UUIDs (OR logic within)- `filter.relationships.link[].id` - Filter by linked feature UUIDs (OR logic within)
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200Response"/></returns>
         /// <param name="body">Request body for searching notes with filters.Uses a structured `filter` object with nested field groups.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -49,11 +49,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Search
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200Response?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200Response> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Search
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200Response>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesPerformNotesSearch200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Performs a filtered search over notes using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/notes`, but allows more complex filtering through relationships.&gt; Filtering by owner or creator email requires the `members:pii:read` scope.### Filter Logic- Multiple values within a filter use **OR** logic (e.g., customer with id1 OR id2)- Different filter types use **AND** logic (e.g., customer AND link filters)### RelationshipsFilter notes by their relationships to customers (users or companies) and links (features):- `filter.relationships.customer[].id` - Filter by customer or company UUIDs (OR logic within)- `filter.relationships.link[].id` - Filter by linked feature UUIDs (OR logic within)

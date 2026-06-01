@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <summary>
         /// Performs a filtered search over plugin integration connections using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/plugin-integrations/{integrationId}/connections`,but accepts filters in the request body instead of query parameters.It&apos;s useful when filtering by a long list of entity IDs or when URL length limits become a problem.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,11 +50,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsSearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsSearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,7 +70,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Performs a filtered search over plugin integration connections using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/plugin-integrations/{integrationId}/connections`,but accepts filters in the request body instead of query parameters.It&apos;s useful when filtering by a long list of entity IDs or when URL length limits become a problem.
@@ -80,11 +80,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsSearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsSearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

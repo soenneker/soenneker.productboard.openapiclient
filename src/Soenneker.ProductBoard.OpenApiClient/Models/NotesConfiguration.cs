@@ -17,18 +17,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A key-value definition fields that are part of the entity.Key represents field id (eg. name, description, or UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_fields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFieldsProperty? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_fields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFieldsProperty Fields { get; set; }
 #endif
         /// <summary>A key-value definition of possible relationships to other entities.Key represents the relationship type to other entities (child, parent, link)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_relationships? Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty? Relationships { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_relationships Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType? Type { get; set; }
@@ -57,8 +57,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_fields.CreateFromDiscriminatorValue); } },
-                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_relationships>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_relationships.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFieldsProperty.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>(); } },
             };
         }
@@ -69,8 +69,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_fields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfiguration_relationships>("relationships", Relationships);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFieldsProperty>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty>("relationships", Relationships);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

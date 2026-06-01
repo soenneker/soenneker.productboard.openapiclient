@@ -16,7 +16,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Connection state discriminator.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.InitialConnectionState_state? State { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.InitialConnectionStateState? State { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.InitialConnectionState"/> and sets the default values.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.InitialConnectionState_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.InitialConnectionStateState>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.InitialConnectionState_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.InitialConnectionStateState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

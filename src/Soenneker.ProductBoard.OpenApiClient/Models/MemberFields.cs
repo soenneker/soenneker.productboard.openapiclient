@@ -20,23 +20,23 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email? Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsEmail? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsEmail Email { get; set; }
 #endif
         /// <summary>Whether the member has a pending invitation that has not yet been accepted.</summary>
         public bool? InvitationPending { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name? Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsName? Name { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name Name { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsName Name { get; set; }
 #endif
         /// <summary>Role of the member in the workspace.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields_role? Role { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsRole? Role { get; set; }
         /// <summary>List of teams the member belongs to. Always included in the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,10 +48,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username? Username { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsUsername? Username { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username Username { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsUsername Username { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields"/> and sets the default values.
@@ -79,12 +79,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsEmail>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsEmail.CreateFromDiscriminatorValue); } },
                 { "invitationPending", n => { InvitationPending = n.GetBoolValue(); } },
-                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields_role>(); } },
+                { "name", n => { Name = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsName>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsName.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsRole>(); } },
                 { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReference.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "username", n => { Username = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username.CreateFromDiscriminatorValue); } },
+                { "username", n => { Username = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsUsername>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsUsername.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -95,193 +95,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("disabled", Disabled);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsEmail>("email", Email);
             writer.WriteBoolValue("invitationPending", InvitationPending);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name>("name", Name);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields_role>("role", Role);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsName>("name", Name);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsRole>("role", Role);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReference>("teams", Teams);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username>("username", Username);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldsUsername>("username", Username);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MemberFields_email : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/></summary>
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue? ObfuscatedValue { get; set; }
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_email();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>() is global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue obfuscatedValueValue)
-                {
-                    result.ObfuscatedValue = obfuscatedValueValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else if(ObfuscatedValue != null)
-                {
-                    writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>(null, ObfuscatedValue);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MemberFields_name : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/></summary>
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue? ObfuscatedValue { get; set; }
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_name();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>() is global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue obfuscatedValueValue)
-                {
-                    result.ObfuscatedValue = obfuscatedValueValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else if(ObfuscatedValue != null)
-                {
-                    writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>(null, ObfuscatedValue);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/>, <see cref="string"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MemberFields_username : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue"/></summary>
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue? ObfuscatedValue { get; set; }
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields.MemberFields_username();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>() is global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue obfuscatedValueValue)
-                {
-                    result.ObfuscatedValue = obfuscatedValueValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else if(ObfuscatedValue != null)
-                {
-                    writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ObfuscatedValue>(null, ObfuscatedValue);
-                }
-            }
         }
     }
 }

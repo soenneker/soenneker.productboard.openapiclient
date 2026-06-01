@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks Links { get; set; }
 #endif
         /// <summary>Resource type identifier.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration_type? Type { get; private set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationType? Type { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration"/> and sets the default values.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationType>(); } },
             };
         }
         /// <summary>

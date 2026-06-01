@@ -17,7 +17,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
         /// <summary>The type property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTargetById_type? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTargetByIdType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTargetById"/> and sets the default values.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTargetById_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTargetByIdType>(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteGuidValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTargetById_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CustomerTargetByIdType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

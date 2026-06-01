@@ -16,9 +16,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Additional format hint for the value.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema_format? Format { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchemaFormat? Format { get; set; }
         /// <summary>The value type expected for this filter.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema_type? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchemaType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema"/> and sets the default values.
         /// </summary>
@@ -44,8 +44,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "format", n => { Format = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema_format>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema_type>(); } },
+                { "format", n => { Format = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchemaFormat>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchemaType>(); } },
             };
         }
         /// <summary>
@@ -55,8 +55,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema_format>("format", Format);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchemaFormat>("format", Format);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchemaType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

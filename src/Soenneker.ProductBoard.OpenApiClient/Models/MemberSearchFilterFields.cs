@@ -18,20 +18,20 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by email address. Single string or array (OR logic), case-insensitive.Requires `members_pii:read` scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email? Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsEmail? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email Email { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsEmail Email { get; set; }
 #endif
         /// <summary>Exclusive filter for members with pending invitations. When `true`, returns **only** pending members.When absent, pending members are excluded by default.Use `return.includeInvitationPending` instead if you want pending members alongside accepted ones.</summary>
         public bool? InvitationPending { get; set; }
         /// <summary>Filter by role. Single string or array (OR logic).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role? Role { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRole? Role { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role Role { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRole Role { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,9 +52,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "disabled", n => { Disabled = n.GetBoolValue(); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email.CreateFromDiscriminatorValue); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsEmail>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsEmail.CreateFromDiscriminatorValue); } },
                 { "invitationPending", n => { InvitationPending = n.GetBoolValue(); } },
-                { "role", n => { Role = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRole>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRole.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -65,143 +65,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("disabled", Disabled);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email>("email", Email);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsEmail>("email", Email);
             writer.WriteBoolValue("invitationPending", InvitationPending);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role>("role", Role);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MemberSearchFilterFields_email : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? MemberSearchFilterFieldsEmailString { get; set; }
-#nullable restore
-#else
-            public string MemberSearchFilterFieldsEmailString { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_email();
-                if(parseNode.GetStringValue() is string memberSearchFilterFieldsEmailStringValue)
-                {
-                    result.MemberSearchFilterFieldsEmailString = memberSearchFilterFieldsEmailStringValue;
-                }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(MemberSearchFilterFieldsEmailString != null)
-                {
-                    writer.WriteStringValue(null, MemberSearchFilterFieldsEmailString);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-            }
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>, List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class MemberSearchFilterFields_role : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1>? MemberSearchFilterFieldsRoleMember1 { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1> MemberSearchFilterFieldsRoleMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? String { get; set; }
-#nullable restore
-#else
-            public string String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields.MemberSearchFilterFields_role();
-                if(parseNode.GetStringValue() is string stringValue)
-                {
-                    result.String = stringValue;
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1> memberSearchFilterFieldsRoleMember1Value)
-                {
-                    result.MemberSearchFilterFieldsRoleMember1 = memberSearchFilterFieldsRoleMember1Value;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(String != null)
-                {
-                    writer.WriteStringValue(null, String);
-                }
-                else if(MemberSearchFilterFieldsRoleMember1 != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFields_roleMember1>(null, MemberSearchFilterFieldsRoleMember1);
-                }
-            }
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRole>("role", Role);
         }
     }
 }

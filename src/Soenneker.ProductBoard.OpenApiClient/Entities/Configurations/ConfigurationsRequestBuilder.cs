@@ -49,7 +49,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Configurations
         /// <summary>
         /// Returns metadata for all available Entities type, including supported fields, patch operations, and validation rules.  Use this to programmatically discover what entity types are available for your workspace, which fields are required,what types are available, and how your workspace is configured.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 400 status code</exception>
@@ -61,11 +61,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Configurations
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsRequestBuilder.ConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -79,7 +79,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Configurations
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.Configurations.ConfigurationsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns metadata for all available Entities type, including supported fields, patch operations, and validation rules.  Use this to programmatically discover what entity types are available for your workspace, which fields are required,what types are available, and how your workspace is configured.

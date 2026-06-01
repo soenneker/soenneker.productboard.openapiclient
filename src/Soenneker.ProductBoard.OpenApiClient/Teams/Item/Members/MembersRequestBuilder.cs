@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members
         /// <summary>
         /// Returns a paginated list of members belonging to a specific team.Members are sorted by membership creation date, newest first.Member name and email are redacted to `[redacted]` without the `members:pii:read` scope.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMembersListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 400 status code</exception>
@@ -48,11 +48,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMembersListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMembersListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -66,7 +66,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members.MembersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMembersListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMembersListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a paginated list of members belonging to a specific team.Members are sorted by membership creation date, newest first.Member name and email are redacted to `[redacted]` without the `members:pii:read` scope.

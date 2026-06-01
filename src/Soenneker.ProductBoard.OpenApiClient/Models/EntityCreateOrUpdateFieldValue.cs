@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.DateFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch10"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch11"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch16"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch21"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch25"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch27"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch3"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch5"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NumberFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdate"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ProgressFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ProgressFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.RichTextFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SingleSelectFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TextFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.URLFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UUIDFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WorkProgressFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WorkProgressFieldValueWithMetadata"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.DateFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch10"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch11"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch16"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch21"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch25"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch27"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch3"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch5"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssignWrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NumberFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdate"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ProgressFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ProgressFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.RichTextFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SingleSelectFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TextFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UrlFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UuidFieldValueWithMetadata"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WorkProgressFieldValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WorkProgressFieldValueWithMetadata"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EntityCreateOrUpdateFieldValue : IComposedTypeWrapper, IParsable
@@ -29,77 +29,77 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.DateFieldValueWithMetadata DateFieldValueWithMetadata { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch1? EntityCreateOrUpdateFieldValueBranch1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch1? EntityCreateOrUpdateFieldValueBranch1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch1 EntityCreateOrUpdateFieldValueBranch1 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch1 EntityCreateOrUpdateFieldValueBranch1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch10"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch10"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch10? EntityCreateOrUpdateFieldValueBranch10 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch10? EntityCreateOrUpdateFieldValueBranch10 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch10 EntityCreateOrUpdateFieldValueBranch10 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch10 EntityCreateOrUpdateFieldValueBranch10 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch11"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch11"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch11? EntityCreateOrUpdateFieldValueBranch11 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch11? EntityCreateOrUpdateFieldValueBranch11 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch11 EntityCreateOrUpdateFieldValueBranch11 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch11 EntityCreateOrUpdateFieldValueBranch11 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch16"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch16"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch16? EntityCreateOrUpdateFieldValueBranch16 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch16? EntityCreateOrUpdateFieldValueBranch16 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch16 EntityCreateOrUpdateFieldValueBranch16 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch16 EntityCreateOrUpdateFieldValueBranch16 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch21"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch21"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch21? EntityCreateOrUpdateFieldValueBranch21 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch21? EntityCreateOrUpdateFieldValueBranch21 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch21 EntityCreateOrUpdateFieldValueBranch21 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch21 EntityCreateOrUpdateFieldValueBranch21 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch25"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch25"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch25? EntityCreateOrUpdateFieldValueBranch25 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch25? EntityCreateOrUpdateFieldValueBranch25 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch25 EntityCreateOrUpdateFieldValueBranch25 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch25 EntityCreateOrUpdateFieldValueBranch25 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch27"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch27"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch27? EntityCreateOrUpdateFieldValueBranch27 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch27? EntityCreateOrUpdateFieldValueBranch27 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch27 EntityCreateOrUpdateFieldValueBranch27 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch27 EntityCreateOrUpdateFieldValueBranch27 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch3? EntityCreateOrUpdateFieldValueBranch3 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch3? EntityCreateOrUpdateFieldValueBranch3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch3 EntityCreateOrUpdateFieldValueBranch3 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch3 EntityCreateOrUpdateFieldValueBranch3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch5"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch5? EntityCreateOrUpdateFieldValueBranch5 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch5? EntityCreateOrUpdateFieldValueBranch5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch5 EntityCreateOrUpdateFieldValueBranch5 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch5 EntityCreateOrUpdateFieldValueBranch5 { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValue"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,13 +125,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign MemberFieldAssign { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssignWrapper"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper? MultiSelectFieldAssignWrapper { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssignWrapper? MultiSelectFieldAssignWrapper { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper MultiSelectFieldAssignWrapper { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssignWrapper MultiSelectFieldAssignWrapper { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NumberFieldValueWithMetadata"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -221,21 +221,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueWithMetadata TimeframeFieldValueWithMetadata { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.URLFieldValueWithMetadata"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UrlFieldValueWithMetadata"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.URLFieldValueWithMetadata? URLFieldValueWithMetadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UrlFieldValueWithMetadata? UrlFieldValueWithMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.URLFieldValueWithMetadata URLFieldValueWithMetadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UrlFieldValueWithMetadata UrlFieldValueWithMetadata { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UUIDFieldValueWithMetadata"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.UuidFieldValueWithMetadata"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UUIDFieldValueWithMetadata? UUIDFieldValueWithMetadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UuidFieldValueWithMetadata? UuidFieldValueWithMetadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UUIDFieldValueWithMetadata UUIDFieldValueWithMetadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UuidFieldValueWithMetadata UuidFieldValueWithMetadata { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WorkProgressFieldValue"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -264,19 +264,19 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue();
             result.BooleanFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadata();
             result.DateFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.DateFieldValueWithMetadata();
-            result.EntityCreateOrUpdateFieldValueBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch1();
-            result.EntityCreateOrUpdateFieldValueBranch10 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch10();
-            result.EntityCreateOrUpdateFieldValueBranch11 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch11();
-            result.EntityCreateOrUpdateFieldValueBranch16 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch16();
-            result.EntityCreateOrUpdateFieldValueBranch21 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch21();
-            result.EntityCreateOrUpdateFieldValueBranch25 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch25();
-            result.EntityCreateOrUpdateFieldValueBranch27 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch27();
-            result.EntityCreateOrUpdateFieldValueBranch3 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch3();
-            result.EntityCreateOrUpdateFieldValueBranch5 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue_Branch5();
+            result.EntityCreateOrUpdateFieldValueBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch1();
+            result.EntityCreateOrUpdateFieldValueBranch10 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch10();
+            result.EntityCreateOrUpdateFieldValueBranch11 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch11();
+            result.EntityCreateOrUpdateFieldValueBranch16 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch16();
+            result.EntityCreateOrUpdateFieldValueBranch21 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch21();
+            result.EntityCreateOrUpdateFieldValueBranch25 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch25();
+            result.EntityCreateOrUpdateFieldValueBranch27 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch27();
+            result.EntityCreateOrUpdateFieldValueBranch3 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch3();
+            result.EntityCreateOrUpdateFieldValueBranch5 = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch5();
             result.HealthUpdateFieldValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValue();
             result.HealthUpdateFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueWithMetadata();
             result.MemberFieldAssign = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign();
-            result.MultiSelectFieldAssignWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssign_Wrapper();
+            result.MultiSelectFieldAssignWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.MultiSelectFieldAssignWrapper();
             result.NumberFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.NumberFieldValueWithMetadata();
             result.NumberValueModeUpdate = new global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdate();
             result.ProgressFieldValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.ProgressFieldValue();
@@ -288,8 +288,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             result.TextFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.TextFieldValueWithMetadata();
             result.TimeframeFieldValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValue();
             result.TimeframeFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueWithMetadata();
-            result.URLFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.URLFieldValueWithMetadata();
-            result.UUIDFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.UUIDFieldValueWithMetadata();
+            result.UrlFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.UrlFieldValueWithMetadata();
+            result.UuidFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.UuidFieldValueWithMetadata();
             result.WorkProgressFieldValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.WorkProgressFieldValue();
             result.WorkProgressFieldValueWithMetadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.WorkProgressFieldValueWithMetadata();
             return result;
@@ -300,9 +300,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(BooleanFieldValueWithMetadata != null || DateFieldValueWithMetadata != null || EntityCreateOrUpdateFieldValueBranch1 != null || EntityCreateOrUpdateFieldValueBranch10 != null || EntityCreateOrUpdateFieldValueBranch11 != null || EntityCreateOrUpdateFieldValueBranch16 != null || EntityCreateOrUpdateFieldValueBranch21 != null || EntityCreateOrUpdateFieldValueBranch25 != null || EntityCreateOrUpdateFieldValueBranch27 != null || EntityCreateOrUpdateFieldValueBranch3 != null || EntityCreateOrUpdateFieldValueBranch5 != null || HealthUpdateFieldValue != null || HealthUpdateFieldValueWithMetadata != null || MemberFieldAssign != null || MultiSelectFieldAssignWrapper != null || NumberFieldValueWithMetadata != null || NumberValueModeUpdate != null || ProgressFieldValue != null || ProgressFieldValueWithMetadata != null || RichTextFieldValueWithMetadata != null || SingleSelectFieldAssign != null || StatusFieldAssign != null || TeamFieldAssign != null || TextFieldValueWithMetadata != null || TimeframeFieldValue != null || TimeframeFieldValueWithMetadata != null || URLFieldValueWithMetadata != null || UUIDFieldValueWithMetadata != null || WorkProgressFieldValue != null || WorkProgressFieldValueWithMetadata != null)
+            if(BooleanFieldValueWithMetadata != null || DateFieldValueWithMetadata != null || EntityCreateOrUpdateFieldValueBranch1 != null || EntityCreateOrUpdateFieldValueBranch10 != null || EntityCreateOrUpdateFieldValueBranch11 != null || EntityCreateOrUpdateFieldValueBranch16 != null || EntityCreateOrUpdateFieldValueBranch21 != null || EntityCreateOrUpdateFieldValueBranch25 != null || EntityCreateOrUpdateFieldValueBranch27 != null || EntityCreateOrUpdateFieldValueBranch3 != null || EntityCreateOrUpdateFieldValueBranch5 != null || HealthUpdateFieldValue != null || HealthUpdateFieldValueWithMetadata != null || MemberFieldAssign != null || MultiSelectFieldAssignWrapper != null || NumberFieldValueWithMetadata != null || NumberValueModeUpdate != null || ProgressFieldValue != null || ProgressFieldValueWithMetadata != null || RichTextFieldValueWithMetadata != null || SingleSelectFieldAssign != null || StatusFieldAssign != null || TeamFieldAssign != null || TextFieldValueWithMetadata != null || TimeframeFieldValue != null || TimeframeFieldValueWithMetadata != null || UrlFieldValueWithMetadata != null || UuidFieldValueWithMetadata != null || WorkProgressFieldValue != null || WorkProgressFieldValueWithMetadata != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BooleanFieldValueWithMetadata, DateFieldValueWithMetadata, EntityCreateOrUpdateFieldValueBranch1, EntityCreateOrUpdateFieldValueBranch10, EntityCreateOrUpdateFieldValueBranch11, EntityCreateOrUpdateFieldValueBranch16, EntityCreateOrUpdateFieldValueBranch21, EntityCreateOrUpdateFieldValueBranch25, EntityCreateOrUpdateFieldValueBranch27, EntityCreateOrUpdateFieldValueBranch3, EntityCreateOrUpdateFieldValueBranch5, HealthUpdateFieldValue, HealthUpdateFieldValueWithMetadata, MemberFieldAssign, MultiSelectFieldAssignWrapper, NumberFieldValueWithMetadata, NumberValueModeUpdate, ProgressFieldValue, ProgressFieldValueWithMetadata, RichTextFieldValueWithMetadata, SingleSelectFieldAssign, StatusFieldAssign, TeamFieldAssign, TextFieldValueWithMetadata, TimeframeFieldValue, TimeframeFieldValueWithMetadata, URLFieldValueWithMetadata, UUIDFieldValueWithMetadata, WorkProgressFieldValue, WorkProgressFieldValueWithMetadata);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(BooleanFieldValueWithMetadata, DateFieldValueWithMetadata, EntityCreateOrUpdateFieldValueBranch1, EntityCreateOrUpdateFieldValueBranch10, EntityCreateOrUpdateFieldValueBranch11, EntityCreateOrUpdateFieldValueBranch16, EntityCreateOrUpdateFieldValueBranch21, EntityCreateOrUpdateFieldValueBranch25, EntityCreateOrUpdateFieldValueBranch27, EntityCreateOrUpdateFieldValueBranch3, EntityCreateOrUpdateFieldValueBranch5, HealthUpdateFieldValue, HealthUpdateFieldValueWithMetadata, MemberFieldAssign, MultiSelectFieldAssignWrapper, NumberFieldValueWithMetadata, NumberValueModeUpdate, ProgressFieldValue, ProgressFieldValueWithMetadata, RichTextFieldValueWithMetadata, SingleSelectFieldAssign, StatusFieldAssign, TeamFieldAssign, TextFieldValueWithMetadata, TimeframeFieldValue, TimeframeFieldValueWithMetadata, UrlFieldValueWithMetadata, UuidFieldValueWithMetadata, WorkProgressFieldValue, WorkProgressFieldValueWithMetadata);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -313,7 +313,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadata>(null, BooleanFieldValueWithMetadata, DateFieldValueWithMetadata, EntityCreateOrUpdateFieldValueBranch1, EntityCreateOrUpdateFieldValueBranch10, EntityCreateOrUpdateFieldValueBranch11, EntityCreateOrUpdateFieldValueBranch16, EntityCreateOrUpdateFieldValueBranch21, EntityCreateOrUpdateFieldValueBranch25, EntityCreateOrUpdateFieldValueBranch27, EntityCreateOrUpdateFieldValueBranch3, EntityCreateOrUpdateFieldValueBranch5, HealthUpdateFieldValue, HealthUpdateFieldValueWithMetadata, MemberFieldAssign, MultiSelectFieldAssignWrapper, NumberFieldValueWithMetadata, NumberValueModeUpdate, ProgressFieldValue, ProgressFieldValueWithMetadata, RichTextFieldValueWithMetadata, SingleSelectFieldAssign, StatusFieldAssign, TeamFieldAssign, TextFieldValueWithMetadata, TimeframeFieldValue, TimeframeFieldValueWithMetadata, URLFieldValueWithMetadata, UUIDFieldValueWithMetadata, WorkProgressFieldValue, WorkProgressFieldValueWithMetadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadata>(null, BooleanFieldValueWithMetadata, DateFieldValueWithMetadata, EntityCreateOrUpdateFieldValueBranch1, EntityCreateOrUpdateFieldValueBranch10, EntityCreateOrUpdateFieldValueBranch11, EntityCreateOrUpdateFieldValueBranch16, EntityCreateOrUpdateFieldValueBranch21, EntityCreateOrUpdateFieldValueBranch25, EntityCreateOrUpdateFieldValueBranch27, EntityCreateOrUpdateFieldValueBranch3, EntityCreateOrUpdateFieldValueBranch5, HealthUpdateFieldValue, HealthUpdateFieldValueWithMetadata, MemberFieldAssign, MultiSelectFieldAssignWrapper, NumberFieldValueWithMetadata, NumberValueModeUpdate, ProgressFieldValue, ProgressFieldValueWithMetadata, RichTextFieldValueWithMetadata, SingleSelectFieldAssign, StatusFieldAssign, TeamFieldAssign, TextFieldValueWithMetadata, TimeframeFieldValue, TimeframeFieldValueWithMetadata, UrlFieldValueWithMetadata, UuidFieldValueWithMetadata, WorkProgressFieldValue, WorkProgressFieldValueWithMetadata);
         }
     }
 }

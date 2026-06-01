@@ -73,7 +73,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <summary>
         /// &quot;Returns the connection for a specific entity within a plugin integration.**Important**: if no connection exists for the entity, this endpoint returnsa connection with `state: initial` rather than a `404`. The `initial` stateindicates the entity has not yet been pushed to the third-party system.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.GetPluginIntegrationConnectionResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse">When receiving a 400 status code</exception>
@@ -85,11 +85,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.GetPluginIntegrationConnectionResponseResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.GetPluginIntegrationConnectionResponseResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -103,12 +103,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.GetPluginIntegrationConnectionResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.GetPluginIntegrationConnectionResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Creates or replaces the connection state for a specific entity within a pluginintegration. This is an **upsert** — if no connection exists it is created; if oneexists it is replaced.**Connection states:**| State | Effect ||---|---|| `connected` | Entity is linked; push button shows connection details || `error` | Connection failed; push button shows error state || `progress` | Processing asynchronously; push button shows loading indicator || `initial` | Equivalent to deleting the connection; push button resets |**Async processing flow:**1. User clicks push button → your endpoint receives an action notification2. Respond immediately with `state: progress` to show a loading indicator3. Process the action asynchronously4. Call this endpoint with the final state (`connected` or `error`)&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,11 +122,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutResponse?> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateResponseResponse?> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutResponse> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateResponseResponse> PutAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -142,7 +142,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Permanently deletes the connection between an entity and the third-party system,resetting the push button to its initial unconnected state.This is equivalent to calling the Configure Connection endpoint with `state: initial`.&quot;
@@ -190,11 +190,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.Item.WithEntityPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

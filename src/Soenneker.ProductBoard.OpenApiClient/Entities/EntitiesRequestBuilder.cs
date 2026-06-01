@@ -67,7 +67,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// <summary>
         /// Retrieves a paginated list of Entities.You can filter results, sort them, and control which fields are returned.&gt; Without the `members:pii:read` scope, owner email fields are returned as `[redacted]`. Filtering by `owner[email]` requires the `members:pii:read` scope. Without the `users:pii:read` scope, user entity name and email fields are returned as `[redacted]`.Use the `type[]` query parameter to filter by one or more entity types (e.g. `type[]=feature&amp;type[]=initiative`).Use the `fields` parameter to request only the fields you need.## Filter availabilityNot all filters apply to all entity types. For example, `status` filtering is only availablefor types that have a status field (e.g. `feature`, `initiative`), and `parent[id]` only worksfor types that have a parent relationship.Use `GET /v2/entities/configurations/{type}` to check which filters are supported for a specific type.The `filters` array in the configuration response lists all available filter parameters,their exact query parameter names, and value schemas.## Limitations- Only the `AND` operator is supported when applying multiple filters. `OR`, `NOT`, or nested conditions are not supported.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 400 status code</exception>
@@ -79,11 +79,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder.EntitiesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder.EntitiesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder.EntitiesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder.EntitiesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -97,12 +97,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new Entities of the specified type.  You must specify the `type` (e.g. `feature`, `initiative`) and provide required fields based on your workspace configuration.Use the `/configuration` endpoint to discover what fields are available and required.## Limitations- The field names and availability depend on your workspace setup.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ReferenceResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -116,11 +116,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.ReferenceResponseResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.ReferenceResponseResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -136,7 +136,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.ReferenceResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.ReferenceResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a paginated list of Entities.You can filter results, sort them, and control which fields are returned.&gt; Without the `members:pii:read` scope, owner email fields are returned as `[redacted]`. Filtering by `owner[email]` requires the `members:pii:read` scope. Without the `users:pii:read` scope, user entity name and email fields are returned as `[redacted]`.Use the `type[]` query parameter to filter by one or more entity types (e.g. `type[]=feature&amp;type[]=initiative`).Use the `fields` parameter to request only the fields you need.## Filter availabilityNot all filters apply to all entity types. For example, `status` filtering is only availablefor types that have a status field (e.g. `feature`, `initiative`), and `parent[id]` only worksfor types that have a parent relationship.Use `GET /v2/entities/configurations/{type}` to check which filters are supported for a specific type.The `filters` array in the configuration response lists all available filter parameters,their exact query parameter names, and value schemas.## Limitations- Only the `AND` operator is supported when applying multiple filters. `OR`, `NOT`, or nested conditions are not supported.
@@ -165,11 +165,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

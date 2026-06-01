@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <summary>
         /// Returns all connections for a plugin integration, **excluding** those in the`initial` state. The `initial` state is the default — it means no connection hasbeen established for that entity yet.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse">When receiving a 400 status code</exception>
@@ -67,11 +67,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -85,7 +85,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connectio
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.Item.Connections.ConnectionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionsListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns all connections for a plugin integration, **excluding** those in the`initial` state. The `initial` state is the default — it means no connection hasbeen established for that entity yet.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.

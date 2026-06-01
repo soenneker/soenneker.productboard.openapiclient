@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>&quot;Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified or `\&quot;default\&quot;`: Returns only fields with non-empty values- `\&quot;all\&quot;`: Returns all fields, including those with `null` values- `[\&quot;name\&quot;, \&quot;status\&quot;, ...]`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturnFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturnFields Fields { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturnFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturnFields.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,74 +58,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturnFields>("fields", Fields);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="string"/>, List&lt;string&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EntitySearchReturn_fields : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="string"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public string? EntitySearchReturnFieldsString { get; set; }
-#nullable restore
-#else
-            public string EntitySearchReturnFieldsString { get; set; }
-#endif
-            /// <summary>Composed type representation for type List&lt;string&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<string>? String { get; set; }
-#nullable restore
-#else
-            public List<string> String { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturn.EntitySearchReturn_fields();
-                if(parseNode.GetStringValue() is string entitySearchReturnFieldsStringValue)
-                {
-                    result.EntitySearchReturnFieldsString = entitySearchReturnFieldsStringValue;
-                }
-                else if(parseNode.GetCollectionOfPrimitiveValues<string>()?.AsList() is List<string> stringValue)
-                {
-                    result.String = stringValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EntitySearchReturnFieldsString != null)
-                {
-                    writer.WriteStringValue(null, EntitySearchReturnFieldsString);
-                }
-                else if(String != null)
-                {
-                    writer.WriteCollectionOfPrimitiveValues<string>(null, String);
-                }
-            }
         }
     }
 }

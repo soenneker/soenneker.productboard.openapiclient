@@ -16,7 +16,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Background color of the push button.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedState_color? Color { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor? Color { get; set; }
         /// <summary>Text on the push button on hover (temporarily replaces `label`). Typically shows the linked entity&apos;s identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public string Label { get; set; }
 #endif
         /// <summary>Connection state discriminator.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedState_state? State { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState? State { get; set; }
         /// <summary>URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,10 +76,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedState_color>(); } },
+                { "color", n => { Color = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor>(); } },
                 { "hoverLabel", n => { HoverLabel = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedState_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState>(); } },
                 { "targetUrl", n => { TargetUrl = n.GetStringValue(); } },
                 { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
@@ -91,10 +91,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedState_color>("color", Color);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor>("color", Color);
             writer.WriteStringValue("hoverLabel", HoverLabel);
             writer.WriteStringValue("label", Label);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedState_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState>("state", State);
             writer.WriteStringValue("targetUrl", TargetUrl);
             writer.WriteStringValue("tooltip", Tooltip);
             writer.WriteAdditionalData(AdditionalData);

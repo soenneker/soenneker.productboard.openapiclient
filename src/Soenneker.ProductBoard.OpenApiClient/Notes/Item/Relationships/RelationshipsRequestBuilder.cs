@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
         /// <summary>
         /// Retrieves all relationships connected to a specific note.This includes:- Customer relationship (either a User or Company entity)- Product link relationships (e.g. linked features)### Customer relationship rules- A note can have a relationship to **exactly one customer entity** (User or Company).- If the note has a **User** as the customer, and that User is associated with a Company,  only the **User** is returned.- If the note has a **User** without a Company, the User is returned.- If the note has a **Company**, the Company is returned.- If the note has no customer relationship, an empty array is returned.### Product link relationships- Notes can be linked to **multiple Product Management entities** (e.g. features, components).- All such relationships are returned in the same response.&gt; To discover supported relationship types, use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 400 status code</exception>
@@ -67,11 +67,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -85,12 +85,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200Response>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationships200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new relationship between a note and another entity.You can link a note to:- A Product Management entity (e.g. feature, component, initiative)- A customer entity (company or user)This is useful for capturing customer feedback and tying it to the right product link,or for attributing a note to a specific customer.Notes can have **one customer** relationship and **multiple product link** relationships.If a Customer relationship already exists (user or company), this endpoint returns a validation error.Use `PUT /v2/notes/{id}/relationships/customer` to replace an existing Customer relationship.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -104,11 +104,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201Response?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201Response> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -124,7 +124,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201Response>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesCreateNoteRelationship201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves all relationships connected to a specific note.This includes:- Customer relationship (either a User or Company entity)- Product link relationships (e.g. linked features)### Customer relationship rules- A note can have a relationship to **exactly one customer entity** (User or Company).- If the note has a **User** as the customer, and that User is associated with a Company,  only the **User** is returned.- If the note has a **User** without a Company, the User is returned.- If the note has a **Company**, the Company is returned.- If the note has no customer relationship, an empty array is returned.### Product link relationships- Notes can be linked to **multiple Product Management entities** (e.g. features, components).- All such relationships are returned in the same response.&gt; To discover supported relationship types, use the [`/v2/notes/configurations`](#/paths/~1v2~1notes~1configurations/get) endpoint.
@@ -197,10 +197,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
 #endif
             /// <summary>&quot;Filter relationships by the target entity type. When provided, only relationshipswhere the target matches the specified entity type are returned.If not provided, all target types are returned.Available values:- `user`: Customer relationships where the target is a user- `company`: Customer relationships where the target is a company- `feature`: Link relationships where the target is a feature- `subfeature`: Link relationships where the target is a subfeature- `product`: Link relationships where the target is a product- `component`: Link relationships where the target is a component&quot;</summary>
             [QueryParameter("target%5Btype%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.GetTargetTypeQueryParameterType? Targettype { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationshipsTargetTypeParameter? Targettype { get; set; }
             /// <summary>Filter relationships by type. When provided, only relationships of the specified type are returned.If not provided, all relationship types are returned.</summary>
             [QueryParameter("type")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.GetTypeQueryParameterType? Type { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationshipsTypeParameter? Type { get; set; }
         }
     }
 }

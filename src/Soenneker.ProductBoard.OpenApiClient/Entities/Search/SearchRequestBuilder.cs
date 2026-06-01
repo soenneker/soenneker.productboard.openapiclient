@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Search
         /// <summary>
         /// Performs a filtered search over Entities using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/entities`, but allows a larger and more complex payload.It&apos;s useful when filtering by a long list of foreign key IDs or when URL length limits become a problem.## Filter availabilityNot all filters apply to all entity types. For example, `status` filtering is only availablefor types that have a status field (e.g. `feature`, `initiative`), and `parent` filtering only worksfor types that have a parent relationship.Use `GET /v2/entities/configurations/{type}` to check which filters are supported for a specific type.The `filters` array in the configuration response lists all available filter parameters,their exact query parameter names, and value schemas.&gt; Filtering by `owner[email]` requires the `members:pii:read` scope.## Limitations- Only the `AND` operator is supported when applying multiple filters. `OR`, `NOT`, or nested conditions are not supported.- You can search only within one entity type at a time.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,11 +50,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Search
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,7 +70,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Search
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.EntityListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Performs a filtered search over Entities using a POST request.This endpoint supports the same filtering capabilities as `GET /v2/entities`, but allows a larger and more complex payload.It&apos;s useful when filtering by a long list of foreign key IDs or when URL length limits become a problem.## Filter availabilityNot all filters apply to all entity types. For example, `status` filtering is only availablefor types that have a status field (e.g. `feature`, `initiative`), and `parent` filtering only worksfor types that have a parent relationship.Use `GET /v2/entities/configurations/{type}` to check which filters are supported for a specific type.The `filters` array in the configuration response lists all available filter parameters,their exact query parameter names, and value schemas.&gt; Filtering by `owner[email]` requires the `members:pii:read` scope.## Limitations- Only the `AND` operator is supported when applying multiple filters. `OR`, `NOT`, or nested conditions are not supported.- You can search only within one entity type at a time.
@@ -80,11 +80,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Search
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchPostRequestBody body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequest body, Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

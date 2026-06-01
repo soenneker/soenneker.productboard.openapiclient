@@ -76,7 +76,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item
         /// <summary>
         /// Retrieves the full details of a specific team by its unique identifier (UUID).Returns the team&apos;s name, handle, description, avatar URL, and metadata such as creation and update timestamps.Use this endpoint to load complete data for a single team.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 400 status code</exception>
@@ -88,11 +88,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamResponseResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamResponseResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -106,7 +106,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.TeamResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Updates the fields and/or members of an existing team.Supports both field updates via `fields` and member management via `patch` operations.Both can be combined in a single request.## Updatable Fields- `name`: The name of the team (1-255 characters)- `handle`: Unique handle for @mentions (lowercase alphanumeric only)- `description`: Optional description of the team (max 10,000 characters)## Patch Operations on MembersUse `patch` array to manage team members with these operations:- `addItems`: Add members to the team (idempotent, skips already-present members)- `removeItems`: Remove members from the team (idempotent, skips already-absent members)- `set`: Replace entire member list atomically- `clear`: Remove all members from the teamMaximum 100 member references per operation.## ResponseReturns a reference to the updated team.Use the GET endpoint to retrieve the full updated team details.&quot;
@@ -126,11 +126,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -195,11 +195,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Teams.Item.TeamsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

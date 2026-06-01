@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
         /// <summary>
         /// Retrieves a paginated list of teams from your workspace.Teams represent groups of members that can be used for organizing work and assigning ownership.- Teams are sorted by creation date, newest first.- Use the `name` parameter to filter by name (case-insensitive exact match).- Use the `handle` parameter to filter by handle (case-insensitive exact match).- Use the `query` parameter to search by partial name or handle (case-insensitive). For example, `query=product` will match &quot;Product Team&quot;, &quot;My Product&quot;, &quot;production&quot;, etc.- Use the `pageCursor` parameter to paginate through results.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 400 status code</exception>
@@ -66,11 +66,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsRequestBuilder.TeamsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsRequestBuilder.TeamsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsRequestBuilder.TeamsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsRequestBuilder.TeamsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -83,7 +83,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Creates a new team in your workspace.You must provide the team `name` and a unique `handle` for @mentions.## Required Fields- `name`: The name of the team (1-255 characters, must be unique per workspace)- `handle`: Unique handle for @mentions (lowercase alphanumeric only, 1-255 characters, must be unique per workspace)## ResponseReturns a reference to the created team with its ID and self link.Use the GET endpoint to retrieve the full team details.&quot;
@@ -102,11 +102,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse?> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse> PostAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -151,11 +151,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Teams.TeamsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamCreateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

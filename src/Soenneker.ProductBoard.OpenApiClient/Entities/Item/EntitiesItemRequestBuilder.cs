@@ -78,7 +78,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
         /// <summary>
         /// Retrieves all configured fields and values for the specified Entities.Use this endpoint to load complete data for a single entity.&gt; Without the `members:pii:read` scope, owner email is returned as `[redacted]`. Without the `users:pii:read` scope, user entity name and email fields are returned as `[redacted]`.You can limit the fields returned using the `fields` query parameter.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 400 status code</exception>
@@ -90,11 +90,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesItemRequestBuilder.EntitiesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesItemRequestBuilder.EntitiesItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesItemRequestBuilder.EntitiesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesItemRequestBuilder.EntitiesItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -108,12 +108,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.EntityResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates one or more fields of a Entities.  Use `fields` for full replacement of values, or `patch` for granular changes like adding/removing items in list-type fields.  You must use either `fields` or `patch` – not both.The `patch` property supports these operations:- `set` – same as setting a value via `fields`- `addItems` – add one or more values to a list field- `removeItems` – remove values from a list field- `clear` – erase the value of the field## Limitations- Providing both `fields` and `patch` in the same request will return an error.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -127,11 +127,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateResponseResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateResponseResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -147,7 +147,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a Product Management entity by ID. This operation permanently removes the specified entity from your workspace.If the entity has any child entities (e.g. a product with components, or a feature with subfeatures), those children will be **deleted automatically** as part of a cascading delete.**Use this endpoint with caution — deletion is irreversible.**
@@ -195,11 +195,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

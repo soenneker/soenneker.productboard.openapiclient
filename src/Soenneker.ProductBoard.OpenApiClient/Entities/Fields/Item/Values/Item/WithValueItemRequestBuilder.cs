@@ -72,7 +72,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item
         /// <summary>
         /// Updates an existing value (option) for a select-type field (SINGLE_SELECT, MULTI_SELECT, TAG).Only provided fields are updated, omitted fields remain unchanged.**STATUS fields are not supported.** Status values are managed through the status lifecycle(not this endpoint) and cannot be updated here.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValueReferenceResponseResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -86,11 +86,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValueReferenceResponseResponse?> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValueReferenceResponseResponse> PatchAsync(global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -106,7 +106,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.EntitiesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValueReferenceResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValueReferenceResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Deletes a value (option) from a select-type field (SINGLE_SELECT, MULTI_SELECT, TAG).**STATUS fields are not supported.** Status values are managed through the status lifecycle(not this endpoint) and cannot be deleted here.By default, deletion is rejected if the value is currently assigned to any entities.Use `force` to unset the value from all entities, or`replaceWith` to move all assignments to another value.These two parameters are mutually exclusive - providing both results in a 400 error.
@@ -135,11 +135,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValuePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

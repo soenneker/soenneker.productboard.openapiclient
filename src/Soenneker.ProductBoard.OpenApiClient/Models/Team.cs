@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.Team_type? Type { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReferenceType? Type { get; set; }
         /// <summary>ISO 8601 timestamp when the team was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Team_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReferenceType>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -83,7 +83,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields>("fields", Fields);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks>("links", Links);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.Team_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsTeamReferenceType>("type", Type);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

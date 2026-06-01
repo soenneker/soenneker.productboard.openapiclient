@@ -32,7 +32,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public string Message { get; set; }
 #endif
         /// <summary>Connection state discriminator.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorState_state? State { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorStateState? State { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorState"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "debugDetail", n => { DebugDetail = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorState_state>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorStateState>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("message", Message);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorState_state>("state", State);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ErrorStateState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

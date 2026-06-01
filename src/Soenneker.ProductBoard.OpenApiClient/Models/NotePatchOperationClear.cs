@@ -14,7 +14,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     public partial class NotePatchOperationClear : IParsable
     {
         /// <summary>The operation to perform on the field.Must be `clear`.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationClear_op? Op { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationClearOp? Op { get; set; }
         /// <summary>&quot;The path to the field to be cleared.Common field paths: \&quot;owner\&quot;, \&quot;tags\&quot;, \&quot;content\&quot;&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationClear_op>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationClearOp>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
             };
         }
@@ -52,7 +52,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationClear_op>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationClearOp>("op", Op);
             writer.WriteStringValue("path", Path);
         }
     }

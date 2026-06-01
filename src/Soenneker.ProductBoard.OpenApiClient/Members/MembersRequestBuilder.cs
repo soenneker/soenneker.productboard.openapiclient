@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
         /// <summary>
         /// Retrieves a paginated list of members from your workspace.Members represent users who have access to your Productboard workspace.- Members are sorted by creation date, oldest first.- Use the `query` parameter to search by name or email (case-insensitive, partial match).- Use the `roles[]` parameter to filter by role(s). Multiple roles use OR logic (e.g., `roles[]=admin&amp;roles[]=maker`).- Use the `includeDisabled` parameter to include disabled members in the response.- Use the `includeInvited` parameter to include invited members with pending invitations.- Use the `pageCursor` parameter to paginate through results.&gt; Without the `members:pii:read` OAuth scope, PII fields (`name`, `username`, `email`) are returned as `[redacted]`.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Members.MembersGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse">When receiving a 400 status code</exception>
@@ -66,11 +66,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Members.MembersGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberListResponseResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Members.MembersGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberListResponseResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -83,7 +83,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Members.MembersGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Members.MembersGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MemberListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a paginated list of members from your workspace.Members represent users who have access to your Productboard workspace.- Members are sorted by creation date, oldest first.- Use the `query` parameter to search by name or email (case-insensitive, partial match).- Use the `roles[]` parameter to filter by role(s). Multiple roles use OR logic (e.g., `roles[]=admin&amp;roles[]=maker`).- Use the `includeDisabled` parameter to include disabled members in the response.- Use the `includeInvited` parameter to include invited members with pending invitations.- Use the `pageCursor` parameter to paginate through results.&gt; Without the `members:pii:read` OAuth scope, PII fields (`name`, `username`, `email`) are returned as `[redacted]`.
@@ -153,11 +153,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("roles%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Members.GetRolesQueryParameterType[]? Roles { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersListMembersRolesParameterItem[]? Roles { get; set; }
 #nullable restore
 #else
             [QueryParameter("roles%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Members.GetRolesQueryParameterType[] Roles { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersListMembersRolesParameterItem[] Roles { get; set; }
 #endif
         }
     }

@@ -36,7 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item
         /// <summary>
         /// Returns configuration metadata for a specific note type, including supported fields, patch operations, and validation rules.Use this endpoint to programmatically discover the configuration for a specific note type.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item.WithTypeGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNoteConfiguration200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 400 status code</exception>
@@ -48,11 +48,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item.WithTypeGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNoteConfiguration200Response?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item.WithTypeGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNoteConfiguration200Response> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -66,7 +66,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item.WithTypeGetResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Notes.Configurations.Item.WithTypeGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNoteConfiguration200Response>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NotesGetNoteConfiguration200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns configuration metadata for a specific note type, including supported fields, patch operations, and validation rules.Use this endpoint to programmatically discover the configuration for a specific note type.

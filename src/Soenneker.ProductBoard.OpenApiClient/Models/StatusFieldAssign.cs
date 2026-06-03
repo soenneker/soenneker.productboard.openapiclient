@@ -74,11 +74,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.Metadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata();
-            }
-            else if("StatusFieldAssignById".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("StatusFieldAssignById".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.StatusFieldAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssignById();
             }

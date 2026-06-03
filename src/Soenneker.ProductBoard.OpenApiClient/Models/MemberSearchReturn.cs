@@ -25,6 +25,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public MemberSearchReturn()
         {
             AdditionalData = new Dictionary<string, object>();
+            IncludeDisabled = false;
+            IncludeInvitationPending = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -82,10 +82,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 result.MemberAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.Metadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata();
-            }
             else if(parseNode.GetStringValue() is string emailValue)
             {
                 result.Email = emailValue;

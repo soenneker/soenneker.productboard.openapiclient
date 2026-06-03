@@ -2,7 +2,7 @@
   "descriptionHash": "8A737AED953C4591C4F3135F5FCF45B45D0AAC5937F90F994E737922394060BC07E92A1830FE987268DB7B02E4DA6014A8C91BD23827611A9AB2EB63CEE3FE80",
   "descriptionLocation": "../../openapi-json/fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.1",
+  "kiotaVersion": "1.32.0",
   "clientClassName": "ProductBoardOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.ProductBoard.OpenApiClient",

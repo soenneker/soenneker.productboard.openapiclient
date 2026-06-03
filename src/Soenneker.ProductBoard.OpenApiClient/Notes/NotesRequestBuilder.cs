@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NotesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,updatedFrom*,updatedTo*}", pathParameters)
+        public NotesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NotesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,updatedFrom*,updatedTo*}", rawUrl)
+        public NotesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
         {
         }
         /// <summary>

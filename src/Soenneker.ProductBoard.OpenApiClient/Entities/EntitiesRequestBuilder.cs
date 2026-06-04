@@ -152,7 +152,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder.EntitiesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,type%5B%5D*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -173,7 +173,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/entities", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -206,6 +206,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
 #else
             [QueryParameter("fields%5B%5D")]
             public string[] Fields { get; set; }
+#endif
+            /// <summary>Filter entities by the source record ID from metadata.source.Can be combined with metadata[source][system] and other filters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata%5Bsource%5D%5BrecordId%5D")]
+            public string? MetadatasourcerecordId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata%5Bsource%5D%5BrecordId%5D")]
+            public string MetadatasourcerecordId { get; set; }
+#endif
+            /// <summary>Filter entities by the source system name from metadata.source.Can be combined with metadata[source][recordId] and other filters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("metadata%5Bsource%5D%5Bsystem%5D")]
+            public string? Metadatasourcesystem { get; set; }
+#nullable restore
+#else
+            [QueryParameter("metadata%5Bsource%5D%5Bsystem%5D")]
+            public string Metadatasourcesystem { get; set; }
 #endif
             /// <summary>Filter by entity name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
+    /// <summary>
+    /// Filter by the originating source system and/or record identifier. At least one of `system` or `recordId` must be provided.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class EntitySearchMetadataFilterSource : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

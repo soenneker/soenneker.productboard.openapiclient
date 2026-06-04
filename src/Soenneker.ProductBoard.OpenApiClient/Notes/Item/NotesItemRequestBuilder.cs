@@ -182,7 +182,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.NotesItemRequestBuilder.NotesItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/notes/{id}{?fields*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

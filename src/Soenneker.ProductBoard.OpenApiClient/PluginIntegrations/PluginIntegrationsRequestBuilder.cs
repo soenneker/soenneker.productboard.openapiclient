@@ -130,7 +130,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder.PluginIntegrationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/plugin-integrations{?pageCursor*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -151,7 +151,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/plugin-integrations", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

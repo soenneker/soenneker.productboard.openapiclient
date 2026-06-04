@@ -142,7 +142,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.RelationshipsRequestBuilder.RelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/entities/{id}/relationships{?pageCursor*,target%5Bid%5D*,target%5Btype%5D*,type*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -163,7 +163,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/entities/{id}/relationships", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

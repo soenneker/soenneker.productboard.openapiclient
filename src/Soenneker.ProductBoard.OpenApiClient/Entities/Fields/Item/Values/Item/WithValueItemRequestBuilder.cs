@@ -122,7 +122,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValueItemRequestBuilder.WithValueItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/entities/fields/{id}/values/{valueId}{?force*,replaceWith*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -143,7 +143,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, "{+baseurl}/entities/fields/{id}/values/{valueId}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

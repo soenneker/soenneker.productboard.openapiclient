@@ -134,7 +134,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.ValuesRequestBuilder.ValuesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/entities/fields/{id}/values{?assignedEntityType%5B%5D*,pageCursor*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -155,7 +155,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/entities/fields/{id}/values", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

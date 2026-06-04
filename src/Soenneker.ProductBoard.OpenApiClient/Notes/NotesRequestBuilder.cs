@@ -146,7 +146,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Notes.NotesRequestBuilder.NotesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,updatedFrom*,updatedTo*}", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -167,7 +167,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/notes", PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

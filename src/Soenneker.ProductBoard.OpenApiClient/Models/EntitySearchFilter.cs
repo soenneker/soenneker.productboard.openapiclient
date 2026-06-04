@@ -39,7 +39,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public List<Guid?> Id { get; set; }
 #endif
-        /// <summary>Filters applied to entity metadata (not yet active).</summary>
+        /// <summary>Filters applied to entity metadata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchMetadataFilter? Metadata { get; set; }

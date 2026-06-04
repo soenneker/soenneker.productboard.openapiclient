@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Filters applied to entity metadata (not yet active).
+    /// Filters applied to entity metadata.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EntitySearchMetadataFilter : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The source property</summary>
+        /// <summary>Filter by the originating source system and/or record identifier. At least one of `system` or `recordId` must be provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchMetadataFilterSource? Source { get; set; }

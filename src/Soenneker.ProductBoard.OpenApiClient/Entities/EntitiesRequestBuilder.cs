@@ -53,7 +53,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EntitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+        public EntitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,type%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EntitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+        public EntitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,type%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -152,7 +152,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.ProductBoard.OpenApiClient.Entities.EntitiesRequestBuilder.EntitiesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,type%5B%5D*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -173,7 +173,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/entities", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NotesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,updatedFrom*,updatedTo*}", pathParameters)
+        public NotesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,type%5B%5D*,updatedFrom*,updatedTo*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public NotesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,updatedFrom*,updatedTo*}", rawUrl)
+        public NotesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/notes{?archived*,createdFrom*,createdTo*,creator%5Bemail%5D*,creator%5Bid%5D*,fields*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,processed*,type%5B%5D*,updatedFrom*,updatedTo*}", rawUrl)
         {
         }
         /// <summary>
@@ -266,6 +266,16 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
             /// <summary>Filter notes by processed status.</summary>
             [QueryParameter("processed")]
             public bool? Processed { get; set; }
+            /// <summary>&quot;Filter notes by one or more note types. Use array notation: `type[]=textNote&amp;type[]=conversationNote`.Currently supported note types:  - textNote  - conversationNote  - opportunityNoteLegacy aliases (simple, conversation, opportunity) are also accepted.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("type%5B%5D")]
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteTypeInput[]? Type { get; set; }
+#nullable restore
+#else
+            [QueryParameter("type%5B%5D")]
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteTypeInput[] Type { get; set; }
+#endif
             /// <summary>Filter notes updated on or after this date/time (inclusive).Must be in ISO-8601 format (e.g., &quot;2023-10-01T12:00:00Z&quot;).Can be combined with updatedTo to define a range.</summary>
             [QueryParameter("updatedFrom")]
             public DateTimeOffset? UpdatedFrom { get; set; }

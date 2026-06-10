@@ -125,7 +125,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
             [QueryParameter("type%5B%5D")]
             public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteTypeInput[] Type { get; set; }
 #endif
-            /// <summary>&quot;Optional single note type filter for backward compatibility.Valid values: textNote, conversationNote, opportunityNote.Legacy aliases simple, conversation, opportunity are also accepted.Example: type=textNoteNote: Use `type[]` to filter by multiple note types.&quot;</summary>
+            /// <summary>&quot;**Deprecated:** use `type[]` instead.Optional single note type filter for backward compatibility.Valid values: textNote, conversationNote, opportunityNote.Legacy aliases simple, conversation, opportunity are also accepted.Example: type=textNoteNote: Use `type[]` to filter by multiple note types.&quot;</summary>
+            [Obsolete("")]
             [QueryParameter("type")]
             public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteTypeInput? Type0 { get; set; }
         }

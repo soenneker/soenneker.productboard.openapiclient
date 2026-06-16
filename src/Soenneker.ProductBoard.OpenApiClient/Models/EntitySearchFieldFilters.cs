@@ -49,6 +49,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public List<global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign> Status { get; set; }
 #endif
+        /// <summary>Filter by team. Each item identifies a team by `id` or `name`. Multiple teams use OR semantics:entities assigned to any of the given teams match.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign>? Teams { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign> Teams { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchFieldFilters"/> and sets the default values.
         /// </summary>
@@ -79,6 +87,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "owner", n => { Owner = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign>(global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "teams", n => { Teams = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -93,6 +102,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign>("owner", Owner);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign>("status", Status);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign>("teams", Teams);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

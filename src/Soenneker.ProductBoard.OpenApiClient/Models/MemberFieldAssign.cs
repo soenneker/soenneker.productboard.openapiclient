@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace&quot;
+    /// &quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MemberFieldAssign : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
@@ -72,17 +72,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign();
-            if("MemberAssignByEmail".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MemberAssignByEmail = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail();
-            }
-            else if("MemberAssignById".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MemberAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById();
-            }
-            else if(parseNode.GetStringValue() is string emailValue)
+            if(parseNode.GetStringValue() is string emailValue)
             {
                 result.Email = emailValue;
             }
@@ -94,6 +85,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 result.Type = typeValue;
             }
+            else {
+                result.MemberAssignByEmail = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail();
+                result.MemberAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById();
+                result.Metadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata();
+            }
             return result;
         }
         /// <summary>
@@ -102,17 +98,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(MemberAssignByEmail != null)
+            if(MemberAssignByEmail != null || MemberAssignById != null || Metadata != null)
             {
-                return MemberAssignByEmail.GetFieldDeserializers();
-            }
-            else if(MemberAssignById != null)
-            {
-                return MemberAssignById.GetFieldDeserializers();
-            }
-            else if(Metadata != null)
-            {
-                return Metadata.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MemberAssignByEmail, MemberAssignById, Metadata);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -123,19 +111,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(MemberAssignByEmail != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail>(null, MemberAssignByEmail);
-            }
-            else if(MemberAssignById != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById>(null, MemberAssignById);
-            }
-            else if(Metadata != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata>(null, Metadata);
-            }
-            else if(Email != null)
+            if(Email != null)
             {
                 writer.WriteStringValue(null, Email);
             }
@@ -146,6 +122,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             else if(Type != null)
             {
                 writer.WriteStringValue(null, Type);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail>(null, MemberAssignByEmail, MemberAssignById, Metadata);
             }
             writer.WriteAdditionalData(AdditionalData);
         }

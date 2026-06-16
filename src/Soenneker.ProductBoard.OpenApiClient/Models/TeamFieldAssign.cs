@@ -11,7 +11,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// &quot;Team assignment allowing identification by ID or name.## Behavior- Supports two identification methods: unique ID (UUID) or human-readable name- Use ID for precision and consistency across API calls- Use name for convenience when ID is unknown- Names must match existing team values in workspace configuration&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TeamFieldAssign : IAdditionalDataHolder, IParsable
+    public partial class TeamFieldAssign : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -32,6 +32,22 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById? TeamAssignById { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById TeamAssignById { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName? TeamAssignByName { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName TeamAssignByName { get; set; }
 #endif
         /// <summary>Union discriminator</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +72,29 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign();
+            if("TeamAssignById".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.TeamAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById();
+            }
+            else if("TeamAssignByName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.TeamAssignByName = new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName();
+            }
+            else if(parseNode.GetGuidValue() is Guid idValue)
+            {
+                result.Id = idValue;
+            }
+            else if(parseNode.GetStringValue() is string nameValue)
+            {
+                result.Name = nameValue;
+            }
+            else if(parseNode.GetStringValue() is string typeValue)
+            {
+                result.Type = typeValue;
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,13 +102,19 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(Metadata != null)
             {
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
-            };
+                return Metadata.GetFieldDeserializers();
+            }
+            else if(TeamAssignById != null)
+            {
+                return TeamAssignById.GetFieldDeserializers();
+            }
+            else if(TeamAssignByName != null)
+            {
+                return TeamAssignByName.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -79,10 +123,30 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata>("metadata", Metadata);
-            writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("type", Type);
+            if(Metadata != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata>(null, Metadata);
+            }
+            else if(TeamAssignById != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById>(null, TeamAssignById);
+            }
+            else if(TeamAssignByName != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName>(null, TeamAssignByName);
+            }
+            else if(Id != null)
+            {
+                writer.WriteGuidValue(null, Id);
+            }
+            else if(Name != null)
+            {
+                writer.WriteStringValue(null, Name);
+            }
+            else if(Type != null)
+            {
+                writer.WriteStringValue(null, Type);
+            }
             writer.WriteAdditionalData(AdditionalData);
         }
     }

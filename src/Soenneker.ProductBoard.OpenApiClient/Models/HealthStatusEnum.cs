@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>The health status of the work item.</summary>
+    /// <summary>The health status of the work item. `notSet` is read-only — it is returned on read for entities withcalculated or uninitialized health and cannot be assigned in a manual update.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum HealthStatusEnum
     {

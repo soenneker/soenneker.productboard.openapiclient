@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Represents the health status of a Entities, either manually set or automatically calculated.This object contains:- The mode of health tracking (`manual` or `calculated`)- The health `status` (required only when mode is `manual`)- An optional `comment` to provide context- Metadata on who created the update (`createdBy`)### Behavior- If `mode` is `\&quot;manual\&quot;`, the `status` field is **required**, and you may include an optional `comment`.- If `mode` is `\&quot;calculated\&quot;`, **do not provide** the `status` or `comment` fields – they will be ignored or cause validation errors.### Use cases- Set `manual` mode to explicitly assign a health status with reasoning.- Use `calculated` mode when health is derived from internal logic or automation within Productboard.### Examples**Manual mode:**```json{  \&quot;mode\&quot;: \&quot;manual\&quot;,  \&quot;status\&quot;: \&quot;atRisk\&quot;,  \&quot;comment\&quot;: \&quot;Project timeline at risk due to resource constraints\&quot;}```**Calculated mode:**```json{  \&quot;mode\&quot;: \&quot;calculated\&quot;}```&quot;
+    /// &quot;Writes the health status of an entity, either manually set or automatically calculated.This object contains:- The `mode` of health tracking (`manual` or `calculated`)- The health `status` (required when mode is `manual`; must not be sent when mode is `calculated`)- An optional `comment` to provide context- Metadata on who created the update (`createdBy`)### Behavior- **Manual** (`mode: \&quot;manual\&quot;`): `status` is **required** and must be one of `onTrack`, `atRisk`, or  `offTrack`. You may include an optional `comment`. `status` **cannot** be set to `notSet` — see  *Switching to calculated health* below.- **Calculated** (`mode: \&quot;calculated\&quot;`): send only `mode`. Do not provide `status`; it causes a  validation error. `comment` and `createdBy` are not used for calculated mode. The system derives the  health automatically.- **Mode-only update**: you may send just `mode` (with no `status`/`comment`) to switch how an entity&apos;s  health is tracked. Switching an entity that has no health history to `calculated` initializes its  health to `notSet`.### Switching to calculated health`notSet` is read-only and reserved for calculated health; it cannot be assigned manually. To stop manuallysetting health, switch the entity to `calculated` mode rather than sending `status: notSet`.If the entity has no health history, switching to `calculated` initializes its health status to `notSet`.If the entity already has health history, the existing health update remains in history while the modechanges to `calculated`.### Use cases- Set `manual` mode to explicitly assign a health status with reasoning.- Use `calculated` mode when health is derived from internal logic or automation within Productboard.### Examples**Manual mode:**```json{  \&quot;mode\&quot;: \&quot;manual\&quot;,  \&quot;status\&quot;: \&quot;atRisk\&quot;,  \&quot;comment\&quot;: \&quot;Project timeline at risk due to resource constraints\&quot;}```**Calculated mode:**```json{  \&quot;mode\&quot;: \&quot;calculated\&quot;}```&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class HealthUpdateFieldValue : IAdditionalDataHolder, IParsable
@@ -23,7 +23,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Comment { get; set; }
 #endif
-        /// <summary>&quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace&quot;</summary>
+        /// <summary>&quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign? CreatedBy { get; set; }
@@ -33,7 +33,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #endif
         /// <summary>The mode of health status calculation.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthModeEnum? Mode { get; set; }
-        /// <summary>The health status of the work item.</summary>
+        /// <summary>The health status of the work item. `notSet` is read-only — it is returned on read for entities withcalculated or uninitialized health and cannot be assigned in a manual update.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthStatusEnum? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValue"/> and sets the default values.

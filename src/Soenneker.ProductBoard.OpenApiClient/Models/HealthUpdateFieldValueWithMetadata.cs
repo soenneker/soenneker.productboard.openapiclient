@@ -23,7 +23,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Comment { get; set; }
 #endif
-        /// <summary>&quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace&quot;</summary>
+        /// <summary>&quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign? CreatedBy { get; set; }
@@ -41,7 +41,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #endif
         /// <summary>The mode of health status calculation.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthModeEnum? Mode { get; set; }
-        /// <summary>The health status of the work item.</summary>
+        /// <summary>The health status of the work item. `notSet` is read-only — it is returned on read for entities withcalculated or uninitialized health and cannot be assigned in a manual update.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthStatusEnum? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueWithMetadata"/> and sets the default values.

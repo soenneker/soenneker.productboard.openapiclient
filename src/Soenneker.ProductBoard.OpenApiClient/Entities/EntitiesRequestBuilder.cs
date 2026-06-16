@@ -53,7 +53,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EntitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,type%5B%5D*}", pathParameters)
+        public EntitiesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,teams%5Bid%5D*,teams%5Bname%5D*,type%5B%5D*}", pathParameters)
         {
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public EntitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,type%5B%5D*}", rawUrl)
+        public EntitiesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities{?archived*,fields%5B%5D*,metadata%5Bsource%5D%5BrecordId%5D*,metadata%5Bsource%5D%5Bsystem%5D*,name*,owner%5Bemail%5D*,owner%5Bid%5D*,pageCursor*,parent%5Bid%5D*,status%5Bid%5D*,status%5Bname%5D*,teams%5Bid%5D*,teams%5Bname%5D*,type%5B%5D*}", rawUrl)
         {
         }
         /// <summary>
@@ -296,6 +296,26 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
 #else
             [QueryParameter("status%5Bname%5D")]
             public string Statusname { get; set; }
+#endif
+            /// <summary>Filter by team ID. Mutually exclusive with teams[name].</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("teams%5Bid%5D")]
+            public string? Teamsid { get; set; }
+#nullable restore
+#else
+            [QueryParameter("teams%5Bid%5D")]
+            public string Teamsid { get; set; }
+#endif
+            /// <summary>Filter by team name. Mutually exclusive with teams[id].</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("teams%5Bname%5D")]
+            public string? Teamsname { get; set; }
+#nullable restore
+#else
+            [QueryParameter("teams%5Bname%5D")]
+            public string Teamsname { get; set; }
 #endif
             /// <summary>&quot;Filter by one or more entity types. Use array notation: `type[]=feature&amp;type[]=initiative`.Currently supported PM entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - user  - companyThe exact types available may vary based on the configuration of the workspace.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -29,6 +29,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn Return { get; set; }
 #endif
+        /// <summary>Fulltext search options for notes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchSearch? Search { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchSearch Search { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -49,6 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "filter", n => { Filter = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter.CreateFromDiscriminatorValue); } },
                 { "return", n => { Return = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn.CreateFromDiscriminatorValue); } },
+                { "search", n => { Search = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchSearch>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchSearch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,6 +69,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilter>("filter", Filter);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchReturn>("return", Return);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchSearch>("search", Search);
         }
     }
 }

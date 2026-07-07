@@ -47,7 +47,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public PluginIntegrationResponseFields()
         {
             AdditionalData = new Dictionary<string, object>();
-            IntegrationStatus = global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationStatus.Enabled;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

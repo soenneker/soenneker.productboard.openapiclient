@@ -31,7 +31,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public EntityRelationship()
         {
             AdditionalData = new Dictionary<string, object>();
-            Type = global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipType.Link;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

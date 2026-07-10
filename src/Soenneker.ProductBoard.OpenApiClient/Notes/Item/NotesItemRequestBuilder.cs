@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.ProductBoard.OpenApiClient.Models;
+using Soenneker.ProductBoard.OpenApiClient.Notes.Item.Comments;
 using Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NotesItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The comments property</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Comments.CommentsRequestBuilder Comments
+        {
+            get => new global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Comments.CommentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The relationships property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.RelationshipsRequestBuilder Relationships
         {

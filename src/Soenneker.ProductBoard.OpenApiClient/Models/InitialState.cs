@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>The operation to perform on the field.Can be one of `clear`.</summary>
+    /// <summary>Connection state discriminator.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum EntityPatchOperationClearOp
+    public enum InitialState
     {
-        [EnumMember(Value = "clear")]
+        [EnumMember(Value = "initial")]
         #pragma warning disable CS1591
-        Clear,
+        Initial,
         #pragma warning restore CS1591
     }
 }

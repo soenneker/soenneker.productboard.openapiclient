@@ -37,9 +37,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource();
-            if("NoteSearchFilterMetadataSource_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("NoteSearchFilterMetadataSourceBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NoteSearchFilterMetadataSourceBranch2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSourceBranch2();
             }

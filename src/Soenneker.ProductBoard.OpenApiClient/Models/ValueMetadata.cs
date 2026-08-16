@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)&quot;
+    /// Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ValueMetadata : IAdditionalDataHolder, IParsable
@@ -17,7 +17,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, this value is read-only and cannot be modified</summary>
         public bool? IsViewableOnly { get; set; }
-        /// <summary>&quot;Value sourced from an external API or integration.## Behavior- `system`: Optional display name for the external system (e.g., \&quot;Salesforce\&quot;, \&quot;Jira\&quot;)- `recordId`: Optional combined ID in format `com.organization:recordId` (e.g., `com.salesforce:acc-12345`)- `url`: Optional URL linking to the record in the external system&quot;</summary>
+        /// <summary>Value sourced from an external API or integration.## Behavior- `system`: Optional display name for the external system (e.g., &quot;Salesforce&quot;, &quot;Jira&quot;)- `recordId`: Optional combined ID in format `com.organization:recordId` (e.g., `com.salesforce:acc-12345`)- `url`: Optional URL linking to the record in the external system</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ApiSource? Source { get; set; }

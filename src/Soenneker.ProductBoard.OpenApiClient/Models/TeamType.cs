@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>Clear all items from the field.</summary>
+    /// <summary>Resource type identifier</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TeamPatchOperationOneOf2Op
+    public enum TeamType
     {
-        [EnumMember(Value = "clear")]
+        [EnumMember(Value = "team")]
         #pragma warning disable CS1591
-        Clear,
+        Team,
         #pragma warning restore CS1591
     }
 }

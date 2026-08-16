@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Domain attributes returned in webhook subscription responses.Note: `notification.headers.authorization` is intentionally absent from responses to protect secrets.&quot;
+    /// Domain attributes returned in webhook subscription responses.Note: `notification.headers.authorization` is intentionally absent from responses to protect secrets.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookSubscriptionResponseFields : IAdditionalDataHolder, IParsable

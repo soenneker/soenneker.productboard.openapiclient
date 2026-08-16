@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Source metadata identifying the external system origin of a record.- `system`: Identifier for the external system (e.g., \&quot;salesforce\&quot;, \&quot;zendesk\&quot;). Free-form string, no specific format enforced.- `recordId`: Identifier of the record in the external system (e.g., \&quot;ticket-999\&quot;, \&quot;acc-12345\&quot;). Free-form string, no specific format enforced.- `url`: URL pointing to the source record in the external system&quot;
+    /// Source metadata identifying the external system origin of a record.- `system`: Identifier for the external system (e.g., &quot;salesforce&quot;, &quot;zendesk&quot;). Free-form string, no specific format enforced.- `recordId`: Identifier of the record in the external system (e.g., &quot;ticket-999&quot;, &quot;acc-12345&quot;). Free-form string, no specific format enforced.- `url`: URL pointing to the source record in the external system
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NotesApiSource : IAdditionalDataHolder, IParsable

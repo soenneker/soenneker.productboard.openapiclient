@@ -125,7 +125,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
             /// <summary>Include members with pending invitations in the response. By default, members with pending invitations are excluded.</summary>
             [QueryParameter("includeInvitationPending")]
             public bool? IncludeInvitationPending { get; set; }
-            /// <summary>&quot;**Deprecated**: Use `includeInvitationPending` instead.Include members with pending invitations in the response. By default, members with pending invitations are excluded.&quot;</summary>
+            /// <summary>**Deprecated**: Use `includeInvitationPending` instead.Include members with pending invitations in the response. By default, members with pending invitations are excluded.</summary>
             [Obsolete("")]
             [QueryParameter("includeInvited")]
             public bool? IncludeInvited { get; set; }
@@ -149,7 +149,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
             [QueryParameter("query")]
             public string Query { get; set; }
 #endif
-            /// <summary>&quot;Filter members by role(s). Use multiple `roles[]` parameters to match memberswith any of the specified roles (OR logic).Examples:- Single role: `roles[]=admin`- Multiple roles: `roles[]=admin&amp;roles[]=maker`&quot;</summary>
+            /// <summary>Filter members by role(s). Use multiple `roles[]` parameters to match memberswith any of the specified roles (OR logic).Examples:- Single role: `roles[]=admin`- Multiple roles: `roles[]=admin&amp;roles[]=maker`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("roles%5B%5D")]

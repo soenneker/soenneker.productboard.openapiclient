@@ -17,7 +17,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 timestamp when the subscription was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>&quot;Domain attributes returned in webhook subscription responses.Note: `notification.headers.authorization` is intentionally absent from responses to protect secrets.&quot;</summary>
+        /// <summary>Domain attributes returned in webhook subscription responses.Note: `notification.headers.authorization` is intentionally absent from responses to protect secrets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields? Fields { get; set; }

@@ -14,7 +14,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Domain attributes for partially updating a plugin integration. All fields areoptional — fields not included preserve their current value.Note: `action.headers.authorization` is write-only and never returned in responses.If `action` is updated while the integration is `enabled`, a new probe is sent.&quot;</summary>
+        /// <summary>Domain attributes for partially updating a plugin integration. All fields areoptional — fields not included preserve their current value.Note: `action.headers.authorization` is write-only and never returned in responses.If `action` is updated while the integration is `enabled`, a new probe is sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFields? Fields { get; set; }

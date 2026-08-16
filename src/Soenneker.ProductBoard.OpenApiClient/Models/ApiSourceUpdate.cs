@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;External source patch applied on update, following JSON Merge Patch semantics per field.## Behavior- field omitted: the persisted value is left unchanged- field sent as `null`: the persisted value is cleared- field sent with a value: the persisted value is set&quot;
+    /// External source patch applied on update, following JSON Merge Patch semantics per field.## Behavior- field omitted: the persisted value is left unchanged- field sent as `null`: the persisted value is cleared- field sent with a value: the persisted value is set
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiSourceUpdate : IAdditionalDataHolder, IParsable

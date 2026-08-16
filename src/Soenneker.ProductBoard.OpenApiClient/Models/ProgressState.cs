@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Represents an in-progress connection attempt. The push button shows a loadingindicator.Use when processing is asynchronous: respond with `progress` immediately from youraction endpoint, then call Configure Connection with the final state once done.&quot;
+    /// Represents an in-progress connection attempt. The push button shows a loadingindicator.Use when processing is asynchronous: respond with `progress` immediately from youraction endpoint, then call Configure Connection with the final state once done.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ProgressState : IAdditionalDataHolder, IParsable

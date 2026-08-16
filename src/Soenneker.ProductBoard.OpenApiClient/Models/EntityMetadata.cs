@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Value sourced from an external API or integration.## Behavior- `system`: Optional display name for the external system (e.g., \&quot;Salesforce\&quot;, \&quot;Jira\&quot;)- `recordId`: Optional combined ID in format `com.organization:recordId` (e.g., `com.salesforce:acc-12345`)- `url`: Optional URL linking to the record in the external system&quot;</summary>
+        /// <summary>Value sourced from an external API or integration.## Behavior- `system`: Optional display name for the external system (e.g., &quot;Salesforce&quot;, &quot;Jira&quot;)- `recordId`: Optional combined ID in format `com.organization:recordId` (e.g., `com.salesforce:acc-12345`)- `url`: Optional URL linking to the record in the external system</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ApiSource? Source { get; set; }

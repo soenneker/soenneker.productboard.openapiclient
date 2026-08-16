@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Domain attributes returned in plugin integration responses.Note: `action` is intentionally absent — it contains a write-only authorizationsecret that is never returned by the API.&quot;
+    /// Domain attributes returned in plugin integration responses.Note: `action` is intentionally absent — it contains a write-only authorizationsecret that is never returned by the API.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PluginIntegrationResponseFields : IAdditionalDataHolder, IParsable

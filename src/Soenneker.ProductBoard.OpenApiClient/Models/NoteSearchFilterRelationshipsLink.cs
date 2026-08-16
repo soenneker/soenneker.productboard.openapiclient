@@ -37,9 +37,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLink CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLink();
-            if("NoteSearchFilterRelationshipsLink_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("NoteSearchFilterRelationshipsLinkBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NoteSearchFilterRelationshipsLinkBranch2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLinkBranch2();
             }

@@ -37,13 +37,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsOwner CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsOwner();
             if("MemberFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MemberFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue();
             }
-            else if("NoteSearchFilterFieldsOwner_2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("NoteSearchFilterFieldsOwnerBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NoteSearchFilterFieldsOwnerBranch2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsOwnerBranch2();
             }

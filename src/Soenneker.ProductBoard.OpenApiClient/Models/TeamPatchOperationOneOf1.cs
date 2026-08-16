@@ -16,7 +16,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The operation type.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Op? Op { get; set; }
         /// <summary>The field to operate on.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Path? Path { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath? Path { get; set; }
         /// <summary>Member references for the operation.Each item must include either `id` (space membership UUID) or `email`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,7 +44,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Op>(); } },
-                { "path", n => { Path = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Path>(); } },
+                { "path", n => { Path = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>(); } },
                 { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1ValueItem>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1ValueItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -56,7 +56,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Op>("op", Op);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Path>("path", Path);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>("path", Path);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1ValueItem>("value", Value);
         }
     }

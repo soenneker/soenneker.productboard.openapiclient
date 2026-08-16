@@ -34,9 +34,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
         {
         }
         /// <summary>
-        /// &quot;Permanently deletes a webhook subscription. No further notifications will be sent after deletion. **OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token.&quot;
+        /// Permanently deletes a webhook subscription. No further notifications will be sent after deletion. **OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token.
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhooksErrorResponse">When receiving a 400 status code</exception>
@@ -49,11 +48,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
         /// <exception cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhooksErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -68,10 +67,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.WebhooksErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.WebhooksErrorResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns a single webhook subscription by ID.**OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token (existence is masked for security).&quot;
+        /// Returns a single webhook subscription by ID.**OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token (existence is masked for security).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -106,7 +105,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Permanently deletes a webhook subscription. No further notifications will be sent after deletion. **OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token.&quot;
+        /// Permanently deletes a webhook subscription. No further notifications will be sent after deletion. **OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -125,7 +124,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks.Item
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Returns a single webhook subscription by ID.**OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token (existence is masked for security).&quot;
+        /// Returns a single webhook subscription by ID.**OAuth2 isolation**: returns `404` if the subscription was created by a different OAuth2 applicationor by a public API access token (existence is masked for security).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

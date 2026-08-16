@@ -34,7 +34,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.Item.Ite
         {
         }
         /// <summary>
-        /// &quot;Deletes a relationship between a note and a target entity (customer or link).This is used to unlink a note from:* **customer**: A user or company associated with the note* **link**: A specific feature, component, or other productFor customer relationships, the targetId should be the UUID of the customer or organization.For link relationships, the targetId should be the UUID of the feature, component or product entity.&gt; **Note**: For customer relationships, the targetId parameter can be any UUID as it is ignored during deletion.The endpoint will remove all customer relationships from the note regardless of the targetId value provided.&quot;
+        /// Deletes a relationship between a note and a target entity (customer or link).This is used to unlink a note from:* **customer**: A user or company associated with the note* **link**: A specific feature, component, or other productFor customer relationships, the targetId should be the UUID of the customer or organization.For link relationships, the targetId should be the UUID of the feature, component or product entity.&gt; **Note**: For customer relationships, the targetId parameter can be any UUID as it is ignored during deletion.The endpoint will remove all customer relationships from the note regardless of the targetId value provided.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -68,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.Item.Ite
             await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Deletes a relationship between a note and a target entity (customer or link).This is used to unlink a note from:* **customer**: A user or company associated with the note* **link**: A specific feature, component, or other productFor customer relationships, the targetId should be the UUID of the customer or organization.For link relationships, the targetId should be the UUID of the feature, component or product entity.&gt; **Note**: For customer relationships, the targetId parameter can be any UUID as it is ignored during deletion.The endpoint will remove all customer relationships from the note regardless of the targetId value provided.&quot;
+        /// Deletes a relationship between a note and a target entity (customer or link).This is used to unlink a note from:* **customer**: A user or company associated with the note* **link**: A specific feature, component, or other productFor customer relationships, the targetId should be the UUID of the customer or organization.For link relationships, the targetId should be the UUID of the feature, component or product entity.&gt; **Note**: For customer relationships, the targetId parameter can be any UUID as it is ignored during deletion.The endpoint will remove all customer relationships from the note regardless of the targetId value provided.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

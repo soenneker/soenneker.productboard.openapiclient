@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;External source patch applied on update, following JSON Merge Patch semantics per field.## Behavior- field omitted: the persisted value is left unchanged- field sent as `null`: the persisted value is cleared- field sent with a value: the persisted value is set&quot;</summary>
+        /// <summary>External source patch applied on update, following JSON Merge Patch semantics per field.## Behavior- field omitted: the persisted value is left unchanged- field sent as `null`: the persisted value is cleared- field sent with a value: the persisted value is set</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ApiSourceUpdate? Source { get; set; }

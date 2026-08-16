@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Domain attributes for creating a plugin integration.Note: `action.headers.authorization` is write-only and never returned in responses.&quot;
+    /// Domain attributes for creating a plugin integration.Note: `action.headers.authorization` is write-only and never returned in responses.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PluginIntegrationCreateFields : IAdditionalDataHolder, IParsable

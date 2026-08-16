@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified or `\&quot;default\&quot;`: Returns only fields with non-empty values- `\&quot;all\&quot;`: Returns all fields, including those with `null` values- `[\&quot;name\&quot;, \&quot;status\&quot;, ...]`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).&quot;</summary>
+        /// <summary>Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified or `&quot;default&quot;`: Returns only fields with non-empty values- `&quot;all&quot;`: Returns all fields, including those with `null` values- `[&quot;name&quot;, &quot;status&quot;, ...]`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchReturnFields? Fields { get; set; }

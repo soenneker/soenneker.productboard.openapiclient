@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error&quot;
+    /// Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MemberFieldAssign : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
@@ -41,21 +41,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById MemberAssignById { get; set; }
 #endif
-        /// <summary>&quot;Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)&quot;</summary>
+        /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata? Metadata { get; set; }
 #nullable restore
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata Metadata { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign"/> and sets the default values.
@@ -80,10 +72,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             else if(parseNode.GetGuidValue() is Guid idValue)
             {
                 result.Id = idValue;
-            }
-            else if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
             }
             else {
                 result.MemberAssignByEmail = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail();
@@ -118,10 +106,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             else if(Id != null)
             {
                 writer.WriteGuidValue(null, Id);
-            }
-            else if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
             }
             else {
                 writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail>(null, MemberAssignByEmail, MemberAssignById, Metadata);

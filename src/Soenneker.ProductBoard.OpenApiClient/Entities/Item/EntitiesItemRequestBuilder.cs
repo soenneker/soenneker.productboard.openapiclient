@@ -224,7 +224,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class EntitiesItemRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified: Returns only fields with non-empty values (default)- `fields[]=all`: Returns all fields, including those with `null` values- `fields[]=name&amp;fields[]=status`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).&quot;</summary>
+            /// <summary>Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified: Returns only fields with non-empty values (default)- `fields[]=all`: Returns all fields, including those with `null` values- `fields[]=name&amp;fields[]=status`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("fields%5B%5D")]

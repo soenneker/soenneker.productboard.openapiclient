@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)&quot;</summary>
+        /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata? Metadata { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata Metadata { get; set; }
 #endif
-        /// <summary>&quot;Whether the number field value is calculated automatically or entered manually.- `manual`: The field displays and uses the manually entered value- `calculated`: The field displays and uses an automatically calculated value (e.g., from child entities)&quot;</summary>
+        /// <summary>Whether the number field value is calculated automatically or entered manually.- `manual`: The field displays and uses the manually entered value- `calculated`: The field displays and uses an automatically calculated value (e.g., from child entities)</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NumberFieldValueMode? ValueMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdate"/> and sets the default values.

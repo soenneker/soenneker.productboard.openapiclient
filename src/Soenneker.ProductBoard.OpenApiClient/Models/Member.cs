@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Fields of a member resource.Note: When the `members:pii:read` scope is not present, the `name`, `username` and `email`fields will return `[redacted]` instead of actual values.&quot;</summary>
+        /// <summary>Fields of a member resource.Note: When the `members:pii:read` scope is not present, the `name`, `username` and `email`fields will return `[redacted]` instead of actual values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFields? Fields { get; set; }

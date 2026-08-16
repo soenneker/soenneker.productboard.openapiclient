@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Domain attributes for partially updating a plugin integration. All fields areoptional — fields not included preserve their current value.Note: `action.headers.authorization` is write-only and never returned in responses.If `action` is updated while the integration is `enabled`, a new probe is sent.&quot;
+    /// Domain attributes for partially updating a plugin integration. All fields areoptional — fields not included preserve their current value.Note: `action.headers.authorization` is write-only and never returned in responses.If `action` is updated while the integration is `enabled`, a new probe is sent.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PluginIntegrationUpdateFields : IAdditionalDataHolder, IParsable

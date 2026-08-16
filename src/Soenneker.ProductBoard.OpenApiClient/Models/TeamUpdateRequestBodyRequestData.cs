@@ -22,7 +22,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamCreateOrUpdateFields Fields { get; set; }
 #endif
-        /// <summary>&quot;Array of patch operations for managing list-type fields (currently: `members`).&quot;</summary>
+        /// <summary>Array of patch operations for managing list-type fields (currently: `members`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperation>? Patch { get; set; }

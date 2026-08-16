@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
         {
         }
         /// <summary>
-        /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
+        /// Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new webhook subscription to be actively notified on each change in the specified entities.As part of subscription creation, Productboard validates the notification URL:it must use `https`, have a publicly resolvable host, and not point to localhost,loopback, site-local, or internal addresses.**Scope requirements**: the OAuth2 application must have the scopes required by all requested event types.&quot;
+        /// Creates a new webhook subscription to be actively notified on each change in the specified entities.As part of subscription creation, Productboard validates the notification URL:it must use `https`, have a publicly resolvable host, and not point to localhost,loopback, site-local, or internal addresses.**Scope requirements**: the OAuth2 application must have the scopes required by all requested event types.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse"/></returns>
         /// <param name="body">Request body for creating a webhook subscription.</param>
@@ -117,7 +117,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookReferenceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
+        /// Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +136,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a new webhook subscription to be actively notified on each change in the specified entities.As part of subscription creation, Productboard validates the notification URL:it must use `https`, have a publicly resolvable host, and not point to localhost,loopback, site-local, or internal addresses.**Scope requirements**: the OAuth2 application must have the scopes required by all requested event types.&quot;
+        /// Creates a new webhook subscription to be actively notified on each change in the specified entities.As part of subscription creation, Productboard validates the notification URL:it must use `https`, have a publicly resolvable host, and not point to localhost,loopback, site-local, or internal addresses.**Scope requirements**: the OAuth2 application must have the scopes required by all requested event types.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request body for creating a webhook subscription.</param>
@@ -167,7 +167,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Webhooks
             return new global::Soenneker.ProductBoard.OpenApiClient.Webhooks.WebhooksRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.&quot;
+        /// Returns all webhook subscriptions for the workspace. Returns up to 100 items per page by default.Paginated using cursor-based pagination. Follow `links.next` in the response to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see subscriptions created by the same OAuth2 application.Public API access tokens see all workspace subscriptions.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WebhooksRequestBuilderGetQueryParameters 

@@ -197,7 +197,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             /// <summary>Filter by archived status (true/false)</summary>
             [QueryParameter("archived")]
             public bool? Archived { get; set; }
-            /// <summary>&quot;Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified: Returns only fields with non-empty values (default)- `fields[]=all`: Returns all fields, including those with `null` values- `fields[]=name&amp;fields[]=status`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).&quot;</summary>
+            /// <summary>Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.**Options:**- Not specified: Returns only fields with non-empty values (default)- `fields[]=all`: Returns all fields, including those with `null` values- `fields[]=name&amp;fields[]=status`: Returns only the specified fieldsFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("fields%5B%5D")]
@@ -317,7 +317,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             [QueryParameter("teams%5Bname%5D")]
             public string Teamsname { get; set; }
 #endif
-            /// <summary>&quot;Filter by one or more entity types. Use array notation: `type[]=feature&amp;type[]=initiative`.Currently supported PM entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - user  - companyThe exact types available may vary based on the configuration of the workspace.&quot;</summary>
+            /// <summary>Filter by one or more entity types. Use array notation: `type[]=feature&amp;type[]=initiative`.Currently supported PM entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - user  - companyThe exact types available may vary based on the configuration of the workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type%5B%5D")]

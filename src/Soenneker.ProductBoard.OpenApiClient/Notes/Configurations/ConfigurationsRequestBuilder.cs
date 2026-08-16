@@ -115,7 +115,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConfigurationsRequestBuilderGetQueryParameters 
         {
-            /// <summary>&quot;Optional array of note types to filter results.Valid values: textNote, conversationNote, opportunityNote.Legacy aliases simple, conversation, opportunity are also accepted.Example: type[]=textNote&amp;type[]=conversationNote&quot;</summary>
+            /// <summary>Optional array of note types to filter results.Valid values: textNote, conversationNote, opportunityNote.Legacy aliases simple, conversation, opportunity are also accepted.Example: type[]=textNote&amp;type[]=conversationNote</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type%5B%5D")]
@@ -125,7 +125,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Configurations
             [QueryParameter("type%5B%5D")]
             public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteTypeInput[] Type { get; set; }
 #endif
-            /// <summary>&quot;Optional single note type filter for backward compatibility.Valid values: textNote, conversationNote, opportunityNote.Legacy aliases simple, conversation, opportunity are also accepted.Example: type=textNoteNote: Use `type[]` to filter by multiple note types.&quot;</summary>
+            /// <summary>Optional single note type filter for backward compatibility.Valid values: textNote, conversationNote, opportunityNote.Legacy aliases simple, conversation, opportunity are also accepted.Example: type=textNoteNote: Use `type[]` to filter by multiple note types.</summary>
             [QueryParameter("type")]
             public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteTypeInput? Type0 { get; set; }
         }

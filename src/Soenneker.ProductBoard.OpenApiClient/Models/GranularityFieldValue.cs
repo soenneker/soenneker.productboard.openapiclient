@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>&quot;Time granularity level for timeframe display and interpretation.## Behavior- Must be one of: `year`, `quarter`, `month`, `day`- Affects how timeframe dates are displayed and interpreted in the UI- Used in conjunction with TimeframeFieldValue to specify precision level- Supports different planning scales from daily sprints to annual strategies- Exact string matching for filtering&quot;</summary>
+    /// <summary>Time granularity level for timeframe display and interpretation.## Behavior- Must be one of: `year`, `quarter`, `month`, `day`- Affects how timeframe dates are displayed and interpreted in the UI- Used in conjunction with TimeframeFieldValue to specify precision level- Supports different planning scales from daily sprints to annual strategies- Exact string matching for filtering</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum GranularityFieldValue
     {

@@ -25,7 +25,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
             get => new global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.Customer.CustomerRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.notes.item.relationships.item collection</summary>
-        /// <param name="position">&quot;Relationship type to delete.* `customer`: Delete customer relationship (user or company)* `link`: Delete link relationship (feature, component or product entity)&quot;</param>
+        /// <param name="position">Relationship type to delete.* `customer`: Delete customer relationship (user or company)* `link`: Delete link relationship (feature, component or product entity)</param>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.Item.WithTargetTypeItemRequestBuilder"/></returns>
         public global::Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships.Item.WithTargetTypeItemRequestBuilder this[string position]
         {
@@ -195,7 +195,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Item.Relationships
             [QueryParameter("pageCursor")]
             public string PageCursor { get; set; }
 #endif
-            /// <summary>&quot;Filter relationships by the target entity type. When provided, only relationshipswhere the target matches the specified entity type are returned.If not provided, all target types are returned.Available values:- `user`: Customer relationships where the target is a user- `company`: Customer relationships where the target is a company- `feature`: Link relationships where the target is a feature- `subfeature`: Link relationships where the target is a subfeature- `product`: Link relationships where the target is a product- `component`: Link relationships where the target is a component&quot;</summary>
+            /// <summary>Filter relationships by the target entity type. When provided, only relationshipswhere the target matches the specified entity type are returned.If not provided, all target types are returned.Available values:- `user`: Customer relationships where the target is a user- `company`: Customer relationships where the target is a company- `feature`: Link relationships where the target is a feature- `subfeature`: Link relationships where the target is a subfeature- `product`: Link relationships where the target is a product- `component`: Link relationships where the target is a component</summary>
             [QueryParameter("target%5Btype%5D")]
             public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesListNoteRelationshipsTargetTypeParameter? Targettype { get; set; }
             /// <summary>Filter relationships by type. When provided, only relationships of the specified type are returned.If not provided, all relationship types are returned.</summary>

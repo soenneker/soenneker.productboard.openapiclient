@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>The field to operate on.</summary>
+    /// <summary>The operation to perform on the field.Can be one of `clear`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TeamPatchOperationOneOf1Path
+    public enum ClearOp
     {
-        [EnumMember(Value = "members")]
+        [EnumMember(Value = "clear")]
         #pragma warning disable CS1591
-        Members,
+        Clear,
         #pragma warning restore CS1591
     }
 }

@@ -3,13 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>Resource type identifier</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TeamMemberResourceType
+    #pragma warning disable CS1591
+    public enum CustomerType
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "member")]
+        [EnumMember(Value = "customer")]
         #pragma warning disable CS1591
-        Member,
+        Customer,
         #pragma warning restore CS1591
     }
 }

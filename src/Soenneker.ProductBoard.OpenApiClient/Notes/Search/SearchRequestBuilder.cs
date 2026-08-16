@@ -107,7 +107,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes.Search
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SearchRequestBuilderPostQueryParameters 
         {
-            /// <summary>&quot;**Deprecated**: Use `return.fields` in the request body instead.Controls which fields are returned in the response.&quot;</summary>
+            /// <summary>**Deprecated**: Use `return.fields` in the request body instead.Controls which fields are returned in the response.</summary>
             [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

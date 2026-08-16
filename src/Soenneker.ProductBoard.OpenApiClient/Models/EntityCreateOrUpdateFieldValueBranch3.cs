@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.## Behavior- Must follow ISO 8601 date format: YYYY-MM-DD- Date-only format without time component- Validates for proper date structure and valid calendar dates- Used for due dates, milestones, release dates, and timeframe boundaries- Timezone-independent (date only)&quot;</summary>
+        /// <summary>Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.## Behavior- Must follow ISO 8601 date format: YYYY-MM-DD- Date-only format without time component- Validates for proper date structure and valid calendar dates- Used for due dates, milestones, release dates, and timeframe boundaries- Timezone-independent (date only)</summary>
         public Date? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch3"/> and sets the default values.

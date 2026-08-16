@@ -14,7 +14,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Short text content for Entities with a 255 character limit.## Behavior- Accepts any string content up to 255 characters- Can be empty string (minLength: 0)- Supports UTF-8 encoding for international characters- Used for short descriptions, labels, identifiers, and status messages&quot;</summary>
+        /// <summary>Short text content for Entities with a 255 character limit.## Behavior- Accepts any string content up to 255 characters- Can be empty string (minLength: 0)- Supports UTF-8 encoding for international characters- Used for short descriptions, labels, identifiers, and status messages</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Value { get; set; }

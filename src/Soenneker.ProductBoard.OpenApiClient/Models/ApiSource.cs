@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Value sourced from an external API or integration.## Behavior- `system`: Optional display name for the external system (e.g., \&quot;Salesforce\&quot;, \&quot;Jira\&quot;)- `recordId`: Optional combined ID in format `com.organization:recordId` (e.g., `com.salesforce:acc-12345`)- `url`: Optional URL linking to the record in the external system&quot;
+    /// Value sourced from an external API or integration.## Behavior- `system`: Optional display name for the external system (e.g., &quot;Salesforce&quot;, &quot;Jira&quot;)- `recordId`: Optional combined ID in format `com.organization:recordId` (e.g., `com.salesforce:acc-12345`)- `url`: Optional URL linking to the record in the external system
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApiSource : IAdditionalDataHolder, IParsable

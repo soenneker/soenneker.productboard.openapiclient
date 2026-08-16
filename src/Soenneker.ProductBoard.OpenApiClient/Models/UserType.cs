@@ -3,13 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>The field to clear.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TeamPatchOperationOneOf2Path
+    #pragma warning disable CS1591
+    public enum UserType
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "members")]
+        [EnumMember(Value = "user")]
         #pragma warning disable CS1591
-        Members,
+        User,
         #pragma warning restore CS1591
     }
 }

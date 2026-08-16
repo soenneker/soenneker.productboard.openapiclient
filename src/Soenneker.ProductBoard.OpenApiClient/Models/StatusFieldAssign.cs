@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Status assignment allowing identification by ID or name.## Behavior- Supports two identification methods: unique ID (UUID) or human-readable name- Use ID for precision and consistency across API calls- Use name for convenience when ID is unknown- Names must match existing status values in workspace configuration&quot;
+    /// Status assignment allowing identification by ID or name.## Behavior- Supports two identification methods: unique ID (UUID) or human-readable name- Use ID for precision and consistency across API calls- Use name for convenience when ID is unknown- Names must match existing status values in workspace configuration
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class StatusFieldAssign : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
@@ -17,7 +17,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A universally unique identifier (UUID).</summary>
         public Guid? Id { get; set; }
-        /// <summary>&quot;Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)&quot;</summary>
+        /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata? Metadata { get; set; }
@@ -49,14 +49,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssignByName StatusFieldAssignByName { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign"/> and sets the default values.
         /// </summary>
@@ -72,7 +64,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.StatusFieldAssign();
             if("StatusFieldAssignById".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -89,10 +81,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             else if(parseNode.GetStringValue() is string nameValue)
             {
                 result.Name = nameValue;
-            }
-            else if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
             }
             return result;
         }
@@ -142,10 +130,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             else if(Name != null)
             {
                 writer.WriteStringValue(null, Name);
-            }
-            else if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
             }
             writer.WriteAdditionalData(AdditionalData);
         }

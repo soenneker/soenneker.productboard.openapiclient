@@ -86,7 +86,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.TeamListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new team in your workspace.You must provide the team `name` and a unique `handle` for @mentions.## Required Fields- `name`: The name of the team (1-255 characters, must be unique per workspace)- `handle`: Unique handle for @mentions (lowercase alphanumeric only, 1-255 characters, must be unique per workspace)## ResponseReturns a reference to the created team with its ID and self link.Use the GET endpoint to retrieve the full team details.&quot;
+        /// Creates a new team in your workspace.You must provide the team `name` and a unique `handle` for @mentions.## Required Fields- `name`: The name of the team (1-255 characters, must be unique per workspace)- `handle`: Unique handle for @mentions (lowercase alphanumeric only, 1-255 characters, must be unique per workspace)## ResponseReturns a reference to the created team with its ID and self link.Use the GET endpoint to retrieve the full team details.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamReferenceResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -144,7 +144,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a new team in your workspace.You must provide the team `name` and a unique `handle` for @mentions.## Required Fields- `name`: The name of the team (1-255 characters, must be unique per workspace)- `handle`: Unique handle for @mentions (lowercase alphanumeric only, 1-255 characters, must be unique per workspace)## ResponseReturns a reference to the created team with its ID and self link.Use the GET endpoint to retrieve the full team details.&quot;
+        /// Creates a new team in your workspace.You must provide the team `name` and a unique `handle` for @mentions.## Required Fields- `name`: The name of the team (1-255 characters, must be unique per workspace)- `handle`: Unique handle for @mentions (lowercase alphanumeric only, 1-255 characters, must be unique per workspace)## ResponseReturns a reference to the created team with its ID and self link.Use the GET endpoint to retrieve the full team details.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

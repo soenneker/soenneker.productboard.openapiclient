@@ -8,14 +8,14 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;This patch operation modifies a field value using set, addItems, or removeItems operations.**Operation Types:**- `set`: Replace the entire field value- `addItems`: Add items to array fields (tags, conversation content)- `removeItems`: Remove items from array fields (tags, conversation content)&quot;
+    /// This patch operation modifies a field value using set, addItems, or removeItems operations.**Operation Types:**- `set`: Replace the entire field value- `addItems`: Add items to array fields (tags, conversation content)- `removeItems`: Remove items from array fields (tags, conversation content)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NotePatchOperation : IParsable
     {
         /// <summary>The operation to perform on the field.Can be one of `set`, `addItems`, `removeItems`.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationOp? Op { get; set; }
-        /// <summary>&quot;The path to the field to be modified.Common field paths: \&quot;owner\&quot;, \&quot;tags\&quot;, \&quot;archived\&quot;, \&quot;processed\&quot;, \&quot;name\&quot;, \&quot;content\&quot;&quot;</summary>
+        /// <summary>The path to the field to be modified.Common field paths: &quot;owner&quot;, &quot;tags&quot;, &quot;archived&quot;, &quot;processed&quot;, &quot;name&quot;, &quot;content&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Path { get; set; }

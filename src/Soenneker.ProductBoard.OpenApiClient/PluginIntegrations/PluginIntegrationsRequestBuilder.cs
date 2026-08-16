@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
         {
         }
         /// <summary>
-        /// &quot;Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.&quot;
+        /// Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -80,7 +80,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new plugin integration. As part of creation, Productboard sends a**probe request** (GET) to your configured action URL to verify it is reachableand intends to receive action notifications. See the `callbacks` section below.The integration is created in the `enabled` state by default. Set`fields.integrationStatus` to `disabled` to skip the probe (useful for staged setup).**`action` is write-only**: the action configuration, including any`headers.authorization` secret, is never returned in responses.&quot;
+        /// Creates a new plugin integration. As part of creation, Productboard sends a**probe request** (GET) to your configured action URL to verify it is reachableand intends to receive action notifications. See the `callbacks` section below.The integration is created in the `enabled` state by default. Set`fields.integrationStatus` to `disabled` to skip the probe (useful for staged setup).**`action` is write-only**: the action configuration, including any`headers.authorization` secret, is never returned in responses.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationCreateResponseResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -117,7 +117,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationCreateResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationCreateResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.&quot;
+        /// Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -136,7 +136,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Creates a new plugin integration. As part of creation, Productboard sends a**probe request** (GET) to your configured action URL to verify it is reachableand intends to receive action notifications. See the `callbacks` section below.The integration is created in the `enabled` state by default. Set`fields.integrationStatus` to `disabled` to skip the probe (useful for staged setup).**`action` is write-only**: the action configuration, including any`headers.authorization` secret, is never returned in responses.&quot;
+        /// Creates a new plugin integration. As part of creation, Productboard sends a**probe request** (GET) to your configured action URL to verify it is reachableand intends to receive action notifications. See the `callbacks` section below.The integration is created in the `enabled` state by default. Set`fields.integrationStatus` to `disabled` to skip the probe (useful for staged setup).**`action` is write-only**: the action configuration, including any`headers.authorization` secret, is never returned in responses.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -167,7 +167,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
             return new global::Soenneker.ProductBoard.OpenApiClient.PluginIntegrations.PluginIntegrationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.&quot;
+        /// Returns all plugin integrations for the workspace.Paginated using cursor-based pagination. Follow `links.next` to fetch the next page.When `links.next` is `null`, you have reached the last page.**OAuth2 isolation**: OAuth2 access tokens only see integrations created by the sameOAuth2 application. Public API access tokens see all workspace integrations.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PluginIntegrationsRequestBuilderGetQueryParameters 

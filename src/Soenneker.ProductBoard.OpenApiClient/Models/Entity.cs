@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking&quot;</summary>
+        /// <summary>Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,7 +53,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #endif
         /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - userThe exact types available may vary based on the configuration of the workspace.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
-        /// <summary>&quot;Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking&quot;</summary>
+        /// <summary>Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Entity"/> and sets the default values.

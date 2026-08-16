@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Fields of a member resource.Note: When the `members:pii:read` scope is not present, the `name`, `username` and `email`fields will return `[redacted]` instead of actual values.&quot;
+    /// Fields of a member resource.Note: When the `members:pii:read` scope is not present, the `name`, `username` and `email`fields will return `[redacted]` instead of actual values.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MemberFields : IAdditionalDataHolder, IParsable

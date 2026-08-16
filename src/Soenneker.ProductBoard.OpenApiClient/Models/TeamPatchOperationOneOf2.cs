@@ -13,10 +13,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TeamPatchOperationOneOf2 : IParsable
     {
-        /// <summary>Clear all items from the field.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2Op? Op { get; set; }
-        /// <summary>The field to clear.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2Path? Path { get; set; }
+        /// <summary>The operation to perform on the field.Can be one of `clear`.</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp? Op { get; set; }
+        /// <summary>The field to operate on.</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath? Path { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -35,8 +35,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2Op>(); } },
-                { "path", n => { Path = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2Path>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp>(); } },
+                { "path", n => { Path = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>(); } },
             };
         }
         /// <summary>
@@ -46,8 +46,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2Op>("op", Op);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2Path>("path", Path);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>("path", Path);
         }
     }
 }

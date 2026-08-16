@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Single select option assignment allowing identification by ID or name.## Behavior- Supports two identification methods: unique ID or human-readable name- Use ID for precision and consistency across API calls- Use name for convenience when ID is unknown- Values must match existing options in field configuration&quot;
+    /// Single select option assignment allowing identification by ID or name.## Behavior- Supports two identification methods: unique ID or human-readable name- Use ID for precision and consistency across API calls- Use name for convenience when ID is unknown- Values must match existing options in field configuration
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SingleSelectFieldAssign : IAdditionalDataHolder, IParsable
@@ -17,7 +17,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A universally unique identifier (UUID).</summary>
         public Guid? Id { get; set; }
-        /// <summary>&quot;Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)&quot;</summary>
+        /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata? Metadata { get; set; }
@@ -32,14 +32,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #nullable restore
 #else
         public string Name { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SingleSelectFieldAssign"/> and sets the default values.
@@ -69,7 +61,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -82,7 +73,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

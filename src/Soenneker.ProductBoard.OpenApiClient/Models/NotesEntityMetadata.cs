@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Source metadata identifying the external system origin of a record.- `system`: Identifier for the external system (e.g., \&quot;salesforce\&quot;, \&quot;zendesk\&quot;). Free-form string, no specific format enforced.- `recordId`: Identifier of the record in the external system (e.g., \&quot;ticket-999\&quot;, \&quot;acc-12345\&quot;). Free-form string, no specific format enforced.- `url`: URL pointing to the source record in the external system&quot;</summary>
+        /// <summary>Source metadata identifying the external system origin of a record.- `system`: Identifier for the external system (e.g., &quot;salesforce&quot;, &quot;zendesk&quot;). Free-form string, no specific format enforced.- `recordId`: Identifier of the record in the external system (e.g., &quot;ticket-999&quot;, &quot;acc-12345&quot;). Free-form string, no specific format enforced.- `url`: URL pointing to the source record in the external system</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesApiSource? Source { get; set; }

@@ -17,7 +17,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>ISO 8601 timestamp when the integration was created.</summary>
         public DateTimeOffset? CreatedAt { get; private set; }
-        /// <summary>&quot;Domain attributes returned in plugin integration responses.Note: `action` is intentionally absent — it contains a write-only authorizationsecret that is never returned by the API.&quot;</summary>
+        /// <summary>Domain attributes returned in plugin integration responses.Note: `action` is intentionally absent — it contains a write-only authorizationsecret that is never returned by the API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields? Fields { get; set; }

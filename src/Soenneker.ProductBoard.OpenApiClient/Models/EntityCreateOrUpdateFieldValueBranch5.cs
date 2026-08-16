@@ -14,7 +14,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking&quot;</summary>
+        /// <summary>Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking</summary>
         public DateTimeOffset? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueBranch5"/> and sets the default values.

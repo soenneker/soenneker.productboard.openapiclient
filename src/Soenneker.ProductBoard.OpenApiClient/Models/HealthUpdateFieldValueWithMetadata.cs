@@ -15,7 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;HTML-formatted text content for Entities.## Behavior- Accepts HTML-formatted strings up to 524KB (524,288 characters)- Can be empty string (minLength: 0)- Supports rich formatting including bold, italic, links, lists  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)- Used for detailed descriptions, specifications, documentation, and formatted comments&quot;</summary>
+        /// <summary>HTML-formatted text content for Entities.## Behavior- Accepts HTML-formatted strings up to 524KB (524,288 characters)- Can be empty string (minLength: 0)- Supports rich formatting including bold, italic, links, lists  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)- Used for detailed descriptions, specifications, documentation, and formatted comments</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Comment { get; set; }
 #endif
-        /// <summary>&quot;Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error&quot;</summary>
+        /// <summary>Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign? CreatedBy { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign CreatedBy { get; set; }
 #endif
-        /// <summary>&quot;Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)&quot;</summary>
+        /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata? Metadata { get; set; }

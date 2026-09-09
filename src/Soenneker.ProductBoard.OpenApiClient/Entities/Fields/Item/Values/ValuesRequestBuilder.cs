@@ -35,7 +35,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ValuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities/fields/{id}/values{?assignedEntityType%5B%5D*,pageCursor*}", pathParameters)
+        public ValuesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities/fields/{id}/values{?assignedEntityType%5B%5D*,pageCursor*,query*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ValuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities/fields/{id}/values{?assignedEntityType%5B%5D*,pageCursor*}", rawUrl)
+        public ValuesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/entities/fields/{id}/values{?assignedEntityType%5B%5D*,pageCursor*,query*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, TAG, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.Tag fields are returned using the same `SelectOptionValue` shape as MULTI_SELECT, since tags are multi-select internally.
+        /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, TAG, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.Tag fields are returned using the same `SelectOptionValue` shape as MULTI_SELECT, since tags are multi-select internally.Use the `query` parameter to search TAG field values by name — see the parameter description for details.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValuesListResponseResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -121,7 +121,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValueReferenceResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.FieldValueReferenceResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, TAG, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.Tag fields are returned using the same `SelectOptionValue` shape as MULTI_SELECT, since tags are multi-select internally.
+        /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, TAG, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.Tag fields are returned using the same `SelectOptionValue` shape as MULTI_SELECT, since tags are multi-select internally.Use the `query` parameter to search TAG field values by name — see the parameter description for details.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -171,7 +171,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
             return new global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.ValuesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, TAG, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.Tag fields are returned using the same `SelectOptionValue` shape as MULTI_SELECT, since tags are multi-select internally.
+        /// Returns a paginated list of allowed values for select-type and status fields (SINGLE_SELECT, MULTI_SELECT, TAG, STATUS).Use this endpoint to retrieve all available options for fields with many values, or when you needto paginate through all values.For fields with fewer values (≤1000), the values are returned inline in the field response.For fields with more values, the field response contains a reference to this endpoint.Tag fields are returned using the same `SelectOptionValue` shape as MULTI_SELECT, since tags are multi-select internally.Use the `query` parameter to search TAG field values by name — see the parameter description for details.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ValuesRequestBuilderGetQueryParameters 
@@ -195,6 +195,16 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
 #else
             [QueryParameter("pageCursor")]
             public string PageCursor { get; set; }
+#endif
+            /// <summary>Search TAG field values by name. Matching is case- and accent-insensitive and tolerates minormisspellings. Results are ordered by trigram similarity, limited to 20 values, and do not includea pagination link. `pageCursor` is ignored when `query` is provided. An explicitly supplied blankquery or a query for any other field type is invalid and returns a 400 response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("query")]
+            public string? Query { get; set; }
+#nullable restore
+#else
+            [QueryParameter("query")]
+            public string Query { get; set; }
 #endif
         }
     }

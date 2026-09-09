@@ -51,7 +51,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationships Relationships { get; set; }
 #endif
-        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - userThe exact types available may vary based on the configuration of the workspace.</summary>
+        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - user  - task  - competitorThe exact types available may vary based on the configuration of the workspace.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
         /// <summary>Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

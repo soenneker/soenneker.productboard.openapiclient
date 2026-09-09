@@ -317,7 +317,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             [QueryParameter("teams%5Bname%5D")]
             public string Teamsname { get; set; }
 #endif
-            /// <summary>Filter by one or more entity types. Use array notation: `type[]=feature&amp;type[]=initiative`.Currently supported PM entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - user  - companyThe exact types available may vary based on the configuration of the workspace.</summary>
+            /// <summary>Filter by one or more entity types. Use array notation: `type[]=feature&amp;type[]=initiative`.Currently supported PM entity types:  - product  - component  - feature  - subfeature  - initiative  - competitor  - objective  - keyResult  - release  - releaseGroup  - user  - companyThe exact types available may vary based on the configuration of the workspace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type%5B%5D")]

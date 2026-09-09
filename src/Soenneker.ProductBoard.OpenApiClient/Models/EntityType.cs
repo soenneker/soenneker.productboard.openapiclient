@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - userThe exact types available may vary based on the configuration of the workspace.</summary>
+    /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - user  - task  - competitorThe exact types available may vary based on the configuration of the workspace.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EntityType
     {
@@ -50,6 +50,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         [EnumMember(Value = "user")]
         #pragma warning disable CS1591
         User,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "task")]
+        #pragma warning disable CS1591
+        Task,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "competitor")]
+        #pragma warning disable CS1591
+        Competitor,
         #pragma warning restore CS1591
     }
 }

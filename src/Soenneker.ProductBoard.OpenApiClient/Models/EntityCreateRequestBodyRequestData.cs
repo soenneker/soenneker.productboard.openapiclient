@@ -38,7 +38,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public List<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate> Relationships { get; set; }
 #endif
-        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - userThe exact types available may vary based on the configuration of the workspace.</summary>
+        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - user  - task  - competitorThe exact types available may vary based on the configuration of the workspace.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestData"/> and sets the default values.

@@ -153,11 +153,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("roles%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersListMembersRolesParameterItem[]? Roles { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.ListMembersRolesParameterItem[]? Roles { get; set; }
 #nullable restore
 #else
             [QueryParameter("roles%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersListMembersRolesParameterItem[] Roles { get; set; }
+            public global::Soenneker.ProductBoard.OpenApiClient.Models.ListMembersRolesParameterItem[] Roles { get; set; }
 #endif
         }
     }

@@ -39,7 +39,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.entities.item collection</summary>
         /// <param name="position">Entity identifier.</param>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesItemRequestBuilder this[string position]
+        public global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.EntitiesItemRequestBuilder this[Guid position]
         {
             get
             {
@@ -248,15 +248,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             public string Owneremail { get; set; }
 #endif
             /// <summary>Filter by owner ID</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("owner%5Bid%5D")]
-            public string? Ownerid { get; set; }
-#nullable restore
-#else
-            [QueryParameter("owner%5Bid%5D")]
-            public string Ownerid { get; set; }
-#endif
+            public Guid? Ownerid { get; set; }
             /// <summary>Cursor for pagination. Use the value from `links.next` to fetch the next page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -268,25 +261,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             public string PageCursor { get; set; }
 #endif
             /// <summary>Filter by parent PM entity ID</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("parent%5Bid%5D")]
-            public string? Parentid { get; set; }
-#nullable restore
-#else
-            [QueryParameter("parent%5Bid%5D")]
-            public string Parentid { get; set; }
-#endif
+            public Guid? Parentid { get; set; }
             /// <summary>Filter by status ID</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("status%5Bid%5D")]
-            public string? Statusid { get; set; }
-#nullable restore
-#else
-            [QueryParameter("status%5Bid%5D")]
-            public string Statusid { get; set; }
-#endif
+            public Guid? Statusid { get; set; }
             /// <summary>Filter by status name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -298,15 +277,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             public string Statusname { get; set; }
 #endif
             /// <summary>Filter by team ID. Mutually exclusive with teams[name].</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("teams%5Bid%5D")]
-            public string? Teamsid { get; set; }
-#nullable restore
-#else
-            [QueryParameter("teams%5Bid%5D")]
-            public string Teamsid { get; set; }
-#endif
+            public Guid? Teamsid { get; set; }
             /// <summary>Filter by team name. Mutually exclusive with teams[id].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -317,15 +289,15 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities
             [QueryParameter("teams%5Bname%5D")]
             public string Teamsname { get; set; }
 #endif
-            /// <summary>Filter by one or more entity types. Use array notation: `type[]=feature&amp;type[]=initiative`.Currently supported PM entity types:  - product  - component  - feature  - subfeature  - initiative  - competitor  - objective  - keyResult  - release  - releaseGroup  - user  - companyThe exact types available may vary based on the configuration of the workspace.</summary>
+            /// <summary>Filter by one or more entity types. Use array notation: `type[]=feature&amp;type[]=initiative`.Common values:  - product  - component  - feature  - subfeature  - initiative  - competitor  - objective  - keyResult  - release  - releaseGroup  - task  - user  - companyThe set available to you depends on your workspace. Call `GET /entities/configurations` and use the`type` of each returned configuration; a value your workspace does not have is rejected with a`request.invalid` error naming the types that are available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType[]? Type { get; set; }
+            public string[]? Type { get; set; }
 #nullable restore
 #else
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType[] Type { get; set; }
+            public string[] Type { get; set; }
 #endif
         }
     }

@@ -17,18 +17,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A collection of fields that can be used to create or update a PM entity.It is a subset of `EntityFields` that is used for creation or update operations.## Dual Format SupportMost field types support two input formats:- **Simple format**: Direct value (e.g., `&quot;text&quot;`, `123`, `true`)- **Object format**: Value with metadata (e.g., `{&quot;value&quot;: &quot;text&quot;, &quot;metadata&quot;: {...}}`)## Metadata SupportCustom fields (identified by UUID) and specific field types (`domain`, `email`, `effort`) support optional metadata that allows tracking the external source of field values:- `source.system`: Name of the external system that provided the value- `source.recordId`: Identifier of the record in the external system- `isViewableOnly`: Whether the value is read-only from external sourceMetadata sent for other fields is ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFieldsProperty? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFieldsProperty Fields { get; set; }
 #endif
         /// <summary>Metadata associated with an entity, including its source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataMetadata Metadata { get; set; }
 #endif
         /// <summary>The relationships property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,8 +38,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public List<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate> Relationships { get; set; }
 #endif
-        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - user  - task  - competitorThe exact types available may vary based on the configuration of the workspace.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
+        /// <summary>The type of an entity.Entity types are configured per workspace: which ones exist depends on the workspace&apos;s plan,premium features and settings, so this is deliberately an open string rather than a fixed set.Call `GET /entities/configurations` for the authoritative list of types available to you. A valuethat is not one of them is rejected with a `request.invalid` error naming the types that are.New entity types become usable here as soon as they are enabled for a workspace, with no changeto this specification.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestData"/> and sets the default values.
         /// </summary>
@@ -65,10 +71,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFields.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFieldsProperty.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataMetadata.CreateFromDiscriminatorValue); } },
                 { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,10 +84,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataFieldsProperty>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateRequestBodyRequestDataMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

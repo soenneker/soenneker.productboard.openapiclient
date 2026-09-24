@@ -195,18 +195,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships
             public string PageCursor { get; set; }
 #endif
             /// <summary>The ID of the target entity to filter the relationships by (optional)</summary>
+            [QueryParameter("target%5Bid%5D")]
+            public Guid? Targetid { get; set; }
+            /// <summary>The entity type of the target to filter relationships by (optional)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("target%5Bid%5D")]
-            public string? Targetid { get; set; }
+            [QueryParameter("target%5Btype%5D")]
+            public string? Targettype { get; set; }
 #nullable restore
 #else
-            [QueryParameter("target%5Bid%5D")]
-            public string Targetid { get; set; }
-#endif
-            /// <summary>The entity type of the target to filter relationships by (optional)</summary>
             [QueryParameter("target%5Btype%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Targettype { get; set; }
+            public string Targettype { get; set; }
+#endif
             /// <summary>The type of the relationship to filter by (optional)</summary>
             [QueryParameter("type")]
             public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipType? Type { get; set; }

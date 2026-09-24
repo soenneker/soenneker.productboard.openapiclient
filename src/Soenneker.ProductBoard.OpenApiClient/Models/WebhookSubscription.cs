@@ -20,23 +20,29 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Domain attributes returned in webhook subscription responses.Note: `notification.headers.authorization` is intentionally absent from responses to protect secrets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed Fields { get; set; }
 #endif
         /// <summary>Unique identifier for this webhook subscription.</summary>
         public Guid? Id { get; private set; }
         /// <summary>Links for this webhook subscription resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed Links { get; set; }
 #endif
         /// <summary>Resource type identifier for webhook subscriptions.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType? Type { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscription"/> and sets the default values.
         /// </summary>
@@ -63,10 +69,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType>(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,9 +82,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionResponseFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinks>("links", Links);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

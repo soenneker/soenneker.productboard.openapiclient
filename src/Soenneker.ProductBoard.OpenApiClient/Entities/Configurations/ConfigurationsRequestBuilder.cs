@@ -119,11 +119,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Configurations
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType[]? Type { get; set; }
+            public string[]? Type { get; set; }
 #nullable restore
 #else
             [QueryParameter("type%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType[] Type { get; set; }
+            public string[] Type { get; set; }
 #endif
         }
     }

@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A key-value definition fields that are part of the entity.Key represents field id (eg. name, description, or UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2 Fields { get; set; }
 #endif
         /// <summary>Available filter parameters for this entity type.Use these as query parameters on `GET /v2/entities` or as keys in `POST /v2/entities/search` request body.Not all entity types support the same filters — this list is type-specific.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,13 +41,19 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A key-value definition of possible relationships to other entities.Key represents the relationship type to other entities (child, parent, link)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty? Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2? Relationships { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2 Relationships { get; set; }
 #endif
-        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - user  - task  - competitorThe exact types available may vary based on the configuration of the workspace.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
+        /// <summary>The type of an entity.Entity types are configured per workspace: which ones exist depends on the workspace&apos;s plan,premium features and settings, so this is deliberately an open string rather than a fixed set.Call `GET /entities/configurations` for the authoritative list of types available to you. A valuethat is not one of them is rejected with a `request.invalid` error naming the types that are.New entity types become usable here as soon as they are enabled for a workspace, with no changeto this specification.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.Configuration"/> and sets the default values.
         /// </summary>
@@ -73,11 +79,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2.CreateFromDiscriminatorValue); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameter>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameter.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks.CreateFromDiscriminatorValue); } },
-                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>(); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -87,11 +93,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameter>("filters", Filters);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>("links", Links);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2>("relationships", Relationships);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

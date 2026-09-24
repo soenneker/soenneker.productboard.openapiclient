@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Represents a link between a Productboard feature and a Jira issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed Fields { get; set; }
 #endif
         /// <summary>Feature identifier (serves as connection identifier).</summary>
         public Guid? Id { get; private set; }
@@ -60,7 +60,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionLinks.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionType>(); } },
@@ -73,7 +73,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionLinks>("links", Links);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

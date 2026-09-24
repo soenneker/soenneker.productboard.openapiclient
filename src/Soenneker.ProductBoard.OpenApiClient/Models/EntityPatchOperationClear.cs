@@ -11,8 +11,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// This patch operation clears the value of a field.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EntityPatchOperationClear : IParsable
+    public partial class EntityPatchOperationClear : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The operation to perform on the field.Can be one of `clear`.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp? Op { get; set; }
         /// <summary>The path to the field to be modified.It is usually a field id (eg. &quot;tags&quot;, &quot;owner&quot;, &quot;00000000-0000-0000-0000-000000000000&quot;).</summary>
@@ -23,6 +25,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationClear"/> and sets the default values.
+        /// </summary>
+        public EntityPatchOperationClear()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,6 +63,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp>("op", Op);
             writer.WriteStringValue("path", Path);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

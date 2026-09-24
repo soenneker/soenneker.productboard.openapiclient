@@ -20,36 +20,36 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty2? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty2 Fields { get; set; }
 #endif
         /// <summary>The id property</summary>
         public Guid? Id { get; set; }
         /// <summary>Links for navigating note resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinksComposed? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinksComposed Links { get; set; }
 #endif
         /// <summary>Metadata associated with a resource, including its external source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteMetadata Metadata { get; set; }
 #endif
         /// <summary>A collection of relationships connected to the note.This includes:- Customer relationship (either a User or Company entity)- Product link relationships (e.g. linked features)The list is paginated, to see the rest of the relationships follow the URL contained in the `links.next` attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships? Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipsComposed? Relationships { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipsComposed Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType? Type { get; set; }
@@ -81,11 +81,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty2>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty2.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata.CreateFromDiscriminatorValue); } },
-                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinksComposed.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteMetadata.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipsComposed.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -98,11 +98,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteFieldsProperty2>("fields", Fields);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinks>("links", Links);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesEntityMetadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationships>("relationships", Relationships);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteLinksComposed>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipsComposed>("relationships", Relationships);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>("type", Type);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

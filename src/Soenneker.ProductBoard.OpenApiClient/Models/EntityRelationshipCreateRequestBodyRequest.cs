@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Payload representing a new relationship towards target entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequestData? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequestData Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequestData>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequestData.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateRequestBodyRequestData>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

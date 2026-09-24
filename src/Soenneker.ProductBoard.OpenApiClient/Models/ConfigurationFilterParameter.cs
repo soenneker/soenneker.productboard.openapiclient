@@ -50,10 +50,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Describes the expected value type and format for a filter parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema? Schema { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameterSchema? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema Schema { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameterSchema Schema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameter"/> and sets the default values.
@@ -84,7 +84,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "relationship", n => { Relationship = n.GetStringValue(); } },
                 { "requiredScopes", n => { RequiredScopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameterSchema>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameterSchema.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -98,7 +98,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("relationship", Relationship);
             writer.WriteCollectionOfPrimitiveValues<string>("requiredScopes", RequiredScopes);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterSchema>("schema", Schema);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameterSchema>("schema", Schema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -18,13 +18,19 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary># DescriptionA common response object of entity reference.# Validation# Filtering</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReference? Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget? Target { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReference Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget Target { get; set; }
 #endif
         /// <summary>The type of the relationship to be established.## Relationships- `parent`: Hierarchical relationship indicating the entity is a child of the target- `child`: Hierarchical relationship indicating the entity contains the target- `link`: Generic bidirectional relationship without semantic meaning- `isBlockedBy`: Dependency relationship indicating the entity cannot proceed until the target is resolved- `isBlocking`: Dependency relationship indicating the entity prevents progress on the target</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed? Type { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationship"/> and sets the default values.
         /// </summary>
@@ -50,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReference.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipType>(); } },
+                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReference>("target", Target);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget>("target", Target);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

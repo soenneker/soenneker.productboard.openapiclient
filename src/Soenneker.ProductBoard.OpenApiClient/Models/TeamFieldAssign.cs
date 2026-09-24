@@ -8,31 +8,11 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Team assignment allowing identification by ID or name.## Behavior- Supports two identification methods: unique ID (UUID) or human-readable name- Use ID for precision and consistency across API calls- Use name for convenience when ID is unknown- Names must match existing team values in workspace configuration
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TeamFieldAssign : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class TeamFieldAssign : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A universally unique identifier (UUID).</summary>
-        public Guid? Id { get; set; }
-        /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata? Metadata { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata Metadata { get; set; }
-#endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,13 +29,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName TeamAssignByName { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldAssign"/> and sets the default values.
-        /// </summary>
-        public TeamFieldAssign()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -74,14 +47,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 result.TeamAssignByName = new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName();
             }
-            else if(parseNode.GetGuidValue() is Guid idValue)
-            {
-                result.Id = idValue;
-            }
-            else if(parseNode.GetStringValue() is string nameValue)
-            {
-                result.Name = nameValue;
-            }
             return result;
         }
         /// <summary>
@@ -90,11 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(Metadata != null)
-            {
-                return Metadata.GetFieldDeserializers();
-            }
-            else if(TeamAssignById != null)
+            if(TeamAssignById != null)
             {
                 return TeamAssignById.GetFieldDeserializers();
             }
@@ -111,11 +72,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Metadata != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata>(null, Metadata);
-            }
-            else if(TeamAssignById != null)
+            if(TeamAssignById != null)
             {
                 writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignById>(null, TeamAssignById);
             }
@@ -123,15 +80,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamAssignByName>(null, TeamAssignByName);
             }
-            else if(Id != null)
-            {
-                writer.WriteGuidValue(null, Id);
-            }
-            else if(Name != null)
-            {
-                writer.WriteStringValue(null, Name);
-            }
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

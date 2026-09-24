@@ -20,23 +20,23 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Domain attributes returned in plugin integration responses.Note: `action` is intentionally absent — it contains a write-only authorizationsecret that is never returned by the API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationFields Fields { get; set; }
 #endif
         /// <summary>Unique identifier for this plugin integration.</summary>
         public Guid? Id { get; private set; }
         /// <summary>Links for this plugin integration resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed Links { get; set; }
 #endif
         /// <summary>Resource type identifier.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationType? Type { get; private set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationTypeEnum? Type { get; private set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegration"/> and sets the default values.
         /// </summary>
@@ -63,10 +63,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationType>(); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationTypeEnum>(); } },
             };
         }
         /// <summary>
@@ -76,8 +76,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

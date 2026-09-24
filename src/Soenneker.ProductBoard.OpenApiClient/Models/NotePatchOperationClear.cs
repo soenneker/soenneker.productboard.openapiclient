@@ -11,10 +11,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// This patch operation clears/resets the value of a field to its default state.**Supported Fields:**- `owner`: Clears the owner (sets to null)- `tags`: Clears all tags (sets to empty array)- `content`: Clears content (for conversationNote/opportunityNote notes)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class NotePatchOperationClear : IParsable
+    public partial class NotePatchOperationClear : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The operation to perform on the field.Can be one of `clear`.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp? Op { get; set; }
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The operation to perform on the field.Must be `clear`.</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NotesClearOp? Op { get; set; }
         /// <summary>The path to the field to be cleared.Common field paths: &quot;owner&quot;, &quot;tags&quot;, &quot;content&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,6 +25,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationClear"/> and sets the default values.
+        /// </summary>
+        public NotePatchOperationClear()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +50,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesClearOp>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
             };
         }
@@ -52,8 +61,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotesClearOp>("op", Op);
             writer.WriteStringValue("path", Path);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -8,23 +8,11 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class MemberFieldAssign : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class MemberFieldAssign : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The email property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Email { get; set; }
-#nullable restore
-#else
-        public string Email { get; set; }
-#endif
-        /// <summary>A universally unique identifier (UUID).</summary>
-        public Guid? Id { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,21 +29,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById MemberAssignById { get; set; }
 #endif
-        /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata? Metadata { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata Metadata { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign"/> and sets the default values.
-        /// </summary>
-        public MemberFieldAssign()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -65,19 +38,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssign();
-            if(parseNode.GetStringValue() is string emailValue)
-            {
-                result.Email = emailValue;
-            }
-            else if(parseNode.GetGuidValue() is Guid idValue)
-            {
-                result.Id = idValue;
-            }
-            else {
-                result.MemberAssignByEmail = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail();
-                result.MemberAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById();
-                result.Metadata = new global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadata();
-            }
+            result.MemberAssignByEmail = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail();
+            result.MemberAssignById = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignById();
             return result;
         }
         /// <summary>
@@ -86,9 +48,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(MemberAssignByEmail != null || MemberAssignById != null || Metadata != null)
+            if(MemberAssignByEmail != null || MemberAssignById != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MemberAssignByEmail, MemberAssignById, Metadata);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(MemberAssignByEmail, MemberAssignById);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -99,18 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(Email != null)
-            {
-                writer.WriteStringValue(null, Email);
-            }
-            else if(Id != null)
-            {
-                writer.WriteGuidValue(null, Id);
-            }
-            else {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail>(null, MemberAssignByEmail, MemberAssignById, Metadata);
-            }
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberAssignByEmail>(null, MemberAssignByEmail, MemberAssignById);
         }
     }
 }

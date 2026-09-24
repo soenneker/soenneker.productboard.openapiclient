@@ -168,15 +168,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item
             [QueryParameter("force")]
             public bool? Force { get; set; }
             /// <summary>ID of another value on the same field to reassign all current assignments to before deletion.Mutually exclusive with `force`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("replaceWith")]
-            public string? ReplaceWith { get; set; }
-#nullable restore
-#else
-            [QueryParameter("replaceWith")]
-            public string ReplaceWith { get; set; }
-#endif
+            public Guid? ReplaceWith { get; set; }
         }
     }
 }

@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Represents a relationship between two entities.The source entity is implicit from the request context (the entity being queried).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationship? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponseData? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationship Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponseData Data { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationship>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationship.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponseData>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponseData.CreateFromDiscriminatorValue); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationship>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipResponseResponseData>("data", Data);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }

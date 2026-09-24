@@ -11,8 +11,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// This patch operation modifies a field value using set, addItems, or removeItems operations.**Operation Types:**- `set`: Replace the entire field value- `addItems`: Add items to array fields (tags, conversation content)- `removeItems`: Remove items from array fields (tags, conversation content)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class NotePatchOperation : IParsable
+    public partial class NotePatchOperation : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The operation to perform on the field.Can be one of `set`, `addItems`, `removeItems`.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationOp? Op { get; set; }
         /// <summary>The path to the field to be modified.Common field paths: &quot;owner&quot;, &quot;tags&quot;, &quot;archived&quot;, &quot;processed&quot;, &quot;name&quot;, &quot;content&quot;</summary>
@@ -31,6 +33,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue Value { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperation"/> and sets the default values.
+        /// </summary>
+        public NotePatchOperation()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -64,6 +73,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationOp>("op", Op);
             writer.WriteStringValue("path", Path);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

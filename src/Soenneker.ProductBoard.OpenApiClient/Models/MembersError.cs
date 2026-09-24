@@ -34,10 +34,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>An object containing references to the source of the error. It helps with location of the problematic field or parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSource? Source { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSourceComposed? Source { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSource Source { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSourceComposed Source { get; set; }
 #endif
         /// <summary>A short, human-readable summary of the problem that doesn&apos;t changefrom occurrence to occurrence of the problem. Should provide immediateunderstanding of the error type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "source", n => { Source = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSource>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSource.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSourceComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSourceComposed.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -87,7 +87,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("detail", Detail);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSource>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorSourceComposed>("source", Source);
             writer.WriteStringValue("title", Title);
             writer.WriteAdditionalData(AdditionalData);
         }

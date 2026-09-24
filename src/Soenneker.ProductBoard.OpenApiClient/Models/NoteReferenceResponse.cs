@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Minimal reference to a note resource containing only identifying information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReference? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponseData? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReference Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponseData Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReference>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReference.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponseData>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponseData.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReference>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponseData>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

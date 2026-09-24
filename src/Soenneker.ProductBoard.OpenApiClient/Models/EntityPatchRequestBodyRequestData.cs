@@ -17,18 +17,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A collection of fields that can be used to create or update a PM entity.It is a subset of `EntityFields` that is used for creation or update operations.## Dual Format SupportMost field types support two input formats:- **Simple format**: Direct value (e.g., `&quot;text&quot;`, `123`, `true`)- **Object format**: Value with metadata (e.g., `{&quot;value&quot;: &quot;text&quot;, &quot;metadata&quot;: {...}}`)## Metadata SupportCustom fields (identified by UUID) and specific field types (`domain`, `email`, `effort`) support optional metadata that allows tracking the external source of field values:- `source.system`: Name of the external system that provided the value- `source.recordId`: Identifier of the record in the external system- `isViewableOnly`: Whether the value is read-only from external sourceMetadata sent for other fields is ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFieldsProperty? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFieldsProperty Fields { get; set; }
 #endif
         /// <summary>Metadata supplied when updating an entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataMetadata Metadata { get; set; }
 #endif
         /// <summary>A list of patch operations to perform on a PM entity field.Each operation can be one of `set`, `addItems`, `removeItems`, or `clear`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,8 +63,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFields.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateMetadata.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFieldsProperty.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataMetadata.CreateFromDiscriminatorValue); } },
                 { "patch", n => { Patch = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchItem>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -75,8 +75,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityUpdateMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataFieldsProperty>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchRequestBodyRequestDataMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchItem>("patch", Patch);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -21,7 +21,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.entities.fields.item.values.item collection</summary>
         /// <param name="position">The ID of the field value to update.</param>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValueItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValueItemRequestBuilder this[string position]
+        public global::Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values.Item.WithValueItemRequestBuilder this[Guid position]
         {
             get
             {
@@ -180,11 +180,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Fields.Item.Values
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("assignedEntityType%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType[]? AssignedEntityType { get; set; }
+            public string[]? AssignedEntityType { get; set; }
 #nullable restore
 #else
             [QueryParameter("assignedEntityType%5B%5D")]
-            public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType[] AssignedEntityType { get; set; }
+            public string[] AssignedEntityType { get; set; }
 #endif
             /// <summary>Cursor for pagination. Use the value from `links.next` to fetch the next page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

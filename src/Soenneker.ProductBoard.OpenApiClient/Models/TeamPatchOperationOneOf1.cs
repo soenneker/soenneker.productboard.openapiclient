@@ -11,8 +11,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// Operation with a value (addItems, removeItems, set)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TeamPatchOperationOneOf1 : IParsable
+    public partial class TeamPatchOperationOneOf1 : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The operation type.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Op? Op { get; set; }
         /// <summary>The field to operate on.</summary>
@@ -25,6 +27,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public List<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1ValueItem> Value { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1"/> and sets the default values.
+        /// </summary>
+        public TeamPatchOperationOneOf1()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -58,6 +67,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1Op>("op", Op);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>("path", Path);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf1ValueItem>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

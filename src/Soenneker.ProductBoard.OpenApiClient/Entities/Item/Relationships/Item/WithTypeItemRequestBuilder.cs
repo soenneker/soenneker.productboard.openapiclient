@@ -18,7 +18,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.Item
         /// <summary>Gets an item from the Soenneker.ProductBoard.OpenApiClient.entities.item.relationships.item.item collection</summary>
         /// <param name="position">The ID of the target entity to delete the relationship with.</param>
         /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.Item.Item.WithTargetItemRequestBuilder"/></returns>
-        public global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.Item.Item.WithTargetItemRequestBuilder this[string position]
+        public global::Soenneker.ProductBoard.OpenApiClient.Entities.Item.Relationships.Item.Item.WithTargetItemRequestBuilder this[Guid position]
         {
             get
             {

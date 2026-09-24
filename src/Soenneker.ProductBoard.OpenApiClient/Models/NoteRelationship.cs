@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Represents a reference to an entity in Productboard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityReferenceResponse? Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipTarget? Target { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityReferenceResponse Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipTarget Target { get; set; }
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipType? Type { get; set; }
@@ -49,7 +49,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityReferenceResponse>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityReferenceResponse.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipTarget>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipTarget.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipType>(); } },
             };
         }
@@ -60,7 +60,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityReferenceResponse>("target", Target);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipTarget>("target", Target);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteRelationshipType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

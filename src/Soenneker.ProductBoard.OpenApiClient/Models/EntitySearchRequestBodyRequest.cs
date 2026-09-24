@@ -17,10 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Request body for searching entities. Uses a structured `filter` object with nested field groups,and an optional `return` object to control the response shape.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearch? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequestData? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearch Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequestData Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequest"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearch>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearch.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequestData>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequestData.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearch>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntitySearchRequestBodyRequestData>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

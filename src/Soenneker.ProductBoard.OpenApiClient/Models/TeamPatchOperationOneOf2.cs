@@ -11,12 +11,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// Clear operation (no value needed)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TeamPatchOperationOneOf2 : IParsable
+    public partial class TeamPatchOperationOneOf2 : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The operation to perform on the field.Can be one of `clear`.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp? Op { get; set; }
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Clear all items from the field.</summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp? Op { get; set; }
         /// <summary>The field to operate on.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath? Path { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2"/> and sets the default values.
+        /// </summary>
+        public TeamPatchOperationOneOf2()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -35,7 +44,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp>(); } },
+                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp>(); } },
                 { "path", n => { Path = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>(); } },
             };
         }
@@ -46,8 +55,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ClearOp>("op", Op);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp>("op", Op);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>("path", Path);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

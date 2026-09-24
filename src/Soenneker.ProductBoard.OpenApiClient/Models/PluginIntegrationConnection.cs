@@ -18,20 +18,20 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Domain attributes of a plugin integration connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFieldsComposed? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFieldsComposed Fields { get; set; }
 #endif
         /// <summary>The Productboard entity ID this connection belongs to.</summary>
         public Guid? Id { get; private set; }
         /// <summary>Links for this connection resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinksComposed? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinksComposed Links { get; set; }
 #endif
         /// <summary>Resource type identifier.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionType? Type { get; private set; }
@@ -60,9 +60,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFieldsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFieldsComposed.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinksComposed.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionType>(); } },
             };
         }
@@ -73,8 +73,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFields>("fields", Fields);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionFieldsComposed>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionLinksComposed>("links", Links);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

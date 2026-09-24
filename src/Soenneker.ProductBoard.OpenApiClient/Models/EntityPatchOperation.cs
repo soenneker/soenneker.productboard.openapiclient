@@ -11,8 +11,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// This patch operation replaces the value of a field, or adds/removes values from it.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EntityPatchOperation : IParsable
+    public partial class EntityPatchOperation : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The operation to perform on the field.Can be one of `set`, `addItems`, `removeItems`.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationOp? Op { get; set; }
         /// <summary>The path to the field to be modified.It is usually a field id (eg. &quot;tags&quot;, &quot;owner&quot;, &quot;00000000-0000-0000-0000-000000000000&quot;).</summary>
@@ -26,11 +28,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A list of create/update payloads for possible value types of a resource fields.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue? Value { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue? Value { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue Value { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue Value { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperation"/> and sets the default values.
+        /// </summary>
+        public EntityPatchOperation()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -51,7 +60,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationOp>(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -63,7 +72,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationOp>("op", Op);
             writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValue>("value", Value);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue>("value", Value);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

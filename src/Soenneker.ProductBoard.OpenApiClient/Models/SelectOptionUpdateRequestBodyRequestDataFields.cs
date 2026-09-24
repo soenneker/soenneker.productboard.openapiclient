@@ -15,8 +15,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Named color for a select option.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionColor? Color { get; set; }
+        /// <summary>Updated color of the select option.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequestDataFieldsColor? Color { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequestDataFieldsColor Color { get; set; }
+#endif
         /// <summary>Updated display name of the select option.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +56,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionColor>(); } },
+                { "color", n => { Color = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequestDataFieldsColor>(global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequestDataFieldsColor.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -61,7 +67,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionColor>("color", Color);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SelectOptionUpdateRequestBodyRequestDataFieldsColor>("color", Color);
             writer.WriteStringValue("name", Name);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -20,20 +20,20 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Fields of a team resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed Fields { get; set; }
 #endif
         /// <summary>Unique identifier of the team</summary>
         public Guid? Id { get; set; }
         /// <summary>Links for navigating team resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks? Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed? Links { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks Links { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamType? Type { get; set; }
@@ -65,9 +65,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
-                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks.CreateFromDiscriminatorValue); } },
+                { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamType>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -80,9 +80,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed>("fields", Fields);
             writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinks>("links", Links);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed>("links", Links);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamType>("type", Type);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

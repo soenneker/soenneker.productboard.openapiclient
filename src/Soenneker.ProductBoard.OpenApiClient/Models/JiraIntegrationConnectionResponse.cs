@@ -18,10 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Jira integration connection data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection? Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionResponseData? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection Data { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionResponseData Data { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionResponse"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionResponseData>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionResponseData.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionResponseData>("data", Data);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

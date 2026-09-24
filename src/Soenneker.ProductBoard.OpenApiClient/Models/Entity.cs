@@ -20,10 +20,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty? Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty Fields { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2 Fields { get; set; }
 #endif
         /// <summary>A universally unique identifier (UUID).</summary>
         public Guid? Id { get; set; }
@@ -38,21 +38,27 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Metadata associated with an entity, including its source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed Metadata { get; set; }
 #endif
         /// <summary>A collection of relationships between this entity and other entities.The list is paginated, to see the rest of the relationships follow the URL contained in the`links.next` attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationships? Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipsComposed? Relationships { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationships Relationships { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipsComposed Relationships { get; set; }
 #endif
-        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - user  - task  - competitorThe exact types available may vary based on the configuration of the workspace.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
+        /// <summary>The type of an entity.Entity types are configured per workspace: which ones exist depends on the workspace&apos;s plan,premium features and settings, so this is deliberately an open string rather than a fixed set.Call `GET /entities/configurations` for the authoritative list of types available to you. A valuethat is not one of them is rejected with a `request.invalid` error naming the types that are.New entity types become usable here as soon as they are enabled for a workspace, with no changeto this specification.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>Date and time in ISO 8601 format for Entities.## Behavior- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ- Includes both date and time components with timezone information- Validates for proper datetime structure and valid values- Used for timestamps, creation dates, and precise time tracking</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -81,12 +87,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata.CreateFromDiscriminatorValue); } },
-                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationships>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationships.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipsComposed.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -98,12 +104,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2>("fields", Fields);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks>("links", Links);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationships>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipsComposed>("relationships", Relationships);
+            writer.WriteStringValue("type", Type);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

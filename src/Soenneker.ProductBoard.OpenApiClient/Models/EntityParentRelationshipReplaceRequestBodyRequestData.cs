@@ -18,13 +18,19 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Entity reference assignment using unique identifier for Entities.## Behavior- Simple ID-only assignment for referencing other entities- Used for establishing relationships between entities (parent, child, link)- UUID must match an existing entity in the workspace- Commonly used in relationship creation and updates</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReferenceAssign? Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityParentRelationshipReplaceRequestBodyRequestDataTarget? Target { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReferenceAssign Target { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityParentRelationshipReplaceRequestBodyRequestDataTarget Target { get; set; }
 #endif
-        /// <summary>Supported Entity types:  - product  - component  - feature  - subfeature  - initiative  - objective  - keyResult  - release  - releaseGroup  - company  - user  - task  - competitorThe exact types available may vary based on the configuration of the workspace.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType? Type { get; set; }
+        /// <summary>The type of an entity.Entity types are configured per workspace: which ones exist depends on the workspace&apos;s plan,premium features and settings, so this is deliberately an open string rather than a fixed set.Call `GET /entities/configurations` for the authoritative list of types available to you. A valuethat is not one of them is rejected with a `request.invalid` error naming the types that are.New entity types become usable here as soon as they are enabled for a workspace, with no changeto this specification.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityParentRelationshipReplaceRequestBodyRequestData"/> and sets the default values.
         /// </summary>
@@ -50,8 +56,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReferenceAssign>(global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReferenceAssign.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>(); } },
+                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityParentRelationshipReplaceRequestBodyRequestDataTarget>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityParentRelationshipReplaceRequestBodyRequestDataTarget.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,8 +67,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceReferenceAssign>("target", Target);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityParentRelationshipReplaceRequestBodyRequestDataTarget>("target", Target);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

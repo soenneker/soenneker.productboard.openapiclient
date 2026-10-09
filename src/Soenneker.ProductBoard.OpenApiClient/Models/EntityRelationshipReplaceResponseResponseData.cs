@@ -15,6 +15,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Field values carried by the relationship, keyed by field ID. Only fields assigned to the relationshipmodel between the two entities can hold a value. Fields without a value are omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipReplaceResponseResponseDataFields? Fields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipReplaceResponseResponseDataFields Fields { get; set; }
+#endif
         /// <summary># DescriptionA common response object of entity reference.# Validation# Filtering</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipReplaceResponseResponseDataFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipReplaceResponseResponseDataFields.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed.CreateFromDiscriminatorValue); } },
             };
@@ -67,6 +76,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipReplaceResponseResponseDataFields>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTarget>("target", Target);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipTypeComposed>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

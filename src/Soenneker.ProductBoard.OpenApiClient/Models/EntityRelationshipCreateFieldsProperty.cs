@@ -7,39 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
+    /// <summary>
+    /// Field values to write on the relationship, keyed by field ID. A value sets the field, an explicit`null` clears it, and an omitted key leaves the persisted value untouched.Only `link`, `parent`, and `child` relationships carry field values, and only fields assigned to therelationship model between the two entities can be written.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class LinkRelationshipInput : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class EntityRelationshipCreateFieldsProperty : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The target property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.LinkTargetById? Target { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.LinkTargetById Target { get; set; }
-#endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.LinkType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.LinkRelationshipInput"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty"/> and sets the default values.
         /// </summary>
-        public LinkRelationshipInput()
+        public EntityRelationshipCreateFieldsProperty()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.LinkRelationshipInput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.ProductBoard.OpenApiClient.Models.LinkRelationshipInput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.ProductBoard.OpenApiClient.Models.LinkRelationshipInput();
+            return new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +40,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.LinkTargetById>(global::Soenneker.ProductBoard.OpenApiClient.Models.LinkTargetById.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.LinkType>(); } },
             };
         }
         /// <summary>
@@ -60,8 +49,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.LinkTargetById>("target", Target);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.LinkType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

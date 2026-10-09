@@ -15,6 +15,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Field values to write on the relationship, keyed by field ID. A value sets the field, an explicit`null` clears it, and an omitted key leaves the persisted value untouched.Only `link`, `parent`, and `child` relationships carry field values, and only fields assigned to therelationship model between the two entities can be written.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty? Fields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty Fields { get; set; }
+#endif
         /// <summary>Entity reference assignment using unique identifier for Entities.## Behavior- Simple ID-only assignment for referencing other entities- Used for establishing relationships between entities (parent, child, link)- UUID must match an existing entity in the workspace- Commonly used in relationship creation and updates</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateTarget>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateTarget.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType.CreateFromDiscriminatorValue); } },
             };
@@ -67,6 +76,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateTarget>("target", Target);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

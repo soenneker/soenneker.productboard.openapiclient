@@ -34,7 +34,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsResourceLinks Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsMemberType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResource"/> and sets the default values.
         /// </summary>
@@ -63,7 +69,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsResourceLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsMemberType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,7 +82,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFields>("fields", Fields);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsResourceLinks>("links", Links);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsMemberType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

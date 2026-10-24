@@ -36,13 +36,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed Links { get; set; }
 #endif
         /// <summary>Resource type identifier for webhook subscriptions.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType? Type { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookResponseData"/> and sets the default values.
         /// </summary>
@@ -72,7 +66,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType>(); } },
             };
         }
         /// <summary>
@@ -84,7 +78,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsComposed>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionLinksComposed>("links", Links);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

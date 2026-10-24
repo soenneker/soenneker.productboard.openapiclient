@@ -38,6 +38,13 @@
             "schema": {
               "type": "array",
               "items": {
+                "examples": [
+                  "product",
+                  "feature",
+                  "initiative",
+                  "objective",
+                  "release"
+                ],
                 "pattern": "[a-zA-Z]\u002B",
                 "type": "string",
                 "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -103,6 +110,13 @@
             "description": "The type of the entity",
             "required": true,
             "schema": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -228,6 +242,13 @@
             "schema": {
               "type": "array",
               "items": {
+                "examples": [
+                  "product",
+                  "feature",
+                  "initiative",
+                  "objective",
+                  "release"
+                ],
                 "pattern": "[a-zA-Z]\u002B",
                 "type": "string",
                 "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -257,7 +278,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           },
           {
@@ -276,7 +298,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           },
           {
@@ -294,7 +317,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           },
           {
@@ -320,7 +344,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           },
           {
@@ -395,8 +420,16 @@
         "operationId": "GetEntity",
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/Id"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "A universally unique identifier (UUID).\n",
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
+            }
           },
           {
             "description": "Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.\n\n**Options:**\n- Not specified: Returns only fields with non-empty values (default)\n- \u0060fields[]=all\u0060: Returns all fields, including those with \u0060null\u0060 values\n- \u0060fields[]=name\u0026fields[]=status\u0060: Returns only the specified fields\n\nFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).\n",
@@ -458,8 +491,16 @@
         "operationId": "UpdateEntity",
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/Id"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "A universally unique identifier (UUID).\n",
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
+            }
           }
         ],
         "requestBody": {
@@ -527,7 +568,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           }
         ],
@@ -656,8 +698,16 @@
         "operationId": "ListEntityRelationships",
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/Id"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "A universally unique identifier (UUID).\n",
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
+            }
           },
           {
             "name": "type",
@@ -672,6 +722,13 @@
             "in": "query",
             "description": "The entity type of the target to filter relationships by (optional)",
             "schema": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -684,7 +741,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           },
           {
@@ -743,8 +801,16 @@
         "operationId": "CreateEntityRelationship",
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/Id"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "A universally unique identifier (UUID).\n",
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
+            }
           }
         ],
         "requestBody": {
@@ -811,8 +877,16 @@
         "operationId": "ReplaceEntityRelationship",
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/Id"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "A universally unique identifier (UUID).\n",
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
+            }
           }
         ],
         "requestBody": {
@@ -875,8 +949,16 @@
         "operationId": "DeleteEntityRelationship",
         "parameters": [
           {
+            "name": "id",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/Id"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "A universally unique identifier (UUID).\n",
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
+            }
           },
           {
             "name": "type",
@@ -894,7 +976,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           }
         ],
@@ -970,6 +1053,13 @@
             "schema": {
               "type": "array",
               "items": {
+                "examples": [
+                  "product",
+                  "feature",
+                  "initiative",
+                  "objective",
+                  "release"
+                ],
                 "pattern": "[a-zA-Z]\u002B",
                 "type": "string",
                 "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -1128,7 +1218,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           }
         ],
@@ -1206,7 +1297,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           },
           {
@@ -1225,7 +1317,8 @@
             "schema": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           }
         ],
@@ -1285,7 +1378,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           }
         },
         "description": "Entity reference assignment using unique identifier for Entities.\n\n## Behavior\n- Simple ID-only assignment for referencing other entities\n- Used for establishing relationships between entities (parent, child, link)\n- UUID must match an existing entity in the workspace\n- Commonly used in relationship creation and updates\n"
@@ -1300,9 +1394,17 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "type": {
+            "examples": [
+              "product",
+              "feature",
+              "initiative",
+              "objective",
+              "release"
+            ],
             "pattern": "[a-zA-Z]\u002B",
             "type": "string",
             "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -1323,9 +1425,17 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "type": {
+            "examples": [
+              "product",
+              "feature",
+              "initiative",
+              "objective",
+              "release"
+            ],
             "pattern": "[a-zA-Z]\u002B",
             "type": "string",
             "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -1347,12 +1457,14 @@
           "createdAt": {
             "type": "string",
             "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2023-10-01T12:00:00Z"
           },
           "updatedAt": {
             "type": "string",
             "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2023-10-01T12:00:00Z"
           }
         },
         "description": "The entity payload containing the resource data and its relationships.\n",
@@ -1419,16 +1531,23 @@
         }
       },
       "EntityFieldValue": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch1"
+            "type": "boolean",
+            "description": "True/false flag for binary state tracking in Entities.\n\n## Behavior\n- Accepts only \u0060true\u0060 or \u0060false\u0060 boolean values\n- Used for binary states like archived status, feature toggles, completion flags\n- Displayed as checkboxes or toggle switches in UI\n",
+            "example": true
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch2"
+            "type": "string",
+            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
+            "format": "date",
+            "example": "2023-10-01"
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch3"
+            "type": "string",
+            "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
+            "format": "date-time",
+            "example": "2023-10-01T12:00:00Z"
           },
           {
             "$ref": "#/components/schemas/HealthFieldValue"
@@ -1437,13 +1556,29 @@
             "$ref": "#/components/schemas/MemberFieldValue"
           },
           {
-            "$ref": "#/components/schemas/MultiSelectFieldValueWrapper"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SingleSelectFieldValue"
+            },
+            "description": "Collection of multiple selection options for Entities.\n\n## Behavior\n- Array of SingleSelectFieldValue objects, each with ID, name, and optional color\n- Can be empty array if no options are selected\n- All values must match field configuration options\n- Used for multi-category selections, tag-like fields, and multiple choice attributes\n- Supports adding/removing individual options via patch operations\n",
+            "example": [
+              {
+                "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+                "name": "Example Option"
+              }
+            ]
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch7"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n",
+            "example": "Example Name"
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch8"
+            "type": "number",
+            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n",
+            "example": 123.45
           },
           {
             "$ref": "#/components/schemas/NumberFieldValueWithMode"
@@ -1452,7 +1587,11 @@
             "$ref": "#/components/schemas/ProgressFieldValue"
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch11"
+            "maxLength": 524288,
+            "minLength": 0,
+            "type": "string",
+            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n",
+            "example": "\u003Cp\u003EThis is \u003Cb\u003Erich\u003C/b\u003E text.\u003C/p\u003E"
           },
           {
             "$ref": "#/components/schemas/DocumentReferenceFieldValue"
@@ -1464,94 +1603,47 @@
             "$ref": "#/components/schemas/StatusFieldValue"
           },
           {
-            "$ref": "#/components/schemas/TeamsFieldValueWrapper"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TeamFieldValue"
+            },
+            "description": "Collection of teams associated with Entities.\n\n## Behavior\n- Array of TeamFieldValue objects, each containing team ID and name\n- Can be empty array if no teams are assigned\n- Used for multi-team assignments and collaborations\n- Supports adding/removing individual teams via patch operations\n",
+            "example": [
+              {
+                "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+                "name": "Product Team"
+              },
+              {
+                "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                "name": "Engineering Team"
+              }
+            ]
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch16"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n",
+            "example": "Example String"
           },
           {
             "$ref": "#/components/schemas/TimeframeFieldValue"
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch18"
+            "type": "string",
+            "description": "Valid URL for Entities.\n\n## Behavior\n- Must be a valid URL following URI format standards\n- Supports various protocols (http, https, ftp, etc.)\n- Validates for proper URL structure and format\n- Used for external links, documentation references, and resource URLs\n",
+            "format": "uri",
+            "example": "https://example.com"
           },
           {
-            "$ref": "#/components/schemas/EntityFieldValueBranch19"
+            "type": "string",
+            "description": "Universally unique identifier (UUID) for Entities.\n\n## Behavior\n- Validates for proper UUID structure and format\n- Used for entity IDs and references to other entities\n- Case-insensitive but typically lowercase\n",
+            "format": "uuid"
           },
           {
             "$ref": "#/components/schemas/WorkProgressFieldValue"
           }
         ],
-        "properties": {
-          "status": {
-            "description": "The health status of the work item. \u0060notSet\u0060 is read-only \u2014 it is returned on read for entities with\ncalculated or uninitialized health and cannot be assigned in a manual update.\n",
-            "$ref": "#/components/schemas/HealthStatusEnum"
-          },
-          "previousStatus": {
-            "description": "The health status of the work item. \u0060notSet\u0060 is read-only \u2014 it is returned on read for entities with\ncalculated or uninitialized health and cannot be assigned in a manual update.\n",
-            "$ref": "#/components/schemas/HealthStatusEnum"
-          },
-          "lastUpdatedAt": {
-            "type": "string",
-            "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
-          },
-          "comment": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
-          },
-          "createdBy": {
-            "description": "Workspace member information.\n\n## Behavior\n- Contains both unique \u0060id\u0060 (UUID) and \u0060email\u0060 for member identification\n- Used for ownership, assignment, and team member references\n- Both fields are required for complete member representation\n- Email serves as human-readable identifier\n",
-            "$ref": "#/components/schemas/MemberFieldValue"
-          },
-          "email": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
-          },
-          "startValue": {
-            "type": "number",
-            "description": "The starting baseline value for progress measurement.\n",
-            "format": "float",
-            "example": 0
-          },
-          "targetValue": {
-            "type": "number",
-            "description": "The target goal value to achieve.\n",
-            "format": "float",
-            "example": 100
-          },
-          "currentValue": {
-            "type": "number",
-            "description": "The current progress value being tracked.\n",
-            "format": "float",
-            "example": 90.5
-          },
-          "links": {
-            "$ref": "#/components/schemas/DocumentReferenceFieldValueLinks"
-          },
-          "name": {
-            "type": "string"
-          },
-          "color": {
-            "type": "string"
-          },
-          "startDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "endDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "granularity": {
-            "description": "Time granularity level for timeframe display and interpretation.\n\n## Behavior\n- Must be one of: \u0060year\u0060, \u0060quarter\u0060, \u0060month\u0060, \u0060day\u0060\n- Affects how timeframe dates are displayed and interpreted in the UI\n- Used in conjunction with TimeframeFieldValue to specify precision level\n- Supports different planning scales from daily sprints to annual strategies\n- Exact string matching for filtering\n",
-            "$ref": "#/components/schemas/GranularityFieldValue"
-          }
-        },
         "description": "A list of possible value types of PM entity fields.\nThis should cover all possible fields of all PM entity types.\n"
       },
       "EntityCreateOrUpdateFields": {
@@ -1562,22 +1654,29 @@
         "description": "A collection of fields that can be used to create or update a PM entity.\nIt is a subset of \u0060EntityFields\u0060 that is used for creation or update operations.\n\n## Dual Format Support\nMost field types support two input formats:\n- **Simple format**: Direct value (e.g., \u0060\u0022text\u0022\u0060, \u0060123\u0060, \u0060true\u0060)\n- **Object format**: Value with metadata (e.g., \u0060{\u0022value\u0022: \u0022text\u0022, \u0022metadata\u0022: {...}}\u0060)\n\n## Metadata Support\nCustom fields (identified by UUID) and specific field types (\u0060domain\u0060, \u0060email\u0060, \u0060effort\u0060) support \noptional metadata that allows tracking the external source of field values:\n- \u0060source.system\u0060: Name of the external system that provided the value\n- \u0060source.recordId\u0060: Identifier of the record in the external system\n- \u0060isViewableOnly\u0060: Whether the value is read-only from external source\n\nMetadata sent for other fields is ignored.\n"
       },
       "EntityCreateOrUpdateFieldValue": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch1"
+            "type": "boolean",
+            "description": "True/false flag for binary state tracking in Entities.\n\n## Behavior\n- Accepts only \u0060true\u0060 or \u0060false\u0060 boolean values\n- Used for binary states like archived status, feature toggles, completion flags\n- Displayed as checkboxes or toggle switches in UI\n",
+            "example": true
           },
           {
             "$ref": "#/components/schemas/BooleanFieldValueWithMetadata"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch3"
+            "type": "string",
+            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
+            "format": "date",
+            "example": "2023-10-01"
           },
           {
             "$ref": "#/components/schemas/DateFieldValueWithMetadata"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch5"
+            "type": "string",
+            "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
+            "format": "date-time",
+            "example": "2023-10-01T12:00:00Z"
           },
           {
             "$ref": "#/components/schemas/HealthUpdateFieldValue"
@@ -1589,13 +1688,23 @@
             "$ref": "#/components/schemas/MemberFieldAssign"
           },
           {
-            "$ref": "#/components/schemas/MultiSelectFieldAssignWrapper"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
+            },
+            "description": "Collection of multi-select option assignments allowing identification by ID or name.\n\n## Behavior\n- Array of select option assignments, each identified by ID or name\n- Can be empty array if no options are selected\n- Each item can use either ID (for precision) or name (for convenience)\n- All referenced options must exist in field configuration\n- Supports adding/removing individual options via patch operations\n"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch10"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n",
+            "example": "Example Name"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch11"
+            "type": "number",
+            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n",
+            "example": 123.45
           },
           {
             "$ref": "#/components/schemas/NumberFieldValueWithMetadata"
@@ -1610,7 +1719,11 @@
             "$ref": "#/components/schemas/ProgressFieldValueWithMetadata"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch16"
+            "maxLength": 524288,
+            "minLength": 0,
+            "type": "string",
+            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n",
+            "example": "\u003Cp\u003EThis is \u003Cb\u003Erich\u003C/b\u003E text.\u003C/p\u003E"
           },
           {
             "$ref": "#/components/schemas/RichTextFieldValueWithMetadata"
@@ -1625,7 +1738,11 @@
             "$ref": "#/components/schemas/TeamFieldAssign"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch21"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n",
+            "example": "Example String"
           },
           {
             "$ref": "#/components/schemas/TextFieldValueWithMetadata"
@@ -1637,13 +1754,18 @@
             "$ref": "#/components/schemas/TimeframeFieldValueWithMetadata"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch25"
+            "type": "string",
+            "description": "Valid URL for Entities.\n\n## Behavior\n- Must be a valid URL following URI format standards\n- Supports various protocols (http, https, ftp, etc.)\n- Validates for proper URL structure and format\n- Used for external links, documentation references, and resource URLs\n",
+            "format": "uri",
+            "example": "https://example.com"
           },
           {
             "$ref": "#/components/schemas/UrlFieldValueWithMetadata"
           },
           {
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValueBranch27"
+            "type": "string",
+            "description": "Universally unique identifier (UUID) for Entities.\n\n## Behavior\n- Validates for proper UUID structure and format\n- Used for entity IDs and references to other entities\n- Case-insensitive but typically lowercase\n",
+            "format": "uuid"
           },
           {
             "$ref": "#/components/schemas/UuidFieldValueWithMetadata"
@@ -1655,77 +1777,6 @@
             "$ref": "#/components/schemas/WorkProgressFieldValueWithMetadata"
           }
         ],
-        "properties": {
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "status": {
-            "description": "The health status of the work item. \u0060notSet\u0060 is read-only \u2014 it is returned on read for entities with\ncalculated or uninitialized health and cannot be assigned in a manual update.\n",
-            "$ref": "#/components/schemas/HealthStatusEnum"
-          },
-          "comment": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
-          },
-          "createdBy": {
-            "description": "Member assignment allowing identification by ID or email address.\n\n## Behavior\n- Supports two identification methods: unique ID (UUID) or email address\n- Use ID for precision and consistency across API calls\n- Use email for convenience when ID is unknown\n- Email must match existing member in workspace\n- Provide either \u0060id\u0060 or \u0060email\u0060; providing both is rejected with a validation error\n",
-            "$ref": "#/components/schemas/MemberFieldAssign"
-          },
-          "valueMode": {
-            "description": "Whether the number field value is calculated automatically or entered manually.\n- \u0060manual\u0060: The field displays and uses the manually entered value\n- \u0060calculated\u0060: The field displays and uses an automatically calculated value (e.g., from child entities)\n",
-            "$ref": "#/components/schemas/NumberFieldValueMode"
-          },
-          "startValue": {
-            "type": "number",
-            "description": "The starting baseline value for progress measurement.\n",
-            "format": "float",
-            "example": 0
-          },
-          "targetValue": {
-            "type": "number",
-            "description": "The target goal value to achieve.\n",
-            "format": "float",
-            "example": 100
-          },
-          "currentValue": {
-            "type": "number",
-            "description": "The current progress value being tracked.\n",
-            "format": "float",
-            "example": 90.5
-          },
-          "startDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "endDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "granularity": {
-            "description": "Time granularity level for timeframe display and interpretation.\n\n## Behavior\n- Must be one of: \u0060year\u0060, \u0060quarter\u0060, \u0060month\u0060, \u0060day\u0060\n- Affects how timeframe dates are displayed and interpreted in the UI\n- Used in conjunction with TimeframeFieldValue to specify precision level\n- Supports different planning scales from daily sprints to annual strategies\n- Exact string matching for filtering\n",
-            "$ref": "#/components/schemas/GranularityFieldValue"
-          },
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          },
-          "name": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "example": "Example Option"
-          }
-        },
         "description": "A list of create/update payloads for possible value types of a resource fields.\n"
       },
       "EntityPatch": {
@@ -1797,6 +1848,13 @@
           "type": {
             "type": "array",
             "items": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -1808,7 +1866,8 @@
             "items": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             },
             "description": "Filter by entity IDs."
           },
@@ -1840,12 +1899,15 @@
         "properties": {
           "name": {
             "maxLength": 255,
+            "minLength": 0,
             "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
+            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n",
+            "example": "Example Name"
           },
           "archived": {
             "type": "boolean",
-            "description": "True/false flag for binary state tracking in Entities.\n\n## Behavior\n- Accepts only \u0060true\u0060 or \u0060false\u0060 boolean values\n- Used for binary states like archived status, feature toggles, completion flags\n- Displayed as checkboxes or toggle switches in UI\n"
+            "description": "True/false flag for binary state tracking in Entities.\n\n## Behavior\n- Accepts only \u0060true\u0060 or \u0060false\u0060 boolean values\n- Used for binary states like archived status, feature toggles, completion flags\n- Displayed as checkboxes or toggle switches in UI\n",
+            "example": true
           },
           "owner": {
             "type": "array",
@@ -1897,7 +1959,7 @@
             "description": "Substring to match against TEXT field values (case-insensitive)."
           },
           "eq": {
-            "$ref": "#/components/schemas/EntitySearchCustomFieldFilterValueEq"
+            "description": "Exact-match value. Number for NUMBER fields, ISO date string (yyyy-MM-dd) for DATE fields, string (at\nmost 2000 characters) for TEXT fields. TEXT matching is case-sensitive, except for the predefined \u0060email\u0060\nand \u0060domain\u0060 fields, which ignore case and can return more than one entity.\n"
           },
           "any": {
             "type": "array",
@@ -1992,6 +2054,13 @@
         "type": "object",
         "properties": {
           "type": {
+            "examples": [
+              "product",
+              "feature",
+              "initiative",
+              "objective",
+              "release"
+            ],
             "pattern": "[a-zA-Z]\u002B",
             "type": "string",
             "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -2045,7 +2114,10 @@
             "items": {
               "type": "string"
             },
-            "description": "OAuth2 scopes required to use this filter,\nbeyond the standard entity scopes. Omitted when no additional scopes are needed.\n"
+            "description": "OAuth2 scopes required to use this filter,\nbeyond the standard entity scopes. Omitted when no additional scopes are needed.\n",
+            "example": [
+              "members:pii:read"
+            ]
           }
         },
         "description": "Describes a single filter parameter available for an entity type.\nThe \u0060name\u0060 is the exact query parameter name to use when filtering entities.\n"
@@ -2076,6 +2148,13 @@
           "targetType": {
             "type": "array",
             "items": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -2145,6 +2224,13 @@
           "targetType": {
             "type": "array",
             "items": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -2250,7 +2336,6 @@
         "description": "Query-based value constraints referencing external endpoints.\n"
       },
       "ConfigurationFieldDefaultValue": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObject"
@@ -2259,17 +2344,6 @@
             "$ref": "#/components/schemas/ConfigurationFieldDefaultValueSource"
           }
         ],
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObjectValue"
-          },
-          "type": {
-            "$ref": "#/components/schemas/RuntimeType"
-          },
-          "source": {
-            "$ref": "#/components/schemas/AuthenticatedMemberSource"
-          }
-        },
         "description": "Default value configuration for the field.\n"
       },
       "ConfigurationFieldDefaultValueObject": {
@@ -2371,6 +2445,13 @@
           "assignedEntityTypes": {
             "type": "array",
             "items": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -2392,7 +2473,6 @@
           "pink"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Named color for a select option.",
         "x-ms-enum": {
           "name": "SelectOptionColor",
@@ -2487,7 +2567,6 @@
         }
       },
       "FieldValue": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SelectOptionValue"
@@ -2496,13 +2575,6 @@
             "$ref": "#/components/schemas/StatusValue"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Unique identifier of the select option.",
-            "format": "uuid"
-          }
-        },
         "description": "A field value resource. The shape depends on the field type:\n- Select-type fields (SINGLE_SELECT, MULTI_SELECT, TAG): \u0060SelectOptionValue\u0060\n- Status fields: \u0060StatusValue\u0060\n"
       },
       "ConfigurationField": {
@@ -2599,16 +2671,24 @@
         "description": "Field values carried by the relationship, keyed by field ID. Only fields assigned to the relationship\nmodel between the two entities can hold a value. Fields without a value are omitted.\n"
       },
       "RelationshipFieldValue": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/RelationshipFieldValueBranch1"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n",
+            "example": "Example String"
           },
           {
-            "$ref": "#/components/schemas/RelationshipFieldValueBranch2"
+            "type": "number",
+            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n",
+            "example": 123.45
           },
           {
-            "$ref": "#/components/schemas/RelationshipFieldValueBranch3"
+            "type": "string",
+            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
+            "format": "date",
+            "example": "2023-10-01"
           },
           {
             "$ref": "#/components/schemas/MemberFieldValue"
@@ -2617,22 +2697,19 @@
             "$ref": "#/components/schemas/SingleSelectFieldValue"
           },
           {
-            "$ref": "#/components/schemas/MultiSelectFieldValueWrapper2"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SingleSelectFieldValue"
+            },
+            "description": "Collection of multiple selection options for Entities.\n\n## Behavior\n- Array of SingleSelectFieldValue objects, each with ID, name, and optional color\n- Can be empty array if no options are selected\n- All values must match field configuration options\n- Used for multi-category selections, tag-like fields, and multiple choice attributes\n- Supports adding/removing individual options via patch operations\n",
+            "example": [
+              {
+                "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+                "name": "Example Option"
+              }
+            ]
           }
         ],
-        "properties": {
-          "email": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
-          },
-          "name": {
-            "type": "string"
-          },
-          "color": {
-            "type": "string"
-          }
-        },
         "description": "A value of a field carried by a relationship. The value shape is determined by the field\u0027s type.\n"
       },
       "RelationshipFieldsUpdate": {
@@ -2643,16 +2720,24 @@
         "description": "Field values to write on the relationship, keyed by field ID. A value sets the field, an explicit\n\u0060null\u0060 clears it, and an omitted key leaves the persisted value untouched.\n\nOnly \u0060link\u0060, \u0060parent\u0060, and \u0060child\u0060 relationships carry field values, and only fields assigned to the\nrelationship model between the two entities can be written.\n"
       },
       "RelationshipFieldValueUpdate": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/RelationshipFieldValueUpdateBranch1"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n",
+            "example": "Example String"
           },
           {
-            "$ref": "#/components/schemas/RelationshipFieldValueUpdateBranch2"
+            "type": "number",
+            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n",
+            "example": 123.45
           },
           {
-            "$ref": "#/components/schemas/RelationshipFieldValueUpdateBranch3"
+            "type": "string",
+            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
+            "format": "date",
+            "example": "2023-10-01"
           },
           {
             "$ref": "#/components/schemas/MemberFieldAssign"
@@ -2661,31 +2746,13 @@
             "$ref": "#/components/schemas/SingleSelectFieldAssign"
           },
           {
-            "$ref": "#/components/schemas/MultiSelectFieldAssignWrapper2"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
+            },
+            "description": "Collection of multi-select option assignments allowing identification by ID or name.\n\n## Behavior\n- Array of select option assignments, each identified by ID or name\n- Can be empty array if no options are selected\n- Each item can use either ID (for precision) or name (for convenience)\n- All referenced options must exist in field configuration\n- Supports adding/removing individual options via patch operations\n"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          },
-          "name": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "example": "Example Option"
-          }
-        },
         "description": "A write payload for a field carried by a relationship. The payload shape is determined by the field\u0027s\ntype. Supported field types: text, number, date, member, single-select, and multi-select.\n"
       },
       "EntityRelationshipType": {
@@ -2697,7 +2764,6 @@
           "isBlocking"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The type of the relationship to be established.\n\n## Relationships\n- \u0060parent\u0060: Hierarchical relationship indicating the entity is a child of the target\n- \u0060child\u0060: Hierarchical relationship indicating the entity contains the target\n- \u0060link\u0060: Generic bidirectional relationship without semantic meaning\n- \u0060isBlockedBy\u0060: Dependency relationship indicating the entity cannot proceed until the target is resolved\n- \u0060isBlocking\u0060: Dependency relationship indicating the entity prevents progress on the target\n",
         "x-ms-enum": {
           "name": "EntityRelationshipType",
@@ -2926,7 +2992,6 @@
           "calculated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Whether the number field value is calculated automatically or entered manually.\n- \u0060manual\u0060: The field displays and uses the manually entered value\n- \u0060calculated\u0060: The field displays and uses an automatically calculated value (e.g., from child entities)\n",
         "example": "manual",
         "x-ms-enum": {
@@ -3057,7 +3122,6 @@
           "day"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Time granularity level for timeframe display and interpretation.\n\n## Behavior\n- Must be one of: \u0060year\u0060, \u0060quarter\u0060, \u0060month\u0060, \u0060day\u0060\n- Affects how timeframe dates are displayed and interpreted in the UI\n- Used in conjunction with TimeframeFieldValue to specify precision level\n- Supports different planning scales from daily sprints to annual strategies\n- Exact string matching for filtering\n",
         "x-ms-enum": {
           "name": "GranularityFieldValue",
@@ -3130,18 +3194,20 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "name": {
             "maxLength": 255,
+            "minLength": 0,
             "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
+            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n",
+            "example": "Example Name"
           }
         },
         "description": "Status information for Entities with ID and display name.\n\n## Behavior\n- Contains both unique \u0060id\u0060 (UUID) and human-readable \u0060name\u0060\n- Used for workflow states, progress indicators, and entity classifications\n- Both fields are required for complete status representation\n- Supports filtering by status ID or name\n- Status values are workspace-specific and configurable\n"
       },
       "StatusFieldAssign": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/StatusFieldAssignById"
@@ -3150,22 +3216,6 @@
             "$ref": "#/components/schemas/StatusFieldAssignByName"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "name": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
-          }
-        },
         "description": "Status assignment allowing identification by ID or name.\n\n## Behavior\n- Supports two identification methods: unique ID (UUID) or human-readable name\n- Use ID for precision and consistency across API calls\n- Use name for convenience when ID is unknown\n- Names must match existing status values in workspace configuration\n"
       },
       "StatusFieldAssignById": {
@@ -3177,7 +3227,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "metadata": {
             "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
@@ -3194,8 +3245,10 @@
         "properties": {
           "name": {
             "maxLength": 255,
+            "minLength": 0,
             "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
+            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n",
+            "example": "Example Name"
           },
           "metadata": {
             "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
@@ -3214,18 +3267,20 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "email": {
             "maxLength": 255,
+            "minLength": 0,
             "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
+            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n",
+            "example": "Example Name"
           }
         },
         "description": "Workspace member information.\n\n## Behavior\n- Contains both unique \u0060id\u0060 (UUID) and \u0060email\u0060 for member identification\n- Used for ownership, assignment, and team member references\n- Both fields are required for complete member representation\n- Email serves as human-readable identifier\n"
       },
       "MemberFieldAssign": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/MemberAssignById"
@@ -3234,22 +3289,6 @@
             "$ref": "#/components/schemas/MemberAssignByEmail"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          }
-        },
         "description": "Member assignment allowing identification by ID or email address.\n\n## Behavior\n- Supports two identification methods: unique ID (UUID) or email address\n- Use ID for precision and consistency across API calls\n- Use email for convenience when ID is unknown\n- Email must match existing member in workspace\n- Provide either \u0060id\u0060 or \u0060email\u0060; providing both is rejected with a validation error\n"
       },
       "MemberAssignById": {
@@ -3261,7 +3300,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "metadata": {
             "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
@@ -3293,7 +3333,17 @@
         "items": {
           "$ref": "#/components/schemas/TeamFieldValue"
         },
-        "description": "Collection of teams associated with Entities.\n\n## Behavior\n- Array of TeamFieldValue objects, each containing team ID and name\n- Can be empty array if no teams are assigned\n- Used for multi-team assignments and collaborations\n- Supports adding/removing individual teams via patch operations\n"
+        "description": "Collection of teams associated with Entities.\n\n## Behavior\n- Array of TeamFieldValue objects, each containing team ID and name\n- Can be empty array if no teams are assigned\n- Used for multi-team assignments and collaborations\n- Supports adding/removing individual teams via patch operations\n",
+        "example": [
+          {
+            "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+            "name": "Product Team"
+          },
+          {
+            "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "name": "Engineering Team"
+          }
+        ]
       },
       "TeamFieldValue": {
         "required": [
@@ -3305,18 +3355,20 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "name": {
             "maxLength": 255,
+            "minLength": 0,
             "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
+            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n",
+            "example": "Example Name"
           }
         },
         "description": "Individual team information with ID and display name.\n\n## Behavior\n- Contains both unique \u0060id\u0060 (UUID) and human-readable \u0060name\u0060\n- Used within TeamsFieldValue arrays for team assignments\n- Both fields are required for complete team representation\n- Team values are workspace-specific and configurable\n- Supports filtering by team ID or name\n"
       },
       "TeamFieldAssign": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/TeamAssignById"
@@ -3325,21 +3377,6 @@
             "$ref": "#/components/schemas/TeamAssignByName"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "name": {
-            "type": "string",
-            "example": "Product Team"
-          }
-        },
         "description": "Team assignment allowing identification by ID or name.\n\n## Behavior\n- Supports two identification methods: unique ID (UUID) or human-readable name\n- Use ID for precision and consistency across API calls\n- Use name for convenience when ID is unknown\n- Names must match existing team values in workspace configuration\n"
       },
       "TeamAssignById": {
@@ -3351,7 +3388,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "metadata": {
             "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
@@ -3383,12 +3421,14 @@
           "startDate": {
             "type": "string",
             "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
+            "format": "date",
+            "example": "2023-10-01"
           },
           "endDate": {
             "type": "string",
             "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
+            "format": "date",
+            "example": "2023-10-01"
           },
           "granularity": {
             "description": "Time granularity level for timeframe display and interpretation.\n\n## Behavior\n- Must be one of: \u0060year\u0060, \u0060quarter\u0060, \u0060month\u0060, \u0060day\u0060\n- Affects how timeframe dates are displayed and interpreted in the UI\n- Used in conjunction with TimeframeFieldValue to specify precision level\n- Supports different planning scales from daily sprints to annual strategies\n- Exact string matching for filtering\n",
@@ -3411,12 +3451,14 @@
           "startDate": {
             "type": "string",
             "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
+            "format": "date",
+            "example": "2023-10-01"
           },
           "endDate": {
             "type": "string",
             "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
+            "format": "date",
+            "example": "2023-10-01"
           },
           "granularity": {
             "description": "Time granularity level for timeframe display and interpretation.\n\n## Behavior\n- Must be one of: \u0060year\u0060, \u0060quarter\u0060, \u0060month\u0060, \u0060day\u0060\n- Affects how timeframe dates are displayed and interpreted in the UI\n- Used in conjunction with TimeframeFieldValue to specify precision level\n- Supports different planning scales from daily sprints to annual strategies\n- Exact string matching for filtering\n",
@@ -3466,7 +3508,6 @@
         }
       },
       "SingleSelectFieldAssign": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SingleSelectFieldAssignById"
@@ -3475,23 +3516,6 @@
             "$ref": "#/components/schemas/SingleSelectFieldAssignByName"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "name": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "example": "Example Option"
-          }
-        },
         "description": "Single select option assignment allowing identification by ID or name.\n\n## Behavior\n- Supports two identification methods: unique ID or human-readable name\n- Use ID for precision and consistency across API calls\n- Use name for convenience when ID is unknown\n- Values must match existing options in field configuration\n"
       },
       "SingleSelectFieldAssignById": {
@@ -3503,7 +3527,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "metadata": {
             "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
@@ -3536,7 +3561,13 @@
         "items": {
           "$ref": "#/components/schemas/SingleSelectFieldValue"
         },
-        "description": "Collection of multiple selection options for Entities.\n\n## Behavior\n- Array of SingleSelectFieldValue objects, each with ID, name, and optional color\n- Can be empty array if no options are selected\n- All values must match field configuration options\n- Used for multi-category selections, tag-like fields, and multiple choice attributes\n- Supports adding/removing individual options via patch operations\n"
+        "description": "Collection of multiple selection options for Entities.\n\n## Behavior\n- Array of SingleSelectFieldValue objects, each with ID, name, and optional color\n- Can be empty array if no options are selected\n- All values must match field configuration options\n- Used for multi-category selections, tag-like fields, and multiple choice attributes\n- Supports adding/removing individual options via patch operations\n",
+        "example": [
+          {
+            "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+            "name": "Example Option"
+          }
+        ]
       },
       "MultiSelectFieldAssign": {
         "type": "array",
@@ -3580,7 +3611,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "mode": {
             "description": "The mode of health status calculation.\n",
@@ -3597,12 +3629,15 @@
           "lastUpdatedAt": {
             "type": "string",
             "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2023-10-01T12:00:00Z"
           },
           "comment": {
             "maxLength": 524288,
+            "minLength": 0,
             "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
+            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n",
+            "example": "\u003Cp\u003EThis is \u003Cb\u003Erich\u003C/b\u003E text.\u003C/p\u003E"
           },
           "createdBy": {
             "description": "Workspace member information.\n\n## Behavior\n- Contains both unique \u0060id\u0060 (UUID) and \u0060email\u0060 for member identification\n- Used for ownership, assignment, and team member references\n- Both fields are required for complete member representation\n- Email serves as human-readable identifier\n",
@@ -3640,8 +3675,10 @@
           },
           "comment": {
             "maxLength": 524288,
+            "minLength": 0,
             "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
+            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n",
+            "example": "\u003Cp\u003EThis is \u003Cb\u003Erich\u003C/b\u003E text.\u003C/p\u003E"
           },
           "createdBy": {
             "description": "Member assignment allowing identification by ID or email address.\n\n## Behavior\n- Supports two identification methods: unique ID (UUID) or email address\n- Use ID for precision and consistency across API calls\n- Use email for convenience when ID is unknown\n- Email must match existing member in workspace\n- Provide either \u0060id\u0060 or \u0060email\u0060; providing both is rejected with a validation error\n",
@@ -3666,8 +3703,10 @@
           },
           "comment": {
             "maxLength": 524288,
+            "minLength": 0,
             "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
+            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n",
+            "example": "\u003Cp\u003EThis is \u003Cb\u003Erich\u003C/b\u003E text.\u003C/p\u003E"
           },
           "createdBy": {
             "description": "Member assignment allowing identification by ID or email address.\n\n## Behavior\n- Supports two identification methods: unique ID (UUID) or email address\n- Use ID for precision and consistency across API calls\n- Use email for convenience when ID is unknown\n- Email must match existing member in workspace\n- Provide either \u0060id\u0060 or \u0060email\u0060; providing both is rejected with a validation error\n",
@@ -3688,7 +3727,6 @@
           "offTrack"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The health status of the work item. \u0060notSet\u0060 is read-only \u2014 it is returned on read for entities with\ncalculated or uninitialized health and cannot be assigned in a manual update.\n",
         "example": "onTrack",
         "x-ms-enum": {
@@ -3720,7 +3758,6 @@
           "calculated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The mode of health status calculation.\n",
         "example": "calculated",
         "x-ms-enum": {
@@ -3847,7 +3884,6 @@
           "calculated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The mode of work progress calculation.\n",
         "example": "statusBased",
         "x-ms-enum": {
@@ -4202,17 +4238,18 @@
           "createdAt": {
             "type": "string",
             "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2023-10-01T12:00:00Z"
           },
           "updatedAt": {
             "type": "string",
             "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2023-10-01T12:00:00Z"
           }
         }
       },
       "EntityFieldsAdditionalProperties": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/EntityFieldValue"
@@ -4220,80 +4257,9 @@
           {
             "type": "null"
           }
-        ],
-        "properties": {
-          "status": {
-            "description": "The health status of the work item. \u0060notSet\u0060 is read-only \u2014 it is returned on read for entities with\ncalculated or uninitialized health and cannot be assigned in a manual update.\n",
-            "$ref": "#/components/schemas/HealthStatusEnum"
-          },
-          "previousStatus": {
-            "description": "The health status of the work item. \u0060notSet\u0060 is read-only \u2014 it is returned on read for entities with\ncalculated or uninitialized health and cannot be assigned in a manual update.\n",
-            "$ref": "#/components/schemas/HealthStatusEnum"
-          },
-          "lastUpdatedAt": {
-            "type": "string",
-            "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
-          },
-          "comment": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
-          },
-          "createdBy": {
-            "description": "Workspace member information.\n\n## Behavior\n- Contains both unique \u0060id\u0060 (UUID) and \u0060email\u0060 for member identification\n- Used for ownership, assignment, and team member references\n- Both fields are required for complete member representation\n- Email serves as human-readable identifier\n",
-            "$ref": "#/components/schemas/MemberFieldValue"
-          },
-          "email": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
-          },
-          "startValue": {
-            "type": "number",
-            "description": "The starting baseline value for progress measurement.\n",
-            "format": "float",
-            "example": 0
-          },
-          "targetValue": {
-            "type": "number",
-            "description": "The target goal value to achieve.\n",
-            "format": "float",
-            "example": 100
-          },
-          "currentValue": {
-            "type": "number",
-            "description": "The current progress value being tracked.\n",
-            "format": "float",
-            "example": 90.5
-          },
-          "links": {
-            "$ref": "#/components/schemas/DocumentReferenceFieldValueLinks"
-          },
-          "name": {
-            "type": "string"
-          },
-          "color": {
-            "type": "string"
-          },
-          "startDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "endDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "granularity": {
-            "description": "Time granularity level for timeframe display and interpretation.\n\n## Behavior\n- Must be one of: \u0060year\u0060, \u0060quarter\u0060, \u0060month\u0060, \u0060day\u0060\n- Affects how timeframe dates are displayed and interpreted in the UI\n- Used in conjunction with TimeframeFieldValue to specify precision level\n- Supports different planning scales from daily sprints to annual strategies\n- Exact string matching for filtering\n",
-            "$ref": "#/components/schemas/GranularityFieldValue"
-          }
-        }
+        ]
       },
       "EntityCreateOrUpdateFieldsAdditionalProperties": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValue"
@@ -4301,81 +4267,9 @@
           {
             "type": "null"
           }
-        ],
-        "properties": {
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "status": {
-            "description": "The health status of the work item. \u0060notSet\u0060 is read-only \u2014 it is returned on read for entities with\ncalculated or uninitialized health and cannot be assigned in a manual update.\n",
-            "$ref": "#/components/schemas/HealthStatusEnum"
-          },
-          "comment": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
-          },
-          "createdBy": {
-            "description": "Member assignment allowing identification by ID or email address.\n\n## Behavior\n- Supports two identification methods: unique ID (UUID) or email address\n- Use ID for precision and consistency across API calls\n- Use email for convenience when ID is unknown\n- Email must match existing member in workspace\n- Provide either \u0060id\u0060 or \u0060email\u0060; providing both is rejected with a validation error\n",
-            "$ref": "#/components/schemas/MemberFieldAssign"
-          },
-          "valueMode": {
-            "description": "Whether the number field value is calculated automatically or entered manually.\n- \u0060manual\u0060: The field displays and uses the manually entered value\n- \u0060calculated\u0060: The field displays and uses an automatically calculated value (e.g., from child entities)\n",
-            "$ref": "#/components/schemas/NumberFieldValueMode"
-          },
-          "startValue": {
-            "type": "number",
-            "description": "The starting baseline value for progress measurement.\n",
-            "format": "float",
-            "example": 0
-          },
-          "targetValue": {
-            "type": "number",
-            "description": "The target goal value to achieve.\n",
-            "format": "float",
-            "example": 100
-          },
-          "currentValue": {
-            "type": "number",
-            "description": "The current progress value being tracked.\n",
-            "format": "float",
-            "example": 90.5
-          },
-          "startDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "endDate": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          },
-          "granularity": {
-            "description": "Time granularity level for timeframe display and interpretation.\n\n## Behavior\n- Must be one of: \u0060year\u0060, \u0060quarter\u0060, \u0060month\u0060, \u0060day\u0060\n- Affects how timeframe dates are displayed and interpreted in the UI\n- Used in conjunction with TimeframeFieldValue to specify precision level\n- Supports different planning scales from daily sprints to annual strategies\n- Exact string matching for filtering\n",
-            "$ref": "#/components/schemas/GranularityFieldValue"
-          },
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          },
-          "name": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "example": "Example Option"
-          }
-        }
+        ]
       },
       "EntityPatchItem": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/EntityPatchOperation"
@@ -4383,26 +4277,18 @@
           {
             "$ref": "#/components/schemas/EntityPatchOperationClear"
           }
-        ],
-        "properties": {
-          "path": {
-            "type": "string",
-            "description": "The path to the field to be modified.\nIt is usually a field id (eg. \u0022tags\u0022, \u0022owner\u0022, \u002200000000-0000-0000-0000-000000000000\u0022).\n"
-          },
-          "value": {
-            "description": "A list of create/update payloads for possible value types of a resource fields.\n",
-            "$ref": "#/components/schemas/EntityCreateOrUpdateFieldValue"
-          }
-        }
+        ]
       },
       "EntitySearchReturnFields": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/EntitySearchReturnFieldsWrapper"
+            "$ref": "#/components/schemas/EntitySearchReturnFieldsAnyOf1"
           },
           {
-            "$ref": "#/components/schemas/EntitySearchReturnFieldsBranch2"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "description": "Controls which fields are returned in the response to optimize bandwidth and tailor data to your needs.\n\n**Options:**\n- Not specified or \u0060\u0022default\u0022\u0060: Returns only fields with non-empty values\n- \u0060\u0022all\u0022\u0060: Returns all fields, including those with \u0060null\u0060 values\n- \u0060[\u0022name\u0022, \u0022status\u0022, ...]\u0060: Returns only the specified fields\n\nFor detailed usage, examples, and field discovery, see [Response Field Control](https://developer.productboard.com/v2.0.0/reference/response-field-control).\n"
@@ -4416,6 +4302,13 @@
           "targetType": {
             "type": "array",
             "items": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -4425,7 +4318,6 @@
         }
       },
       "RelationshipFieldsUpdateAdditionalProperties": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/RelationshipFieldValueUpdate"
@@ -4433,32 +4325,9 @@
           {
             "type": "null"
           }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          },
-          "name": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "example": "Example Option"
-          }
-        }
+        ]
       },
       "MultiSelectFieldAssignItem": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SingleSelectFieldAssignById"
@@ -4466,24 +4335,7 @@
           {
             "$ref": "#/components/schemas/SingleSelectFieldAssignByName"
           }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "metadata": {
-            "description": "Metadata associated with a field value, including its source and visibility settings.\n\n## Behavior\n- \u0060source\u0060: Origin of the value from external API\n- \u0060isViewableOnly\u0060: If true, value cannot be edited through the API (read-only)\n",
-            "$ref": "#/components/schemas/ValueMetadata"
-          },
-          "name": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "example": "Example Option"
-          }
-        }
+        ]
       },
       "EntitySearchMetadataFilterSource": {
         "type": "object",
@@ -4535,7 +4387,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "name": {
             "type": "string",
@@ -4584,6 +4437,13 @@
           "assignedEntityTypes": {
             "type": "array",
             "items": {
+              "examples": [
+                "product",
+                "feature",
+                "initiative",
+                "objective",
+                "release"
+              ],
               "pattern": "[a-zA-Z]\u002B",
               "type": "string",
               "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -4637,6 +4497,13 @@
         "type": "object",
         "properties": {
           "type": {
+            "examples": [
+              "product",
+              "feature",
+              "initiative",
+              "objective",
+              "release"
+            ],
             "pattern": "[a-zA-Z]\u002B",
             "type": "string",
             "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -4682,6 +4549,13 @@
         "type": "object",
         "properties": {
           "type": {
+            "examples": [
+              "product",
+              "feature",
+              "initiative",
+              "objective",
+              "release"
+            ],
             "pattern": "[a-zA-Z]\u002B",
             "type": "string",
             "description": "The type of an entity.\n\nEntity types are configured per workspace: which ones exist depends on the workspace\u0027s plan,\npremium features and settings, so this is deliberately an open string rather than a fixed set.\n\nCall \u0060GET /entities/configurations\u0060 for the authoritative list of types available to you. A value\nthat is not one of them is rejected with a \u0060request.invalid\u0060 error naming the types that are.\n\nNew entity types become usable here as soon as they are enabled for a workspace, with no change\nto this specification.\n"
@@ -4702,7 +4576,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "links": {
             "$ref": "#/components/schemas/ResourceLinks"
@@ -4739,425 +4614,15 @@
         },
         "description": "Attributes to update. Omitted fields remain unchanged."
       },
-      "EntitySearchReturnFieldsWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/EntitySearchReturnFieldsWrapperValue"
-          }
-        }
-      },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
-      },
-      "EntityFieldValueBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "boolean",
-            "description": "True/false flag for binary state tracking in Entities.\n\n## Behavior\n- Accepts only \u0060true\u0060 or \u0060false\u0060 boolean values\n- Used for binary states like archived status, feature toggles, completion flags\n- Displayed as checkboxes or toggle switches in UI\n"
-          }
-        }
-      },
-      "EntityFieldValueBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          }
-        }
-      },
-      "EntityFieldValueBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
-          }
-        }
-      },
-      "MultiSelectFieldValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SingleSelectFieldValue"
-            },
-            "description": "Collection of multiple selection options for Entities.\n\n## Behavior\n- Array of SingleSelectFieldValue objects, each with ID, name, and optional color\n- Can be empty array if no options are selected\n- All values must match field configuration options\n- Used for multi-category selections, tag-like fields, and multiple choice attributes\n- Supports adding/removing individual options via patch operations\n"
-          }
-        }
-      },
-      "EntityFieldValueBranch7": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
-          }
-        }
-      },
-      "EntityFieldValueBranch8": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n"
-          }
-        }
-      },
-      "EntityFieldValueBranch11": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
-          }
-        }
-      },
-      "TeamsFieldValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TeamFieldValue"
-            },
-            "description": "Collection of teams associated with Entities.\n\n## Behavior\n- Array of TeamFieldValue objects, each containing team ID and name\n- Can be empty array if no teams are assigned\n- Used for multi-team assignments and collaborations\n- Supports adding/removing individual teams via patch operations\n"
-          }
-        }
-      },
-      "EntityFieldValueBranch16": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n"
-          }
-        }
-      },
-      "EntityFieldValueBranch18": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Valid URL for Entities.\n\n## Behavior\n- Must be a valid URL following URI format standards\n- Supports various protocols (http, https, ftp, etc.)\n- Validates for proper URL structure and format\n- Used for external links, documentation references, and resource URLs\n",
-            "format": "uri"
-          }
-        }
-      },
-      "EntityFieldValueBranch19": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Universally unique identifier (UUID) for Entities.\n\n## Behavior\n- Validates for proper UUID structure and format\n- Used for entity IDs and references to other entities\n- Case-insensitive but typically lowercase\n",
-            "format": "uuid"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "boolean",
-            "description": "True/false flag for binary state tracking in Entities.\n\n## Behavior\n- Accepts only \u0060true\u0060 or \u0060false\u0060 boolean values\n- Used for binary states like archived status, feature toggles, completion flags\n- Displayed as checkboxes or toggle switches in UI\n"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch5": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Date and time in ISO 8601 format for Entities.\n\n## Behavior\n- Must follow ISO 8601 datetime format: YYYY-MM-DDTHH:mm:ss.sssZ\n- Includes both date and time components with timezone information\n- Validates for proper datetime structure and valid values\n- Used for timestamps, creation dates, and precise time tracking\n",
-            "format": "date-time"
-          }
-        }
-      },
-      "MultiSelectFieldAssignWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
-            },
-            "description": "Collection of multi-select option assignments allowing identification by ID or name.\n\n## Behavior\n- Array of select option assignments, each identified by ID or name\n- Can be empty array if no options are selected\n- Each item can use either ID (for precision) or name (for convenience)\n- All referenced options must exist in field configuration\n- Supports adding/removing individual options via patch operations\n"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch10": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Entity names and titles for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string, though typically entity names are required\n- Supports UTF-8 encoding for international characters\n- Used for entity titles, display labels, and primary identifiers\n"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch11": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch16": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "HTML-formatted text content for Entities.\n\n## Behavior\n- Accepts HTML-formatted strings up to 524KB (524,288 characters)\n- Can be empty string (minLength: 0)\n- Supports rich formatting including bold, italic, links, lists\n  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)\n- Used for detailed descriptions, specifications, documentation, and formatted comments\n"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch21": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch25": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Valid URL for Entities.\n\n## Behavior\n- Must be a valid URL following URI format standards\n- Supports various protocols (http, https, ftp, etc.)\n- Validates for proper URL structure and format\n- Used for external links, documentation references, and resource URLs\n",
-            "format": "uri"
-          }
-        }
-      },
-      "EntityCreateOrUpdateFieldValueBranch27": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Universally unique identifier (UUID) for Entities.\n\n## Behavior\n- Validates for proper UUID structure and format\n- Used for entity IDs and references to other entities\n- Case-insensitive but typically lowercase\n",
-            "format": "uuid"
-          }
-        }
-      },
-      "RelationshipFieldValueBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n"
-          }
-        }
-      },
-      "RelationshipFieldValueBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n"
-          }
-        }
-      },
-      "RelationshipFieldValueBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          }
-        }
-      },
-      "MultiSelectFieldValueWrapper2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SingleSelectFieldValue"
-            },
-            "description": "Collection of multiple selection options for Entities.\n\n## Behavior\n- Array of SingleSelectFieldValue objects, each with ID, name, and optional color\n- Can be empty array if no options are selected\n- All values must match field configuration options\n- Used for multi-category selections, tag-like fields, and multiple choice attributes\n- Supports adding/removing individual options via patch operations\n"
-          }
-        }
-      },
-      "RelationshipFieldValueUpdateBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Short text content for Entities with a 255 character limit.\n\n## Behavior\n- Accepts any string content up to 255 characters\n- Can be empty string (minLength: 0)\n- Supports UTF-8 encoding for international characters\n- Used for short descriptions, labels, identifiers, and status messages\n"
-          }
-        }
-      },
-      "RelationshipFieldValueUpdateBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "Numeric values for quantitative data in Entities.\n\n## Behavior\n- Accepts both integers and floating-point numbers\n- Supports positive, negative, and zero values\n- No inherent minimum or maximum constraints (field-specific limits may apply)\n- Used for effort estimation, scores, ratings, budgets, and metrics\n"
-          }
-        }
-      },
-      "RelationshipFieldValueUpdateBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.\n\n## Behavior\n- Must follow ISO 8601 date format: YYYY-MM-DD\n- Date-only format without time component\n- Validates for proper date structure and valid calendar dates\n- Used for due dates, milestones, release dates, and timeframe boundaries\n- Timezone-independent (date only)\n",
-            "format": "date"
-          }
-        }
-      },
-      "MultiSelectFieldAssignWrapper2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
-            },
-            "description": "Collection of multi-select option assignments allowing identification by ID or name.\n\n## Behavior\n- Array of select option assignments, each identified by ID or name\n- Can be empty array if no options are selected\n- Each item can use either ID (for precision) or name (for convenience)\n- All referenced options must exist in field configuration\n- Supports adding/removing individual options via patch operations\n"
-          }
-        }
-      },
-      "EntitySearchReturnFieldsBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
       },
       "EntityFieldsProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/EntityFieldsAdditionalProperties"
         }
-      },
-      "EntitySearchCustomFieldFilterValueEq": {
-        "type": "object",
-        "description": "Exact-match value. Number for NUMBER fields, ISO date string (yyyy-MM-dd) for DATE fields, string (at\nmost 2000 characters) for TEXT fields. TEXT matching is case-sensitive, except for the predefined \u0060email\u0060\nand \u0060domain\u0060 fields, which ignore case and can return more than one entity.\n"
       },
       "ConfigurationFieldsProperty": {
         "type": "object",
@@ -5182,7 +4647,10 @@
       },
       "RelationshipConfigurationFieldSchema": {
         "type": "object",
-        "description": "Inline JSON Schema that defines this field\u0027s structure.\n"
+        "description": "Inline JSON Schema that defines this field\u0027s structure.\n",
+        "example": {
+          "type": "string"
+        }
       },
       "RelationshipConfigurationFieldLifecycle": {
         "type": "object",
@@ -5193,7 +4661,10 @@
       },
       "ConfigurationFieldSchemaProperty": {
         "type": "object",
-        "description": "Inline JSON Schema that defines this field\u0027s structure.\n"
+        "description": "Inline JSON Schema that defines this field\u0027s structure.\n",
+        "example": {
+          "type": "string"
+        }
       },
       "ConfigurationFieldLifecycleProperty": {
         "type": "object",
@@ -5243,7 +4714,6 @@
           "removeItems"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The operation to perform on the field.\nCan be one of \u0060set\u0060, \u0060addItems\u0060, \u0060removeItems\u0060.\n",
         "x-ms-enum": {
           "name": "EntityPatchOperationOp",
@@ -5269,7 +4739,6 @@
           "clear"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The operation to perform on the field.\nCan be one of \u0060clear\u0060.\n",
         "x-ms-enum": {
           "name": "ClearOp",
@@ -5290,7 +4759,6 @@
           "number"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The value type expected for this filter.",
         "x-ms-enum": {
           "name": "ConfigurationFilterSchemaType",
@@ -5323,7 +4791,6 @@
           "date-time"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Additional format hint for the value.\n",
         "x-ms-enum": {
           "name": "ConfigurationFilterSchemaFormat",
@@ -5354,7 +4821,6 @@
           "multiple"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Whether the entity can have single or multiple relationships of a given type\n",
         "x-ms-enum": {
           "name": "ConfigurationRelationshipCardinality",
@@ -5376,7 +4842,6 @@
           "runtime"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "runtime",
         "x-ms-enum": {
           "name": "RuntimeType",
@@ -5394,7 +4859,6 @@
           "authenticatedMember"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "authenticatedMember",
         "x-ms-enum": {
           "name": "AuthenticatedMemberSource",
@@ -5407,15 +4871,14 @@
           ]
         }
       },
-      "EntitySearchReturnFieldsWrapperValue": {
+      "EntitySearchReturnFieldsAnyOf1": {
         "enum": [
           "all",
           "default"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EntitySearchReturnFieldsWrapperValue",
+          "name": "EntitySearchReturnFieldsAnyOf1",
           "modelAsString": false,
           "values": [
             {
@@ -6631,7 +6094,8 @@
         "schema": {
           "type": "string",
           "description": "A universally unique identifier (UUID).\n",
-          "format": "uuid"
+          "format": "uuid",
+          "example": "123e4567-e89b-12d3-a456-426614174000"
         }
       },
       "PbBeta": {

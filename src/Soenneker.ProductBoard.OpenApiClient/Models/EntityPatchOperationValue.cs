@@ -27,81 +27,39 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueCreatedBy? CreatedBy { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy? CreatedBy { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueCreatedBy CreatedBy { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy CreatedBy { get; set; }
 #endif
         /// <summary>The current progress value being tracked.</summary>
         public float? CurrentValue { get; set; }
-        /// <summary>The email property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Email { get; set; }
-#nullable restore
-#else
-        public string Email { get; set; }
-#endif
         /// <summary>Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.## Behavior- Must follow ISO 8601 date format: YYYY-MM-DD- Date-only format without time component- Validates for proper date structure and valid calendar dates- Used for due dates, milestones, release dates, and timeframe boundaries- Timezone-independent (date only)</summary>
         public Date? EndDate { get; set; }
         /// <summary>Time granularity level for timeframe display and interpretation.## Behavior- Must be one of: `year`, `quarter`, `month`, `day`- Affects how timeframe dates are displayed and interpreted in the UI- Used in conjunction with TimeframeFieldValue to specify precision level- Supports different planning scales from daily sprints to annual strategies- Exact string matching for filtering</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueGranularity? Granularity { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueGranularity Granularity { get; set; }
-#endif
-        /// <summary>A universally unique identifier (UUID).</summary>
-        public Guid? Id { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueGranularity? Granularity { get; set; }
         /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata Metadata { get; set; }
 #endif
         /// <summary>The mode of health status calculation.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode? Mode { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode Mode { get; set; }
-#endif
-        /// <summary>The name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Name { get; set; }
-#nullable restore
-#else
-        public string Name { get; set; }
-#endif
         /// <summary>Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.## Behavior- Must follow ISO 8601 date format: YYYY-MM-DD- Date-only format without time component- Validates for proper date structure and valid calendar dates- Used for due dates, milestones, release dates, and timeframe boundaries- Timezone-independent (date only)</summary>
         public Date? StartDate { get; set; }
         /// <summary>The starting baseline value for progress measurement.</summary>
         public float? StartValue { get; set; }
         /// <summary>The health status of the work item. `notSet` is read-only — it is returned on read for entities withcalculated or uninitialized health and cannot be assigned in a manual update.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueStatus Status { get; set; }
-#endif
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueStatus? Status { get; set; }
         /// <summary>The target goal value to achieve.</summary>
         public float? TargetValue { get; set; }
-        /// <summary>True/false flag for binary state tracking in Entities.## Behavior- Accepts only `true` or `false` boolean values- Used for binary states like archived status, feature toggles, completion flags- Displayed as checkboxes or toggle switches in UI</summary>
+        /// <summary>The boolean value</summary>
         public bool? Value { get; set; }
         /// <summary>Whether the number field value is calculated automatically or entered manually.- `manual`: The field displays and uses the manually entered value- `calculated`: The field displays and uses an automatically calculated value (e.g., from child entities)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueValueMode? ValueMode { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueValueMode ValueMode { get; set; }
-#endif
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdateValueMode? ValueMode { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue"/> and sets the default values.
         /// </summary>
@@ -128,21 +86,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "comment", n => { Comment = n.GetStringValue(); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueCreatedBy>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueCreatedBy.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy>(global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy.CreateFromDiscriminatorValue); } },
                 { "currentValue", n => { CurrentValue = n.GetFloatValue(); } },
-                { "email", n => { Email = n.GetStringValue(); } },
                 { "endDate", n => { EndDate = n.GetDateValue(); } },
-                { "granularity", n => { Granularity = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueGranularity>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueGranularity.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetGuidValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueMetadata.CreateFromDiscriminatorValue); } },
-                { "mode", n => { Mode = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode>(global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode.CreateFromDiscriminatorValue); } },
-                { "name", n => { Name = n.GetStringValue(); } },
+                { "granularity", n => { Granularity = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueGranularity>(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata.CreateFromDiscriminatorValue); } },
+                { "mode", n => { Mode = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode>(); } },
                 { "startDate", n => { StartDate = n.GetDateValue(); } },
                 { "startValue", n => { StartValue = n.GetFloatValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueStatus>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueStatus>(); } },
                 { "targetValue", n => { TargetValue = n.GetFloatValue(); } },
                 { "value", n => { Value = n.GetBoolValue(); } },
-                { "valueMode", n => { ValueMode = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueValueMode>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueValueMode.CreateFromDiscriminatorValue); } },
+                { "valueMode", n => { ValueMode = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdateValueMode>(); } },
             };
         }
         /// <summary>
@@ -153,21 +108,18 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comment", Comment);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueCreatedBy>("createdBy", CreatedBy);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy>("createdBy", CreatedBy);
             writer.WriteFloatValue("currentValue", CurrentValue);
-            writer.WriteStringValue("email", Email);
             writer.WriteDateValue("endDate", EndDate);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueGranularity>("granularity", Granularity);
-            writer.WriteGuidValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueMetadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode>("mode", Mode);
-            writer.WriteStringValue("name", Name);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueGranularity>("granularity", Granularity);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata>("metadata", Metadata);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode>("mode", Mode);
             writer.WriteDateValue("startDate", StartDate);
             writer.WriteFloatValue("startValue", StartValue);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueStatus>("status", Status);
             writer.WriteFloatValue("targetValue", TargetValue);
             writer.WriteBoolValue("value", Value);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityCreateOrUpdateFieldValueValueMode>("valueMode", ValueMode);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdateValueMode>("valueMode", ValueMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

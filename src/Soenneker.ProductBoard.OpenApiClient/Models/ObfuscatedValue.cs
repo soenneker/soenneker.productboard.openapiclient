@@ -3,10 +3,9 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
+    /// <summary>The value `[redacted]`. Used to hide personally identifiable information in cases the request doesn&apos;t have the required `members:pii:read` OAuth2 scope.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum ObfuscatedValueWrapperValue
-    #pragma warning restore CS1591
+    public enum ObfuscatedValue
     {
         [EnumMember(Value = "[redacted]")]
         #pragma warning disable CS1591

@@ -2499,7 +2499,6 @@
         }
       },
       "CustomerTarget": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/CustomerTargetById"
@@ -2507,18 +2506,7 @@
           {
             "$ref": "#/components/schemas/CustomerTargetByEmail"
           }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@acme.com"
-          }
-        }
+        ]
       },
       "LinkTargetById": {
         "required": [
@@ -2594,11 +2582,13 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "type": {
             "type": "string",
-            "description": "- Initially comes from PMM, where this value is called \u0022model\u0022.\n- We are exposing it under more understandable \u0022type\u0022.\n- Plural form is kept for consistency.\n"
+            "description": "- Initially comes from PMM, where this value is called \u0022model\u0022.\n- We are exposing it under more understandable \u0022type\u0022.\n- Plural form is kept for consistency.\n",
+            "example": "feature"
           },
           "links": {
             "$ref": "#/components/schemas/ResourceLinks"
@@ -2618,7 +2608,6 @@
           "opportunityNote"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "textNote",
         "x-ms-enum": {
           "name": "NoteType",
@@ -2649,7 +2638,6 @@
           "opportunityNote"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "textNote",
         "x-ms-enum": {
           "name": "NoteTypeInput",
@@ -2713,7 +2701,6 @@
         "required": [
           "type"
         ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/CustomerRelationshipInput"
@@ -2732,9 +2719,7 @@
           "propertyName": "type",
           "mapping": {
             "customer": "#/components/schemas/CustomerRelationshipInput",
-            "link": "#/components/schemas/LinkRelationshipInput",
-            "CustomerRelationshipInput": "#/components/schemas/CustomerRelationshipInput",
-            "LinkRelationshipInput": "#/components/schemas/LinkRelationshipInput"
+            "link": "#/components/schemas/LinkRelationshipInput"
           }
         }
       },
@@ -2745,74 +2730,89 @@
         }
       },
       "NoteFieldValue": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch1"
+            "type": "boolean",
+            "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n# Validation\nValidate if value is \u0060true\u0060 or \u0060false\u0060\n# Filtering\nWe support filtering by value\n",
+            "example": true
           },
           {
-            "$ref": "#/components/schemas/ConversationNoteFieldValueWrapper"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConversationNotePart"
+            },
+            "description": "Conversation-style content with multiple parts representing a back-and-forth dialog.\n"
           },
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch3"
+            "type": "string",
+            "description": "Date and time in ISO 8601 format without time.\n\n# Validation\nValidate if provided value is a date string.\n\n# Filtering\nWe support only exact match.\n",
+            "format": "date",
+            "example": "2023-10-01"
           },
           {
-            "$ref": "#/components/schemas/KeyValueFieldValueWrapper"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueFieldValueItem"
+            },
+            "description": "An array of key-value fields. Each field represents a specific piece of information.\n"
           },
           {
             "$ref": "#/components/schemas/MemberFieldValue"
           },
           {
-            "$ref": "#/components/schemas/MultiSelectFieldValueWrapper"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SingleSelectFieldValue"
+            },
+            "example": [
+              {
+                "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+                "name": "Example Option"
+              }
+            ]
           },
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch7"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A name field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match.\n",
+            "example": "Example Name"
           },
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch8"
+            "type": "number",
+            "description": "A numeric field that can contain any number.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a number.\nWe support integers or flows and negative numbers.\n\n# Filtering\nWe support only exact match.\n",
+            "example": 123.45
           },
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch9"
+            "maxLength": 524288,
+            "minLength": 0,
+            "type": "string",
+            "description": "Rich text content, which may include HTML or Markdown formatting.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nNo filtering\n",
+            "format": "html",
+            "example": "\u003Cp\u003EThis is \u003Cstrong\u003Erich\u003C/strong\u003E text.\u003C/p\u003E"
           },
           {
             "$ref": "#/components/schemas/SourceFieldValue"
           },
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch11"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A string field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match. No wildcards or startWith/endWith.\n",
+            "example": "Example String"
           },
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch12"
+            "type": "string",
+            "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
+            "format": "uri",
+            "example": "https://example.com"
           },
           {
-            "$ref": "#/components/schemas/NoteFieldValueBranch13"
+            "type": "string",
+            "description": "A universally unique identifier (UUID).\n\n# Validation\nValidate if provided value is an UUID.\n\n# Filtering\nN/A\n",
+            "format": "uuid"
           }
         ],
-        "properties": {
-          "email": {
-            "$ref": "#/components/schemas/MemberFieldValueEmail"
-          },
-          "origin": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Origin system name, e.g., crm, support, etc."
-          },
-          "recordId": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "External source record ID for filtering and cross-referencing"
-          },
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "URL pointing to the source record"
-          }
-        },
         "description": "A list of possible value types of Note fields\n"
       },
       "NoteCreateOrUpdateFields": {
@@ -2823,80 +2823,76 @@
         "description": "A collection of fields that can be used to create or update a Note.\nIt is a subset of \u0060NoteFields\u0060 that is used for creation or update operations.\n"
       },
       "NoteCreateOrUpdateFieldValue": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch1"
+            "type": "boolean",
+            "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n# Validation\nValidate if value is \u0060true\u0060 or \u0060false\u0060\n# Filtering\nWe support filtering by value\n",
+            "example": true
           },
           {
-            "$ref": "#/components/schemas/ConversationNoteFieldValueWrapper2"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConversationNotePart"
+            },
+            "description": "Conversation-style content with multiple parts representing a back-and-forth dialog.\n"
           },
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch3"
+            "type": "string",
+            "description": "Date and time in ISO 8601 format without time.\n\n# Validation\nValidate if provided value is a date string.\n\n# Filtering\nWe support only exact match.\n",
+            "format": "date",
+            "example": "2023-10-01"
           },
           {
             "$ref": "#/components/schemas/MemberFieldAssign"
           },
           {
-            "$ref": "#/components/schemas/MultiSelectFieldAssignWrapper"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
+            }
           },
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch6"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A name field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match.\n",
+            "example": "Example Name"
           },
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch7"
+            "type": "number",
+            "description": "A numeric field that can contain any number.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a number.\nWe support integers or flows and negative numbers.\n\n# Filtering\nWe support only exact match.\n",
+            "example": 123.45
           },
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch8"
+            "maxLength": 524288,
+            "minLength": 0,
+            "type": "string",
+            "description": "Rich text content, which may include HTML or Markdown formatting.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nNo filtering\n",
+            "format": "html",
+            "example": "\u003Cp\u003EThis is \u003Cstrong\u003Erich\u003C/strong\u003E text.\u003C/p\u003E"
           },
           {
             "$ref": "#/components/schemas/SourceFieldValue"
           },
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch10"
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A string field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match. No wildcards or startWith/endWith.\n",
+            "example": "Example String"
           },
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch11"
+            "type": "string",
+            "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
+            "format": "uri",
+            "example": "https://example.com"
           },
           {
-            "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValueBranch12"
+            "type": "string",
+            "description": "A universally unique identifier (UUID).\n\n# Validation\nValidate if provided value is an UUID.\n\n# Filtering\nN/A\n",
+            "format": "uuid"
           }
         ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Identifier of the source in an external system"
-          },
-          "origin": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Origin system name, e.g., crm, support, etc."
-          },
-          "recordId": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "External source record ID for filtering and cross-referencing"
-          },
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "URL pointing to the source record"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          }
-        },
         "description": "A list of create/update payloads for possible value types of a resource fields.\n"
       },
       "NotePatch": {
@@ -2979,7 +2975,8 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "- Initially comes from PMM, where this value is called \u0022model\u0022.\n- We are exposing it under more understandable \u0022type\u0022.\n- Plural form is kept for consistency.\n"
+              "description": "- Initially comes from PMM, where this value is called \u0022model\u0022.\n- We are exposing it under more understandable \u0022type\u0022.\n- Plural form is kept for consistency.\n",
+              "example": "feature"
             }
           },
           "cardinality": {
@@ -3088,7 +3085,6 @@
         "description": "Query-based value constraints referencing external endpoints.\n"
       },
       "ConfigurationFieldDefaultValue": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObject"
@@ -3097,17 +3093,6 @@
             "$ref": "#/components/schemas/ConfigurationFieldDefaultValueSource"
           }
         ],
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObjectValue"
-          },
-          "type": {
-            "$ref": "#/components/schemas/RuntimeType"
-          },
-          "source": {
-            "$ref": "#/components/schemas/AuthenticatedMemberSource"
-          }
-        },
         "description": "Default value configuration for the field.\n"
       },
       "ConfigurationFieldDefaultValueObject": {
@@ -3408,7 +3393,6 @@
           "[redacted]"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The value \u0060[redacted]\u0060. Used to hide personally identifiable information in cases the request doesn\u0027t have the required \u0060members:pii:read\u0060 OAuth2 scope.\n",
         "example": "[redacted]",
         "x-ms-enum": {
@@ -3432,7 +3416,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "email": {
             "$ref": "#/components/schemas/MemberFieldValueEmail"
@@ -3463,7 +3448,13 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/SingleSelectFieldValue"
-        }
+        },
+        "example": [
+          {
+            "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+            "name": "Example Option"
+          }
+        ]
       },
       "NameFieldValue": {
         "maxLength": 255,
@@ -3586,7 +3577,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           }
         }
       },
@@ -3601,7 +3593,6 @@
         }
       },
       "MemberFieldAssign": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/MemberAssignById"
@@ -3610,18 +3601,6 @@
             "$ref": "#/components/schemas/MemberAssignByEmail"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          }
-        },
         "description": "\n# Validation\n\n# Filtering\n"
       },
       "SingleSelectFieldAssignById": {
@@ -3633,7 +3612,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           }
         }
       },
@@ -3670,24 +3650,26 @@
         }
       },
       "NoteSearchFilterType": {
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/NoteTypeWrapper"
+            "$ref": "#/components/schemas/NoteType"
           },
           {
-            "$ref": "#/components/schemas/NoteSearchFilterTypeBranch2"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NoteType"
+            }
           }
         ],
         "description": "Filter by note type. Single string or array (OR logic)."
       },
       "NoteSearchFilterId": {
-        "type": "object",
         "oneOf": [
           {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           {
             "maxItems": 100,
@@ -3695,172 +3677,95 @@
             "items": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           }
         ],
         "description": "Filter by note UUIDs (OR logic)."
       },
       "NoteSearchFilterFieldsOwner": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/MemberFilterValue"
           },
           {
-            "$ref": "#/components/schemas/NoteSearchFilterFieldsOwnerBranch2"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Member UUID",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "description": "Member email address (requires members:pii:read scope)",
-            "format": "email"
-          },
-          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MemberFilterValue"
             }
           }
-        },
+        ],
         "description": "Filter by owner. Single object or array (OR logic)."
       },
       "NoteSearchFilterFieldsCreator": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/MemberFilterValue"
           },
           {
-            "$ref": "#/components/schemas/NoteSearchFilterFieldsCreatorBranch2"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Member UUID",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "description": "Member email address (requires members:pii:read scope)",
-            "format": "email"
-          },
-          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MemberFilterValue"
             }
           }
-        },
+        ],
         "description": "Filter by creator. Single object or array (OR logic)."
       },
       "NoteSearchFilterFieldsTag": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/TagFilterValue"
           },
           {
-            "$ref": "#/components/schemas/NoteSearchFilterFieldsTagBranch2"
-          }
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Tag name"
-          },
-          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TagFilterValue"
             }
           }
-        },
+        ],
         "description": "Filter by tag. Single object or array (OR logic)."
       },
       "NoteSearchFilterMetadataSource": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SourceFilterValue"
           },
           {
-            "$ref": "#/components/schemas/NoteSearchFilterMetadataSourceBranch2"
-          }
-        ],
-        "properties": {
-          "system": {
-            "type": "string",
-            "description": "Source system name (e.g., \u0022intercom\u0022, \u0022zendesk\u0022)"
-          },
-          "recordId": {
-            "type": "string",
-            "description": "Source record ID"
-          },
-          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SourceFilterValue"
             }
           }
-        },
+        ],
         "description": "Filter by source system. Single object or array (OR logic)."
       },
       "NoteSearchFilterRelationshipsCustomer": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/RelationshipFilterValue"
           },
           {
-            "$ref": "#/components/schemas/NoteSearchFilterRelationshipsCustomerBranch2"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Entity UUID",
-            "format": "uuid"
-          },
-          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RelationshipFilterValue"
             }
           }
-        },
+        ],
         "description": "Filter by customer (user or company). Single object or array (OR logic)."
       },
       "NoteSearchFilterRelationshipsLink": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/RelationshipFilterValue"
           },
           {
-            "$ref": "#/components/schemas/NoteSearchFilterRelationshipsLinkBranch2"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Entity UUID",
-            "format": "uuid"
-          },
-          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/RelationshipFilterValue"
             }
           }
-        },
+        ],
         "description": "Filter by linked feature. Single object or array (OR logic)."
       },
       "NoteAllOf2": {
@@ -3901,7 +3806,6 @@
         "required": [
           "type"
         ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/CustomerRelationshipInput"
@@ -3919,14 +3823,11 @@
           "propertyName": "type",
           "mapping": {
             "customer": "#/components/schemas/CustomerRelationshipInput",
-            "link": "#/components/schemas/LinkRelationshipInput",
-            "CustomerRelationshipInput": "#/components/schemas/CustomerRelationshipInput",
-            "LinkRelationshipInput": "#/components/schemas/LinkRelationshipInput"
+            "link": "#/components/schemas/LinkRelationshipInput"
           }
         }
       },
       "NoteFieldsAdditionalProperties": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/NoteFieldValue"
@@ -3934,36 +3835,9 @@
           {
             "type": "null"
           }
-        ],
-        "properties": {
-          "email": {
-            "$ref": "#/components/schemas/MemberFieldValueEmail"
-          },
-          "origin": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Origin system name, e.g., crm, support, etc."
-          },
-          "recordId": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "External source record ID for filtering and cross-referencing"
-          },
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "URL pointing to the source record"
-          }
-        }
+        ]
       },
       "NoteCreateOrUpdateFieldsAdditionalProperties": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValue"
@@ -3971,45 +3845,9 @@
           {
             "type": "null"
           }
-        ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Identifier of the source in an external system"
-          },
-          "origin": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Origin system name, e.g., crm, support, etc."
-          },
-          "recordId": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "External source record ID for filtering and cross-referencing"
-          },
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "URL pointing to the source record"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
-          }
-        }
+        ]
       },
       "NotePatchItem": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/NotePatchOperation"
@@ -4017,112 +3855,56 @@
           {
             "$ref": "#/components/schemas/NotePatchOperationClear"
           }
-        ],
-        "properties": {
-          "path": {
-            "type": "string",
-            "description": "The path to the field to be modified.\nCommon field paths: \u0022owner\u0022, \u0022tags\u0022, \u0022archived\u0022, \u0022processed\u0022, \u0022name\u0022, \u0022content\u0022\n"
-          },
-          "value": {
-            "$ref": "#/components/schemas/NotePatchOperationValue"
-          }
-        }
+        ]
       },
       "NotePatchOperationValue": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/NoteCreateOrUpdateFieldValue"
           },
           {
-            "$ref": "#/components/schemas/ConversationNotePartsAssignWrapper"
-          }
-        ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Identifier of the source in an external system"
-          },
-          "origin": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Origin system name, e.g., crm, support, etc."
-          },
-          "recordId": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "External source record ID for filtering and cross-referencing"
-          },
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "URL pointing to the source record"
-          },
-          "value": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConversationNotePartsAssignItem"
             },
             "description": "Assign conversation parts to a conversation note.\n"
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
           }
-        }
+        ]
       },
       "ConfigurationFieldDefaultValueObjectValue": {
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObjectValueBranch1"
+            "type": "boolean",
+            "example": false
           },
           {
-            "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObjectValueBranch2"
+            "type": "string",
+            "example": "default text"
           },
           {
-            "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObjectValueBranch3"
+            "type": "number",
+            "example": 0
           },
           {
             "$ref": "#/components/schemas/ConfigurationFieldDefaultValueObjectValueOneOf4"
           }
         ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "example": "New Idea"
-          }
-        },
         "description": "The default value for the field.\n"
       },
       "MemberFieldValueEmail": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/MemberFieldValueEmailBranch1"
+            "maxLength": 256,
+            "type": "string",
+            "description": "The email of a Productboard user that has access to your workspace.",
+            "example": "email@example.com"
           },
           {
-            "$ref": "#/components/schemas/ObfuscatedValueWrapper"
+            "$ref": "#/components/schemas/ObfuscatedValue"
           }
         ]
       },
       "MultiSelectFieldAssignItem": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SingleSelectFieldAssignById"
@@ -4130,20 +3912,7 @@
           {
             "$ref": "#/components/schemas/SingleSelectFieldAssignByName"
           }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
-          },
-          "name": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "example": "Example Option"
-          }
-        }
+        ]
       },
       "ConfigurationFieldDefaultValueObjectValueOneOf4": {
         "type": "object",
@@ -4151,7 +3920,8 @@
           "id": {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           "name": {
             "type": "string",
@@ -4466,472 +4236,9 @@
           }
         }
       },
-      "NoteTypeWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/NoteType"
-          }
-        }
-      },
-      "ObfuscatedValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        }
-      },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
-      },
-      "NoteFieldValueBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "boolean",
-            "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n# Validation\nValidate if value is \u0060true\u0060 or \u0060false\u0060\n# Filtering\nWe support filtering by value\n"
-          }
-        }
-      },
-      "ConversationNoteFieldValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConversationNotePart"
-            },
-            "description": "Conversation-style content with multiple parts representing a back-and-forth dialog.\n"
-          }
-        }
-      },
-      "NoteFieldValueBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Date and time in ISO 8601 format without time.\n\n# Validation\nValidate if provided value is a date string.\n\n# Filtering\nWe support only exact match.\n",
-            "format": "date"
-          }
-        }
-      },
-      "KeyValueFieldValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/KeyValueFieldValueItem"
-            },
-            "description": "An array of key-value fields. Each field represents a specific piece of information.\n"
-          }
-        }
-      },
-      "MultiSelectFieldValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SingleSelectFieldValue"
-            }
-          }
-        }
-      },
-      "NoteFieldValueBranch7": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "A name field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match.\n"
-          }
-        }
-      },
-      "NoteFieldValueBranch8": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "A numeric field that can contain any number.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a number.\nWe support integers or flows and negative numbers.\n\n# Filtering\nWe support only exact match.\n"
-          }
-        }
-      },
-      "NoteFieldValueBranch9": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "Rich text content, which may include HTML or Markdown formatting.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nNo filtering\n",
-            "format": "html"
-          }
-        }
-      },
-      "NoteFieldValueBranch11": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "A string field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match. No wildcards or startWith/endWith.\n"
-          }
-        }
-      },
-      "NoteFieldValueBranch12": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
-            "format": "uri"
-          }
-        }
-      },
-      "NoteFieldValueBranch13": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n\n# Validation\nValidate if provided value is an UUID.\n\n# Filtering\nN/A\n",
-            "format": "uuid"
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "boolean",
-            "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n# Validation\nValidate if value is \u0060true\u0060 or \u0060false\u0060\n# Filtering\nWe support filtering by value\n"
-          }
-        }
-      },
-      "ConversationNoteFieldValueWrapper2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConversationNotePart"
-            },
-            "description": "Conversation-style content with multiple parts representing a back-and-forth dialog.\n"
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Date and time in ISO 8601 format without time.\n\n# Validation\nValidate if provided value is a date string.\n\n# Filtering\nWe support only exact match.\n",
-            "format": "date"
-          }
-        }
-      },
-      "MultiSelectFieldAssignWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
-            }
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch6": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "A name field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match.\n"
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch7": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "description": "A numeric field that can contain any number.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a number.\nWe support integers or flows and negative numbers.\n\n# Filtering\nWe support only exact match.\n"
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch8": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 524288,
-            "type": "string",
-            "description": "Rich text content, which may include HTML or Markdown formatting.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nNo filtering\n",
-            "format": "html"
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch10": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "A string field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match. No wildcards or startWith/endWith.\n"
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch11": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
-            "format": "uri"
-          }
-        }
-      },
-      "NoteCreateOrUpdateFieldValueBranch12": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "A universally unique identifier (UUID).\n\n# Validation\nValidate if provided value is an UUID.\n\n# Filtering\nN/A\n",
-            "format": "uuid"
-          }
-        }
-      },
-      "NoteSearchFilterTypeBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/NoteType"
-            }
-          }
-        }
-      },
-      "NoteSearchFilterFieldsOwnerBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MemberFilterValue"
-            }
-          }
-        }
-      },
-      "NoteSearchFilterFieldsCreatorBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MemberFilterValue"
-            }
-          }
-        }
-      },
-      "NoteSearchFilterFieldsTagBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TagFilterValue"
-            }
-          }
-        }
-      },
-      "NoteSearchFilterMetadataSourceBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SourceFilterValue"
-            }
-          }
-        }
-      },
-      "NoteSearchFilterRelationshipsCustomerBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RelationshipFilterValue"
-            }
-          }
-        }
-      },
-      "NoteSearchFilterRelationshipsLinkBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RelationshipFilterValue"
-            }
-          }
-        }
-      },
-      "ConversationNotePartsAssignWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConversationNotePartsAssignItem"
-            },
-            "description": "Assign conversation parts to a conversation note.\n"
-          }
-        }
-      },
-      "ConfigurationFieldDefaultValueObjectValueBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "boolean",
-            "example": false
-          }
-        }
-      },
-      "ConfigurationFieldDefaultValueObjectValueBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "example": "default text"
-          }
-        }
-      },
-      "ConfigurationFieldDefaultValueObjectValueBranch3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "number",
-            "example": 0
-          }
-        }
-      },
-      "MemberFieldValueEmailBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 256,
-            "type": "string",
-            "description": "The email of a Productboard user that has access to your workspace."
-          }
-        }
       },
       "ListNoteConfigurations200Response": {
         "type": "object",
@@ -4983,7 +4290,11 @@
       },
       "ConfigurationFieldSchemaProperty": {
         "type": "object",
-        "description": "Inline JSON Schema that defines this field\u0027s structure.\n"
+        "description": "Inline JSON Schema that defines this field\u0027s structure.\n",
+        "example": {
+          "type": "string",
+          "maxLength": 255
+        }
       },
       "ConfigurationFieldLifecycleProperty": {
         "type": "object",
@@ -5098,7 +4409,6 @@
           "company"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "user",
         "x-ms-enum": {
           "name": "CustomerTargetByIdType",
@@ -5120,7 +4430,6 @@
           "user"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "user",
         "x-ms-enum": {
           "name": "UserType",
@@ -5138,7 +4447,6 @@
           "link"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "link",
         "x-ms-enum": {
           "name": "LinkType",
@@ -5156,7 +4464,6 @@
           "customer"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "CustomerType",
           "modelAsString": false,
@@ -5174,7 +4481,6 @@
           "link"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "NoteRelationshipType",
           "modelAsString": false,
@@ -5197,7 +4503,6 @@
           "removeItems"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The operation to perform on the field.\nCan be one of \u0060set\u0060, \u0060addItems\u0060, \u0060removeItems\u0060.\n",
         "x-ms-enum": {
           "name": "NotePatchOperationOp",
@@ -5223,7 +4528,6 @@
           "clear"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The operation to perform on the field.\nMust be \u0060clear\u0060.\n",
         "x-ms-enum": {
           "name": "ClearOp",
@@ -5242,7 +4546,6 @@
           "multiple"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Whether the entity can have single or multiple relationships of a given type\n",
         "x-ms-enum": {
           "name": "ConfigurationRelationshipCardinality",
@@ -5264,7 +4567,6 @@
           "runtime"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "runtime",
         "x-ms-enum": {
           "name": "RuntimeType",
@@ -5282,7 +4584,6 @@
           "authenticatedMember"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "authenticatedMember",
         "x-ms-enum": {
           "name": "AuthenticatedMemberSource",
@@ -5301,7 +4602,6 @@
           "agent"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Type of the author, either \u0060customer\u0060 or \u0060agent\u0060\n",
         "x-ms-enum": {
           "name": "ConversationNotePartAuthorType",
@@ -5324,7 +4624,6 @@
           "string"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Type of the field.",
         "x-ms-enum": {
           "name": "KeyValueFieldValueItemFieldType",
@@ -5347,7 +4646,6 @@
           "link"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListNoteRelationshipsTypeParameter",
           "modelAsString": false,
@@ -5373,7 +4671,6 @@
           "component"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListNoteRelationshipsTargetTypeParameter",
           "modelAsString": false,
@@ -5411,7 +4708,6 @@
           "link"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "link",
         "x-ms-enum": {
           "name": "DeleteNoteRelationshipTargetTypeParameter",

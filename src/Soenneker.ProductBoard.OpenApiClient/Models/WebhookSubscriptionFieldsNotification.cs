@@ -32,13 +32,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public string Url { get; set; }
 #endif
         /// <summary>Version of the notification payload structure. Currently only `1` is supported.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigVersion? Version { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigVersion Version { get; set; }
-#endif
+        public int? Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookSubscriptionFieldsNotification"/> and sets the default values.
         /// </summary>
@@ -66,7 +60,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigHeaders>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigHeaders.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "version", n => { Version = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigVersion>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigVersion.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -78,7 +72,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigHeaders>("headers", Headers);
             writer.WriteStringValue("url", Url);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookNotificationConfigVersion>("version", Version);
+            writer.WriteIntValue("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

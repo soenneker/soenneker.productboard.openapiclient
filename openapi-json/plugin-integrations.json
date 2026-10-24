@@ -280,8 +280,15 @@
         "operationId": "GetPluginIntegration",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           }
         ],
         "responses": {
@@ -335,8 +342,15 @@
         "operationId": "UpdatePluginIntegration",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           }
         ],
         "requestBody": {
@@ -398,8 +412,15 @@
         "operationId": "DeletePluginIntegration",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           }
         ],
         "responses": {
@@ -458,8 +479,15 @@
         "operationId": "ListPluginIntegrationConnections",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           },
           {
             "description": "Cursor for pagination. Use the value from \u0060links.next\u0060 to fetch the next page.",
@@ -523,8 +551,15 @@
         "operationId": "SearchPluginIntegrationConnections",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           },
           {
             "description": "Cursor for pagination. Use the value from \u0060links.next\u0060 to fetch the next page.",
@@ -592,12 +627,26 @@
         "operationId": "GetPluginIntegrationConnection",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           },
           {
+            "name": "entityId",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/EntityId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000002"
+            }
           }
         ],
         "responses": {
@@ -651,12 +700,26 @@
         "operationId": "UpdatePluginIntegrationConnectionState",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           },
           {
+            "name": "entityId",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/EntityId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000002"
+            }
           }
         ],
         "requestBody": {
@@ -718,12 +781,26 @@
         "operationId": "DeletePluginIntegrationConnection",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "UUID of the plugin integration.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000001"
+            }
           },
           {
+            "name": "entityId",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/EntityId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000002"
+            }
           }
         ],
         "responses": {
@@ -824,13 +901,17 @@
         "properties": {
           "type": {
             "maxLength": 255,
+            "minLength": 1,
             "type": "string",
-            "description": "Type identifier for the integration. Use your reversed domain name as a prefix to\nensure global uniqueness (e.g., \u0060com.example.myservice\u0060). Integrations of the same\ntype share the same icon and settings grouping in Productboard.\n"
+            "description": "Type identifier for the integration. Use your reversed domain name as a prefix to\nensure global uniqueness (e.g., \u0060com.example.myservice\u0060). Integrations of the same\ntype share the same icon and settings grouping in Productboard.\n",
+            "example": "com.example.myservice"
           },
           "name": {
             "maxLength": 255,
+            "minLength": 1,
             "type": "string",
-            "description": "Human-readable name shown as the column name on the Features board and in Productboard settings."
+            "description": "Human-readable name shown as the column name on the Features board and in Productboard settings.",
+            "example": "My Service Integration"
           },
           "integrationStatus": {
             "description": "Controls whether the integration is active:\n- \u0060enabled\u0060 \u2014 integration column is visible and the push button is active\n- \u0060disabled\u0060 \u2014 integration column is hidden from the Features board\n",
@@ -856,8 +937,10 @@
           },
           "name": {
             "maxLength": 255,
+            "minLength": 1,
             "type": "string",
-            "description": "Human-readable name shown as the column name on the Features board and in Productboard settings."
+            "description": "Human-readable name shown as the column name on the Features board and in Productboard settings.",
+            "example": "My Service Integration"
           },
           "initialState": {
             "description": "Configuration of the push button before an entity has been connected to the third-party system.",
@@ -881,13 +964,17 @@
         "properties": {
           "type": {
             "maxLength": 255,
+            "minLength": 1,
             "type": "string",
-            "description": "Type identifier for the integration. Use your reversed domain name as a prefix to\nensure global uniqueness (e.g., \u0060com.example.myservice\u0060). Integrations of the same\ntype share the same icon and settings grouping in Productboard.\n"
+            "description": "Type identifier for the integration. Use your reversed domain name as a prefix to\nensure global uniqueness (e.g., \u0060com.example.myservice\u0060). Integrations of the same\ntype share the same icon and settings grouping in Productboard.\n",
+            "example": "com.example.myservice"
           },
           "name": {
             "maxLength": 255,
+            "minLength": 1,
             "type": "string",
-            "description": "Human-readable name shown as the column name on the Features board and in Productboard settings."
+            "description": "Human-readable name shown as the column name on the Features board and in Productboard settings.",
+            "example": "My Service Integration"
           },
           "integrationStatus": {
             "description": "Controls whether the integration is active:\n- \u0060enabled\u0060 \u2014 integration column is visible and the push button is active\n- \u0060disabled\u0060 \u2014 integration column is hidden from the Features board\n",
@@ -963,7 +1050,6 @@
           "disabled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Controls whether the integration is active:\n- \u0060enabled\u0060 \u2014 integration column is visible and the push button is active\n- \u0060disabled\u0060 \u2014 integration column is hidden from the Features board\n",
         "example": "enabled",
         "x-ms-enum": {
@@ -1151,7 +1237,6 @@
           "initial"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Identifies a connection state value.",
         "x-ms-enum": {
           "name": "ConnectionStateName",
@@ -1198,7 +1283,6 @@
         "description": "Filter criteria for searching plugin integration connections."
       },
       "ConnectionState": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ConnectedState"
@@ -1213,55 +1297,16 @@
             "$ref": "#/components/schemas/InitialConnectionState"
           }
         ],
-        "properties": {
-          "label": {
-            "maxLength": 20,
-            "minLength": 1,
-            "type": "string",
-            "description": "Text on the push button when connected. Typically the entity\u0027s current status.",
-            "example": "Done"
-          },
-          "hoverLabel": {
-            "maxLength": 20,
-            "minLength": 1,
-            "type": "string",
-            "description": "Text on the push button on hover (temporarily replaces \u0060label\u0060). Typically shows the linked entity\u0027s identifier.",
-            "example": "Issue 123"
-          },
-          "tooltip": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string",
-            "description": "Longer tooltip text shown on hover. Ideal for a detailed description of the linked entity.",
-            "example": "Issue 123 - Implement XYZ"
-          },
-          "color": {
-            "$ref": "#/components/schemas/ConnectedStateColor"
-          },
-          "targetUrl": {
-            "maxLength": 1000,
-            "minLength": 1,
-            "type": "string",
-            "description": "URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.",
-            "format": "uri",
-            "example": "https://example.com/issues/123"
-          },
-          "message": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "description": "Human-readable error message explaining why the connection could not be established. Shown in the error popup in the Productboard UI.",
-            "example": "You don\u0027t have permission to create an issue."
-          },
-          "debugDetail": {
-            "maxLength": 8000,
-            "type": "string",
-            "description": "Additional debugging information set by Productboard when a push fails on\nProductboard\u0027s side. **Not visible in the UI** \u2014 for developer use during\nintegration development only. Never set by the partner.\n",
-            "readOnly": true,
-            "example": "JSON decoding error: field \u0027targetUrl\u0027 is missing"
+        "description": "The state of a plugin integration connection. Determined by the \u0060state\u0060 property.\n\n| State | Meaning | Push button appearance |\n|---|---|---|\n| \u0060connected\u0060 | Entity linked to third-party entity | Shows \u0060label\u0060; click opens \u0060targetUrl\u0060 |\n| \u0060error\u0060 | Connection attempt failed | Shows error icon with \u0060message\u0060 |\n| \u0060progress\u0060 | Establishing asynchronously | Shows loading indicator |\n| \u0060initial\u0060 | No connection (default) | Shows integration\u0027s \u0060initialState.label\u0060 |\n",
+        "discriminator": {
+          "propertyName": "state",
+          "mapping": {
+            "connected": "#/components/schemas/ConnectedState",
+            "error": "#/components/schemas/ErrorState",
+            "progress": "#/components/schemas/ProgressState",
+            "initial": "#/components/schemas/InitialConnectionState"
           }
-        },
-        "description": "The state of a plugin integration connection. Determined by the \u0060state\u0060 property.\n\n| State | Meaning | Push button appearance |\n|---|---|---|\n| \u0060connected\u0060 | Entity linked to third-party entity | Shows \u0060label\u0060; click opens \u0060targetUrl\u0060 |\n| \u0060error\u0060 | Connection attempt failed | Shows error icon with \u0060message\u0060 |\n| \u0060progress\u0060 | Establishing asynchronously | Shows loading indicator |\n| \u0060initial\u0060 | No connection (default) | Shows integration\u0027s \u0060initialState.label\u0060 |\n"
+        }
       },
       "ConnectedState": {
         "required": [
@@ -1748,7 +1793,6 @@
           1
         ],
         "type": "integer",
-        "additionalProperties": false,
         "description": "Version of the action payload format. Currently only \u00601\u0060 is supported.",
         "example": 1
       },
@@ -1759,7 +1803,6 @@
           "button.dismiss"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Identifies which button the user clicked:\n- \u0060button.push\u0060 \u2014 clicked to connect / push the entity\n- \u0060button.unlink\u0060 \u2014 clicked to unlink the connected entity\n- \u0060button.dismiss\u0060 \u2014 dismissed an error popup\n",
         "example": "button.push",
         "x-ms-enum": {
@@ -1806,7 +1849,6 @@
           "connected"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Connection state discriminator.",
         "x-ms-enum": {
           "name": "ConnectedStateState",
@@ -1830,7 +1872,6 @@
           "purple"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Background color of the push button.",
         "example": "green",
         "x-ms-enum": {
@@ -1873,7 +1914,6 @@
           "error"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Connection state discriminator.",
         "x-ms-enum": {
           "name": "ErrorStateState",
@@ -1891,7 +1931,6 @@
           "progress"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Connection state discriminator.",
         "x-ms-enum": {
           "name": "ProgressStateState",
@@ -1909,7 +1948,6 @@
           "initial"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Connection state discriminator.",
         "x-ms-enum": {
           "name": "InitialState",

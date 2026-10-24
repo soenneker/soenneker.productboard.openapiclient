@@ -34,7 +34,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionLinks Links { get; set; }
 #endif
         /// <summary>Resource type identifier.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnection"/> and sets the default values.
         /// </summary>
@@ -63,7 +69,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionLinks.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,7 +81,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionFieldsComposed>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionLinks>("links", Links);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.JiraIntegrationConnectionType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

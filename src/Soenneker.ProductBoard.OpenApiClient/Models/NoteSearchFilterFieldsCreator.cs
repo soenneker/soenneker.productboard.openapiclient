@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreatorBranch2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue"/>, List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NoteSearchFilterFieldsCreator : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue>? MemberFilterValue { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue> MemberFilterValue { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue? MemberFilterValue { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue? NoteSearchFilterFieldsCreatorMemberFilterValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue MemberFilterValue { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreatorBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreatorBranch2? NoteSearchFilterFieldsCreatorBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreatorBranch2 NoteSearchFilterFieldsCreatorBranch2 { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue NoteSearchFilterFieldsCreatorMemberFilterValue { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -41,11 +41,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreator();
             if("MemberFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MemberFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue();
+                result.NoteSearchFilterFieldsCreatorMemberFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue();
             }
-            else if("NoteSearchFilterFieldsCreatorBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue> memberFilterValueValue)
             {
-                result.NoteSearchFilterFieldsCreatorBranch2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreatorBranch2();
+                result.MemberFilterValue = memberFilterValueValue;
             }
             return result;
         }
@@ -55,13 +55,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(MemberFilterValue != null)
+            if(NoteSearchFilterFieldsCreatorMemberFilterValue != null)
             {
-                return MemberFilterValue.GetFieldDeserializers();
-            }
-            else if(NoteSearchFilterFieldsCreatorBranch2 != null)
-            {
-                return NoteSearchFilterFieldsCreatorBranch2.GetFieldDeserializers();
+                return NoteSearchFilterFieldsCreatorMemberFilterValue.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,13 +68,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(MemberFilterValue != null)
+            if(NoteSearchFilterFieldsCreatorMemberFilterValue != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue>(null, MemberFilterValue);
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue>(null, NoteSearchFilterFieldsCreatorMemberFilterValue);
             }
-            else if(NoteSearchFilterFieldsCreatorBranch2 != null)
+            else if(MemberFilterValue != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreatorBranch2>(null, NoteSearchFilterFieldsCreatorBranch2);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFilterValue>(null, MemberFilterValue);
             }
         }
     }

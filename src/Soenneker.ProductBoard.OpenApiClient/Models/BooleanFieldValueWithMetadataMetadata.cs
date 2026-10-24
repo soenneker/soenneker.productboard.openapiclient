@@ -11,7 +11,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class MemberFieldAssignMetadata : IAdditionalDataHolder, IParsable
+    public partial class BooleanFieldValueWithMetadataMetadata : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -26,21 +26,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.ValueMetadataSource Source { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssignMetadata"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata"/> and sets the default values.
         /// </summary>
-        public MemberFieldAssignMetadata()
+        public BooleanFieldValueWithMetadataMetadata()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssignMetadata"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssignMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberFieldAssignMetadata();
+            return new global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata();
         }
         /// <summary>
         /// The deserialization information for the current model

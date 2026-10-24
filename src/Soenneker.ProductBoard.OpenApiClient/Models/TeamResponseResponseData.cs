@@ -36,7 +36,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed Links { get; set; }
 #endif
         /// <summary>Resource type identifier</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>ISO 8601 timestamp when the team was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -68,7 +74,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -83,7 +89,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamFieldsComposed>("fields", Fields);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamLinksComposed>("links", Links);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

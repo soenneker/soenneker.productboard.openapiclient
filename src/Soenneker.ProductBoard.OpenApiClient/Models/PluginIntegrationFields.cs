@@ -24,13 +24,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsInitialState InitialState { get; set; }
 #endif
         /// <summary>Controls whether the integration is active:- `enabled` — integration column is visible and the push button is active- `disabled` — integration column is hidden from the Features board</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus? IntegrationStatus { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus IntegrationStatus { get; set; }
-#endif
         /// <summary>Human-readable name shown as the column name on the Features board and in Productboard settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +67,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "initialState", n => { InitialState = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsInitialState>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsInitialState.CreateFromDiscriminatorValue); } },
-                { "integrationStatus", n => { IntegrationStatus = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus.CreateFromDiscriminatorValue); } },
+                { "integrationStatus", n => { IntegrationStatus = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -86,7 +80,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsInitialState>("initialState", InitialState);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus>("integrationStatus", IntegrationStatus);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus>("integrationStatus", IntegrationStatus);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

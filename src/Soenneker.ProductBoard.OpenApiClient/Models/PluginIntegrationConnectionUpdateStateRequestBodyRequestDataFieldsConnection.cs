@@ -49,8 +49,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>Connection state discriminator.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState? State { get; set; }
+        /// <summary>The state property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? State { get; set; }
+#nullable restore
+#else
+        public string State { get; set; }
+#endif
         /// <summary>URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,7 +103,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "hoverLabel", n => { HoverLabel = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState>(); } },
+                { "state", n => { State = n.GetStringValue(); } },
                 { "targetUrl", n => { TargetUrl = n.GetStringValue(); } },
                 { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
@@ -113,7 +119,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteStringValue("hoverLabel", HoverLabel);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("message", Message);
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState>("state", State);
+            writer.WriteStringValue("state", State);
             writer.WriteStringValue("targetUrl", TargetUrl);
             writer.WriteStringValue("tooltip", Tooltip);
             writer.WriteAdditionalData(AdditionalData);

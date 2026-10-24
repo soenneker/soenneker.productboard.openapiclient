@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSourceBranch2"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue"/>, List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NoteSearchFilterMetadataSource : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSourceBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSourceBranch2? NoteSearchFilterMetadataSourceBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSourceBranch2 NoteSearchFilterMetadataSourceBranch2 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue? SourceFilterValue { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue? NoteSearchFilterMetadataSourceSourceFilterValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue SourceFilterValue { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue NoteSearchFilterMetadataSourceSourceFilterValue { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>? SourceFilterValue { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue> SourceFilterValue { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource();
-            if("NoteSearchFilterMetadataSourceBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("SourceFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.NoteSearchFilterMetadataSourceBranch2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSourceBranch2();
+                result.NoteSearchFilterMetadataSourceSourceFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue();
             }
-            else if("SourceFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue> sourceFilterValueValue)
             {
-                result.SourceFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue();
+                result.SourceFilterValue = sourceFilterValueValue;
             }
             return result;
         }
@@ -55,13 +55,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(NoteSearchFilterMetadataSourceBranch2 != null)
+            if(NoteSearchFilterMetadataSourceSourceFilterValue != null)
             {
-                return NoteSearchFilterMetadataSourceBranch2.GetFieldDeserializers();
-            }
-            else if(SourceFilterValue != null)
-            {
-                return SourceFilterValue.GetFieldDeserializers();
+                return NoteSearchFilterMetadataSourceSourceFilterValue.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,13 +68,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(NoteSearchFilterMetadataSourceBranch2 != null)
+            if(NoteSearchFilterMetadataSourceSourceFilterValue != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSourceBranch2>(null, NoteSearchFilterMetadataSourceBranch2);
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(null, NoteSearchFilterMetadataSourceSourceFilterValue);
             }
             else if(SourceFilterValue != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(null, SourceFilterValue);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(null, SourceFilterValue);
             }
         }
     }

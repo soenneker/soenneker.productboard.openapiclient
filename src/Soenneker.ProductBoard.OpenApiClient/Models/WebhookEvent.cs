@@ -15,13 +15,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Identifies the type of entity change that triggers a webhook notification.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEventEventType? EventType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEventEventType EventType { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEvent"/> and sets the default values.
         /// </summary>
@@ -47,7 +41,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "eventType", n => { EventType = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEventEventType>(global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEventEventType.CreateFromDiscriminatorValue); } },
+                { "eventType", n => { EventType = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEventEventType>(); } },
             };
         }
         /// <summary>
@@ -57,7 +51,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEventEventType>("eventType", EventType);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.WebhookEventEventType>("eventType", EventType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

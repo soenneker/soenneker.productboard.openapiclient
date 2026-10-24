@@ -84,8 +84,15 @@
         "operationId": "GetJiraIntegration",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "Jira integration identifier.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
           }
         ],
         "responses": {
@@ -141,8 +148,15 @@
         "operationId": "ListJiraIntegrationConnections",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "Jira integration identifier.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
           },
           {
             "description": "Cursor for pagination. Use the value from \u0060links.next\u0060 to fetch the next page.",
@@ -218,12 +232,26 @@
         "operationId": "GetJiraIntegrationConnection",
         "parameters": [
           {
+            "name": "integrationId",
+            "in": "path",
             "description": "Jira integration identifier.",
-            "$ref": "#/components/parameters/IntegrationId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
           },
           {
+            "name": "entityId",
+            "in": "path",
             "description": "Entity identifier.",
-            "$ref": "#/components/parameters/EntityId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "00000000-0000-0000-0000-000000000000"
+            }
           }
         ],
         "responses": {
@@ -597,7 +625,6 @@
           "disabled"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Status of the integration column in the Productboard UI.",
         "example": "enabled",
         "x-ms-enum": {

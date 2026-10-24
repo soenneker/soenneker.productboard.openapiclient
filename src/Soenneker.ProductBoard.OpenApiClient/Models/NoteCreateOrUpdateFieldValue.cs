@@ -15,14 +15,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The email property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Email { get; set; }
-#nullable restore
-#else
-        public string Email { get; set; }
-#endif
         /// <summary>Identifier of the source in an external system</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,8 +47,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 #else
         public string Url { get; set; }
 #endif
-        /// <summary>Boolean value or flag. In the UI, it is usually represented as a single checkbox.# ValidationValidate if value is `true` or `false`# FilteringWe support filtering by value</summary>
-        public bool? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue"/> and sets the default values.
         /// </summary>
@@ -82,12 +72,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "email", n => { Email = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "origin", n => { Origin = n.GetStringValue(); } },
                 { "recordId", n => { RecordId = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -97,12 +85,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("email", Email);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("origin", Origin);
             writer.WriteStringValue("recordId", RecordId);
             writer.WriteStringValue("url", Url);
-            writer.WriteBoolValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

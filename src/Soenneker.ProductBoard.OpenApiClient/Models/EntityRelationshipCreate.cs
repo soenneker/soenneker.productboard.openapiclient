@@ -32,13 +32,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateTarget Target { get; set; }
 #endif
         /// <summary>The type of the relationship to be established.## Relationships- `parent`: Hierarchical relationship indicating the entity is a child of the target- `child`: Hierarchical relationship indicating the entity contains the target- `link`: Generic bidirectional relationship without semantic meaning- `isBlockedBy`: Dependency relationship indicating the entity cannot proceed until the target is resolved- `isBlocking`: Dependency relationship indicating the entity prevents progress on the target</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType? Type { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreate"/> and sets the default values.
         /// </summary>
@@ -66,7 +60,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateTarget>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateTarget.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType>(); } },
             };
         }
         /// <summary>
@@ -78,7 +72,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateFieldsProperty>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateTarget>("target", Target);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityRelationshipCreateType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

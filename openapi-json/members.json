@@ -569,7 +569,6 @@
           "[redacted]"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The value \u0060[redacted]\u0060. Used to hide personally identifiable information in cases the request doesn\u0027t have the required \u0060members:pii:read\u0060 OAuth2 scope.\n",
         "example": "[redacted]",
         "x-ms-enum": {
@@ -717,12 +716,12 @@
         }
       },
       "MemberSearchFilterId": {
-        "type": "object",
         "oneOf": [
           {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           {
             "maxItems": 100,
@@ -730,14 +729,14 @@
             "items": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           }
         ],
         "description": "Filter by member UUIDs (OR logic)."
       },
       "MemberSearchFilterFieldsEmail": {
-        "type": "object",
         "oneOf": [
           {
             "type": "string",
@@ -755,150 +754,59 @@
         "description": "Filter by email address. Single string or array (OR logic), case-insensitive.\nRequires \u0060members_pii:read\u0060 scope.\n"
       },
       "MemberSearchFilterFieldsRole": {
-        "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/MemberSearchFilterFieldsRoleWrapper"
+            "$ref": "#/components/schemas/MemberSearchFilterFieldsRoleOneOf1"
           },
           {
-            "$ref": "#/components/schemas/MemberSearchFilterFieldsRoleBranch2"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MemberSearchFilterFieldsRoleOneOf2Item"
+            }
           }
         ],
         "description": "Filter by role. Single string or array (OR logic)."
       },
       "MemberFieldsName": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/MemberFieldsNameBranch1"
+            "type": "string",
+            "description": "Display name of the member.",
+            "example": "John Doe"
           },
           {
-            "$ref": "#/components/schemas/ObfuscatedValueWrapper"
+            "$ref": "#/components/schemas/ObfuscatedValue"
           }
         ]
       },
       "MemberFieldsUsername": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/MemberFieldsUsernameBranch1"
+            "type": "string",
+            "description": "Username of the member.",
+            "example": "johndoe"
           },
           {
-            "$ref": "#/components/schemas/ObfuscatedValueWrapper2"
+            "$ref": "#/components/schemas/ObfuscatedValue"
           }
         ]
       },
       "MemberFieldsEmail": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/MemberFieldsEmailBranch1"
+            "maxLength": 256,
+            "type": "string",
+            "description": "The email of a Productboard user that has access to your workspace.",
+            "example": "email@example.com"
           },
           {
-            "$ref": "#/components/schemas/ObfuscatedValueWrapper3"
+            "$ref": "#/components/schemas/ObfuscatedValue"
           }
         ]
-      },
-      "MemberSearchFilterFieldsRoleWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/MemberSearchFilterFieldsRoleWrapperValue"
-          }
-        }
-      },
-      "ObfuscatedValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        }
-      },
-      "ObfuscatedValueWrapper2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        }
-      },
-      "ObfuscatedValueWrapper3": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        }
       },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
-      },
-      "MemberSearchFilterFieldsRoleBranch2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MemberSearchFilterFieldsRoleBranch2ValueItem"
-            }
-          }
-        }
-      },
-      "MemberFieldsNameBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Display name of the member.",
-            "example": "John Doe"
-          }
-        }
-      },
-      "MemberFieldsUsernameBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Username of the member.",
-            "example": "johndoe"
-          }
-        }
-      },
-      "MemberFieldsEmailBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 256,
-            "type": "string",
-            "description": "The email of a Productboard user that has access to your workspace."
-          }
-        }
       },
       "MemberType": {
         "const": null,
@@ -927,7 +835,6 @@
           "contributor"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Role of the member in the workspace.",
         "example": "maker",
         "x-ms-enum": {
@@ -953,7 +860,7 @@
           ]
         }
       },
-      "MemberSearchFilterFieldsRoleWrapperValue": {
+      "MemberSearchFilterFieldsRoleOneOf1": {
         "enum": [
           "admin",
           "maker",
@@ -961,9 +868,8 @@
           "contributor"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
-          "name": "MemberSearchFilterFieldsRoleWrapperValue",
+          "name": "MemberSearchFilterFieldsRoleOneOf1",
           "modelAsString": false,
           "values": [
             {
@@ -985,7 +891,7 @@
           ]
         }
       },
-      "MemberSearchFilterFieldsRoleBranch2ValueItem": {
+      "MemberSearchFilterFieldsRoleOneOf2Item": {
         "enum": [
           "admin",
           "maker",
@@ -993,9 +899,8 @@
           "contributor"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
-          "name": "MemberSearchFilterFieldsRoleBranch2ValueItem",
+          "name": "MemberSearchFilterFieldsRoleOneOf2Item",
           "modelAsString": false,
           "values": [
             {
@@ -1025,7 +930,6 @@
           "contributor"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListMembersRolesParameterItem",
           "modelAsString": false,

@@ -8,26 +8,20 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleBranch2"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf1"/>, List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MemberSearchFilterFieldsRole : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleBranch2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf1"/></summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf1? MemberSearchFilterFieldsRoleOneOf1 { get; set; }
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleBranch2? MemberSearchFilterFieldsRoleBranch2 { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item>? MemberSearchFilterFieldsRoleOneOf2Item { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleBranch2 MemberSearchFilterFieldsRoleBranch2 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleWrapper? MemberSearchFilterFieldsRoleWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleWrapper MemberSearchFilterFieldsRoleWrapper { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item> MemberSearchFilterFieldsRoleOneOf2Item { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +33,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRole();
-            if("MemberSearchFilterFieldsRoleBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf1>() is global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf1 memberSearchFilterFieldsRoleOneOf1Value)
             {
-                result.MemberSearchFilterFieldsRoleBranch2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleBranch2();
+                result.MemberSearchFilterFieldsRoleOneOf1 = memberSearchFilterFieldsRoleOneOf1Value;
             }
-            else if("MemberSearchFilterFieldsRoleWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item>(global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item> memberSearchFilterFieldsRoleOneOf2ItemValue)
             {
-                result.MemberSearchFilterFieldsRoleWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleWrapper();
+                result.MemberSearchFilterFieldsRoleOneOf2Item = memberSearchFilterFieldsRoleOneOf2ItemValue;
             }
             return result;
         }
@@ -55,14 +49,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(MemberSearchFilterFieldsRoleBranch2 != null)
-            {
-                return MemberSearchFilterFieldsRoleBranch2.GetFieldDeserializers();
-            }
-            else if(MemberSearchFilterFieldsRoleWrapper != null)
-            {
-                return MemberSearchFilterFieldsRoleWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +58,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(MemberSearchFilterFieldsRoleBranch2 != null)
+            if(MemberSearchFilterFieldsRoleOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleBranch2>(null, MemberSearchFilterFieldsRoleBranch2);
+                writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf1>(null, MemberSearchFilterFieldsRoleOneOf1);
             }
-            else if(MemberSearchFilterFieldsRoleWrapper != null)
+            else if(MemberSearchFilterFieldsRoleOneOf2Item != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleWrapper>(null, MemberSearchFilterFieldsRoleWrapper);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchFilterFieldsRoleOneOf2Item>(null, MemberSearchFilterFieldsRoleOneOf2Item);
             }
         }
     }

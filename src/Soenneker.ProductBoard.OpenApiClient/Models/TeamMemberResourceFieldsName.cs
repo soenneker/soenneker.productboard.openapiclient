@@ -8,27 +8,21 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFieldsNameBranch1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValueWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValue"/>, <see cref="string"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TeamMemberResourceFieldsName : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFieldsNameBranch1"/></summary>
+        /// <summary>Composed type representation for type <see cref="string"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFieldsNameBranch1? TeamMemberResourceFieldsNameBranch1 { get; set; }
+        public string? String { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFieldsNameBranch1 TeamMemberResourceFieldsNameBranch1 { get; set; }
+        public string String { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValueWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValueWrapper? TeamsObfuscatedValueWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValueWrapper TeamsObfuscatedValueWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValue"/></summary>
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValue? TeamsObfuscatedValue { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,8 +32,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFieldsName();
-            result.TeamMemberResourceFieldsNameBranch1 = new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFieldsNameBranch1();
-            result.TeamsObfuscatedValueWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValueWrapper();
+            if(parseNode.GetStringValue() is string stringValue)
+            {
+                result.String = stringValue;
+            }
+            else if(parseNode.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValue>() is global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValue teamsObfuscatedValueValue)
+            {
+                result.TeamsObfuscatedValue = teamsObfuscatedValueValue;
+            }
             return result;
         }
         /// <summary>
@@ -48,10 +48,6 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(TeamMemberResourceFieldsNameBranch1 != null || TeamsObfuscatedValueWrapper != null)
-            {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(TeamMemberResourceFieldsNameBranch1, TeamsObfuscatedValueWrapper);
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -61,7 +57,14 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMemberResourceFieldsNameBranch1>(null, TeamMemberResourceFieldsNameBranch1, TeamsObfuscatedValueWrapper);
+            if(String != null)
+            {
+                writer.WriteStringValue(null, String);
+            }
+            else if(TeamsObfuscatedValue != null)
+            {
+                writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsObfuscatedValue>(null, TeamsObfuscatedValue);
+            }
         }
     }
 }

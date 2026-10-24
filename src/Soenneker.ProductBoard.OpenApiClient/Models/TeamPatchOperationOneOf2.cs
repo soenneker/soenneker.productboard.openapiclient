@@ -16,7 +16,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Clear all items from the field.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp? Op { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Op { get; set; }
+#nullable restore
+#else
+        public string Op { get; set; }
+#endif
         /// <summary>The field to operate on.</summary>
         public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath? Path { get; set; }
         /// <summary>
@@ -44,7 +50,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "op", n => { Op = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp>(); } },
+                { "op", n => { Op = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>(); } },
             };
         }
@@ -55,7 +61,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp>("op", Op);
+            writer.WriteStringValue("op", Op);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>("path", Path);
             writer.WriteAdditionalData(AdditionalData);
         }

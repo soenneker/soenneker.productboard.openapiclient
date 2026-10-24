@@ -278,8 +278,15 @@
         "operationId": "GetWebhook",
         "parameters": [
           {
+            "name": "webhookId",
+            "in": "path",
             "description": "UUID of the webhook subscription.",
-            "$ref": "#/components/parameters/WebhookId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
+            }
           }
         ],
         "responses": {
@@ -339,8 +346,15 @@
         "operationId": "DeleteWebhook",
         "parameters": [
           {
+            "name": "webhookId",
+            "in": "path",
             "description": "UUID of the webhook subscription.",
-            "$ref": "#/components/parameters/WebhookId"
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "550e8400-e29b-41d4-a716-446655440000"
+            }
           }
         ],
         "responses": {
@@ -397,7 +411,6 @@
           "webhook"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Resource type identifier for webhook subscriptions.",
         "example": "webhook",
         "x-ms-enum": {
@@ -651,7 +664,6 @@
           "initiative.deleted"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Identifies the type of entity change that triggers a webhook notification.",
         "x-ms-enum": {
           "name": "WebhookEventType",
@@ -816,7 +828,6 @@
           1
         ],
         "type": "integer",
-        "additionalProperties": false,
         "description": "Version of the notification payload structure. Currently only \u00601\u0060 is supported.",
         "example": 1
       },
@@ -1002,7 +1013,6 @@
         "description": "Standard error response structure.\n"
       },
       "WebhookNotificationPayloadV1Links": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/LinksTarget"
@@ -1011,24 +1021,6 @@
             "$ref": "#/components/schemas/LinksFeatureNote"
           }
         ],
-        "properties": {
-          "target": {
-            "type": "string",
-            "description": "API URL of the entity whose change triggered this notification.",
-            "format": "uri",
-            "example": "https://api.productboard.com/features/550e8400-e29b-41d4-a716-446655440000"
-          },
-          "feature": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.productboard.com/features/550e8400-e29b-41d4-a716-446655440000"
-          },
-          "note": {
-            "type": "string",
-            "format": "uri",
-            "example": "https://api.productboard.com/notes/a1b2c3d4-e5f6-7890-abcd-ef1234567890"
-          }
-        },
         "description": "Links related to this event."
       },
       "WebhookReferenceLinks": {

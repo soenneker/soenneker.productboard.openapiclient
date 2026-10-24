@@ -3,26 +3,25 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
+    /// <summary>The health status of the work item. `notSet` is read-only — it is returned on read for entities withcalculated or uninitialized health and cannot be assigned in a manual update.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum MemberSearchFilterFieldsRoleWrapperValue2
-    #pragma warning restore CS1591
+    public enum HealthUpdateFieldValueStatus
     {
-        [EnumMember(Value = "admin")]
+        [EnumMember(Value = "notSet")]
         #pragma warning disable CS1591
-        Admin,
+        NotSet,
         #pragma warning restore CS1591
-        [EnumMember(Value = "maker")]
+        [EnumMember(Value = "onTrack")]
         #pragma warning disable CS1591
-        Maker,
+        OnTrack,
         #pragma warning restore CS1591
-        [EnumMember(Value = "viewer")]
+        [EnumMember(Value = "atRisk")]
         #pragma warning disable CS1591
-        Viewer,
+        AtRisk,
         #pragma warning restore CS1591
-        [EnumMember(Value = "contributor")]
+        [EnumMember(Value = "offTrack")]
         #pragma warning disable CS1591
-        Contributor,
+        OffTrack,
         #pragma warning restore CS1591
     }
 }

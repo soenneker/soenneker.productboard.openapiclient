@@ -5,7 +5,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>Whether the number field value is calculated automatically or entered manually.- `manual`: The field displays and uses the manually entered value- `calculated`: The field displays and uses an automatically calculated value (e.g., from child entities)</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum NumberFieldValueMode
+    public enum NumberValueModeUpdateValueMode
     {
         [EnumMember(Value = "manual")]
         #pragma warning disable CS1591

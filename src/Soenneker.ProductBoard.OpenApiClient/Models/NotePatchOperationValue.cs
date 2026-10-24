@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignWrapper"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue"/>, List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NotePatchOperationValue : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignWrapper"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignWrapper? ConversationNotePartsAssignWrapper { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem>? ConversationNotePartsAssignItem { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignWrapper ConversationNotePartsAssignWrapper { get; set; }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem> ConversationNotePartsAssignItem { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,8 +38,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchOperationValue();
-            result.ConversationNotePartsAssignWrapper = new global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignWrapper();
-            result.NoteCreateOrUpdateFieldValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue();
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem> conversationNotePartsAssignItemValue)
+            {
+                result.ConversationNotePartsAssignItem = conversationNotePartsAssignItemValue;
+            }
+            else {
+                result.NoteCreateOrUpdateFieldValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue();
+            }
             return result;
         }
         /// <summary>
@@ -48,9 +53,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ConversationNotePartsAssignWrapper != null || NoteCreateOrUpdateFieldValue != null)
+            if(NoteCreateOrUpdateFieldValue != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ConversationNotePartsAssignWrapper, NoteCreateOrUpdateFieldValue);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(NoteCreateOrUpdateFieldValue);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -61,7 +66,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignWrapper>(null, ConversationNotePartsAssignWrapper, NoteCreateOrUpdateFieldValue);
+            if(ConversationNotePartsAssignItem != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.ConversationNotePartsAssignItem>(null, ConversationNotePartsAssignItem);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateOrUpdateFieldValue>(null, NoteCreateOrUpdateFieldValue);
+            }
         }
     }
 }

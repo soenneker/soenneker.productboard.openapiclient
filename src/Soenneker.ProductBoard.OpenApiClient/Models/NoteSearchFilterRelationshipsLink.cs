@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLinkBranch2"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue"/>, List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NoteSearchFilterRelationshipsLink : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLinkBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLinkBranch2? NoteSearchFilterRelationshipsLinkBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLinkBranch2 NoteSearchFilterRelationshipsLinkBranch2 { get; set; }
-#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue? RelationshipFilterValue { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue? NoteSearchFilterRelationshipsLinkRelationshipFilterValue { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue RelationshipFilterValue { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue NoteSearchFilterRelationshipsLinkRelationshipFilterValue { get; set; }
+#endif
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue>? RelationshipFilterValue { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue> RelationshipFilterValue { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,13 +39,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLink();
-            if("NoteSearchFilterRelationshipsLinkBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("RelationshipFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.NoteSearchFilterRelationshipsLinkBranch2 = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLinkBranch2();
+                result.NoteSearchFilterRelationshipsLinkRelationshipFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue();
             }
-            else if("RelationshipFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue> relationshipFilterValueValue)
             {
-                result.RelationshipFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue();
+                result.RelationshipFilterValue = relationshipFilterValueValue;
             }
             return result;
         }
@@ -55,13 +55,9 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(NoteSearchFilterRelationshipsLinkBranch2 != null)
+            if(NoteSearchFilterRelationshipsLinkRelationshipFilterValue != null)
             {
-                return NoteSearchFilterRelationshipsLinkBranch2.GetFieldDeserializers();
-            }
-            else if(RelationshipFilterValue != null)
-            {
-                return RelationshipFilterValue.GetFieldDeserializers();
+                return NoteSearchFilterRelationshipsLinkRelationshipFilterValue.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -72,13 +68,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(NoteSearchFilterRelationshipsLinkBranch2 != null)
+            if(NoteSearchFilterRelationshipsLinkRelationshipFilterValue != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterRelationshipsLinkBranch2>(null, NoteSearchFilterRelationshipsLinkBranch2);
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue>(null, NoteSearchFilterRelationshipsLinkRelationshipFilterValue);
             }
             else if(RelationshipFilterValue != null)
             {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue>(null, RelationshipFilterValue);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.RelationshipFilterValue>(null, RelationshipFilterValue);
             }
         }
     }

@@ -36,7 +36,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed Links { get; set; }
 #endif
         /// <summary>Resource type identifier.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationTypeEnum? Type { get; private set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; private set; }
+#nullable restore
+#else
+        public string Type { get; private set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseResponseData"/> and sets the default values.
         /// </summary>
@@ -66,7 +72,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationLinksComposed.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationTypeEnum>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>

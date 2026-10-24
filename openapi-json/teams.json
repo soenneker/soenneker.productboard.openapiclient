@@ -771,7 +771,6 @@
         "description": "Fields for creating or updating a team.\nFor creation, \u0060name\u0060 and \u0060handle\u0060 are required.\nFor updates, the \u0060fields\u0060 object is required but all individual field properties within it are optional.\n\n**Note:** \u0060avatarUrl\u0060 is read-only and cannot be set via API. Avatar management is only available through the UI.\n"
       },
       "TeamPatchOperation": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/TeamPatchOperationOneOf1"
@@ -780,19 +779,6 @@
             "$ref": "#/components/schemas/TeamPatchOperationOneOf2"
           }
         ],
-        "properties": {
-          "path": {
-            "$ref": "#/components/schemas/MembersPath"
-          },
-          "value": {
-            "maxItems": 100,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TeamPatchOperationOneOf1ValueItem"
-            },
-            "description": "Member references for the operation.\nEach item must include either \u0060id\u0060 (space membership UUID) or \u0060email\u0060.\n"
-          }
-        },
         "description": "A patch operation for managing list-type fields on a team.\n"
       },
       "TeamSearchRequest": {
@@ -955,7 +941,6 @@
           "[redacted]"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The value \u0060[redacted]\u0060. Used to hide personally identifiable information in cases the request doesn\u0027t have the required \u0060members:pii:read\u0060 OAuth2 scope.\n",
         "example": "[redacted]",
         "x-ms-enum": {
@@ -1066,24 +1051,27 @@
         }
       },
       "TeamMemberResourceFieldsName": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/TeamMemberResourceFieldsNameBranch1"
+            "type": "string",
+            "description": "Display name of the member.",
+            "example": "John Doe"
           },
           {
-            "$ref": "#/components/schemas/ObfuscatedValueWrapper"
+            "$ref": "#/components/schemas/ObfuscatedValue"
           }
         ]
       },
       "TeamMemberResourceFieldsEmail": {
-        "type": "object",
         "anyOf": [
           {
-            "$ref": "#/components/schemas/TeamMemberResourceFieldsEmailBranch1"
+            "type": "string",
+            "description": "Email address of the member.",
+            "format": "email",
+            "example": "john@example.com"
           },
           {
-            "$ref": "#/components/schemas/ObfuscatedValueWrapper2"
+            "$ref": "#/components/schemas/ObfuscatedValue"
           }
         ]
       },
@@ -1131,12 +1119,12 @@
         "description": "Clear operation (no value needed)"
       },
       "TeamSearchFilterId": {
-        "type": "object",
         "oneOf": [
           {
             "type": "string",
             "description": "A universally unique identifier (UUID).\n",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
           },
           {
             "maxItems": 100,
@@ -1144,14 +1132,14 @@
             "items": {
               "type": "string",
               "description": "A universally unique identifier (UUID).\n",
-              "format": "uuid"
+              "format": "uuid",
+              "example": "123e4567-e89b-12d3-a456-426614174000"
             }
           }
         ],
         "description": "Filter by team UUIDs (OR logic)."
       },
       "TeamSearchFilterFieldsName": {
-        "type": "object",
         "oneOf": [
           {
             "maxLength": 255,
@@ -1171,7 +1159,6 @@
         "description": "Filter by team name. Single string or array (OR logic), case-insensitive."
       },
       "TeamSearchFilterFieldsHandle": {
-        "type": "object",
         "oneOf": [
           {
             "maxLength": 255,
@@ -1196,14 +1183,12 @@
           {
             "required": [
               "fields"
-            ],
-            "type": "object"
+            ]
           },
           {
             "required": [
               "patch"
-            ],
-            "type": "object"
+            ]
           }
         ],
         "properties": {
@@ -1221,7 +1206,6 @@
         }
       },
       "TeamPatchOperationOneOf1ValueItem": {
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/TeamPatchOperationOneOf1ValueItemOneOf1"
@@ -1229,19 +1213,7 @@
           {
             "$ref": "#/components/schemas/TeamPatchOperationOneOf1ValueItemOneOf2"
           }
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "UUID of the member (space membership)",
-            "format": "uuid"
-          },
-          "email": {
-            "type": "string",
-            "description": "Email address of the member",
-            "format": "email"
-          }
-        }
+        ]
       },
       "TeamPatchOperationOneOf1ValueItemOneOf1": {
         "required": [
@@ -1292,58 +1264,9 @@
           }
         }
       },
-      "ObfuscatedValueWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        }
-      },
-      "ObfuscatedValueWrapper2": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        }
-      },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
-      },
-      "TeamMemberResourceFieldsNameBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Display name of the member.",
-            "example": "John Doe"
-          }
-        }
-      },
-      "TeamMemberResourceFieldsEmailBranch1": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Email address of the member.",
-            "format": "email",
-            "example": "john@example.com"
-          }
-        }
       },
       "TeamType": {
         "const": null,
@@ -1389,7 +1312,6 @@
           "set"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The operation type.",
         "x-ms-enum": {
           "name": "TeamPatchOperationOneOf1Op",
@@ -1415,7 +1337,6 @@
           "members"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The field to operate on.",
         "x-ms-enum": {
           "name": "MembersPath",

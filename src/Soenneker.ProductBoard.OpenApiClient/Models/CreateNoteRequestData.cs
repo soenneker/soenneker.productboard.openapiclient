@@ -39,13 +39,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRelationship> Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
         public global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataType? Type { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataType Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestData"/> and sets the default values.
         /// </summary>
@@ -74,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataMetadata.CreateFromDiscriminatorValue); } },
                 { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRelationship>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRelationship.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataType>(global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataType>(); } },
             };
         }
         /// <summary>
@@ -87,7 +81,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataFieldsProperty>("fields", Fields);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteCreateRelationship>("relationships", Relationships);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

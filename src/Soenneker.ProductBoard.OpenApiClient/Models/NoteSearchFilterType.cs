@@ -37,7 +37,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 result.NoteSearchFilterTypeNoteType = noteSearchFilterTypeNoteTypeValue;
             }
-            else if(parseNode.GetCollectionOfEnumValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>()?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType?> noteTypeValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfEnumValues<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType>()?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteType?> noteTypeValue)
             {
                 result.NoteType = noteTypeValue;
             }

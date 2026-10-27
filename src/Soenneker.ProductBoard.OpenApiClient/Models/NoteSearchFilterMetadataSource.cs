@@ -37,15 +37,13 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource();
-            if("SourceFilterValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.NoteSearchFilterMetadataSourceSourceFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue();
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue> sourceFilterValueValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue> sourceFilterValueValue)
             {
                 result.SourceFilterValue = sourceFilterValueValue;
+            }
+            else {
+                result.NoteSearchFilterMetadataSourceSourceFilterValue = new global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue();
             }
             return result;
         }
@@ -57,7 +55,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(NoteSearchFilterMetadataSourceSourceFilterValue != null)
             {
-                return NoteSearchFilterMetadataSourceSourceFilterValue.GetFieldDeserializers();
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(NoteSearchFilterMetadataSourceSourceFilterValue);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +66,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(NoteSearchFilterMetadataSourceSourceFilterValue != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(null, NoteSearchFilterMetadataSourceSourceFilterValue);
-            }
-            else if(SourceFilterValue != null)
+            if(SourceFilterValue != null)
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(null, SourceFilterValue);
+            }
+            else {
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(null, NoteSearchFilterMetadataSourceSourceFilterValue);
             }
         }
     }

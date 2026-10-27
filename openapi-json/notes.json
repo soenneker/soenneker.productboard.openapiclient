@@ -3685,7 +3685,8 @@
         "description": "Filter by note UUIDs (OR logic)."
       },
       "NoteSearchFilterFieldsOwner": {
-        "oneOf": [
+        "description": "Filter by owner. Single object or array (OR logic).",
+        "anyOf": [
           {
             "$ref": "#/components/schemas/MemberFilterValue"
           },
@@ -3695,11 +3696,11 @@
               "$ref": "#/components/schemas/MemberFilterValue"
             }
           }
-        ],
-        "description": "Filter by owner. Single object or array (OR logic)."
+        ]
       },
       "NoteSearchFilterFieldsCreator": {
-        "oneOf": [
+        "description": "Filter by creator. Single object or array (OR logic).",
+        "anyOf": [
           {
             "$ref": "#/components/schemas/MemberFilterValue"
           },
@@ -3709,11 +3710,11 @@
               "$ref": "#/components/schemas/MemberFilterValue"
             }
           }
-        ],
-        "description": "Filter by creator. Single object or array (OR logic)."
+        ]
       },
       "NoteSearchFilterFieldsTag": {
-        "oneOf": [
+        "description": "Filter by tag. Single object or array (OR logic).",
+        "anyOf": [
           {
             "$ref": "#/components/schemas/TagFilterValue"
           },
@@ -3723,11 +3724,11 @@
               "$ref": "#/components/schemas/TagFilterValue"
             }
           }
-        ],
-        "description": "Filter by tag. Single object or array (OR logic)."
+        ]
       },
       "NoteSearchFilterMetadataSource": {
-        "oneOf": [
+        "description": "Filter by source system. Single object or array (OR logic).",
+        "anyOf": [
           {
             "$ref": "#/components/schemas/SourceFilterValue"
           },
@@ -3737,11 +3738,11 @@
               "$ref": "#/components/schemas/SourceFilterValue"
             }
           }
-        ],
-        "description": "Filter by source system. Single object or array (OR logic)."
+        ]
       },
       "NoteSearchFilterRelationshipsCustomer": {
-        "oneOf": [
+        "description": "Filter by customer (user or company). Single object or array (OR logic).",
+        "anyOf": [
           {
             "$ref": "#/components/schemas/RelationshipFilterValue"
           },
@@ -3751,11 +3752,11 @@
               "$ref": "#/components/schemas/RelationshipFilterValue"
             }
           }
-        ],
-        "description": "Filter by customer (user or company). Single object or array (OR logic)."
+        ]
       },
       "NoteSearchFilterRelationshipsLink": {
-        "oneOf": [
+        "description": "Filter by linked feature. Single object or array (OR logic).",
+        "anyOf": [
           {
             "$ref": "#/components/schemas/RelationshipFilterValue"
           },
@@ -3765,8 +3766,7 @@
               "$ref": "#/components/schemas/RelationshipFilterValue"
             }
           }
-        ],
-        "description": "Filter by linked feature. Single object or array (OR logic)."
+        ]
       },
       "NoteAllOf2": {
         "required": [

@@ -37,7 +37,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             {
                 result.NoteSearchFilterIdGuid = noteSearchFilterIdGuidValue;
             }
-            else if(parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid?> guidValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfPrimitiveValues<Guid?>()?.AsList() is List<Guid?> guidValue)
             {
                 result.Guid = guidValue;
             }

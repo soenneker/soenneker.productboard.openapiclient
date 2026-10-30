@@ -18,24 +18,19 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("op") is { } nullNodeOp && nullNodeOp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Op = null;
-            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("op") is null) { _explicitNullValueOp = default!; _explicitNullProperties?.Remove("op"); }
+            else if (parseNode.GetChildNode("op") is { } nullNodeOp && nullNodeOp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Op = null;
+            if (parseNode.GetChildNode("path") is null) { _explicitNullValuePath = default!; _explicitNullProperties?.Remove("path"); }
+            else if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Clear all items from the field.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Op { get => _explicitNullValueOp; set { _explicitNullValueOp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("op"); else _explicitNullProperties?.Remove("op"); } }
-        private string? _explicitNullValueOp = default!;
-#nullable restore
-#else
-        public string Op { get => _explicitNullValueOp; set { _explicitNullValueOp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("op"); else _explicitNullProperties?.Remove("op"); } }
-        private string _explicitNullValueOp = default!;
-#endif
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp? Op { get => _explicitNullValueOp; set { _explicitNullValueOp = value; AdditionalData?.Remove("op"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("op"); else _explicitNullProperties?.Remove("op"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp? _explicitNullValueOp = default!;
         /// <summary>The field to operate on.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; AdditionalData?.Remove("path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath? _explicitNullValuePath = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.TeamPatchOperationOneOf2"/> and sets the default values.
@@ -62,8 +57,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "op", n => { Op = n.GetStringValue(); } },
-                { "path", n => { Path = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>(); } },
+                { "op", n => { var parsed = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueOp = default; _explicitNullProperties?.Remove("op"); AdditionalData["op"] = unknown; } else { Op = parsed; AdditionalData.Remove("op"); } } },
+                { "path", n => { var parsed = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePath = default; _explicitNullProperties?.Remove("path"); AdditionalData["path"] = unknown; } else { Path = parsed; AdditionalData.Remove("path"); } } },
             };
         }
         /// <summary>
@@ -73,7 +68,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("op", Op);
+            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsClearOp>("op", Op);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.MembersPath>("path", Path);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

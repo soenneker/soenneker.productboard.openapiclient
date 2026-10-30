@@ -1769,7 +1769,6 @@
         "description": "Placeholder schema for path example refs"
       },
       "PluginIntegrationTypeEnum": {
-        "const": null,
         "enum": [
           "pluginIntegration"
         ],
@@ -1777,6 +1776,7 @@
         "description": "Resource type identifier.",
         "readOnly": true,
         "example": "pluginIntegration",
+        "x-client-original-const": "pluginIntegration",
         "x-ms-enum": {
           "name": "PluginIntegrationTypeEnum",
           "modelAsString": false,
@@ -1825,7 +1825,6 @@
         }
       },
       "PluginIntegrationConnectionType": {
-        "const": null,
         "enum": [
           "pluginIntegrationConnection"
         ],
@@ -1833,6 +1832,7 @@
         "description": "Resource type identifier.",
         "readOnly": true,
         "example": "pluginIntegrationConnection",
+        "x-client-original-const": "pluginIntegrationConnection",
         "x-ms-enum": {
           "name": "PluginIntegrationConnectionType",
           "modelAsString": false,

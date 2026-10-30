@@ -43,7 +43,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterMetadataSource();
-            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) && parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue> sourceFilterValueValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => ((item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (item is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("system") || (((shapeMembers1["system"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("recordId") || (((shapeMembers1["recordId"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))) && parseNode.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue>(global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue> sourceFilterValueValue)
             {
                 result.SourceFilterValue = sourceFilterValueValue;
             }
@@ -52,7 +52,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            if (result.NoteSearchFilterMetadataSourceSourceFilterValue == null && result.SourceFilterValue == null && unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) result.NoteSearchFilterMetadataSourceSourceFilterValue = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && ((!shapeMembers1.ContainsKey("system") || (((shapeMembers1["system"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("recordId") || (((shapeMembers1["recordId"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.NoteSearchFilterMetadataSourceSourceFilterValue == null && result.SourceFilterValue == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.NoteSearchFilterMetadataSourceSourceFilterValue = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.SourceFilterValue(), parseNode);
             if (result.NoteSearchFilterMetadataSourceSourceFilterValue == null && result.SourceFilterValue == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -62,6 +66,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(NoteSearchFilterMetadataSourceSourceFilterValue != null)
             {
                 return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(NoteSearchFilterMetadataSourceSourceFilterValue);
@@ -76,7 +82,10 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (NoteSearchFilterMetadataSourceSourceFilterValue == null && SourceFilterValue == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (NoteSearchFilterMetadataSourceSourceFilterValue != null && SourceFilterValue == null) { if (NoteSearchFilterMetadataSourceSourceFilterValue is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, NoteSearchFilterMetadataSourceSourceFilterValue); return; }
+            int selectedUnionBranches = 0;
+            if (NoteSearchFilterMetadataSourceSourceFilterValue != null) selectedUnionBranches++;
+            if (SourceFilterValue != null) selectedUnionBranches++;
+            if (NoteSearchFilterMetadataSourceSourceFilterValue != null && selectedUnionBranches == 1) { if (NoteSearchFilterMetadataSourceSourceFilterValue is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, NoteSearchFilterMetadataSourceSourceFilterValue); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(SourceFilterValue != null)

@@ -18,8 +18,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("handle") is { } nullNodeHandle && nullNodeHandle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Handle = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("handle") is null) { _explicitNullValueHandle = default!; _explicitNullProperties?.Remove("handle"); }
+            else if (parseNode.GetChildNode("handle") is { } nullNodeHandle && nullNodeHandle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Handle = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Filter by team handle. Single string or array (OR logic), case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle? Handle { get => _explicitNullValueHandle; set { _explicitNullValueHandle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle"); else _explicitNullProperties?.Remove("handle"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle? Handle { get => _explicitNullValueHandle; set { _explicitNullValueHandle = value; AdditionalData?.Remove("handle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle"); else _explicitNullProperties?.Remove("handle"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle? _explicitNullValueHandle = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle Handle { get => _explicitNullValueHandle; set { _explicitNullValueHandle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle"); else _explicitNullProperties?.Remove("handle"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle Handle { get => _explicitNullValueHandle; set { _explicitNullValueHandle = value; AdditionalData?.Remove("handle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("handle"); else _explicitNullProperties?.Remove("handle"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsHandle _explicitNullValueHandle = default!;
 #endif
         /// <summary>Filter by team name. Single string or array (OR logic), case-insensitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.TeamSearchFilterFieldsName _explicitNullValueName = default!;
 #endif
         /// <summary>

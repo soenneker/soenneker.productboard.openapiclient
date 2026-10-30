@@ -17,60 +17,66 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("color") is { } nullNodeColor && nullNodeColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Color = null;
-            if (parseNode.GetChildNode("hoverLabel") is { } nullNodeHoverLabel && nullNodeHoverLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoverLabel = null;
-            if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
-            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
-            if (parseNode.GetChildNode("targetUrl") is { } nullNodeTargetUrl && nullNodeTargetUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUrl = null;
-            if (parseNode.GetChildNode("tooltip") is { } nullNodeTooltip && nullNodeTooltip.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tooltip = null;
+            if (parseNode.GetChildNode("color") is null) { _explicitNullValueColor = default!; _explicitNullProperties?.Remove("color"); }
+            else if (parseNode.GetChildNode("color") is { } nullNodeColor && nullNodeColor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Color = null;
+            if (parseNode.GetChildNode("hoverLabel") is null) { _explicitNullValueHoverLabel = default!; _explicitNullProperties?.Remove("hoverLabel"); }
+            else if (parseNode.GetChildNode("hoverLabel") is { } nullNodeHoverLabel && nullNodeHoverLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HoverLabel = null;
+            if (parseNode.GetChildNode("label") is null) { _explicitNullValueLabel = default!; _explicitNullProperties?.Remove("label"); }
+            else if (parseNode.GetChildNode("label") is { } nullNodeLabel && nullNodeLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Label = null;
+            if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
+            else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("targetUrl") is null) { _explicitNullValueTargetUrl = default!; _explicitNullProperties?.Remove("targetUrl"); }
+            else if (parseNode.GetChildNode("targetUrl") is { } nullNodeTargetUrl && nullNodeTargetUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetUrl = null;
+            if (parseNode.GetChildNode("tooltip") is null) { _explicitNullValueTooltip = default!; _explicitNullProperties?.Remove("tooltip"); }
+            else if (parseNode.GetChildNode("tooltip") is { } nullNodeTooltip && nullNodeTooltip.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tooltip = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Background color of the push button.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor? Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor? Color { get => _explicitNullValueColor; set { _explicitNullValueColor = value; AdditionalData?.Remove("color"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color"); else _explicitNullProperties?.Remove("color"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor? _explicitNullValueColor = default!;
         /// <summary>Text on the push button on hover (temporarily replaces `label`). Typically shows the linked entity&apos;s identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HoverLabel { get => _explicitNullValueHoverLabel; set { _explicitNullValueHoverLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hoverLabel"); else _explicitNullProperties?.Remove("hoverLabel"); } }
+        public string? HoverLabel { get => _explicitNullValueHoverLabel; set { _explicitNullValueHoverLabel = value; AdditionalData?.Remove("hoverLabel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hoverLabel"); else _explicitNullProperties?.Remove("hoverLabel"); } }
         private string? _explicitNullValueHoverLabel = default!;
 #nullable restore
 #else
-        public string HoverLabel { get => _explicitNullValueHoverLabel; set { _explicitNullValueHoverLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hoverLabel"); else _explicitNullProperties?.Remove("hoverLabel"); } }
+        public string HoverLabel { get => _explicitNullValueHoverLabel; set { _explicitNullValueHoverLabel = value; AdditionalData?.Remove("hoverLabel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hoverLabel"); else _explicitNullProperties?.Remove("hoverLabel"); } }
         private string _explicitNullValueHoverLabel = default!;
 #endif
         /// <summary>Text on the push button when connected. Typically the entity&apos;s current status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        public string? Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; AdditionalData?.Remove("label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
         private string? _explicitNullValueLabel = default!;
 #nullable restore
 #else
-        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
+        public string Label { get => _explicitNullValueLabel; set { _explicitNullValueLabel = value; AdditionalData?.Remove("label"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("label"); else _explicitNullProperties?.Remove("label"); } }
         private string _explicitNullValueLabel = default!;
 #endif
         /// <summary>Connection state discriminator.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState? _explicitNullValueState = default!;
         /// <summary>URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetUrl { get => _explicitNullValueTargetUrl; set { _explicitNullValueTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetUrl"); else _explicitNullProperties?.Remove("targetUrl"); } }
+        public string? TargetUrl { get => _explicitNullValueTargetUrl; set { _explicitNullValueTargetUrl = value; AdditionalData?.Remove("targetUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetUrl"); else _explicitNullProperties?.Remove("targetUrl"); } }
         private string? _explicitNullValueTargetUrl = default!;
 #nullable restore
 #else
-        public string TargetUrl { get => _explicitNullValueTargetUrl; set { _explicitNullValueTargetUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetUrl"); else _explicitNullProperties?.Remove("targetUrl"); } }
+        public string TargetUrl { get => _explicitNullValueTargetUrl; set { _explicitNullValueTargetUrl = value; AdditionalData?.Remove("targetUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetUrl"); else _explicitNullProperties?.Remove("targetUrl"); } }
         private string _explicitNullValueTargetUrl = default!;
 #endif
         /// <summary>Longer tooltip text shown on hover. Ideal for a detailed description of the linked entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Tooltip { get => _explicitNullValueTooltip; set { _explicitNullValueTooltip = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tooltip"); else _explicitNullProperties?.Remove("tooltip"); } }
+        public string? Tooltip { get => _explicitNullValueTooltip; set { _explicitNullValueTooltip = value; AdditionalData?.Remove("tooltip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tooltip"); else _explicitNullProperties?.Remove("tooltip"); } }
         private string? _explicitNullValueTooltip = default!;
 #nullable restore
 #else
-        public string Tooltip { get => _explicitNullValueTooltip; set { _explicitNullValueTooltip = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tooltip"); else _explicitNullProperties?.Remove("tooltip"); } }
+        public string Tooltip { get => _explicitNullValueTooltip; set { _explicitNullValueTooltip = value; AdditionalData?.Remove("tooltip"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tooltip"); else _explicitNullProperties?.Remove("tooltip"); } }
         private string _explicitNullValueTooltip = default!;
 #endif
         /// <summary>
@@ -98,10 +104,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "color", n => { Color = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor>(); } },
+                { "color", n => { var parsed = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueColor = default; _explicitNullProperties?.Remove("color"); AdditionalData["color"] = unknown; } else { Color = parsed; AdditionalData.Remove("color"); } } },
                 { "hoverLabel", n => { HoverLabel = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState>(); } },
+                { "state", n => { var parsed = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateState>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueState = default; _explicitNullProperties?.Remove("state"); AdditionalData["state"] = unknown; } else { State = parsed; AdditionalData.Remove("state"); } } },
                 { "targetUrl", n => { TargetUrl = n.GetStringValue(); } },
                 { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };

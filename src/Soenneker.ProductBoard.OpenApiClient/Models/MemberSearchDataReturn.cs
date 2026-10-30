@@ -18,17 +18,19 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("includeDisabled") is { } nullNodeIncludeDisabled && nullNodeIncludeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeDisabled = null;
-            if (parseNode.GetChildNode("includeInvitationPending") is { } nullNodeIncludeInvitationPending && nullNodeIncludeInvitationPending.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeInvitationPending = null;
+            if (parseNode.GetChildNode("includeDisabled") is null) { _explicitNullValueIncludeDisabled = default!; _explicitNullProperties?.Remove("includeDisabled"); }
+            else if (parseNode.GetChildNode("includeDisabled") is { } nullNodeIncludeDisabled && nullNodeIncludeDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeDisabled = null;
+            if (parseNode.GetChildNode("includeInvitationPending") is null) { _explicitNullValueIncludeInvitationPending = default!; _explicitNullProperties?.Remove("includeInvitationPending"); }
+            else if (parseNode.GetChildNode("includeInvitationPending") is { } nullNodeIncludeInvitationPending && nullNodeIncludeInvitationPending.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludeInvitationPending = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Include disabled members alongside active members. Default false.If `filter.fields.disabled` is also set, the filter takes precedence.</summary>
-        public bool? IncludeDisabled { get => _explicitNullValueIncludeDisabled; set { _explicitNullValueIncludeDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeDisabled"); else _explicitNullProperties?.Remove("includeDisabled"); } }
+        public bool? IncludeDisabled { get => _explicitNullValueIncludeDisabled; set { _explicitNullValueIncludeDisabled = value; AdditionalData?.Remove("includeDisabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeDisabled"); else _explicitNullProperties?.Remove("includeDisabled"); } }
         private bool? _explicitNullValueIncludeDisabled = default!;
         /// <summary>Include members with pending invitations alongside accepted members. Default false.If `filter.fields.invitationPending` is also set, the filter takes precedence.</summary>
-        public bool? IncludeInvitationPending { get => _explicitNullValueIncludeInvitationPending; set { _explicitNullValueIncludeInvitationPending = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeInvitationPending"); else _explicitNullProperties?.Remove("includeInvitationPending"); } }
+        public bool? IncludeInvitationPending { get => _explicitNullValueIncludeInvitationPending; set { _explicitNullValueIncludeInvitationPending = value; AdditionalData?.Remove("includeInvitationPending"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("includeInvitationPending"); else _explicitNullProperties?.Remove("includeInvitationPending"); } }
         private bool? _explicitNullValueIncludeInvitationPending = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataReturn"/> and sets the default values.

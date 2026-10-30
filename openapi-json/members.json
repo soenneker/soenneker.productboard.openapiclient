@@ -508,10 +508,16 @@
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/MemberFieldsName"
+            "type": "string",
+            "description": "Display name of the member.",
+            "example": "John Doe",
+            "x-client-inline-scalar": true
           },
           "username": {
-            "$ref": "#/components/schemas/MemberFieldsUsername"
+            "type": "string",
+            "description": "Username of the member.",
+            "example": "johndoe",
+            "x-client-inline-scalar": true
           },
           "email": {
             "$ref": "#/components/schemas/MemberFieldsEmail"
@@ -768,28 +774,16 @@
         "description": "Filter by role. Single string or array (OR logic)."
       },
       "MemberFieldsName": {
-        "anyOf": [
-          {
-            "type": "string",
-            "description": "Display name of the member.",
-            "example": "John Doe"
-          },
-          {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        ]
+        "type": "string",
+        "description": "Display name of the member.",
+        "example": "John Doe",
+        "x-client-inline-scalar": true
       },
       "MemberFieldsUsername": {
-        "anyOf": [
-          {
-            "type": "string",
-            "description": "Username of the member.",
-            "example": "johndoe"
-          },
-          {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        ]
+        "type": "string",
+        "description": "Username of the member.",
+        "example": "johndoe",
+        "x-client-inline-scalar": true
       },
       "MemberFieldsEmail": {
         "anyOf": [
@@ -809,13 +803,13 @@
         "description": "Placeholder schema for path example refs"
       },
       "MemberType": {
-        "const": null,
         "enum": [
           "member"
         ],
         "type": "string",
         "description": "Resource type identifier",
         "example": "member",
+        "x-client-original-const": "member",
         "x-ms-enum": {
           "name": "MemberType",
           "modelAsString": false,

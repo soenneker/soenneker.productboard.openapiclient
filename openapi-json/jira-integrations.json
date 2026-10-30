@@ -601,13 +601,13 @@
         "description": "Placeholder schema for path example refs"
       },
       "JiraIntegrationType": {
-        "const": null,
         "enum": [
           "jiraIntegration"
         ],
         "type": "string",
         "description": "Resource type identifier.",
         "example": "jiraIntegration",
+        "x-client-original-const": "jiraIntegration",
         "x-ms-enum": {
           "name": "JiraIntegrationType",
           "modelAsString": false,
@@ -643,13 +643,13 @@
         }
       },
       "JiraIntegrationConnectionType": {
-        "const": null,
         "enum": [
           "jiraIntegrationConnection"
         ],
         "type": "string",
         "description": "Resource type identifier.",
         "example": "jiraIntegrationConnection",
+        "x-client-original-const": "jiraIntegrationConnection",
         "x-ms-enum": {
           "name": "JiraIntegrationConnectionType",
           "modelAsString": false,

@@ -18,9 +18,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
-            if (parseNode.GetChildNode("return") is { } nullNodeReturn && nullNodeReturn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Return = null;
-            if (parseNode.GetChildNode("search") is { } nullNodeSearch && nullNodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Search = null;
+            if (parseNode.GetChildNode("filter") is null) { _explicitNullValueFilter = default!; _explicitNullProperties?.Remove("filter"); }
+            else if (parseNode.GetChildNode("filter") is { } nullNodeFilter && nullNodeFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filter = null;
+            if (parseNode.GetChildNode("return") is null) { _explicitNullValueReturn = default!; _explicitNullProperties?.Remove("return"); }
+            else if (parseNode.GetChildNode("return") is { } nullNodeReturn && nullNodeReturn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Return = null;
+            if (parseNode.GetChildNode("search") is null) { _explicitNullValueSearch = default!; _explicitNullProperties?.Remove("search"); }
+            else if (parseNode.GetChildNode("search") is { } nullNodeSearch && nullNodeSearch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Search = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Structured filters for member search. Different filter groups use AND logic.All filters are optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataFilter? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataFilter? Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; AdditionalData?.Remove("filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataFilter? _explicitNullValueFilter = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataFilter Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataFilter Filter { get => _explicitNullValueFilter; set { _explicitNullValueFilter = value; AdditionalData?.Remove("filter"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filter"); else _explicitNullProperties?.Remove("filter"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataFilter _explicitNullValueFilter = default!;
 #endif
         /// <summary>Controls inclusion of normally-excluded members in the response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataReturn? Return { get => _explicitNullValueReturn; set { _explicitNullValueReturn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("return"); else _explicitNullProperties?.Remove("return"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataReturn? Return { get => _explicitNullValueReturn; set { _explicitNullValueReturn = value; AdditionalData?.Remove("return"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("return"); else _explicitNullProperties?.Remove("return"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataReturn? _explicitNullValueReturn = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataReturn Return { get => _explicitNullValueReturn; set { _explicitNullValueReturn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("return"); else _explicitNullProperties?.Remove("return"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataReturn Return { get => _explicitNullValueReturn; set { _explicitNullValueReturn = value; AdditionalData?.Remove("return"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("return"); else _explicitNullProperties?.Remove("return"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataReturn _explicitNullValueReturn = default!;
 #endif
         /// <summary>Full-text search options. Combined with filters using AND logic.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataSearch? Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataSearch? Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; AdditionalData?.Remove("search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataSearch? _explicitNullValueSearch = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataSearch Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataSearch Search { get => _explicitNullValueSearch; set { _explicitNullValueSearch = value; AdditionalData?.Remove("search"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("search"); else _explicitNullProperties?.Remove("search"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.MemberSearchDataSearch _explicitNullValueSearch = default!;
 #endif
         /// <summary>

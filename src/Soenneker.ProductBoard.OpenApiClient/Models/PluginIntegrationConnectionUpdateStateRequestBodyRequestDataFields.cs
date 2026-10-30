@@ -17,7 +17,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection") is { } nullNodeConnection && nullNodeConnection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connection = null;
+            if (parseNode.GetChildNode("connection") is null) { _explicitNullValueConnection = default!; _explicitNullProperties?.Remove("connection"); }
+            else if (parseNode.GetChildNode("connection") is { } nullNodeConnection && nullNodeConnection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connection = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The state of a plugin integration connection. Determined by the `state` property.| State | Meaning | Push button appearance ||---|---|---|| `connected` | Entity linked to third-party entity | Shows `label`; click opens `targetUrl` || `error` | Connection attempt failed | Shows error icon with `message` || `progress` | Establishing asynchronously | Shows loading indicator || `initial` | No connection (default) | Shows integration&apos;s `initialState.label` |</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection? Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection? Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; AdditionalData?.Remove("connection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection? _explicitNullValueConnection = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; AdditionalData?.Remove("connection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection _explicitNullValueConnection = default!;
 #endif
         /// <summary>

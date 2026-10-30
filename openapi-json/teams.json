@@ -1051,16 +1051,10 @@
         }
       },
       "TeamMemberResourceFieldsName": {
-        "anyOf": [
-          {
-            "type": "string",
-            "description": "Display name of the member.",
-            "example": "John Doe"
-          },
-          {
-            "$ref": "#/components/schemas/ObfuscatedValue"
-          }
-        ]
+        "type": "string",
+        "description": "Display name of the member.",
+        "example": "John Doe",
+        "x-client-inline-scalar": true
       },
       "TeamMemberResourceFieldsEmail": {
         "anyOf": [
@@ -1245,7 +1239,10 @@
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/TeamMemberResourceFieldsName"
+            "type": "string",
+            "description": "Display name of the member.",
+            "example": "John Doe",
+            "x-client-inline-scalar": true
           },
           "email": {
             "$ref": "#/components/schemas/TeamMemberResourceFieldsEmail"
@@ -1269,13 +1266,13 @@
         "description": "Placeholder schema for path example refs"
       },
       "TeamType": {
-        "const": null,
         "enum": [
           "team"
         ],
         "type": "string",
         "description": "Resource type identifier",
         "example": "team",
+        "x-client-original-const": "team",
         "x-ms-enum": {
           "name": "TeamType",
           "modelAsString": false,
@@ -1288,12 +1285,12 @@
         }
       },
       "MemberType": {
-        "const": null,
         "enum": [
           "member"
         ],
         "type": "string",
         "description": "Resource type identifier",
+        "x-client-original-const": "member",
         "x-ms-enum": {
           "name": "MemberType",
           "modelAsString": false,
@@ -1350,12 +1347,12 @@
         }
       },
       "ClearOp": {
-        "const": null,
         "enum": [
           "clear"
         ],
         "type": "string",
         "description": "Clear all items from the field.",
+        "x-client-original-const": "clear",
         "x-ms-enum": {
           "name": "ClearOp",
           "modelAsString": false,

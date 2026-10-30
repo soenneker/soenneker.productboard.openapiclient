@@ -17,8 +17,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
-            if (parseNode.GetChildNode("patch") is { } nullNodePatch && nullNodePatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patch = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("patch") is null) { _explicitNullValuePatch = default!; _explicitNullProperties?.Remove("patch"); }
+            else if (parseNode.GetChildNode("patch") is { } nullNodePatch && nullNodePatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Patch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A collection of fields that can be used to create or update a Note.It is a subset of `NoteFields` that is used for creation or update operations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UpdateNoteRequestDataFieldsProperty? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UpdateNoteRequestDataFieldsProperty? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.UpdateNoteRequestDataFieldsProperty? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.UpdateNoteRequestDataFieldsProperty Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.UpdateNoteRequestDataFieldsProperty Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private global::Soenneker.ProductBoard.OpenApiClient.Models.UpdateNoteRequestDataFieldsProperty _explicitNullValueFields = default!;
 #endif
         /// <summary>A list of patch operations to perform on a Note field.Each operation can be one of `set`, `clear`, `addItems`, or `removeItems`.**Supported Operations:**- `set`: Set a field to a specific value (supports all fields)- `clear`: Clear/reset a field to its default value (supports owner, tags, content)- `addItems`: Add items to array fields (supports tags, conversation content)- `removeItems`: Remove items from array fields (supports tags, conversation content)**Field-specific support:**- **owner**: set, clear- **tags**: set, clear, addItems, removeItems- **archived**: set- **processed**: set- **name**: set- **content** (textNote): set- **content** (conversationNote): set, addItems, removeItems**Operation Compatibility Rules (for each field):**- Cannot combine `set`/`clear` with `addItems`/`removeItems` operations on the same field- Cannot combine both `set` and `clear` operations on the same field- Can combine `addItems` and `removeItems` together on the same field (for array operations)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchItem>? Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchItem>? Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; AdditionalData?.Remove("patch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
         private List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchItem>? _explicitNullValuePatch = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchItem> Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
+        public List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchItem> Patch { get => _explicitNullValuePatch; set { _explicitNullValuePatch = value; AdditionalData?.Remove("patch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("patch"); else _explicitNullProperties?.Remove("patch"); } }
         private List<global::Soenneker.ProductBoard.OpenApiClient.Models.NotePatchItem> _explicitNullValuePatch = default!;
 #endif
         /// <summary>

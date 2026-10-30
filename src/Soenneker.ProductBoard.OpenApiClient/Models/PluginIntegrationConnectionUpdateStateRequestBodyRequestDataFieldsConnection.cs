@@ -8,78 +8,48 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// The state of a plugin integration connection. Determined by the `state` property.| State | Meaning | Push button appearance ||---|---|---|| `connected` | Entity linked to third-party entity | Shows `label`; click opens `targetUrl` || `error` | Connection attempt failed | Shows error icon with `message` || `progress` | Establishing asynchronously | Shows loading indicator || `initial` | No connection (default) | Shows integration&apos;s `initialState.label` |
+    /// Composed type wrapper for classes <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3"/>, <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection : IAdditionalDataHolder, IParsable
-    {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Background color of the push button.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor? Color { get; set; }
-        /// <summary>Additional debugging information set by Productboard when a push fails onProductboard&apos;s side. **Not visible in the UI** — for developer use duringintegration development only. Never set by the partner.</summary>
+    public partial class PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection : IComposedTypeWrapper, IParsable
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DebugDetail { get; private set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1? PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 { get; set; }
 #nullable restore
 #else
-        public string DebugDetail { get; private set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 { get; set; }
 #endif
-        /// <summary>Text on the push button on hover (temporarily replaces `label`). Typically shows the linked entity&apos;s identifier.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HoverLabel { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2? PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 { get; set; }
 #nullable restore
 #else
-        public string HoverLabel { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 { get; set; }
 #endif
-        /// <summary>Text on the push button when connected. Typically the entity&apos;s current status.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Label { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3? PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 { get; set; }
 #nullable restore
 #else
-        public string Label { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 { get; set; }
 #endif
-        /// <summary>Human-readable error message explaining why the connection could not be established. Shown in the error popup in the Productboard UI.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Message { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4? PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 { get; set; }
 #nullable restore
 #else
-        public string Message { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 { get; set; }
 #endif
-        /// <summary>The state property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? State { get; set; }
-#nullable restore
-#else
-        public string State { get; set; }
-#endif
-        /// <summary>URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TargetUrl { get; set; }
-#nullable restore
-#else
-        public string TargetUrl { get; set; }
-#endif
-        /// <summary>Longer tooltip text shown on hover. Ideal for a detailed description of the linked entity.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Tooltip { get; set; }
-#nullable restore
-#else
-        public string Tooltip { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection"/> and sets the default values.
-        /// </summary>
-        public PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -88,7 +58,36 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnection();
+            if("PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("state") != null && (parseNode.GetChildNode("state")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("connected".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("label") != null && parseNode.GetChildNode("hoverLabel") != null && parseNode.GetChildNode("tooltip") != null && parseNode.GetChildNode("color") != null && (parseNode.GetChildNode("color")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag6 && ("gray".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "blue".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "green".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "yellow".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "orange".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "red".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal) || "purple".Equals(tag6.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("targetUrl") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("state") != null && (parseNode.GetChildNode("state")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("error".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("message") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("state") != null && (parseNode.GetChildNode("state")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("progress".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("state") != null && (parseNode.GetChildNode("state")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("initial".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            if (result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1(), parseNode);
+            if (result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2(), parseNode);
+            if (result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3(), parseNode);
+            if (result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4(), parseNode);
+            if (result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && result.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,17 +95,23 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 != null)
             {
-                { "color", n => { Color = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor>(); } },
-                { "debugDetail", n => { DebugDetail = n.GetStringValue(); } },
-                { "hoverLabel", n => { HoverLabel = n.GetStringValue(); } },
-                { "label", n => { Label = n.GetStringValue(); } },
-                { "message", n => { Message = n.GetStringValue(); } },
-                { "state", n => { State = n.GetStringValue(); } },
-                { "targetUrl", n => { TargetUrl = n.GetStringValue(); } },
-                { "tooltip", n => { Tooltip = n.GetStringValue(); } },
-            };
+                return PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1.GetFieldDeserializers();
+            }
+            else if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 != null)
+            {
+                return PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2.GetFieldDeserializers();
+            }
+            else if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 != null)
+            {
+                return PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3.GetFieldDeserializers();
+            }
+            else if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 != null)
+            {
+                return PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -114,15 +119,34 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 != null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null) { if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1); return; }
+            if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 != null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null) { if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2); return; }
+            if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 != null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 == null) { if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3); return; }
+            if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 != null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 == null && PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 == null) { if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConnectedStateColor>("color", Color);
-            writer.WriteStringValue("hoverLabel", HoverLabel);
-            writer.WriteStringValue("label", Label);
-            writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("state", State);
-            writer.WriteStringValue("targetUrl", TargetUrl);
-            writer.WriteStringValue("tooltip", Tooltip);
-            writer.WriteAdditionalData(AdditionalData);
+            if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 != null)
+            {
+                if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1>(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf1);
+            }
+            else if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 != null)
+            {
+                if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2>(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf2);
+            }
+            else if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 != null)
+            {
+                if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3>(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf3);
+            }
+            else if(PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 != null)
+            {
+                if (PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4>(null, PluginIntegrationConnectionUpdateStateRequestBodyRequestDataFieldsConnectionOneOf4);
+            }
         }
     }
 }

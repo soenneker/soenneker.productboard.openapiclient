@@ -76,6 +76,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
                 { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -113,6 +115,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.PluginIntegrations
                 { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationCreateResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationCreateResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

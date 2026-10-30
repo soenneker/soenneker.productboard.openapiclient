@@ -12,34 +12,52 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PluginIntegrationPatchRequestBodyRequestDataFields : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("action") is { } nullNodeAction && nullNodeAction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Action = null;
+            if (parseNode.GetChildNode("initialState") is { } nullNodeInitialState && nullNodeInitialState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialState = null;
+            if (parseNode.GetChildNode("integrationStatus") is { } nullNodeIntegrationStatus && nullNodeIntegrationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IntegrationStatus = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+        }
+
         /// <summary>Configuration for the action endpoint Productboard calls when a user interactswith a push button (push, unlink, or dismiss).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsAction? Action { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsAction? Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsAction? _explicitNullValueAction = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsAction Action { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsAction Action { get => _explicitNullValueAction; set { _explicitNullValueAction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("action"); else _explicitNullProperties?.Remove("action"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsAction _explicitNullValueAction = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Configuration of the push button before an entity has been connected to the third-party system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsInitialState? InitialState { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsInitialState? InitialState { get => _explicitNullValueInitialState; set { _explicitNullValueInitialState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initialState"); else _explicitNullProperties?.Remove("initialState"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsInitialState? _explicitNullValueInitialState = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsInitialState InitialState { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsInitialState InitialState { get => _explicitNullValueInitialState; set { _explicitNullValueInitialState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initialState"); else _explicitNullProperties?.Remove("initialState"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsInitialState _explicitNullValueInitialState = default!;
 #endif
         /// <summary>Controls whether the integration is active:- `enabled` — integration column is visible and the push button is active- `disabled` — integration column is hidden from the Features board</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsIntegrationStatus? IntegrationStatus { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsIntegrationStatus? IntegrationStatus { get => _explicitNullValueIntegrationStatus; set { _explicitNullValueIntegrationStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("integrationStatus"); else _explicitNullProperties?.Remove("integrationStatus"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsIntegrationStatus? _explicitNullValueIntegrationStatus = default!;
         /// <summary>Human-readable name shown as the column name on the Features board and in Productboard settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationPatchRequestBodyRequestDataFields"/> and sets the default values.
@@ -56,7 +74,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationPatchRequestBodyRequestDataFields CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationPatchRequestBodyRequestDataFields();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationPatchRequestBodyRequestDataFields(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,6 +101,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsInitialState>("initialState", InitialState);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationUpdateFieldsIntegrationStatus>("integrationStatus", IntegrationStatus);
             writer.WriteStringValue("name", Name);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

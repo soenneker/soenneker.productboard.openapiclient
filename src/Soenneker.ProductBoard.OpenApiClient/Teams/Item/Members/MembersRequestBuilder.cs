@@ -65,6 +65,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Teams.Item.Members
                 { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.TeamsErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMembersListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.TeamMembersListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

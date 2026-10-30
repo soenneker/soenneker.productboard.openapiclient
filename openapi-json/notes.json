@@ -2698,9 +2698,6 @@
         "description": "A collection of relationships connected to the note.\nThis includes:\n- Customer relationship (either a User or Company entity)\n- Product link relationships (e.g. linked features)\nThe list is paginated, to see the rest of the relationships follow the URL contained in the \u0060links.next\u0060 attribute.\n"
       },
       "NoteCreateRelationship": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/CustomerRelationshipInput"
@@ -2709,13 +2706,8 @@
             "$ref": "#/components/schemas/LinkRelationshipInput"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Relationship to create when creating a note.\nUsed for atomically creating notes with relationships in a single API call.\n",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "customer": "#/components/schemas/CustomerRelationshipInput",
@@ -3803,9 +3795,6 @@
         }
       },
       "RelationshipRequestData": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/CustomerRelationshipInput"
@@ -3814,12 +3803,7 @@
             "$ref": "#/components/schemas/LinkRelationshipInput"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "customer": "#/components/schemas/CustomerRelationshipInput",

@@ -82,6 +82,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Members
                 { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.MembersErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.MemberListResponseResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.MemberListResponseResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -90,6 +90,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
                 { "408", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.ListNotes200Response>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.ListNotes200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -129,6 +131,8 @@ namespace Soenneker.ProductBoard.OpenApiClient.Notes
                 { "422", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.ProductBoard.OpenApiClient.Models.NotesErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse>(requestInfo, global::Soenneker.ProductBoard.OpenApiClient.Models.NoteReferenceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

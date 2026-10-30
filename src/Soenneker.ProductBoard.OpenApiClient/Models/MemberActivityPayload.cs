@@ -13,69 +13,126 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MemberActivityPayload : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("activeFlag") is { } nullNodeActiveFlag && nullNodeActiveFlag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveFlag = null;
+            if (parseNode.GetChildNode("boardCreatedCount") is { } nullNodeBoardCreatedCount && nullNodeBoardCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoardCreatedCount = null;
+            if (parseNode.GetChildNode("boardOpenedCount") is { } nullNodeBoardOpenedCount && nullNodeBoardOpenedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BoardOpenedCount = null;
+            if (parseNode.GetChildNode("columnBoardCreatedCount") is { } nullNodeColumnBoardCreatedCount && nullNodeColumnBoardCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColumnBoardCreatedCount = null;
+            if (parseNode.GetChildNode("columnBoardOpenedCount") is { } nullNodeColumnBoardOpenedCount && nullNodeColumnBoardOpenedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColumnBoardOpenedCount = null;
+            if (parseNode.GetChildNode("componentCreatedCount") is { } nullNodeComponentCreatedCount && nullNodeComponentCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComponentCreatedCount = null;
+            if (parseNode.GetChildNode("date") is { } nullNodeDate && nullNodeDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Date = null;
+            if (parseNode.GetChildNode("documentBoardCreatedCount") is { } nullNodeDocumentBoardCreatedCount && nullNodeDocumentBoardCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentBoardCreatedCount = null;
+            if (parseNode.GetChildNode("documentBoardOpenedCount") is { } nullNodeDocumentBoardOpenedCount && nullNodeDocumentBoardOpenedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentBoardOpenedCount = null;
+            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("featureCreatedCount") is { } nullNodeFeatureCreatedCount && nullNodeFeatureCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeatureCreatedCount = null;
+            if (parseNode.GetChildNode("gridBoardCreatedCount") is { } nullNodeGridBoardCreatedCount && nullNodeGridBoardCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GridBoardCreatedCount = null;
+            if (parseNode.GetChildNode("gridBoardOpenedCount") is { } nullNodeGridBoardOpenedCount && nullNodeGridBoardOpenedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GridBoardOpenedCount = null;
+            if (parseNode.GetChildNode("insightCreatedCount") is { } nullNodeInsightCreatedCount && nullNodeInsightCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightCreatedCount = null;
+            if (parseNode.GetChildNode("insightsBoardCreatedCount") is { } nullNodeInsightsBoardCreatedCount && nullNodeInsightsBoardCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightsBoardCreatedCount = null;
+            if (parseNode.GetChildNode("insightsBoardOpenedCount") is { } nullNodeInsightsBoardOpenedCount && nullNodeInsightsBoardOpenedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InsightsBoardOpenedCount = null;
+            if (parseNode.GetChildNode("memberId") is { } nullNodeMemberId && nullNodeMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemberId = null;
+            if (parseNode.GetChildNode("noteCreatedCount") is { } nullNodeNoteCreatedCount && nullNodeNoteCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoteCreatedCount = null;
+            if (parseNode.GetChildNode("noteStateChangedCount") is { } nullNodeNoteStateChangedCount && nullNodeNoteStateChangedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoteStateChangedCount = null;
+            if (parseNode.GetChildNode("productCreatedCount") is { } nullNodeProductCreatedCount && nullNodeProductCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProductCreatedCount = null;
+            if (parseNode.GetChildNode("role") is { } nullNodeRole && nullNodeRole.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Role = null;
+            if (parseNode.GetChildNode("subfeatureCreatedCount") is { } nullNodeSubfeatureCreatedCount && nullNodeSubfeatureCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubfeatureCreatedCount = null;
+            if (parseNode.GetChildNode("timelineBoardCreatedCount") is { } nullNodeTimelineBoardCreatedCount && nullNodeTimelineBoardCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimelineBoardCreatedCount = null;
+            if (parseNode.GetChildNode("timelineBoardOpenedCount") is { } nullNodeTimelineBoardOpenedCount && nullNodeTimelineBoardOpenedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimelineBoardOpenedCount = null;
+        }
+
         /// <summary>Boolean value or flag. In the UI, it is usually represented as a single checkbox.</summary>
-        public bool? ActiveFlag { get; set; }
+        public bool? ActiveFlag { get => _explicitNullValueActiveFlag; set { _explicitNullValueActiveFlag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("activeFlag"); else _explicitNullProperties?.Remove("activeFlag"); } }
+        private bool? _explicitNullValueActiveFlag = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Number of boards created by the member on this date</summary>
-        public int? BoardCreatedCount { get; set; }
+        public int? BoardCreatedCount { get => _explicitNullValueBoardCreatedCount; set { _explicitNullValueBoardCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("boardCreatedCount"); else _explicitNullProperties?.Remove("boardCreatedCount"); } }
+        private int? _explicitNullValueBoardCreatedCount = default!;
         /// <summary>Number of boards opened by the member on this date</summary>
-        public int? BoardOpenedCount { get; set; }
+        public int? BoardOpenedCount { get => _explicitNullValueBoardOpenedCount; set { _explicitNullValueBoardOpenedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("boardOpenedCount"); else _explicitNullProperties?.Remove("boardOpenedCount"); } }
+        private int? _explicitNullValueBoardOpenedCount = default!;
         /// <summary>Number of column roadmap boards created by the member on this date</summary>
-        public int? ColumnBoardCreatedCount { get; set; }
+        public int? ColumnBoardCreatedCount { get => _explicitNullValueColumnBoardCreatedCount; set { _explicitNullValueColumnBoardCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnBoardCreatedCount"); else _explicitNullProperties?.Remove("columnBoardCreatedCount"); } }
+        private int? _explicitNullValueColumnBoardCreatedCount = default!;
         /// <summary>Number of column boards opened by the member on this date</summary>
-        public int? ColumnBoardOpenedCount { get; set; }
+        public int? ColumnBoardOpenedCount { get => _explicitNullValueColumnBoardOpenedCount; set { _explicitNullValueColumnBoardOpenedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columnBoardOpenedCount"); else _explicitNullProperties?.Remove("columnBoardOpenedCount"); } }
+        private int? _explicitNullValueColumnBoardOpenedCount = default!;
         /// <summary>Number of components created by the member on this date</summary>
-        public int? ComponentCreatedCount { get; set; }
+        public int? ComponentCreatedCount { get => _explicitNullValueComponentCreatedCount; set { _explicitNullValueComponentCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("componentCreatedCount"); else _explicitNullProperties?.Remove("componentCreatedCount"); } }
+        private int? _explicitNullValueComponentCreatedCount = default!;
         /// <summary>Date and time in ISO 8601 format without time.</summary>
-        public Date? Date { get; set; }
+        public Date? Date { get => _explicitNullValueDate; set { _explicitNullValueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date"); else _explicitNullProperties?.Remove("date"); } }
+        private Date? _explicitNullValueDate = default!;
         /// <summary>Number of document boards created by the member on this date</summary>
-        public int? DocumentBoardCreatedCount { get; set; }
+        public int? DocumentBoardCreatedCount { get => _explicitNullValueDocumentBoardCreatedCount; set { _explicitNullValueDocumentBoardCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentBoardCreatedCount"); else _explicitNullProperties?.Remove("documentBoardCreatedCount"); } }
+        private int? _explicitNullValueDocumentBoardCreatedCount = default!;
         /// <summary>Number of document boards opened by the member on this date</summary>
-        public int? DocumentBoardOpenedCount { get; set; }
+        public int? DocumentBoardOpenedCount { get => _explicitNullValueDocumentBoardOpenedCount; set { _explicitNullValueDocumentBoardOpenedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentBoardOpenedCount"); else _explicitNullProperties?.Remove("documentBoardOpenedCount"); } }
+        private int? _explicitNullValueDocumentBoardOpenedCount = default!;
         /// <summary>Domain identifier for the space</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Domain { get; set; }
+        public string? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public string Domain { get; set; }
+        public string Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private string _explicitNullValueDomain = default!;
 #endif
         /// <summary>Number of features created by the member on this date</summary>
-        public int? FeatureCreatedCount { get; set; }
+        public int? FeatureCreatedCount { get => _explicitNullValueFeatureCreatedCount; set { _explicitNullValueFeatureCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("featureCreatedCount"); else _explicitNullProperties?.Remove("featureCreatedCount"); } }
+        private int? _explicitNullValueFeatureCreatedCount = default!;
         /// <summary>Number of grid/prioritization boards created by the member on this date</summary>
-        public int? GridBoardCreatedCount { get; set; }
+        public int? GridBoardCreatedCount { get => _explicitNullValueGridBoardCreatedCount; set { _explicitNullValueGridBoardCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gridBoardCreatedCount"); else _explicitNullProperties?.Remove("gridBoardCreatedCount"); } }
+        private int? _explicitNullValueGridBoardCreatedCount = default!;
         /// <summary>Number of grid/prioritization boards opened by the member on this date</summary>
-        public int? GridBoardOpenedCount { get; set; }
+        public int? GridBoardOpenedCount { get => _explicitNullValueGridBoardOpenedCount; set { _explicitNullValueGridBoardOpenedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gridBoardOpenedCount"); else _explicitNullProperties?.Remove("gridBoardOpenedCount"); } }
+        private int? _explicitNullValueGridBoardOpenedCount = default!;
         /// <summary>Number of insights created by the member on this date</summary>
-        public int? InsightCreatedCount { get; set; }
+        public int? InsightCreatedCount { get => _explicitNullValueInsightCreatedCount; set { _explicitNullValueInsightCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insightCreatedCount"); else _explicitNullProperties?.Remove("insightCreatedCount"); } }
+        private int? _explicitNullValueInsightCreatedCount = default!;
         /// <summary>Number of insights boards created by the member on this date</summary>
-        public int? InsightsBoardCreatedCount { get; set; }
+        public int? InsightsBoardCreatedCount { get => _explicitNullValueInsightsBoardCreatedCount; set { _explicitNullValueInsightsBoardCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insightsBoardCreatedCount"); else _explicitNullProperties?.Remove("insightsBoardCreatedCount"); } }
+        private int? _explicitNullValueInsightsBoardCreatedCount = default!;
         /// <summary>Number of insights/inbox/analytics boards opened by the member on this date</summary>
-        public int? InsightsBoardOpenedCount { get; set; }
+        public int? InsightsBoardOpenedCount { get => _explicitNullValueInsightsBoardOpenedCount; set { _explicitNullValueInsightsBoardOpenedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insightsBoardOpenedCount"); else _explicitNullProperties?.Remove("insightsBoardOpenedCount"); } }
+        private int? _explicitNullValueInsightsBoardOpenedCount = default!;
         /// <summary>A universally unique identifier (UUID).</summary>
-        public Guid? MemberId { get; set; }
+        public Guid? MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("memberId"); else _explicitNullProperties?.Remove("memberId"); } }
+        private Guid? _explicitNullValueMemberId = default!;
         /// <summary>Number of notes created by the member on this date</summary>
-        public int? NoteCreatedCount { get; set; }
+        public int? NoteCreatedCount { get => _explicitNullValueNoteCreatedCount; set { _explicitNullValueNoteCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noteCreatedCount"); else _explicitNullProperties?.Remove("noteCreatedCount"); } }
+        private int? _explicitNullValueNoteCreatedCount = default!;
         /// <summary>Number of note state changes by the member on this date</summary>
-        public int? NoteStateChangedCount { get; set; }
+        public int? NoteStateChangedCount { get => _explicitNullValueNoteStateChangedCount; set { _explicitNullValueNoteStateChangedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("noteStateChangedCount"); else _explicitNullProperties?.Remove("noteStateChangedCount"); } }
+        private int? _explicitNullValueNoteStateChangedCount = default!;
         /// <summary>Number of products created by the member on this date</summary>
-        public int? ProductCreatedCount { get; set; }
+        public int? ProductCreatedCount { get => _explicitNullValueProductCreatedCount; set { _explicitNullValueProductCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("productCreatedCount"); else _explicitNullProperties?.Remove("productCreatedCount"); } }
+        private int? _explicitNullValueProductCreatedCount = default!;
         /// <summary>Role of the member who performed the activity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Role { get; set; }
+        public string? Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        private string? _explicitNullValueRole = default!;
 #nullable restore
 #else
-        public string Role { get; set; }
+        public string Role { get => _explicitNullValueRole; set { _explicitNullValueRole = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("role"); else _explicitNullProperties?.Remove("role"); } }
+        private string _explicitNullValueRole = default!;
 #endif
         /// <summary>Number of subfeatures created by the member on this date</summary>
-        public int? SubfeatureCreatedCount { get; set; }
+        public int? SubfeatureCreatedCount { get => _explicitNullValueSubfeatureCreatedCount; set { _explicitNullValueSubfeatureCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subfeatureCreatedCount"); else _explicitNullProperties?.Remove("subfeatureCreatedCount"); } }
+        private int? _explicitNullValueSubfeatureCreatedCount = default!;
         /// <summary>Number of timeline roadmap boards created by the member on this date</summary>
-        public int? TimelineBoardCreatedCount { get; set; }
+        public int? TimelineBoardCreatedCount { get => _explicitNullValueTimelineBoardCreatedCount; set { _explicitNullValueTimelineBoardCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timelineBoardCreatedCount"); else _explicitNullProperties?.Remove("timelineBoardCreatedCount"); } }
+        private int? _explicitNullValueTimelineBoardCreatedCount = default!;
         /// <summary>Number of timeline boards opened by the member on this date</summary>
-        public int? TimelineBoardOpenedCount { get; set; }
+        public int? TimelineBoardOpenedCount { get => _explicitNullValueTimelineBoardOpenedCount; set { _explicitNullValueTimelineBoardOpenedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timelineBoardOpenedCount"); else _explicitNullProperties?.Remove("timelineBoardOpenedCount"); } }
+        private int? _explicitNullValueTimelineBoardOpenedCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.MemberActivityPayload"/> and sets the default values.
         /// </summary>
@@ -91,7 +148,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.MemberActivityPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberActivityPayload();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.MemberActivityPayload(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -158,6 +215,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteIntValue("subfeatureCreatedCount", SubfeatureCreatedCount);
             writer.WriteIntValue("timelineBoardCreatedCount", TimelineBoardCreatedCount);
             writer.WriteIntValue("timelineBoardOpenedCount", TimelineBoardOpenedCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

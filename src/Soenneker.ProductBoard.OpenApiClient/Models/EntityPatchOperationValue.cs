@@ -13,53 +13,89 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EntityPatchOperationValue : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("comment") is { } nullNodeComment && nullNodeComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comment = null;
+            if (parseNode.GetChildNode("createdBy") is { } nullNodeCreatedBy && nullNodeCreatedBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedBy = null;
+            if (parseNode.GetChildNode("currentValue") is { } nullNodeCurrentValue && nullNodeCurrentValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentValue = null;
+            if (parseNode.GetChildNode("endDate") is { } nullNodeEndDate && nullNodeEndDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndDate = null;
+            if (parseNode.GetChildNode("granularity") is { } nullNodeGranularity && nullNodeGranularity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Granularity = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("mode") is { } nullNodeMode && nullNodeMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mode = null;
+            if (parseNode.GetChildNode("startDate") is { } nullNodeStartDate && nullNodeStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDate = null;
+            if (parseNode.GetChildNode("startValue") is { } nullNodeStartValue && nullNodeStartValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartValue = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("targetValue") is { } nullNodeTargetValue && nullNodeTargetValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetValue = null;
+            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("valueMode") is { } nullNodeValueMode && nullNodeValueMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValueMode = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>HTML-formatted text content for Entities.## Behavior- Accepts HTML-formatted strings up to 524KB (524,288 characters)- Can be empty string (minLength: 0)- Supports rich formatting including bold, italic, links, lists  - Follow [Rich Text Formatting guidelines](https://developer.productboard.com/reference/richtext)- Used for detailed descriptions, specifications, documentation, and formatted comments</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Comment { get; set; }
+        public string? Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string? _explicitNullValueComment = default!;
 #nullable restore
 #else
-        public string Comment { get; set; }
+        public string Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string _explicitNullValueComment = default!;
 #endif
         /// <summary>Member assignment allowing identification by ID or email address.## Behavior- Supports two identification methods: unique ID (UUID) or email address- Use ID for precision and consistency across API calls- Use email for convenience when ID is unknown- Email must match existing member in workspace- Provide either `id` or `email`; providing both is rejected with a validation error</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy? CreatedBy { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy? CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdBy"); else _explicitNullProperties?.Remove("createdBy"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy? _explicitNullValueCreatedBy = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy CreatedBy { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy CreatedBy { get => _explicitNullValueCreatedBy; set { _explicitNullValueCreatedBy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdBy"); else _explicitNullProperties?.Remove("createdBy"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueCreatedBy _explicitNullValueCreatedBy = default!;
 #endif
         /// <summary>The current progress value being tracked.</summary>
-        public float? CurrentValue { get; set; }
+        public float? CurrentValue { get => _explicitNullValueCurrentValue; set { _explicitNullValueCurrentValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentValue"); else _explicitNullProperties?.Remove("currentValue"); } }
+        private float? _explicitNullValueCurrentValue = default!;
         /// <summary>Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.## Behavior- Must follow ISO 8601 date format: YYYY-MM-DD- Date-only format without time component- Validates for proper date structure and valid calendar dates- Used for due dates, milestones, release dates, and timeframe boundaries- Timezone-independent (date only)</summary>
-        public Date? EndDate { get; set; }
+        public Date? EndDate { get => _explicitNullValueEndDate; set { _explicitNullValueEndDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endDate"); else _explicitNullProperties?.Remove("endDate"); } }
+        private Date? _explicitNullValueEndDate = default!;
         /// <summary>Time granularity level for timeframe display and interpretation.## Behavior- Must be one of: `year`, `quarter`, `month`, `day`- Affects how timeframe dates are displayed and interpreted in the UI- Used in conjunction with TimeframeFieldValue to specify precision level- Supports different planning scales from daily sprints to annual strategies- Exact string matching for filtering</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueGranularity? Granularity { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueGranularity? Granularity { get => _explicitNullValueGranularity; set { _explicitNullValueGranularity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("granularity"); else _explicitNullProperties?.Remove("granularity"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.TimeframeFieldValueGranularity? _explicitNullValueGranularity = default!;
         /// <summary>Metadata associated with a field value, including its source and visibility settings.## Behavior- `source`: Origin of the value from external API- `isViewableOnly`: If true, value cannot be edited through the API (read-only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata? Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata Metadata { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.BooleanFieldValueWithMetadataMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The mode of health status calculation.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode? Mode { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode? Mode { get => _explicitNullValueMode; set { _explicitNullValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mode"); else _explicitNullProperties?.Remove("mode"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueMode? _explicitNullValueMode = default!;
         /// <summary>Calendar date in ISO 8601 format (YYYY-MM-DD) for Entities.## Behavior- Must follow ISO 8601 date format: YYYY-MM-DD- Date-only format without time component- Validates for proper date structure and valid calendar dates- Used for due dates, milestones, release dates, and timeframe boundaries- Timezone-independent (date only)</summary>
-        public Date? StartDate { get; set; }
+        public Date? StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startDate"); else _explicitNullProperties?.Remove("startDate"); } }
+        private Date? _explicitNullValueStartDate = default!;
         /// <summary>The starting baseline value for progress measurement.</summary>
-        public float? StartValue { get; set; }
+        public float? StartValue { get => _explicitNullValueStartValue; set { _explicitNullValueStartValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("startValue"); else _explicitNullProperties?.Remove("startValue"); } }
+        private float? _explicitNullValueStartValue = default!;
         /// <summary>The health status of the work item. `notSet` is read-only — it is returned on read for entities withcalculated or uninitialized health and cannot be assigned in a manual update.</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueStatus? Status { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.HealthUpdateFieldValueStatus? _explicitNullValueStatus = default!;
         /// <summary>The target goal value to achieve.</summary>
-        public float? TargetValue { get; set; }
+        public float? TargetValue { get => _explicitNullValueTargetValue; set { _explicitNullValueTargetValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetValue"); else _explicitNullProperties?.Remove("targetValue"); } }
+        private float? _explicitNullValueTargetValue = default!;
         /// <summary>The boolean value</summary>
-        public bool? Value { get; set; }
+        public bool? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private bool? _explicitNullValueValue = default!;
         /// <summary>Whether the number field value is calculated automatically or entered manually.- `manual`: The field displays and uses the manually entered value- `calculated`: The field displays and uses an automatically calculated value (e.g., from child entities)</summary>
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdateValueMode? ValueMode { get; set; }
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdateValueMode? ValueMode { get => _explicitNullValueValueMode; set { _explicitNullValueValueMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valueMode"); else _explicitNullProperties?.Remove("valueMode"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdateValueMode? _explicitNullValueValueMode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue"/> and sets the default values.
         /// </summary>
@@ -75,7 +111,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public static global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityPatchOperationValue(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,6 +156,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             writer.WriteFloatValue("targetValue", TargetValue);
             writer.WriteBoolValue("value", Value);
             writer.WriteEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NumberValueModeUpdateValueMode>("valueMode", ValueMode);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

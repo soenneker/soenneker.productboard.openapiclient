@@ -625,6 +625,45 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Note created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoteReferenceResponse"
+                },
+                "examples": {
+                  "text-note": {
+                    "summary": "Text note response",
+                    "value": {
+                      "data": {
+                        "id": "123e4567-e89b-12d3-a456-426614174000",
+                        "type": "textNote",
+                        "links": {
+                          "self": "https://api.productboard.com/v2/notes/123e4567-e89b-12d3-a456-426614174000",
+                          "html": "https://example.productboard.com/all-notes/notes/42"
+                        }
+                      }
+                    }
+                  },
+                  "conversation-note": {
+                    "summary": "Conversation note response",
+                    "value": {
+                      "data": {
+                        "id": "223e4567-e89b-12d3-a456-426614174000",
+                        "type": "conversationNote",
+                        "links": {
+                          "self": "https://api.productboard.com/v2/notes/223e4567-e89b-12d3-a456-426614174000",
+                          "html": "https://example.productboard.com/all-notes/notes/42"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -1940,6 +1979,49 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Relationship created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateNoteRelationship201Response"
+                },
+                "examples": {
+                  "customer_relationship_created": {
+                    "summary": "Customer relationship created",
+                    "value": {
+                      "data": {
+                        "type": "customer",
+                        "target": {
+                          "id": "123e4567-e89b-12d3-a456-426614174000",
+                          "type": "user",
+                          "links": {
+                            "self": "https://api.productboard.com/v2/users/123e4567-e89b-12d3-a456-426614174000"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "link_relationship_created": {
+                    "summary": "Product link relationship created",
+                    "value": {
+                      "data": {
+                        "type": "link",
+                        "target": {
+                          "id": "223e4567-e89b-12d3-a456-426614174001",
+                          "type": "feature",
+                          "links": {
+                            "self": "https://api.productboard.com/v2/entities/223e4567-e89b-12d3-a456-426614174001"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [

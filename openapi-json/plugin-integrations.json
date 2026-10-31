@@ -65,6 +65,31 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Plugin integration created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PluginIntegrationCreateResponseResponse"
+                },
+                "examples": {
+                  "created": {
+                    "summary": "Integration created",
+                    "value": {
+                      "data": {
+                        "id": "00000000-0000-0000-0000-000000000001",
+                        "links": {
+                          "self": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001",
+                          "connections": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001/connections"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "callbacks": {

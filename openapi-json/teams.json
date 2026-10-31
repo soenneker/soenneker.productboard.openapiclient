@@ -156,6 +156,33 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Team created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamReferenceResponse"
+                },
+                "examples": {
+                  "reference": {
+                    "summary": "Team reference",
+                    "value": {
+                      "data": {
+                        "id": "123e4567-e89b-12d3-a456-426614174000",
+                        "type": "team",
+                        "links": {
+                          "self": "https://api.productboard.com/v2/teams/123e4567-e89b-12d3-a456-426614174000",
+                          "members": "https://api.productboard.com/v2/teams/123e4567-e89b-12d3-a456-426614174000/members",
+                          "html": "https://example.productboard.com/settings/teams/12"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [

@@ -213,6 +213,27 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Entity created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReferenceResponseResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "318de52f-4e38-4c94-a550-a0d47a1f212e",
+                    "type": "feature",
+                    "links": {
+                      "self": "https://api.productboard.com/v2/entities/318de52f-4e38-4c94-a550-a0d47a1f212e",
+                      "html": "https://example.productboard.com/detail/UG1FbnRpdHk6MzE4ZGU1MmYtNGUzOC00Yzk0LWE1NTAtYTBkNDdhMWYyMTJl"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -856,6 +877,33 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Relationship created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityRelationshipResponseResponse"
+                },
+                "example": {
+                  "data": {
+                    "type": "parent",
+                    "target": {
+                      "id": "318de52f-4e38-4c94-a550-a0d47a1f212e",
+                      "type": "component",
+                      "links": {
+                        "self": "https://api.productboard.com/v2/entities/318de52f-4e38-4c94-a550-a0d47a1f212e",
+                        "html": "https://example.productboard.com/detail/UG1FbnRpdHk6MzE4ZGU1MmYtNGUzOC00Yzk0LWE1NTAtYTBkNDdhMWYyMTJl"
+                      }
+                    }
+                  },
+                  "links": {
+                    "self": "https://api.productboard.com/v2/entities/195a1cb2-728f-4be8-900f-aebbd84d7944/relationships/parent/318de52f-4e38-4c94-a550-a0d47a1f212e"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -1181,6 +1229,25 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Field value created or updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FieldValueReferenceResponseResponse"
+                },
+                "example": {
+                  "data": {
+                    "id": "a09fccc8-a4ac-4262-84f1-68ad77f82265",
+                    "links": {
+                      "self": "https://api.productboard.com/v2/entities/fields/be0f15ed-7e9c-4815-a974-adced8c55602/values/a09fccc8-a4ac-4262-84f1-68ad77f82265"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [

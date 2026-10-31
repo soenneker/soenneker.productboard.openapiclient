@@ -119,6 +119,31 @@
           "500": {
             "description": "Internal Server Error - An unexpected error occurred on the server, please retry or contact support",
             "$ref": "#/components/responses/InternalServerErrorResponse"
+          },
+          "200": {
+            "description": "Webhook subscription created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookReferenceResponse"
+                },
+                "examples": {
+                  "created": {
+                    "summary": "Subscription created",
+                    "value": {
+                      "data": {
+                        "id": "550e8400-e29b-41d4-a716-446655440000",
+                        "type": "webhook",
+                        "links": {
+                          "self": "https://api.productboard.com/v2/webhooks/550e8400-e29b-41d4-a716-446655440000"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "callbacks": {

@@ -56,6 +56,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
+
             };
         }
         /// <summary>

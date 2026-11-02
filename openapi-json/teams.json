@@ -802,10 +802,10 @@
         "discriminator": {
           "propertyName": "op",
           "mapping": {
-            "addItems": "#/components/schemas/TeamPatchOperationTeamPatchOperationOneOf1",
-            "removeItems": "#/components/schemas/TeamPatchOperationTeamPatchOperationOneOf1",
-            "set": "#/components/schemas/TeamPatchOperationTeamPatchOperationOneOf1",
-            "clear": "#/components/schemas/TeamPatchOperationTeamPatchOperationOneOf2"
+            "addItems": "#/components/schemas/TeamPatchOperationOneOf1Variant",
+            "removeItems": "#/components/schemas/TeamPatchOperationOneOf1Variant",
+            "set": "#/components/schemas/TeamPatchOperationOneOf1Variant",
+            "clear": "#/components/schemas/TeamPatchOperationOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -1336,7 +1336,7 @@
           ]
         }
       },
-      "TeamPatchOperationTeamPatchOperationOneOf1": {
+      "TeamPatchOperationOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/TeamPatchOperation"
@@ -1369,7 +1369,7 @@
           }
         ]
       },
-      "TeamPatchOperationTeamPatchOperationOneOf2": {
+      "TeamPatchOperationOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/TeamPatchOperation"

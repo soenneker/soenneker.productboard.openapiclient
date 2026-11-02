@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
-    /// <summary>
-    /// A key-value definition of possible relationships to other entities.Key represents the relationship type to other entities (child, parent, link)
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ConfigurationRelationshipsProperty2 : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class EntityFields : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -23,21 +22,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields"/> and sets the default values.
         /// </summary>
-        public ConfigurationRelationshipsProperty2()
+        public EntityFields()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

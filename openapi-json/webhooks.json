@@ -641,8 +641,8 @@
           "self": {
             "type": "string",
             "description": "URL to retrieve this webhook subscription.",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/webhooks/550e8400-e29b-41d4-a716-446655440000"
+            "example": "https://api.productboard.com/v2/webhooks/550e8400-e29b-41d4-a716-446655440000",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Links for this webhook subscription resource."
@@ -813,8 +813,8 @@
             "pattern": "https://.\u002B",
             "type": "string",
             "description": "HTTPS endpoint to receive notifications. Requirements:\n- Must use \u0060https\u0060 (encrypted)\n- Must be publicly reachable (no \u0060localhost\u0060, private IPs, or internal Kubernetes addresses)\n",
-            "format": "uri",
-            "example": "https://example.destination.com/webhooks-handler"
+            "example": "https://example.destination.com/webhooks-handler",
+            "x-client-original-format": "uri"
           },
           "version": {
             "description": "Version of the notification payload structure. Currently only \u00601\u0060 is supported.",
@@ -838,8 +838,8 @@
             "maxLength": 1024,
             "type": "string",
             "description": "Target URL for webhook notifications.",
-            "format": "uri",
-            "example": "https://example.destination.com/webhooks-handler"
+            "example": "https://example.destination.com/webhooks-handler",
+            "x-client-original-format": "uri"
           },
           "version": {
             "description": "Version of the notification payload structure. Currently only \u00601\u0060 is supported.",
@@ -867,9 +867,6 @@
           }
         },
         "description": "Custom headers included in every outgoing request from Productboard to your endpoint\n(notifications). Use this to authenticate incoming requests.\n"
-      },
-      "WebhookNotificationPayload": {
-        "$ref": "#/components/schemas/WebhookNotificationPayloadV1"
       },
       "WebhookNotificationPayloadV1": {
         "required": [
@@ -924,8 +921,8 @@
           "target": {
             "type": "string",
             "description": "API URL of the entity whose change triggered this notification.",
-            "format": "uri",
-            "example": "https://api.productboard.com/features/550e8400-e29b-41d4-a716-446655440000"
+            "example": "https://api.productboard.com/features/550e8400-e29b-41d4-a716-446655440000",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Standard V1 link \u2014 points to the changed entity."
@@ -939,13 +936,13 @@
         "properties": {
           "feature": {
             "type": "string",
-            "format": "uri",
-            "example": "https://api.productboard.com/features/550e8400-e29b-41d4-a716-446655440000"
+            "example": "https://api.productboard.com/features/550e8400-e29b-41d4-a716-446655440000",
+            "x-client-original-format": "uri"
           },
           "note": {
             "type": "string",
-            "format": "uri",
-            "example": "https://api.productboard.com/notes/a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+            "example": "https://api.productboard.com/notes/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+            "x-client-original-format": "uri"
           }
         },
         "description": "V1 link shape for insight events \u2014 references both feature and note."
@@ -1057,8 +1054,8 @@
           "self": {
             "type": "string",
             "description": "URL to fetch the full webhook subscription.",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/webhooks/550e8400-e29b-41d4-a716-446655440000"
+            "example": "https://api.productboard.com/v2/webhooks/550e8400-e29b-41d4-a716-446655440000",
+            "x-client-original-format": "uri"
           }
         }
       },
@@ -1073,10 +1070,6 @@
             "$ref": "#/components/schemas/WebhookSubscriptionFields"
           }
         }
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       }
     },
     "responses": {
@@ -1503,5 +1496,14 @@
       "javascript",
       "ruby"
     ]
+  },
+  "x-client-unused-schemas": {
+    "WebhookNotificationPayload": {
+      "$ref": "#/components/schemas/WebhookNotificationPayloadV1"
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    }
   }
 }

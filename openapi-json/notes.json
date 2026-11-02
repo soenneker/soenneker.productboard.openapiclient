@@ -2276,14 +2276,14 @@
           "self": {
             "type": "string",
             "description": "URL of the note resource.",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/notes/123e4567-e89b-12d3-a456-426614174000"
+            "example": "https://api.productboard.com/v2/notes/123e4567-e89b-12d3-a456-426614174000",
+            "x-client-original-format": "uri"
           },
           "html": {
             "type": "string",
             "description": "URL of the note in the Productboard UI.",
-            "format": "uri",
-            "example": "https://example.productboard.com/all-notes/notes/42"
+            "example": "https://example.productboard.com/all-notes/notes/42",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Links for navigating note resources."
@@ -2442,7 +2442,7 @@
           "email": {
             "type": "string",
             "description": "Member email address (requires members:pii:read scope)",
-            "format": "email"
+            "x-client-original-format": "email"
           }
         },
         "description": "Reference to a member by ID or email"
@@ -2572,8 +2572,8 @@
         "properties": {
           "email": {
             "type": "string",
-            "format": "email",
-            "example": "john@acme.com"
+            "example": "john@acme.com",
+            "x-client-original-format": "email"
           },
           "type": {
             "$ref": "#/components/schemas/UserType"
@@ -2678,11 +2678,6 @@
         },
         "description": "Represents a reference to an entity in Productboard.\n"
       },
-      "EntityType": {
-        "type": "string",
-        "description": "- Initially comes from PMM, where this value is called \u0022model\u0022.\n- We are exposing it under more understandable \u0022type\u0022.\n- Plural form is kept for consistency.\n",
-        "example": "feature"
-      },
       "NoteType": {
         "enum": [
           "textNote",
@@ -2780,14 +2775,6 @@
         "description": "A collection of relationships connected to the note.\nThis includes:\n- Customer relationship (either a User or Company entity)\n- Product link relationships (e.g. linked features)\nThe list is paginated, to see the rest of the relationships follow the URL contained in the \u0060links.next\u0060 attribute.\n"
       },
       "NoteCreateRelationship": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CustomerRelationshipInput"
-          },
-          {
-            "$ref": "#/components/schemas/LinkRelationshipInput"
-          }
-        ],
         "description": "Relationship to create when creating a note.\nUsed for atomically creating notes with relationships in a single API call.\n",
         "x-client-original-discriminator": {
           "propertyName": "type",
@@ -2795,13 +2782,48 @@
             "customer": "#/components/schemas/CustomerRelationshipInput",
             "link": "#/components/schemas/LinkRelationshipInput"
           }
-        }
-      },
-      "NoteFields": {
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "customer": "#/components/schemas/NoteCreateRelationshipCustomerRelationshipInput",
+            "link": "#/components/schemas/NoteCreateRelationshipLinkRelationshipInput"
+          }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/CustomerRelationshipInput"
+            },
+            {
+              "$ref": "#/components/schemas/LinkRelationshipInput"
+            }
+          ],
+          "description": "Relationship to create when creating a note.\nUsed for atomically creating notes with relationships in a single API call.\n",
+          "x-client-original-discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "customer": "#/components/schemas/CustomerRelationshipInput",
+              "link": "#/components/schemas/LinkRelationshipInput"
+            }
+          },
+          "discriminator": {
+            "propertyName": "type",
+            "mapping": {
+              "customer": "#/components/schemas/CustomerRelationshipInput",
+              "link": "#/components/schemas/LinkRelationshipInput"
+            }
+          }
+        },
         "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/NoteFieldsAdditionalProperties"
-        }
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
       },
       "NoteFieldValue": {
         "anyOf": [
@@ -2878,8 +2900,8 @@
           {
             "type": "string",
             "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
-            "format": "uri",
-            "example": "https://example.com"
+            "example": "https://example.com",
+            "x-client-original-format": "uri"
           },
           {
             "type": "string",
@@ -2888,13 +2910,6 @@
           }
         ],
         "description": "A list of possible value types of Note fields\n"
-      },
-      "NoteCreateOrUpdateFields": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/NoteCreateOrUpdateFieldsAdditionalProperties"
-        },
-        "description": "A collection of fields that can be used to create or update a Note.\nIt is a subset of \u0060NoteFields\u0060 that is used for creation or update operations.\n"
       },
       "NoteCreateOrUpdateFieldValue": {
         "anyOf": [
@@ -2958,8 +2973,8 @@
           {
             "type": "string",
             "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
-            "format": "uri",
-            "example": "https://example.com"
+            "example": "https://example.com",
+            "x-client-original-format": "uri"
           },
           {
             "type": "string",
@@ -2968,60 +2983,6 @@
           }
         ],
         "description": "A list of create/update payloads for possible value types of a resource fields.\n"
-      },
-      "NotePatch": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/NotePatchItem"
-        },
-        "description": "A list of patch operations to perform on a Note field.\nEach operation can be one of \u0060set\u0060, \u0060clear\u0060, \u0060addItems\u0060, or \u0060removeItems\u0060.\n\n**Supported Operations:**\n- \u0060set\u0060: Set a field to a specific value (supports all fields)\n- \u0060clear\u0060: Clear/reset a field to its default value (supports owner, tags, content)\n- \u0060addItems\u0060: Add items to array fields (supports tags, conversation content)\n- \u0060removeItems\u0060: Remove items from array fields (supports tags, conversation content)\n\n**Field-specific support:**\n- **owner**: set, clear\n- **tags**: set, clear, addItems, removeItems\n- **archived**: set\n- **processed**: set\n- **name**: set\n- **content** (textNote): set\n- **content** (conversationNote): set, addItems, removeItems\n\n**Operation Compatibility Rules (for each field):**\n- Cannot combine \u0060set\u0060/\u0060clear\u0060 with \u0060addItems\u0060/\u0060removeItems\u0060 operations on the same field\n- Cannot combine both \u0060set\u0060 and \u0060clear\u0060 operations on the same field\n- Can combine \u0060addItems\u0060 and \u0060removeItems\u0060 together on the same field (for array operations)\n"
-      },
-      "NotePatchOperation": {
-        "required": [
-          "op",
-          "path",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/NotePatchOperationOp"
-          },
-          "path": {
-            "type": "string",
-            "description": "The path to the field to be modified.\nCommon field paths: \u0022owner\u0022, \u0022tags\u0022, \u0022archived\u0022, \u0022processed\u0022, \u0022name\u0022, \u0022content\u0022\n"
-          },
-          "value": {
-            "$ref": "#/components/schemas/NotePatchOperationValue"
-          }
-        },
-        "additionalProperties": false,
-        "description": "This patch operation modifies a field value using set, addItems, or removeItems operations.\n\n**Operation Types:**\n- \u0060set\u0060: Replace the entire field value\n- \u0060addItems\u0060: Add items to array fields (tags, conversation content)\n- \u0060removeItems\u0060: Remove items from array fields (tags, conversation content)\n"
-      },
-      "NotePatchOperationClear": {
-        "required": [
-          "op",
-          "path"
-        ],
-        "type": "object",
-        "properties": {
-          "op": {
-            "$ref": "#/components/schemas/ClearOp"
-          },
-          "path": {
-            "type": "string",
-            "description": "The path to the field to be cleared.\nCommon field paths: \u0022owner\u0022, \u0022tags\u0022, \u0022content\u0022\n"
-          }
-        },
-        "additionalProperties": false,
-        "description": "This patch operation clears/resets the value of a field to its default state.\n\n**Supported Fields:**\n- \u0060owner\u0060: Clears the owner (sets to null)\n- \u0060tags\u0060: Clears all tags (sets to empty array)\n- \u0060content\u0060: Clears content (for conversationNote/opportunityNote notes)\n"
-      },
-      "ConversationNotePartsAssign": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ConversationNotePartsAssignItem"
-        },
-        "description": "Assign conversation parts to a conversation note.\n"
       },
       "Configuration": {
         "type": "object",
@@ -3062,13 +3023,6 @@
             "default": false
           }
         }
-      },
-      "ConfigurationFieldLifecycle": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/ConfigurationFieldLifecycleOperation"
-        },
-        "description": "Defines the available operations for a field during different lifecycle stages.\nPossible lifecycle stages are \u0060create\u0060, \u0060update\u0060 and \u0060patch\u0060.\n"
       },
       "ConfigurationFieldLifecycleOperation": {
         "type": "object",
@@ -3299,12 +3253,6 @@
           }
         }
       },
-      "Uuid": {
-        "type": "string",
-        "description": "A universally unique identifier (UUID).\n",
-        "format": "uuid",
-        "example": "123e4567-e89b-12d3-a456-426614174000"
-      },
       "ErrorSource": {
         "type": "object",
         "properties": {
@@ -3378,11 +3326,6 @@
         },
         "description": "Standard error response structure.\n"
       },
-      "BooleanFieldValue": {
-        "type": "boolean",
-        "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n# Validation\nValidate if value is \u0060true\u0060 or \u0060false\u0060\n# Filtering\nWe support filtering by value\n",
-        "example": true
-      },
       "ConversationNotePart": {
         "required": [
           "externalId",
@@ -3414,19 +3357,6 @@
           }
         }
       },
-      "ConversationNoteFieldValue": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/ConversationNotePart"
-        },
-        "description": "Conversation-style content with multiple parts representing a back-and-forth dialog.\n"
-      },
-      "DateFieldValue": {
-        "type": "string",
-        "description": "Date and time in ISO 8601 format without time.\n\n# Validation\nValidate if provided value is a date string.\n\n# Filtering\nWe support only exact match.\n",
-        "format": "date",
-        "example": "2023-10-01"
-      },
       "KeyValueFieldValueItem": {
         "type": "object",
         "properties": {
@@ -3448,19 +3378,6 @@
           }
         },
         "description": "Represents a field in key-value format.\n"
-      },
-      "KeyValueFieldValue": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/KeyValueFieldValueItem"
-        },
-        "description": "An array of key-value fields. Each field represents a specific piece of information.\n"
-      },
-      "Email": {
-        "maxLength": 256,
-        "type": "string",
-        "description": "The email of a Productboard user that has access to your workspace.",
-        "example": "email@example.com"
       },
       "ObfuscatedValue": {
         "enum": [
@@ -3518,38 +3435,6 @@
           "name": "Example Option"
         }
       },
-      "MultiSelectFieldValue": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SingleSelectFieldValue"
-        },
-        "example": [
-          {
-            "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
-            "name": "Example Option"
-          }
-        ]
-      },
-      "NameFieldValue": {
-        "maxLength": 255,
-        "minLength": 0,
-        "type": "string",
-        "description": "A name field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match.\n",
-        "example": "Example Name"
-      },
-      "NumberFieldValue": {
-        "type": "number",
-        "description": "A numeric field that can contain any number.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a number.\nWe support integers or flows and negative numbers.\n\n# Filtering\nWe support only exact match.\n",
-        "example": 123.45
-      },
-      "RichTextFieldValue": {
-        "maxLength": 524288,
-        "minLength": 0,
-        "type": "string",
-        "description": "Rich text content, which may include HTML or Markdown formatting.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nNo filtering\n",
-        "format": "html",
-        "example": "\u003Cp\u003EThis is \u003Cstrong\u003Erich\u003C/strong\u003E text.\u003C/p\u003E"
-      },
       "SourceFieldValue": {
         "type": "object",
         "properties": {
@@ -3584,24 +3469,6 @@
         },
         "description": "Source information for the note content"
       },
-      "TextFieldValue": {
-        "maxLength": 255,
-        "minLength": 0,
-        "type": "string",
-        "description": "A string field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match. No wildcards or startWith/endWith.\n",
-        "example": "Example String"
-      },
-      "UrlFieldValue": {
-        "type": "string",
-        "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
-        "format": "uri",
-        "example": "https://example.com"
-      },
-      "UuidFieldValue": {
-        "type": "string",
-        "description": "A universally unique identifier (UUID).\n\n# Validation\nValidate if provided value is an UUID.\n\n# Filtering\nN/A\n",
-        "format": "uuid"
-      },
       "ListLinks": {
         "required": [
           "next"
@@ -3629,8 +3496,8 @@
           },
           "url": {
             "type": "string",
-            "format": "uri",
-            "example": "https://example.zendesk.com/tickets/999"
+            "example": "https://example.zendesk.com/tickets/999",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Source metadata identifying the external system origin of a record.\n\n- \u0060system\u0060: Identifier for the external system (e.g., \u0022salesforce\u0022, \u0022zendesk\u0022). Free-form string, no specific format enforced.\n- \u0060recordId\u0060: Identifier of the record in the external system (e.g., \u0022ticket-999\u0022, \u0022acc-12345\u0022). Free-form string, no specific format enforced.\n- \u0060url\u0060: URL pointing to the source record in the external system\n"
@@ -3661,8 +3528,8 @@
         "properties": {
           "email": {
             "type": "string",
-            "format": "email",
-            "example": "john@doe.com"
+            "example": "john@doe.com",
+            "x-client-original-format": "email"
           }
         }
       },
@@ -3705,12 +3572,6 @@
           }
         }
       },
-      "MultiSelectFieldAssign": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
-        }
-      },
       "ConversationNotePartsAssignItem": {
         "required": [
           "externalId"
@@ -3731,7 +3592,31 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/NoteType"
+              "enum": [
+                "textNote",
+                "conversationNote",
+                "opportunityNote"
+              ],
+              "type": "string",
+              "example": "textNote",
+              "x-ms-enum": {
+                "name": "NoteSearchFilterTypeItem",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "textNote",
+                    "name": "TextNote"
+                  },
+                  {
+                    "value": "conversationNote",
+                    "name": "ConversationNote"
+                  },
+                  {
+                    "value": "opportunityNote",
+                    "name": "OpportunityNote"
+                  }
+                ]
+              }
             }
           }
         ],
@@ -3842,40 +3727,6 @@
           }
         ]
       },
-      "NoteAllOf2": {
-        "required": [
-          "fields",
-          "relationships",
-          "createdAt",
-          "updatedAt"
-        ],
-        "type": "object",
-        "properties": {
-          "fields": {
-            "$ref": "#/components/schemas/NoteAllOf2Fields"
-          },
-          "relationships": {
-            "description": "A collection of relationships connected to the note.\nThis includes:\n- Customer relationship (either a User or Company entity)\n- Product link relationships (e.g. linked features)\nThe list is paginated, to see the rest of the relationships follow the URL contained in the \u0060links.next\u0060 attribute.\n",
-            "$ref": "#/components/schemas/NoteRelationships"
-          },
-          "createdAt": {
-            "type": "string",
-            "description": "ISO 8601 timestamp when the note was created",
-            "format": "date-time",
-            "example": "2025-01-15T10:30:00Z"
-          },
-          "metadata": {
-            "description": "Metadata associated with a resource, including its external source.\n",
-            "$ref": "#/components/schemas/EntityMetadata"
-          },
-          "updatedAt": {
-            "type": "string",
-            "description": "ISO 8601 timestamp when the note was last updated",
-            "format": "date-time",
-            "example": "2025-01-15T14:45:00Z"
-          }
-        }
-      },
       "RelationshipRequestData": {
         "oneOf": [
           {
@@ -3886,6 +3737,13 @@
           }
         ],
         "x-client-original-discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "customer": "#/components/schemas/CustomerRelationshipInput",
+            "link": "#/components/schemas/LinkRelationshipInput"
+          }
+        },
+        "discriminator": {
           "propertyName": "type",
           "mapping": {
             "customer": "#/components/schemas/CustomerRelationshipInput",
@@ -3914,13 +3772,42 @@
         ]
       },
       "NotePatchItem": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/NotePatchOperation"
-          },
-          {
-            "$ref": "#/components/schemas/NotePatchOperationClear"
+        "discriminator": {
+          "propertyName": "op",
+          "mapping": {
+            "set": "#/components/schemas/NotePatchItemNotePatchOperation",
+            "addItems": "#/components/schemas/NotePatchItemNotePatchOperation",
+            "removeItems": "#/components/schemas/NotePatchItemNotePatchOperation",
+            "clear": "#/components/schemas/NotePatchItemNotePatchOperationClear"
           }
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/NotePatchOperation"
+            },
+            {
+              "$ref": "#/components/schemas/NotePatchOperationClear"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "op",
+            "mapping": {
+              "set": "#/components/schemas/NotePatchOperation",
+              "addItems": "#/components/schemas/NotePatchOperation",
+              "removeItems": "#/components/schemas/NotePatchOperation",
+              "clear": "#/components/schemas/NotePatchOperationClear"
+            }
+          }
+        },
+        "type": "object",
+        "properties": {
+          "op": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "op"
         ]
       },
       "NotePatchOperationValue": {
@@ -4006,28 +3893,14 @@
           }
         }
       },
-      "ConfigurationFields": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/ConfigurationField"
-        },
-        "description": "A key-value definition fields that are part of the entity.\nKey represents field id (eg. name, description, or UUID)\n"
-      },
-      "ConfigurationRelationships": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/ConfigurationRelationship"
-        },
-        "description": "A key-value definition of possible relationships to other entities.\nKey represents the relationship type to other entities (child, parent, link)\n"
-      },
       "ConfigurationFieldConstraintsQueryLinks": {
         "type": "object",
         "properties": {
           "list": {
             "type": "string",
             "description": "URL endpoint that provides the list of allowed values.\n",
-            "format": "uri",
-            "example": "/members?role=admin"
+            "example": "/members?role=admin",
+            "x-client-original-format": "uri"
           }
         }
       },
@@ -4037,17 +3910,9 @@
           "next": {
             "type": "string",
             "description": "URL endpoint that provides the full list of allowed values.\n",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/members?roles[]=admin\u0026roles[]=maker\u0026roles[]=contributor"
+            "example": "https://api.productboard.com/v2/members?roles[]=admin\u0026roles[]=maker\u0026roles[]=contributor",
+            "x-client-original-format": "uri"
           }
-        }
-      },
-      "ConfigurationFieldSchema": {
-        "type": "object",
-        "description": "Inline JSON Schema that defines this field\u0027s structure.\n",
-        "example": {
-          "type": "string",
-          "maxLength": 255
         }
       },
       "CreateNoteRequest": {
@@ -4302,10 +4167,6 @@
           }
         }
       },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
-      },
       "ListNoteConfigurations200Response": {
         "type": "object",
         "properties": {
@@ -4368,12 +4229,6 @@
           "$ref": "#/components/schemas/ConfigurationFieldLifecycleOperation"
         },
         "description": "Defines the available operations for a field during different lifecycle stages.\nPossible lifecycle stages are \u0060create\u0060, \u0060update\u0060 and \u0060patch\u0060.\n"
-      },
-      "NoteAllOf2Fields": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/components/schemas/NoteFieldsAdditionalProperties"
-        }
       },
       "CreateNoteRequestData": {
         "required": [
@@ -4789,6 +4644,104 @@
             }
           ]
         }
+      },
+      "NoteCreateRelationshipCustomerRelationshipInput": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NoteCreateRelationship"
+          },
+          {
+            "required": [
+              "type",
+              "target"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/CustomerType"
+              },
+              "target": {
+                "$ref": "#/components/schemas/CustomerTarget"
+              }
+            }
+          }
+        ]
+      },
+      "NoteCreateRelationshipLinkRelationshipInput": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NoteCreateRelationship"
+          },
+          {
+            "required": [
+              "type",
+              "target"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/LinkType"
+              },
+              "target": {
+                "$ref": "#/components/schemas/LinkTargetById"
+              }
+            }
+          }
+        ]
+      },
+      "NotePatchItemNotePatchOperation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotePatchItem"
+          },
+          {
+            "required": [
+              "op",
+              "path",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "op": {
+                "$ref": "#/components/schemas/NotePatchOperationOp"
+              },
+              "path": {
+                "type": "string",
+                "description": "The path to the field to be modified.\nCommon field paths: \u0022owner\u0022, \u0022tags\u0022, \u0022archived\u0022, \u0022processed\u0022, \u0022name\u0022, \u0022content\u0022\n"
+              },
+              "value": {
+                "$ref": "#/components/schemas/NotePatchOperationValue"
+              }
+            },
+            "additionalProperties": false,
+            "description": "This patch operation modifies a field value using set, addItems, or removeItems operations.\n\n**Operation Types:**\n- \u0060set\u0060: Replace the entire field value\n- \u0060addItems\u0060: Add items to array fields (tags, conversation content)\n- \u0060removeItems\u0060: Remove items from array fields (tags, conversation content)\n"
+          }
+        ]
+      },
+      "NotePatchItemNotePatchOperationClear": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotePatchItem"
+          },
+          {
+            "required": [
+              "op",
+              "path"
+            ],
+            "type": "object",
+            "properties": {
+              "op": {
+                "$ref": "#/components/schemas/ClearOp"
+              },
+              "path": {
+                "type": "string",
+                "description": "The path to the field to be cleared.\nCommon field paths: \u0022owner\u0022, \u0022tags\u0022, \u0022content\u0022\n"
+              }
+            },
+            "additionalProperties": false,
+            "description": "This patch operation clears/resets the value of a field to its default state.\n\n**Supported Fields:**\n- \u0060owner\u0060: Clears the owner (sets to null)\n- \u0060tags\u0060: Clears all tags (sets to empty array)\n- \u0060content\u0060: Clears content (for conversationNote/opportunityNote notes)\n"
+          }
+        ]
       }
     },
     "responses": {
@@ -5226,5 +5179,245 @@
       "javascript",
       "ruby"
     ]
+  },
+  "x-client-unused-schemas": {
+    "EntityType": {
+      "type": "string",
+      "description": "- Initially comes from PMM, where this value is called \u0022model\u0022.\n- We are exposing it under more understandable \u0022type\u0022.\n- Plural form is kept for consistency.\n",
+      "example": "feature"
+    },
+    "NoteFields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/NoteFieldsAdditionalProperties"
+      }
+    },
+    "NoteCreateOrUpdateFields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/NoteCreateOrUpdateFieldsAdditionalProperties"
+      },
+      "description": "A collection of fields that can be used to create or update a Note.\nIt is a subset of \u0060NoteFields\u0060 that is used for creation or update operations.\n"
+    },
+    "NotePatch": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/NotePatchItem"
+      },
+      "description": "A list of patch operations to perform on a Note field.\nEach operation can be one of \u0060set\u0060, \u0060clear\u0060, \u0060addItems\u0060, or \u0060removeItems\u0060.\n\n**Supported Operations:**\n- \u0060set\u0060: Set a field to a specific value (supports all fields)\n- \u0060clear\u0060: Clear/reset a field to its default value (supports owner, tags, content)\n- \u0060addItems\u0060: Add items to array fields (supports tags, conversation content)\n- \u0060removeItems\u0060: Remove items from array fields (supports tags, conversation content)\n\n**Field-specific support:**\n- **owner**: set, clear\n- **tags**: set, clear, addItems, removeItems\n- **archived**: set\n- **processed**: set\n- **name**: set\n- **content** (textNote): set\n- **content** (conversationNote): set, addItems, removeItems\n\n**Operation Compatibility Rules (for each field):**\n- Cannot combine \u0060set\u0060/\u0060clear\u0060 with \u0060addItems\u0060/\u0060removeItems\u0060 operations on the same field\n- Cannot combine both \u0060set\u0060 and \u0060clear\u0060 operations on the same field\n- Can combine \u0060addItems\u0060 and \u0060removeItems\u0060 together on the same field (for array operations)\n"
+    },
+    "NotePatchOperation": {
+      "required": [
+        "op",
+        "path",
+        "value"
+      ],
+      "type": "object",
+      "properties": {
+        "op": {
+          "$ref": "#/components/schemas/NotePatchOperationOp"
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the field to be modified.\nCommon field paths: \u0022owner\u0022, \u0022tags\u0022, \u0022archived\u0022, \u0022processed\u0022, \u0022name\u0022, \u0022content\u0022\n"
+        },
+        "value": {
+          "$ref": "#/components/schemas/NotePatchOperationValue"
+        }
+      },
+      "additionalProperties": false,
+      "description": "This patch operation modifies a field value using set, addItems, or removeItems operations.\n\n**Operation Types:**\n- \u0060set\u0060: Replace the entire field value\n- \u0060addItems\u0060: Add items to array fields (tags, conversation content)\n- \u0060removeItems\u0060: Remove items from array fields (tags, conversation content)\n"
+    },
+    "NotePatchOperationClear": {
+      "required": [
+        "op",
+        "path"
+      ],
+      "type": "object",
+      "properties": {
+        "op": {
+          "$ref": "#/components/schemas/ClearOp"
+        },
+        "path": {
+          "type": "string",
+          "description": "The path to the field to be cleared.\nCommon field paths: \u0022owner\u0022, \u0022tags\u0022, \u0022content\u0022\n"
+        }
+      },
+      "additionalProperties": false,
+      "description": "This patch operation clears/resets the value of a field to its default state.\n\n**Supported Fields:**\n- \u0060owner\u0060: Clears the owner (sets to null)\n- \u0060tags\u0060: Clears all tags (sets to empty array)\n- \u0060content\u0060: Clears content (for conversationNote/opportunityNote notes)\n"
+    },
+    "ConversationNotePartsAssign": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ConversationNotePartsAssignItem"
+      },
+      "description": "Assign conversation parts to a conversation note.\n"
+    },
+    "ConfigurationFieldLifecycle": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/ConfigurationFieldLifecycleOperation"
+      },
+      "description": "Defines the available operations for a field during different lifecycle stages.\nPossible lifecycle stages are \u0060create\u0060, \u0060update\u0060 and \u0060patch\u0060.\n"
+    },
+    "Uuid": {
+      "type": "string",
+      "description": "A universally unique identifier (UUID).\n",
+      "format": "uuid",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "BooleanFieldValue": {
+      "type": "boolean",
+      "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n# Validation\nValidate if value is \u0060true\u0060 or \u0060false\u0060\n# Filtering\nWe support filtering by value\n",
+      "example": true
+    },
+    "ConversationNoteFieldValue": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ConversationNotePart"
+      },
+      "description": "Conversation-style content with multiple parts representing a back-and-forth dialog.\n"
+    },
+    "DateFieldValue": {
+      "type": "string",
+      "description": "Date and time in ISO 8601 format without time.\n\n# Validation\nValidate if provided value is a date string.\n\n# Filtering\nWe support only exact match.\n",
+      "format": "date",
+      "example": "2023-10-01"
+    },
+    "KeyValueFieldValue": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/KeyValueFieldValueItem"
+      },
+      "description": "An array of key-value fields. Each field represents a specific piece of information.\n"
+    },
+    "Email": {
+      "maxLength": 256,
+      "type": "string",
+      "description": "The email of a Productboard user that has access to your workspace.",
+      "example": "email@example.com"
+    },
+    "MultiSelectFieldValue": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SingleSelectFieldValue"
+      },
+      "example": [
+        {
+          "id": "95db5914-36b0-45e9-8f6d-7f11a950ac1d",
+          "name": "Example Option"
+        }
+      ]
+    },
+    "NameFieldValue": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "description": "A name field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match.\n",
+      "example": "Example Name"
+    },
+    "NumberFieldValue": {
+      "type": "number",
+      "description": "A numeric field that can contain any number.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a number.\nWe support integers or flows and negative numbers.\n\n# Filtering\nWe support only exact match.\n",
+      "example": 123.45
+    },
+    "RichTextFieldValue": {
+      "maxLength": 524288,
+      "minLength": 0,
+      "type": "string",
+      "description": "Rich text content, which may include HTML or Markdown formatting.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nNo filtering\n",
+      "format": "html",
+      "example": "\u003Cp\u003EThis is \u003Cstrong\u003Erich\u003C/strong\u003E text.\u003C/p\u003E"
+    },
+    "TextFieldValue": {
+      "maxLength": 255,
+      "minLength": 0,
+      "type": "string",
+      "description": "A string field that can contain any text.\nThe exact format should be specified in the API documentation.\n\n# Validation\n\n# Filtering\nWe support only exact match. No wildcards or startWith/endWith.\n",
+      "example": "Example String"
+    },
+    "UrlFieldValue": {
+      "type": "string",
+      "description": "A URL field that can contain any valid URL.\nThe exact format should be specified in the API documentation.\n\n# Validation\nValidate if provided value is a URL.\n\n# Filtering\nWe support only exact match.\n",
+      "example": "https://example.com",
+      "x-client-original-format": "uri"
+    },
+    "UuidFieldValue": {
+      "type": "string",
+      "description": "A universally unique identifier (UUID).\n\n# Validation\nValidate if provided value is an UUID.\n\n# Filtering\nN/A\n",
+      "format": "uuid"
+    },
+    "MultiSelectFieldAssign": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MultiSelectFieldAssignItem"
+      }
+    },
+    "NoteAllOf2": {
+      "required": [
+        "fields",
+        "relationships",
+        "createdAt",
+        "updatedAt"
+      ],
+      "type": "object",
+      "properties": {
+        "fields": {
+          "$ref": "#/components/schemas/NoteAllOf2Fields"
+        },
+        "relationships": {
+          "description": "A collection of relationships connected to the note.\nThis includes:\n- Customer relationship (either a User or Company entity)\n- Product link relationships (e.g. linked features)\nThe list is paginated, to see the rest of the relationships follow the URL contained in the \u0060links.next\u0060 attribute.\n",
+          "$ref": "#/components/schemas/NoteRelationships"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO 8601 timestamp when the note was created",
+          "format": "date-time",
+          "example": "2025-01-15T10:30:00Z"
+        },
+        "metadata": {
+          "description": "Metadata associated with a resource, including its external source.\n",
+          "$ref": "#/components/schemas/EntityMetadata"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO 8601 timestamp when the note was last updated",
+          "format": "date-time",
+          "example": "2025-01-15T14:45:00Z"
+        }
+      }
+    },
+    "ConfigurationFields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/ConfigurationField"
+      },
+      "description": "A key-value definition fields that are part of the entity.\nKey represents field id (eg. name, description, or UUID)\n"
+    },
+    "ConfigurationRelationships": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/ConfigurationRelationship"
+      },
+      "description": "A key-value definition of possible relationships to other entities.\nKey represents the relationship type to other entities (child, parent, link)\n"
+    },
+    "ConfigurationFieldSchema": {
+      "type": "object",
+      "description": "Inline JSON Schema that defines this field\u0027s structure.\n",
+      "example": {
+        "type": "string",
+        "maxLength": 255
+      }
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    },
+    "NoteAllOf2Fields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/NoteFieldsAdditionalProperties"
+      }
+    }
   }
 }

@@ -72,9 +72,6 @@ namespace Soenneker.ProductBoard.OpenApiClient
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         public ProductBoardOpenApiClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
         {
-            // Preserve declared operation service roots.
-            if (string.IsNullOrEmpty(RequestAdapter.BaseUrl)) RequestAdapter.BaseUrl = "https://api.productboard.com/v2";
-            PathParameters["baseurl"] = RequestAdapter.BaseUrl;
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<FormSerializationWriterFactory>();
@@ -82,6 +79,11 @@ namespace Soenneker.ProductBoard.OpenApiClient
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<TextParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
+            if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
+            {
+                RequestAdapter.BaseUrl = "https://api.productboard.com/v2";
+            }
+            PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
         }
     }
 }

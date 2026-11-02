@@ -44,12 +44,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>The fields property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2? _explicitNullValueFields = default!;
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2 Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2 _explicitNullValueFields = default!;
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields _explicitNullValueFields = default!;
 #endif
         /// <summary>A universally unique identifier (UUID).</summary>
         public Guid? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
@@ -123,7 +123,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed>(global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed.CreateFromDiscriminatorValue); } },
@@ -140,7 +140,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFieldsProperty2>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityFields>("fields", Fields);
             writer.WriteGuidValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityLinks>("links", Links);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.EntityMetadataComposed>("metadata", Metadata);

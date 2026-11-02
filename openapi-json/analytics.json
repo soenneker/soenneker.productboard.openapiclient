@@ -273,23 +273,6 @@
         },
         "description": "Represents a member activity record with activity details and metadata.\n"
       },
-      "DateFieldValue": {
-        "type": "string",
-        "description": "Date and time in ISO 8601 format without time.\n",
-        "format": "date",
-        "example": "2025-10-01"
-      },
-      "BooleanFieldValue": {
-        "type": "boolean",
-        "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n",
-        "example": true
-      },
-      "Uuid": {
-        "type": "string",
-        "description": "A universally unique identifier (UUID).\n",
-        "format": "uuid",
-        "example": "123e4567-e89b-12d3-a456-426614174000"
-      },
       "ListLinks": {
         "required": [
           "next"
@@ -334,19 +317,19 @@
               "resource.notFound"
             ],
             "type": "string",
-            "description": "A unique, machine-readable and stable code that identifies this error.\nMust be consistent across all services and provide clear categorization.\nFormat: `category.subcategory.specificError`\n"
+            "description": "A unique, machine-readable and stable code that identifies this error.\nMust be consistent across all services and provide clear categorization.\nFormat: \u0060category.subcategory.specificError\u0060\n"
           },
           "title": {
             "maxLength": 255,
             "type": "string",
-            "description": "A short, human-readable summary of the problem that doesn't change\nfrom occurrence to occurrence of the problem. Should provide immediate\nunderstanding of the error type.\n",
+            "description": "A short, human-readable summary of the problem that doesn\u0027t change\nfrom occurrence to occurrence of the problem. Should provide immediate\nunderstanding of the error type.\n",
             "example": "Missing required field"
           },
           "detail": {
             "maxLength": 1000,
             "type": "string",
             "description": "A human-readable explanation specific to this occurrence of the problem.\nMay include suggestions for resolution but should not expose sensitive information.\n",
-            "example": "Field 'status' is required."
+            "example": "Field \u0027status\u0027 is required."
           },
           "source": {
             "description": "An object containing references to the source of the error. It helps with location of the problematic field or parameter.\n",
@@ -376,10 +359,6 @@
           }
         },
         "description": "Standard error response structure.\n"
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       }
     },
     "responses": {
@@ -483,7 +462,7 @@
                     {
                       "code": "request.invalid",
                       "title": "Request schema invalid",
-                      "detail": "The request does not satisfy the required schema. Field 'type' is required but was not provided.",
+                      "detail": "The request does not satisfy the required schema. Field \u0027type\u0027 is required but was not provided.",
                       "source": {
                         "pointer": "/data/type"
                       }
@@ -499,7 +478,7 @@
                     {
                       "code": "request.invalid",
                       "title": "Request schema invalid",
-                      "detail": "Field 'fields/name' must be a string with maximum length of 255 characters, but received a number.",
+                      "detail": "Field \u0027fields/name\u0027 must be a string with maximum length of 255 characters, but received a number.",
                       "source": {
                         "pointer": "/data/fields/name"
                       }
@@ -515,7 +494,7 @@
                     {
                       "code": "request.malformed",
                       "title": "Request malformed",
-                      "detail": "The request body contains invalid JSON syntax. Expected ',' or '}' at line 5, column 12."
+                      "detail": "The request body contains invalid JSON syntax. Expected \u0027,\u0027 or \u0027}\u0027 at line 5, column 12."
                     }
                   ]
                 }
@@ -528,7 +507,7 @@
                     {
                       "code": "request.malformed",
                       "title": "Request malformed",
-                      "detail": "The Content-Type header must be 'application/json'. Received 'text/plain'."
+                      "detail": "The Content-Type header must be \u0027application/json\u0027. Received \u0027text/plain\u0027."
                     }
                   ]
                 }
@@ -739,7 +718,7 @@
   },
   "security": [
     {
-      "BearerAuth": [ ]
+      "BearerAuth": []
     },
     {
       "OAuth2": [
@@ -759,5 +738,28 @@
       "javascript",
       "ruby"
     ]
+  },
+  "x-client-unused-schemas": {
+    "DateFieldValue": {
+      "type": "string",
+      "description": "Date and time in ISO 8601 format without time.\n",
+      "format": "date",
+      "example": "2025-10-01"
+    },
+    "BooleanFieldValue": {
+      "type": "boolean",
+      "description": "Boolean value or flag. In the UI, it is usually represented as a single checkbox.\n",
+      "example": true
+    },
+    "Uuid": {
+      "type": "string",
+      "description": "A universally unique identifier (UUID).\n",
+      "format": "uuid",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    }
   }
 }

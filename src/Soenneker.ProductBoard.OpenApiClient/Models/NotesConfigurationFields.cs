@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.ProductBoard.OpenApiClient.Models
 {
     /// <summary>
-    /// A key-value definition of possible relationships to other entities.Key represents the relationship type to other entities (child, parent, link)
+    /// A key-value definition fields that are part of the entity.Key represents field id (eg. name, description, or UUID)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class NotesConfigurationRelationshipsProperty2 : IAdditionalDataHolder, IParsable
+    public partial class NotesConfigurationFields : IAdditionalDataHolder, IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
         // Track explicitly assigned nulls separately from absent properties.
         private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
@@ -23,21 +23,21 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty2"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFields"/> and sets the default values.
         /// </summary>
-        public NotesConfigurationRelationshipsProperty2()
+        public NotesConfigurationFields()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty2"/></returns>
+        /// <returns>A <see cref="global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFields"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty2 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFields CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationRelationshipsProperty2(), parseNode);
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.ProductBoard.OpenApiClient.Models.NotesConfigurationFields(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model

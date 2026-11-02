@@ -1022,14 +1022,14 @@
           "self": {
             "type": "string",
             "description": "URL to retrieve this plugin integration.",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001"
+            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001",
+            "x-client-original-format": "uri"
           },
           "connections": {
             "type": "string",
             "description": "URL to list all connections for this plugin integration.",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001/connections"
+            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001/connections",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Links for this plugin integration resource."
@@ -1054,20 +1054,6 @@
           }
         },
         "description": "Minimal reference to a plugin integration, returned in mutation responses."
-      },
-      "PluginIntegrationType": {
-        "maxLength": 255,
-        "minLength": 1,
-        "type": "string",
-        "description": "Type identifier for the integration. Use your reversed domain name as a prefix to\nensure global uniqueness (e.g., \u0060com.example.myservice\u0060). Integrations of the same\ntype share the same icon and settings grouping in Productboard.\n",
-        "example": "com.example.myservice"
-      },
-      "PluginIntegrationName": {
-        "maxLength": 255,
-        "minLength": 1,
-        "type": "string",
-        "description": "Human-readable name shown as the column name on the Features board and in Productboard settings.",
-        "example": "My Service Integration"
       },
       "PluginIntegrationStatus": {
         "enum": [
@@ -1120,8 +1106,8 @@
             "pattern": "https://.\u002B",
             "type": "string",
             "description": "HTTPS endpoint Productboard calls when a user clicks a push button.\n\nRequirements:\n- Must use \u0060https\u0060\n- TLS certificate must be valid and signed by a public authority\n- Must be publicly reachable (no \u0060localhost\u0060, private IPs, or internal addresses)\n",
-            "format": "uri",
-            "example": "https://example.com/productboard-push"
+            "example": "https://example.com/productboard-push",
+            "x-client-original-format": "uri"
           },
           "version": {
             "$ref": "#/components/schemas/ActionVersion"
@@ -1227,8 +1213,8 @@
           "self": {
             "type": "string",
             "description": "URL to retrieve this connection.",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001/connections/00000000-0000-0000-0000-000000000002"
+            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001/connections/00000000-0000-0000-0000-000000000002",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Links for this connection resource."
@@ -1308,130 +1294,51 @@
         "description": "Filter criteria for searching plugin integration connections."
       },
       "ConnectionState": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/ConnectedState"
-          },
-          {
-            "$ref": "#/components/schemas/ErrorState"
-          },
-          {
-            "$ref": "#/components/schemas/ProgressState"
-          },
-          {
-            "$ref": "#/components/schemas/InitialConnectionState"
-          }
-        ],
         "description": "The state of a plugin integration connection. Determined by the \u0060state\u0060 property.\n\n| State | Meaning | Push button appearance |\n|---|---|---|\n| \u0060connected\u0060 | Entity linked to third-party entity | Shows \u0060label\u0060; click opens \u0060targetUrl\u0060 |\n| \u0060error\u0060 | Connection attempt failed | Shows error icon with \u0060message\u0060 |\n| \u0060progress\u0060 | Establishing asynchronously | Shows loading indicator |\n| \u0060initial\u0060 | No connection (default) | Shows integration\u0027s \u0060initialState.label\u0060 |\n",
         "discriminator": {
           "propertyName": "state",
           "mapping": {
-            "connected": "#/components/schemas/ConnectedState",
-            "error": "#/components/schemas/ErrorState",
-            "progress": "#/components/schemas/ProgressState",
-            "initial": "#/components/schemas/InitialConnectionState"
+            "connected": "#/components/schemas/ConnectionStateConnectedState",
+            "error": "#/components/schemas/ConnectionStateErrorState",
+            "progress": "#/components/schemas/ConnectionStateProgressState",
+            "initial": "#/components/schemas/ConnectionStateInitialConnectionState"
           }
-        }
-      },
-      "ConnectedState": {
-        "required": [
-          "state",
-          "label",
-          "hoverLabel",
-          "tooltip",
-          "color",
-          "targetUrl"
-        ],
+        },
+        "x-client-original-tagged-union": {
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/ConnectedState"
+            },
+            {
+              "$ref": "#/components/schemas/ErrorState"
+            },
+            {
+              "$ref": "#/components/schemas/ProgressState"
+            },
+            {
+              "$ref": "#/components/schemas/InitialConnectionState"
+            }
+          ],
+          "description": "The state of a plugin integration connection. Determined by the \u0060state\u0060 property.\n\n| State | Meaning | Push button appearance |\n|---|---|---|\n| \u0060connected\u0060 | Entity linked to third-party entity | Shows \u0060label\u0060; click opens \u0060targetUrl\u0060 |\n| \u0060error\u0060 | Connection attempt failed | Shows error icon with \u0060message\u0060 |\n| \u0060progress\u0060 | Establishing asynchronously | Shows loading indicator |\n| \u0060initial\u0060 | No connection (default) | Shows integration\u0027s \u0060initialState.label\u0060 |\n",
+          "discriminator": {
+            "propertyName": "state",
+            "mapping": {
+              "connected": "#/components/schemas/ConnectedState",
+              "error": "#/components/schemas/ErrorState",
+              "progress": "#/components/schemas/ProgressState",
+              "initial": "#/components/schemas/InitialConnectionState"
+            }
+          }
+        },
         "type": "object",
         "properties": {
           "state": {
-            "$ref": "#/components/schemas/ConnectedStateState"
-          },
-          "label": {
-            "maxLength": 20,
-            "minLength": 1,
-            "type": "string",
-            "description": "Text on the push button when connected. Typically the entity\u0027s current status.",
-            "example": "Done"
-          },
-          "hoverLabel": {
-            "maxLength": 20,
-            "minLength": 1,
-            "type": "string",
-            "description": "Text on the push button on hover (temporarily replaces \u0060label\u0060). Typically shows the linked entity\u0027s identifier.",
-            "example": "Issue 123"
-          },
-          "tooltip": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string",
-            "description": "Longer tooltip text shown on hover. Ideal for a detailed description of the linked entity.",
-            "example": "Issue 123 - Implement XYZ"
-          },
-          "color": {
-            "$ref": "#/components/schemas/ConnectedStateColor"
-          },
-          "targetUrl": {
-            "maxLength": 1000,
-            "minLength": 1,
-            "type": "string",
-            "description": "URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.",
-            "format": "uri",
-            "example": "https://example.com/issues/123"
+            "type": "string"
           }
         },
-        "description": "Represents a successfully established connection. The push button displays custom\nlabel, hover text, tooltip, color, and a link to the connected entity.\n"
-      },
-      "ErrorState": {
-        "required": [
-          "state",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "state": {
-            "$ref": "#/components/schemas/ErrorStateState"
-          },
-          "message": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string",
-            "description": "Human-readable error message explaining why the connection could not be established. Shown in the error popup in the Productboard UI.",
-            "example": "You don\u0027t have permission to create an issue."
-          },
-          "debugDetail": {
-            "maxLength": 8000,
-            "type": "string",
-            "description": "Additional debugging information set by Productboard when a push fails on\nProductboard\u0027s side. **Not visible in the UI** \u2014 for developer use during\nintegration development only. Never set by the partner.\n",
-            "readOnly": true,
-            "example": "JSON decoding error: field \u0027targetUrl\u0027 is missing"
-          }
-        },
-        "description": "Represents a failed connection attempt. The push button displays an error icon with the provided message."
-      },
-      "ProgressState": {
         "required": [
           "state"
-        ],
-        "type": "object",
-        "properties": {
-          "state": {
-            "$ref": "#/components/schemas/ProgressStateState"
-          }
-        },
-        "description": "Represents an in-progress connection attempt. The push button shows a loading\nindicator.\n\nUse when processing is asynchronous: respond with \u0060progress\u0060 immediately from your\naction endpoint, then call Configure Connection with the final state once done.\n"
-      },
-      "InitialConnectionState": {
-        "required": [
-          "state"
-        ],
-        "type": "object",
-        "properties": {
-          "state": {
-            "$ref": "#/components/schemas/InitialState"
-          }
-        },
-        "description": "Represents the default, unconnected state. The push button shows the integration\u0027s\n\u0060initialState.label\u0060. Setting a connection to \u0060initial\u0060 via Configure Connection\nis equivalent to deleting it.\n"
+        ]
       },
       "ListLinks": {
         "required": [
@@ -1691,8 +1598,8 @@
           "email": {
             "type": "string",
             "description": "Email address of the user.",
-            "format": "email",
-            "example": "jane.doe@example.com"
+            "example": "jane.doe@example.com",
+            "x-client-original-format": "email"
           }
         },
         "description": "The Productboard user who triggered the action."
@@ -1706,8 +1613,8 @@
           "connection": {
             "type": "string",
             "description": "URL of the plugin integration connection for this entity. Use this endpoint\nto update the connection state asynchronously after processing the action.\n",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001/connections/00000000-0000-0000-0000-000000000002"
+            "example": "https://api.productboard.com/v2/plugin-integrations/00000000-0000-0000-0000-000000000001/connections/00000000-0000-0000-0000-000000000002",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Relevant links for this action notification."
@@ -1766,14 +1673,14 @@
           "self": {
             "type": "string",
             "description": "API URL to retrieve the entity.",
-            "format": "uri",
-            "example": "https://api.productboard.com/features/00000000-0000-0000-0000-000000000002"
+            "example": "https://api.productboard.com/features/00000000-0000-0000-0000-000000000002",
+            "x-client-original-format": "uri"
           },
           "html": {
             "type": "string",
             "description": "URL to the entity detail page in the Productboard web application.",
-            "format": "uri",
-            "example": "https://app.productboard.com/feature-board/1/features/42/detail"
+            "example": "https://app.productboard.com/feature-board/1/features/42/detail",
+            "x-client-original-format": "uri"
           }
         }
       },
@@ -1788,10 +1695,6 @@
             "$ref": "#/components/schemas/ConnectionState"
           }
         }
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       },
       "PluginIntegrationTypeEnum": {
         "enum": [
@@ -1984,6 +1887,134 @@
             }
           ]
         }
+      },
+      "ConnectionStateConnectedState": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ConnectionState"
+          },
+          {
+            "required": [
+              "state",
+              "label",
+              "hoverLabel",
+              "tooltip",
+              "color",
+              "targetUrl"
+            ],
+            "type": "object",
+            "properties": {
+              "state": {
+                "$ref": "#/components/schemas/ConnectedStateState"
+              },
+              "label": {
+                "maxLength": 20,
+                "minLength": 1,
+                "type": "string",
+                "description": "Text on the push button when connected. Typically the entity\u0027s current status.",
+                "example": "Done"
+              },
+              "hoverLabel": {
+                "maxLength": 20,
+                "minLength": 1,
+                "type": "string",
+                "description": "Text on the push button on hover (temporarily replaces \u0060label\u0060). Typically shows the linked entity\u0027s identifier.",
+                "example": "Issue 123"
+              },
+              "tooltip": {
+                "maxLength": 50,
+                "minLength": 1,
+                "type": "string",
+                "description": "Longer tooltip text shown on hover. Ideal for a detailed description of the linked entity.",
+                "example": "Issue 123 - Implement XYZ"
+              },
+              "color": {
+                "$ref": "#/components/schemas/ConnectedStateColor"
+              },
+              "targetUrl": {
+                "maxLength": 1000,
+                "minLength": 1,
+                "type": "string",
+                "description": "URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.",
+                "example": "https://example.com/issues/123",
+                "x-client-original-format": "uri"
+              }
+            },
+            "description": "Represents a successfully established connection. The push button displays custom\nlabel, hover text, tooltip, color, and a link to the connected entity.\n"
+          }
+        ]
+      },
+      "ConnectionStateErrorState": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ConnectionState"
+          },
+          {
+            "required": [
+              "state",
+              "message"
+            ],
+            "type": "object",
+            "properties": {
+              "state": {
+                "$ref": "#/components/schemas/ErrorStateState"
+              },
+              "message": {
+                "maxLength": 255,
+                "minLength": 1,
+                "type": "string",
+                "description": "Human-readable error message explaining why the connection could not be established. Shown in the error popup in the Productboard UI.",
+                "example": "You don\u0027t have permission to create an issue."
+              },
+              "debugDetail": {
+                "maxLength": 8000,
+                "type": "string",
+                "description": "Additional debugging information set by Productboard when a push fails on\nProductboard\u0027s side. **Not visible in the UI** \u2014 for developer use during\nintegration development only. Never set by the partner.\n",
+                "readOnly": true,
+                "example": "JSON decoding error: field \u0027targetUrl\u0027 is missing"
+              }
+            },
+            "description": "Represents a failed connection attempt. The push button displays an error icon with the provided message."
+          }
+        ]
+      },
+      "ConnectionStateProgressState": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ConnectionState"
+          },
+          {
+            "required": [
+              "state"
+            ],
+            "type": "object",
+            "properties": {
+              "state": {
+                "$ref": "#/components/schemas/ProgressStateState"
+              }
+            },
+            "description": "Represents an in-progress connection attempt. The push button shows a loading\nindicator.\n\nUse when processing is asynchronous: respond with \u0060progress\u0060 immediately from your\naction endpoint, then call Configure Connection with the final state once done.\n"
+          }
+        ]
+      },
+      "ConnectionStateInitialConnectionState": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ConnectionState"
+          },
+          {
+            "required": [
+              "state"
+            ],
+            "type": "object",
+            "properties": {
+              "state": {
+                "$ref": "#/components/schemas/InitialState"
+              }
+            },
+            "description": "Represents the default, unconnected state. The push button shows the integration\u0027s\n\u0060initialState.label\u0060. Setting a connection to \u0060initial\u0060 via Configure Connection\nis equivalent to deleting it.\n"
+          }
+        ]
       }
     },
     "responses": {
@@ -2866,5 +2897,125 @@
       "javascript",
       "ruby"
     ]
+  },
+  "x-client-unused-schemas": {
+    "PluginIntegrationType": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "description": "Type identifier for the integration. Use your reversed domain name as a prefix to\nensure global uniqueness (e.g., \u0060com.example.myservice\u0060). Integrations of the same\ntype share the same icon and settings grouping in Productboard.\n",
+      "example": "com.example.myservice"
+    },
+    "PluginIntegrationName": {
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string",
+      "description": "Human-readable name shown as the column name on the Features board and in Productboard settings.",
+      "example": "My Service Integration"
+    },
+    "ConnectedState": {
+      "required": [
+        "state",
+        "label",
+        "hoverLabel",
+        "tooltip",
+        "color",
+        "targetUrl"
+      ],
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "#/components/schemas/ConnectedStateState"
+        },
+        "label": {
+          "maxLength": 20,
+          "minLength": 1,
+          "type": "string",
+          "description": "Text on the push button when connected. Typically the entity\u0027s current status.",
+          "example": "Done"
+        },
+        "hoverLabel": {
+          "maxLength": 20,
+          "minLength": 1,
+          "type": "string",
+          "description": "Text on the push button on hover (temporarily replaces \u0060label\u0060). Typically shows the linked entity\u0027s identifier.",
+          "example": "Issue 123"
+        },
+        "tooltip": {
+          "maxLength": 50,
+          "minLength": 1,
+          "type": "string",
+          "description": "Longer tooltip text shown on hover. Ideal for a detailed description of the linked entity.",
+          "example": "Issue 123 - Implement XYZ"
+        },
+        "color": {
+          "$ref": "#/components/schemas/ConnectedStateColor"
+        },
+        "targetUrl": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "type": "string",
+          "description": "URL that opens when the user clicks the connected push button. Should link to the connected entity in the third-party system.",
+          "example": "https://example.com/issues/123",
+          "x-client-original-format": "uri"
+        }
+      },
+      "description": "Represents a successfully established connection. The push button displays custom\nlabel, hover text, tooltip, color, and a link to the connected entity.\n"
+    },
+    "ErrorState": {
+      "required": [
+        "state",
+        "message"
+      ],
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "#/components/schemas/ErrorStateState"
+        },
+        "message": {
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string",
+          "description": "Human-readable error message explaining why the connection could not be established. Shown in the error popup in the Productboard UI.",
+          "example": "You don\u0027t have permission to create an issue."
+        },
+        "debugDetail": {
+          "maxLength": 8000,
+          "type": "string",
+          "description": "Additional debugging information set by Productboard when a push fails on\nProductboard\u0027s side. **Not visible in the UI** \u2014 for developer use during\nintegration development only. Never set by the partner.\n",
+          "readOnly": true,
+          "example": "JSON decoding error: field \u0027targetUrl\u0027 is missing"
+        }
+      },
+      "description": "Represents a failed connection attempt. The push button displays an error icon with the provided message."
+    },
+    "ProgressState": {
+      "required": [
+        "state"
+      ],
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "#/components/schemas/ProgressStateState"
+        }
+      },
+      "description": "Represents an in-progress connection attempt. The push button shows a loading\nindicator.\n\nUse when processing is asynchronous: respond with \u0060progress\u0060 immediately from your\naction endpoint, then call Configure Connection with the final state once done.\n"
+    },
+    "InitialConnectionState": {
+      "required": [
+        "state"
+      ],
+      "type": "object",
+      "properties": {
+        "state": {
+          "$ref": "#/components/schemas/InitialState"
+        }
+      },
+      "description": "Represents the default, unconnected state. The push button shows the integration\u0027s\n\u0060initialState.label\u0060. Setting a connection to \u0060initial\u0060 via Configure Connection\nis equivalent to deleting it.\n"
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    }
   }
 }

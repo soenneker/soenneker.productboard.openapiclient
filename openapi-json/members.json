@@ -484,14 +484,14 @@
           "self": {
             "type": "string",
             "description": "URL of the member resource.",
-            "format": "uri",
-            "example": "https://api.productboard.com/v2/members/123e4567-e89b-12d3-a456-426614174000"
+            "example": "https://api.productboard.com/v2/members/123e4567-e89b-12d3-a456-426614174000",
+            "x-client-original-format": "uri"
           },
           "html": {
             "type": "string",
             "description": "URL of the member page in the Productboard UI.",
-            "format": "uri",
-            "example": "https://example.productboard.com/settings/members/42"
+            "example": "https://example.productboard.com/settings/members/42",
+            "x-client-original-format": "uri"
           }
         },
         "description": "Links for navigating member resources."
@@ -587,12 +587,6 @@
             }
           ]
         }
-      },
-      "Email": {
-        "maxLength": 256,
-        "type": "string",
-        "description": "The email of a Productboard user that has access to your workspace.",
-        "example": "email@example.com"
       },
       "ResourceLinks": {
         "required": [
@@ -692,12 +686,6 @@
         },
         "description": "Standard error response structure.\n"
       },
-      "Uuid": {
-        "type": "string",
-        "description": "A universally unique identifier (UUID).\n",
-        "format": "uuid",
-        "example": "123e4567-e89b-12d3-a456-426614174000"
-      },
       "MemberListResponseResponse": {
         "type": "object",
         "properties": {
@@ -746,14 +734,14 @@
         "oneOf": [
           {
             "type": "string",
-            "format": "email"
+            "x-client-original-format": "email"
           },
           {
             "maxItems": 100,
             "type": "array",
             "items": {
               "type": "string",
-              "format": "email"
+              "x-client-original-format": "email"
             }
           }
         ],
@@ -767,23 +755,39 @@
           {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MemberSearchFilterFieldsRoleOneOf2Item"
+              "enum": [
+                "admin",
+                "maker",
+                "viewer",
+                "contributor"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "name": "MemberSearchFilterFieldsRoleItem",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "admin",
+                    "name": "Admin"
+                  },
+                  {
+                    "value": "maker",
+                    "name": "Maker"
+                  },
+                  {
+                    "value": "viewer",
+                    "name": "Viewer"
+                  },
+                  {
+                    "value": "contributor",
+                    "name": "Contributor"
+                  }
+                ]
+              }
             }
           }
         ],
         "description": "Filter by role. Single string or array (OR logic)."
-      },
-      "MemberFieldsName": {
-        "type": "string",
-        "description": "Display name of the member.",
-        "example": "John Doe",
-        "x-client-inline-scalar": true
-      },
-      "MemberFieldsUsername": {
-        "type": "string",
-        "description": "Username of the member.",
-        "example": "johndoe",
-        "x-client-inline-scalar": true
       },
       "MemberFieldsEmail": {
         "anyOf": [
@@ -797,10 +801,6 @@
             "$ref": "#/components/schemas/ObfuscatedValue"
           }
         ]
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       },
       "MemberType": {
         "enum": [
@@ -864,37 +864,6 @@
         "type": "string",
         "x-ms-enum": {
           "name": "MemberSearchFilterFieldsRoleOneOf1",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "admin",
-              "name": "Admin"
-            },
-            {
-              "value": "maker",
-              "name": "Maker"
-            },
-            {
-              "value": "viewer",
-              "name": "Viewer"
-            },
-            {
-              "value": "contributor",
-              "name": "Contributor"
-            }
-          ]
-        }
-      },
-      "MemberSearchFilterFieldsRoleOneOf2Item": {
-        "enum": [
-          "admin",
-          "maker",
-          "viewer",
-          "contributor"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "MemberSearchFilterFieldsRoleOneOf2Item",
           "modelAsString": false,
           "values": [
             {
@@ -1539,5 +1508,66 @@
       "javascript",
       "ruby"
     ]
+  },
+  "x-client-unused-schemas": {
+    "Email": {
+      "maxLength": 256,
+      "type": "string",
+      "description": "The email of a Productboard user that has access to your workspace.",
+      "example": "email@example.com"
+    },
+    "Uuid": {
+      "type": "string",
+      "description": "A universally unique identifier (UUID).\n",
+      "format": "uuid",
+      "example": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    "MemberFieldsName": {
+      "type": "string",
+      "description": "Display name of the member.",
+      "example": "John Doe",
+      "x-client-inline-scalar": true
+    },
+    "MemberFieldsUsername": {
+      "type": "string",
+      "description": "Username of the member.",
+      "example": "johndoe",
+      "x-client-inline-scalar": true
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    },
+    "MemberSearchFilterFieldsRoleOneOf2Item": {
+      "enum": [
+        "admin",
+        "maker",
+        "viewer",
+        "contributor"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "name": "MemberSearchFilterFieldsRoleOneOf2Item",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "admin",
+            "name": "Admin"
+          },
+          {
+            "value": "maker",
+            "name": "Maker"
+          },
+          {
+            "value": "viewer",
+            "name": "Viewer"
+          },
+          {
+            "value": "contributor",
+            "name": "Contributor"
+          }
+        ]
+      }
+    }
   }
 }

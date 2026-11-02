@@ -34,12 +34,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A key-value definition fields that are part of the entity.Key represents field id (eg. name, description, or UUID)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2? _explicitNullValueFields = default!;
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFields? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFields? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2 Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
-        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2 _explicitNullValueFields = default!;
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFields _explicitNullValueFields = default!;
 #endif
         /// <summary>Available filter parameters for this entity type.Use these as query parameters on `GET /v2/entities` or as keys in `POST /v2/entities/search` request body.Not all entity types support the same filters — this list is type-specific.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,12 +64,12 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <summary>A key-value definition of possible relationships to other entities.Key represents the relationship type to other entities (child, parent, link)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2? Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; AdditionalData?.Remove("relationships"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
-        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2? _explicitNullValueRelationships = default!;
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationships? Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; AdditionalData?.Remove("relationships"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationships? _explicitNullValueRelationships = default!;
 #nullable restore
 #else
-        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2 Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; AdditionalData?.Remove("relationships"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
-        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2 _explicitNullValueRelationships = default!;
+        public global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationships Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; AdditionalData?.Remove("relationships"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
+        private global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationships _explicitNullValueRelationships = default!;
 #endif
         /// <summary>The type of an entity.Entity types are configured per workspace: which ones exist depends on the workspace&apos;s plan,premium features and settings, so this is deliberately an open string rather than a fixed set.Call `GET /entities/configurations` for the authoritative list of types available to you. A valuethat is not one of them is rejected with a `request.invalid` error naming the types that are.New entity types become usable here as soon as they are enabled for a workspace, with no changeto this specification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,10 +106,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFields>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFields.CreateFromDiscriminatorValue); } },
                 { "filters", n => { Filters = n.GetCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameter>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameter.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>(global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks.CreateFromDiscriminatorValue); } },
-                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationships>(global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationships.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -120,10 +120,10 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFieldsProperty2>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFields>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationFilterParameter>("filters", Filters);
             writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ResourceLinks>("links", Links);
-            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationshipsProperty2>("relationships", Relationships);
+            writer.WriteObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.ConfigurationRelationships>("relationships", Relationships);
             writer.WriteStringValue("type", Type);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);

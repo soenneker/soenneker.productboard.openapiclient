@@ -85,7 +85,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataFieldsProperty>(global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataMetadata>(global::Soenneker.ProductBoard.OpenApiClient.Models.CreateNoteRequestDataMetadata.CreateFromDiscriminatorValue); } },

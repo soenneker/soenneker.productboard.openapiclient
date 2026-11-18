@@ -91,7 +91,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "archived", n => { Archived = n.GetBoolValue(); } },
                 { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreator>(global::Soenneker.ProductBoard.OpenApiClient.Models.NoteSearchFilterFieldsCreator.CreateFromDiscriminatorValue); } },

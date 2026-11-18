@@ -86,7 +86,7 @@ namespace Soenneker.ProductBoard.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "initialState", n => { InitialState = n.GetObjectValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsInitialState>(global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsInitialState.CreateFromDiscriminatorValue); } },
                 { "integrationStatus", n => { var parsed = n.GetEnumValue<global::Soenneker.ProductBoard.OpenApiClient.Models.PluginIntegrationResponseFieldsIntegrationStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueIntegrationStatus = default; _explicitNullProperties?.Remove("integrationStatus"); AdditionalData["integrationStatus"] = unknown; } else { IntegrationStatus = parsed; AdditionalData.Remove("integrationStatus"); } } },
